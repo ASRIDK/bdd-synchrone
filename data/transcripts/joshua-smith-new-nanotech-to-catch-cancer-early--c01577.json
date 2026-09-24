@@ -1,0 +1,707 @@
+{
+  "recording_id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577",
+  "file": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577.m4a",
+  "sha256": "915b75e8899c11da2dc875022daed6fbaca1361e9e736281517931d33bdb464c",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.998,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:42:54Z",
+  "wall_time_sec": 25.84,
+  "realtime_factor": 9.29,
+  "segments": [
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0000",
+      "start": 0.0,
+      "end": 4.84,
+      "text": "Them exist to make regular screening economically accessible.",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0001",
+      "start": 4.84,
+      "end": 7.64,
+      "text": "The current gold standard for exosome isolation",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0002",
+      "start": 7.64,
+      "end": 9.56,
+      "text": "includes ultracentrification,",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0003",
+      "start": 9.56,
+      "end": 12.84,
+      "text": "a process requiring expensive laboratory equipment,",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0004",
+      "start": 12.84,
+      "end": 16.06,
+      "text": "a trained lab tech, and about 30 hours of time",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0005",
+      "start": 16.06,
+      "end": 17.36,
+      "text": "to process a sample.",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0006",
+      "start": 18.6,
+      "end": 20.36,
+      "text": "We've come up with a different approach",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0007",
+      "start": 20.36,
+      "end": 23.32,
+      "text": "for achieving automated exosome isolation",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0008",
+      "start": 23.32,
+      "end": 25.6,
+      "text": "from a sample such as urine.",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0009",
+      "start": 25.6,
+      "end": 29.92,
+      "text": "We use a chip-based, continuous flow separation technique",
+      "avg_logprob": -0.17,
+      "no_speech_prob": 0.221,
+      "compression_ratio": 1.64
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0010",
+      "start": 29.92,
+      "end": 32.92,
+      "text": "called deterministic lateral displacement.",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0011",
+      "start": 32.92,
+      "end": 35.68,
+      "text": "And we have done with it what the semiconductor industry has",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0012",
+      "start": 35.68,
+      "end": 38.8,
+      "text": "done so successfully for the past 50 years.",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0013",
+      "start": 38.8,
+      "end": 40.68,
+      "text": "We shrunk the dimensions of this technology",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0014",
+      "start": 40.68,
+      "end": 44.76,
+      "text": "from the micron scale to the true nanoscale.",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0015",
+      "start": 44.76,
+      "end": 46.28,
+      "text": "So how does it work?",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0016",
+      "start": 46.28,
+      "end": 48.88,
+      "text": "In a nutshell, a set of tiny pillars",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0017",
+      "start": 48.88,
+      "end": 52.64,
+      "text": "separated by nanoscopic gaps are arranged in such a way",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0018",
+      "start": 52.64,
+      "end": 55.92,
+      "text": "that the system divides the fluid into streamlines",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0019",
+      "start": 55.92,
+      "end": 58.8,
+      "text": "with the larger cancer-related nanoparticles being",
+      "avg_logprob": -0.116,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0020",
+      "start": 58.8,
+      "end": 61.36,
+      "text": "separated through a process of redirection",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0021",
+      "start": 61.36,
+      "end": 63.36,
+      "text": "from the smaller, healthier ones, which",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0022",
+      "start": 63.36,
+      "end": 65.72,
+      "text": "can, in contrast, move around the pillars",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0023",
+      "start": 65.72,
+      "end": 70.12,
+      "text": "in a zigzag-type motion in the direction of fluid flow.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0024",
+      "start": 70.12,
+      "end": 72.2,
+      "text": "The net result is a complete separation",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0025",
+      "start": 72.2,
+      "end": 75.48,
+      "text": "of these two particle populations.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0026",
+      "start": 75.48,
+      "end": 79.24,
+      "text": "You can visualize this separation process",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0027",
+      "start": 79.24,
+      "end": 81.88,
+      "text": "similar to traffic on a highway that separates",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0028",
+      "start": 81.88,
+      "end": 84.12,
+      "text": "into two roads, with one road going",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0029",
+      "start": 84.12,
+      "end": 86.56,
+      "text": "into a low-clearance tunnel under a mountain",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0030",
+      "start": 86.56,
+      "end": 88.64,
+      "text": "and the other road going around it.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.052,
+      "compression_ratio": 1.74
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0031",
+      "start": 88.64,
+      "end": 91.44,
+      "text": "Here, smaller cars can go through the tunnel,",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0032",
+      "start": 91.44,
+      "end": 94.76,
+      "text": "while larger trucks carrying potentially hazardous material",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0033",
+      "start": 94.76,
+      "end": 97.64,
+      "text": "are forced to take the detour route.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0034",
+      "start": 97.64,
+      "end": 101.76,
+      "text": "Traffic is effectively separated by size and contents",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0035",
+      "start": 101.76,
+      "end": 103.84,
+      "text": "without impeding its flow.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0036",
+      "start": 103.84,
+      "end": 105.48,
+      "text": "And this is exactly how our system",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0037",
+      "start": 105.48,
+      "end": 109.68,
+      "text": "works on a much, much smaller scale.",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0038",
+      "start": 109.68,
+      "end": 113.56,
+      "text": "The idea here is that the separation process for screening",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0039",
+      "start": 113.56,
+      "end": 114.84,
+      "text": "could be as simple as processing",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0040",
+      "start": 114.84,
+      "end": 117.76,
+      "text": "a sample of urine, blood, or saliva, which",
+      "avg_logprob": -0.103,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0041",
+      "start": 117.76,
+      "end": 121.0,
+      "text": "is a near-term possibility within the next few years.",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0042",
+      "start": 121.0,
+      "end": 125.08,
+      "text": "Ultimately, it could be used to isolate and detect",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0043",
+      "start": 125.08,
+      "end": 129.56,
+      "text": "target exosomes associated with the particular type of cancer,",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0044",
+      "start": 129.56,
+      "end": 132.72,
+      "text": "sensing and reporting their presence within minutes.",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0045",
+      "start": 132.72,
+      "end": 136.8,
+      "text": "This would make rapid diagnostics virtually painless.",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0046",
+      "start": 136.8,
+      "end": 140.0,
+      "text": "Broadly speaking, the ability to separate and enrich",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0047",
+      "start": 140.0,
+      "end": 144.44,
+      "text": "biomarkers with nanoscale precision in an automated way",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0048",
+      "start": 144.44,
+      "end": 146.76,
+      "text": "opens the door to better understanding diseases",
+      "avg_logprob": -0.129,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.626
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0049",
+      "start": 146.76,
+      "end": 148.64,
+      "text": "such as cancer, with applications",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0050",
+      "start": 148.64,
+      "end": 151.88,
+      "text": "ranging from sample preparation to diagnostics",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0051",
+      "start": 151.88,
+      "end": 155.52,
+      "text": "and from drug resistance monitoring to therapeutics.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0052",
+      "start": 155.52,
+      "end": 157.6,
+      "text": "Even before my wife's bout with cancer,",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0053",
+      "start": 157.6,
+      "end": 160.12,
+      "text": "it was a dream of mine to facilitate the automation",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0054",
+      "start": 160.12,
+      "end": 164.88,
+      "text": "of this process, to make regular screening more accessible.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0055",
+      "start": 164.88,
+      "end": 167.28,
+      "text": "Similar to the way Henry Ford made the automobile",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0056",
+      "start": 167.28,
+      "end": 169.4,
+      "text": "accessible to the general population",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0057",
+      "start": 169.4,
+      "end": 171.68,
+      "text": "through development of the assembly line.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0058",
+      "start": 171.68,
+      "end": 176.37,
+      "text": "Automation is the key to accessibility.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0059",
+      "start": 176.37,
+      "end": 177.97,
+      "text": "And in the spirit of the Hoover Dream,",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0060",
+      "start": 177.97,
+      "end": 181.17,
+      "text": "a chicken in every pot and a car in every garage.",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0061",
+      "start": 181.17,
+      "end": 184.05,
+      "text": "We're developing a technology that could ultimately place",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0062",
+      "start": 184.05,
+      "end": 188.09,
+      "text": "an early warning cancer detection system in every home.",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0063",
+      "start": 188.09,
+      "end": 190.17,
+      "text": "This would allow every man, woman, and child",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0064",
+      "start": 190.17,
+      "end": 192.77,
+      "text": "the opportunity to be regularly tested",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0065",
+      "start": 192.77,
+      "end": 194.29,
+      "text": "while they're still healthy,",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0066",
+      "start": 194.29,
+      "end": 196.31,
+      "text": "catching cancer when it first emerges.",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0067",
+      "start": 197.49,
+      "end": 201.29,
+      "text": "It is my hope and dream to help people around the world",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0068",
+      "start": 201.29,
+      "end": 204.69,
+      "text": "avoid the high costs, physical, financial,",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0069",
+      "start": 204.69,
+      "end": 207.65,
+      "text": "and emotional faced by today's cancer patients.",
+      "avg_logprob": -0.122,
+      "no_speech_prob": 0.042,
+      "compression_ratio": 1.674
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0070",
+      "start": 207.65,
+      "end": 211.49,
+      "text": "hardships that I'm well acquainted with.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0071",
+      "start": 211.49,
+      "end": 215.89,
+      "text": "I'm also happy to report that because we caught my wife's cancer early,",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0072",
+      "start": 215.89,
+      "end": 228.26,
+      "text": "her treatment was successful, and she is now thankfully cancer free.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0073",
+      "start": 228.26,
+      "end": 233.34,
+      "text": "It is an outcome that I would like to see for everyone with a cancer diagnosis.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0074",
+      "start": 233.34,
+      "end": 236.86,
+      "text": "With the work that my team has already done on separation of nanoscale",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0075",
+      "start": 236.86,
+      "end": 239.62,
+      "text": "biomarkers for rapid early stage cancer",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.035,
+      "compression_ratio": 1.61
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577#0076",
+      "start": 239.62,
+      "end": 240.12,
+      "text": "diagnosed.",
+      "avg_logprob": -1.004,
+      "no_speech_prob": 0.279,
+      "compression_ratio": 0.556
+    }
+  ]
+}

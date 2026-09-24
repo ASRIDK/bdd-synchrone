@@ -67,8 +67,9 @@ build (about €110k, 10 person-months).
 ## What we did not test at scale
 
 The brief promised to check that quality drops by no more than 5 points when the archive grows 10
-and 100 times. We have not run that test: our archive is 17 minutes, and padding it with copies
-would not say much. The plan to run it honestly:
+and 100 times. A first step was measured: from 17 to 44 minutes (2.6 times) the quote mode lost 2
+points (42 to 41 of 50) and model mode none (44 of 50); see the README, section Growth check. The
+10x and 100x runs are not done: padding the archive with copies would not say much. The plan to run it honestly:
 
 1. Load real Synchrone recordings (or a public meeting corpus) up to 10x and 100x the test archive.
 2. Keep the same 50 questions, whose answers are in the original 17 minutes.

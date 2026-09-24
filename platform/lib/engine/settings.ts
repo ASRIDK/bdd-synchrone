@@ -5,7 +5,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { paths } from "./paths";
 
-export type Provider = "none" | "anthropic" | "mistral" | "ollama";
+// "auto" uses the best model available right now: the local model if Ollama is running,
+// otherwise Claude or Mistral if a key is set, otherwise exact quotes (no model).
+export type Provider = "auto" | "none" | "anthropic" | "mistral" | "ollama";
 
 export type Settings = {
   provider: Provider;
@@ -19,7 +21,7 @@ export type Settings = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  provider: "none",
+  provider: "auto",
   anthropicModel: "claude-opus-5",
   mistralModel: "mistral-small-latest",
   ollamaModel: "qwen3.5:latest",

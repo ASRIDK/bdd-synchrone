@@ -11,7 +11,8 @@
     "eval": "tsx scripts/eval.ts",
     "ask": "tsx scripts/ask.ts",
     "calibrate": "tsx scripts/calibrate.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "import": "tsx scripts/import-folder.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",

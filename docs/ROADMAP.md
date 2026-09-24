@@ -5,7 +5,8 @@ the Add-ons page, where beta features are switched on and off.
 
 ## Live
 
-Ask the recordings, Mission library, Decision register, Quality report, Value and cost.
+Sign-in with a Synchrone email, Dashboard, Assistant (local model when available), Import a
+recording, Mission library, Decision register, Quality report, Value and cost.
 
 ## Built, ready for a soft launch (switch on per pilot team)
 
@@ -25,17 +26,16 @@ Each one is designed to plug into what exists, and lists what it needs from Sync
 | Add-on | What it needs | Where it plugs in |
 |---|---|---|
 | **Meeting recorder bot** (invite it to a Teams meeting; it records and files under the mission) | Teams bot registration and Graph API recording permissions from Synchrone IT | A new source that writes to the recording registry (`data/recordings.json` today, a table later) |
-| **Upload a recording** | A job queue and a transcription worker; storage in Synchrone's tenant | Calls the existing `pipeline/transcribe.py`, then rebuilds the index for that recording |
-| **Sign-in with Synchrone accounts** | Microsoft Entra ID app registration; one group per mission | Replaces `platform/lib/session.ts`; mission access comes from groups |
-| **Ask from Teams** | A Teams app | Calls `POST /api/ask` with the signed-in user; no change to the engine |
+| **Company sign-in** (replaces the demo email sign-in) | Microsoft Entra ID app registration; one group per mission | Creates the same signed session as today (`platform/lib/session.ts`); mission access comes from groups instead of catalog.json |
+| **Ask from Teams** | A Teams app | Calls `POST /api/chat` with the signed-in user; no change to the engine |
 | **Speaker names** | Speaker diarisation (for example pyannote) in the pipeline, then a one-time voice to person mapping | Adds a speaker to each segment; the register can then say who took each decision |
 | **Model-checked decision register** | A configured model (Settings) | At index build, a model confirms each "replaced by" link the rules propose, on candidate pairs only |
 | **Retention and deletion rules** | Client contract terms and a data protection review | Deletes audio, transcript and index entries of a recording together |
 
 ## Order we recommend
 
-1. Sign-in (nothing goes to real users without it).
-2. Upload, then the meeting bot (the archive fills itself).
+1. Company sign-in (nothing goes to real users without it).
+2. The meeting bot, and a separate import worker (the archive fills itself; import already works).
 3. Transcript review for all missions (quality of everything downstream depends on it).
 4. Model-checked register, once there are enough real decisions to check it against.
 5. Ask from Teams, when usage shows people come back.

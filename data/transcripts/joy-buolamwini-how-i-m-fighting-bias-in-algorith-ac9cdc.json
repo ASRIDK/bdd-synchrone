@@ -1,0 +1,653 @@
+{
+  "recording_id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc",
+  "file": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc.m4a",
+  "sha256": "62bf610a10a4018215959cc283b168b7f86e4bf47f8df9c312601c2d170811f9",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.996,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:43:44Z",
+  "wall_time_sec": 20.03,
+  "realtime_factor": 11.99,
+  "segments": [
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0000",
+      "start": 0.0,
+      "end": 5.0,
+      "text": "Some training sets that reflect a richer portrait of humanity.",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0001",
+      "start": 5.0,
+      "end": 9.06,
+      "text": "Now, you've seen in my examples how social robots",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0002",
+      "start": 9.06,
+      "end": 13.66,
+      "text": "was how I found out about exclusion with algorithmic bias,",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0003",
+      "start": 13.66,
+      "end": 18.24,
+      "text": "but algorithmic bias can also lead to discriminatory practices.",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0004",
+      "start": 19.52,
+      "end": 22.68,
+      "text": "Across the U.S., police departments are starting",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0005",
+      "start": 22.68,
+      "end": 25.16,
+      "text": "to use facial recognition software",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0006",
+      "start": 25.16,
+      "end": 27.66,
+      "text": "in their crime-fighting arsenal.",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0007",
+      "start": 27.66,
+      "end": 29.68,
+      "text": "Georgetown Law published a report",
+      "avg_logprob": -0.19,
+      "no_speech_prob": 0.371,
+      "compression_ratio": 1.526
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0008",
+      "start": 29.68,
+      "end": 33.2,
+      "text": "showing that one in two adults in the US,",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0009",
+      "start": 33.2,
+      "end": 36.52,
+      "text": "that's 117 million people,",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0010",
+      "start": 36.52,
+      "end": 40.08,
+      "text": "have their faces in facial recognition networks.",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0011",
+      "start": 40.08,
+      "end": 43.58,
+      "text": "Police departments can currently look at these networks",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0012",
+      "start": 43.58,
+      "end": 46.16,
+      "text": "unregulated using algorithms",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0013",
+      "start": 46.16,
+      "end": 49.0,
+      "text": "that have not been audited for accuracy.",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0014",
+      "start": 49.0,
+      "end": 52.84,
+      "text": "Yet we know facial recognition is not fell proof",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0015",
+      "start": 52.84,
+      "end": 57.06,
+      "text": "and labeling faces consistently remains a challenge.",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0016",
+      "start": 57.06,
+      "end": 58.68,
+      "text": "You might have seen this on Facebook.",
+      "avg_logprob": -0.136,
+      "no_speech_prob": 0.078,
+      "compression_ratio": 1.603
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0017",
+      "start": 58.68,
+      "end": 61.84,
+      "text": "My friends and I laugh all the time when we see other people",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0018",
+      "start": 61.84,
+      "end": 64.32,
+      "text": "mislabeled in our photos.",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0019",
+      "start": 64.32,
+      "end": 68.04,
+      "text": "But misidentifying a suspected criminal",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0020",
+      "start": 68.04,
+      "end": 72.84,
+      "text": "is no laughing matter, nor is breaching civil liberties.",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0021",
+      "start": 72.84,
+      "end": 76.0,
+      "text": "Machine learning is being used for facial recognition,",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0022",
+      "start": 76.0,
+      "end": 81.4,
+      "text": "but it's also extending beyond the realm of computer vision.",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0023",
+      "start": 81.4,
+      "end": 85.36,
+      "text": "In her book, Weapons of Math Destruction,",
+      "avg_logprob": -0.112,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.516
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0024",
+      "start": 85.36,
+      "end": 90.36,
+      "text": "Data scientist Kathy O'Neill talks about the rising new WMDs.",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0025",
+      "start": 92.08,
+      "end": 96.44,
+      "text": "Widespread, mysterious and destructive algorithms",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0026",
+      "start": 96.44,
+      "end": 99.4,
+      "text": "that are increasingly being used to make decisions",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0027",
+      "start": 99.4,
+      "end": 102.62,
+      "text": "that impact more aspects of our lives.",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0028",
+      "start": 102.62,
+      "end": 104.44,
+      "text": "So who gets hired or fired?",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0029",
+      "start": 104.44,
+      "end": 105.36,
+      "text": "Do you get that loan?",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0030",
+      "start": 105.36,
+      "end": 106.32,
+      "text": "Do you get insurance?",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0031",
+      "start": 106.32,
+      "end": 109.0,
+      "text": "Are you admitted into the college that you wanted",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0032",
+      "start": 109.0,
+      "end": 110.16,
+      "text": "to get into?",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0033",
+      "start": 110.16,
+      "end": 113.72,
+      "text": "Do you and I pay the same price for the same product",
+      "avg_logprob": -0.133,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.588
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0034",
+      "start": 113.72,
+      "end": 116.2,
+      "text": "purchased on the same platform.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0035",
+      "start": 116.2,
+      "end": 119.92,
+      "text": "Law enforcement is also starting to use machine learning",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0036",
+      "start": 119.92,
+      "end": 122.2,
+      "text": "for predictive policing.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0037",
+      "start": 122.2,
+      "end": 125.16,
+      "text": "Some judges use machine-generated risk scores",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0038",
+      "start": 125.16,
+      "end": 127.64,
+      "text": "to determine how long an individual",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0039",
+      "start": 127.64,
+      "end": 130.16,
+      "text": "is going to spend in prison.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0040",
+      "start": 130.16,
+      "end": 132.68,
+      "text": "So we really have to think about these decisions.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0041",
+      "start": 132.68,
+      "end": 133.88,
+      "text": "Are they fair?",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0042",
+      "start": 133.88,
+      "end": 138.4,
+      "text": "And we've seen that algorithmic bias doesn't necessarily always",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0043",
+      "start": 138.4,
+      "end": 140.16,
+      "text": "lead to fair outcomes.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0044",
+      "start": 140.16,
+      "end": 142.2,
+      "text": "So what can we do about it?",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.038,
+      "compression_ratio": 1.591
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0045",
+      "start": 142.2,
+      "end": 145.88,
+      "text": "Well, we can start thinking about how we create more inclusive code",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0046",
+      "start": 145.9,
+      "end": 148.96,
+      "text": "and employ inclusive coding practices.",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0047",
+      "start": 148.98,
+      "end": 151.74,
+      "text": "It really starts with people.",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0048",
+      "start": 151.76,
+      "end": 153.72,
+      "text": "So who codes matters?",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0049",
+      "start": 153.74,
+      "end": 157.88,
+      "text": "Are we creating full spectrum teams with diverse individuals",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0050",
+      "start": 157.9,
+      "end": 160.28,
+      "text": "who can check each other's blind spots?",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0051",
+      "start": 160.3,
+      "end": 163.88,
+      "text": "On the technical side, how we code matters?",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0052",
+      "start": 163.9,
+      "end": 167.52,
+      "text": "Are we factoring in fairness as we're developing systems?",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0053",
+      "start": 167.54,
+      "end": 170.84,
+      "text": "And finally, why we code matters?",
+      "avg_logprob": -0.152,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.681
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0054",
+      "start": 170.84,
+      "end": 175.92,
+      "text": "We've used tools of computational creation to unlock immense wealth.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0055",
+      "start": 175.94,
+      "end": 180.4,
+      "text": "We now have the opportunity to unlock even greater equality",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0056",
+      "start": 180.42,
+      "end": 186.02,
+      "text": "if we make social change a priority and not an afterthought.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0057",
+      "start": 186.04,
+      "end": 190.56,
+      "text": "And so these are the three tenants that will make up the encoding movement.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0058",
+      "start": 190.58,
+      "end": 195.8,
+      "text": "Who codes matters, how we code matters, and why we code matters.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0059",
+      "start": 195.82,
+      "end": 197.66,
+      "text": "So to go towards encoding,",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.638
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0060",
+      "start": 197.66,
+      "end": 202.14,
+      "text": "We can start thinking about building platforms that can identify bias",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0061",
+      "start": 202.16,
+      "end": 205.26,
+      "text": "by collecting people's experiences like the ones I've shared,",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0062",
+      "start": 205.28,
+      "end": 208.38,
+      "text": "but also auditing existing software.",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0063",
+      "start": 208.4,
+      "end": 212.16,
+      "text": "We can also start to create more inclusive training sets.",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0064",
+      "start": 212.18,
+      "end": 214.98,
+      "text": "Imagine a selfies for inclusion campaign",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0065",
+      "start": 215.0,
+      "end": 217.72,
+      "text": "where you and I can help developers test",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0066",
+      "start": 217.74,
+      "end": 221.32,
+      "text": "and create more inclusive training sets.",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0067",
+      "start": 221.34,
+      "end": 224.1,
+      "text": "And we can also start thinking more conscientiously",
+      "avg_logprob": -0.183,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.782
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0068",
+      "start": 224.1,
+      "end": 229.66,
+      "text": "about the social impact of the technology that we're developing.",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.02,
+      "compression_ratio": 1.378
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0069",
+      "start": 229.66,
+      "end": 235.16,
+      "text": "To get the encoding movement started, I've launched the Algorithmic Justice League where",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.02,
+      "compression_ratio": 1.378
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc#0070",
+      "start": 235.16,
+      "end": 239.98,
+      "text": "anyone who cares about fairness can help fight the coded gay.",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.02,
+      "compression_ratio": 1.378
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-09-24T16:07:49.470Z",
+  "runAt": "2026-09-24T16:53:24.304Z",
   "mode": "quote",
   "gate": {
     "minSegmentSimilarity": 0.78,
@@ -11,8 +11,8 @@
   "summary": {
     "all": {
       "total": 50,
-      "passed": 42,
-      "rate": 0.84
+      "passed": 41,
+      "rate": 0.82
     },
     "report": {
       "total": 26,
@@ -47,8 +47,8 @@
       },
       "not_in_archive": {
         "total": 16,
-        "passed": 13,
-        "rate": 0.8125
+        "passed": 12,
+        "rate": 0.75
       },
       "access": {
         "total": 4,
@@ -58,10 +58,10 @@
     },
     "exactHitAt3": 1,
     "paraphraseHitAt3": 1,
-    "answeredTraps": 3,
+    "answeredTraps": 4,
     "accessLeaks": 0,
     "latencyP50": 3,
-    "latencyP95": 11,
+    "latencyP95": 17,
     "costPerQuestionUsd": 0
   },
   "asr": {
@@ -160,8 +160,8 @@
         "RAG (practice-01-evaluer-rag)"
       ]
     },
-    "realtimeFactor": 10.545510392136789,
-    "audioMinutes": 17.166333333333334
+    "realtimeFactor": 10.646458877284594,
+    "audioMinutes": 43.49433333333333
   },
   "questions": [
     {
@@ -182,7 +182,7 @@
       "citations": [
         "hexa-02-rt1-weekly @ 17s"
       ],
-      "latencyMs": 429,
+      "latencyMs": 532,
       "costUsd": 0
     },
     {
@@ -204,7 +204,7 @@
         "hexa-03-design-review @ 45s",
         "hexa-02-rt1-weekly @ 70s"
       ],
-      "latencyMs": 34,
+      "latencyMs": 27,
       "costUsd": 0
     },
     {
@@ -225,7 +225,7 @@
       "citations": [
         "transrail-02-incident-certificates @ 0s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -248,7 +248,7 @@
         "transrail-04-point-deploiement @ 44s",
         "practice-02-kafka-lag @ 31s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 5,
       "costUsd": 0
     },
     {
@@ -269,7 +269,7 @@
       "citations": [
         "nova-01-ransomware-playbook @ 7s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 5,
       "costUsd": 0
     },
     {
@@ -290,7 +290,7 @@
       "citations": [
         "nova-01-ransomware-playbook @ 36s"
       ],
-      "latencyMs": 2,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -335,7 +335,7 @@
         "transrail-02-incident-certificates @ 11s",
         "practice-02-kafka-lag @ 0s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -356,7 +356,7 @@
       "citations": [
         "hexa-04-cutover-retro @ 38s"
       ],
-      "latencyMs": 11,
+      "latencyMs": 17,
       "costUsd": 0
     },
     {
@@ -400,7 +400,7 @@
         "practice-02-kafka-lag @ 31s",
         "practice-02-kafka-lag @ 18s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -445,7 +445,7 @@
         "nova-01-ransomware-playbook @ 0s",
         "nova-02-playbook-update @ 49s"
       ],
-      "latencyMs": 4,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -489,7 +489,7 @@
         "practice-02-kafka-lag @ 23s",
         "practice-02-kafka-lag @ 44s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -511,7 +511,7 @@
         "hexa-03-design-review @ 78s",
         "hexa-01-kickoff @ 92s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -533,7 +533,7 @@
         "transrail-03-cost-review @ 22s",
         "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -553,7 +553,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -572,11 +572,9 @@
         "citationWithin30s": true
       },
       "citations": [
-        "practice-01-evaluer-rag @ 9s",
-        "practice-02-kafka-lag @ 18s",
-        "practice-02-kafka-lag @ 52s"
+        "practice-01-evaluer-rag @ 9s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -596,7 +594,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -620,7 +618,7 @@
         "transrail-01-landing-zone @ 69s",
         "transrail-02-incident-certificates @ 73s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -644,7 +642,7 @@
         "transrail-01-landing-zone @ 60s",
         "transrail-02-incident-certificates @ 24s"
       ],
-      "latencyMs": 2,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -711,7 +709,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -783,7 +781,7 @@
         "transrail-03-cost-review @ 22s",
         "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 4,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -807,7 +805,7 @@
         "nova-02-playbook-update @ 22s",
         "nova-01-ransomware-playbook @ 50s"
       ],
-      "latencyMs": 5,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -831,7 +829,7 @@
         "transrail-04-point-deploiement @ 22s",
         "transrail-03-cost-review @ 55s"
       ],
-      "latencyMs": 4,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -867,7 +865,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 4,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -903,7 +901,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -913,15 +911,19 @@
       "user": "nadia.benali",
       "question": "Which EDR product does Nova Télécom use?",
       "expected": "not_found",
-      "status": "not_found",
-      "pass": true,
+      "status": "answered",
+      "pass": false,
       "checks": {
         "accessLeak": false,
-        "saidNotFound": true,
-        "answeredTrap": false
+        "saidNotFound": false,
+        "answeredTrap": true
       },
-      "citations": [],
-      "latencyMs": 3,
+      "failure": "Answered a question the recordings cannot answer.",
+      "citations": [
+        "nova-02-playbook-update @ 22s",
+        "nova-01-ransomware-playbook @ 50s"
+      ],
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -957,7 +959,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -996,7 +998,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1018,7 +1020,7 @@
         "transrail-03-cost-review @ 22s",
         "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1036,7 +1038,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1057,7 +1059,7 @@
       "citations": [
         "nova-01-ransomware-playbook @ 0s"
       ],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -1075,7 +1077,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 3,
+      "latencyMs": 5,
       "costUsd": 0
     },
     {
@@ -1093,7 +1095,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1111,7 +1113,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1147,7 +1149,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 3,
+      "latencyMs": 4,
       "costUsd": 0
     },
     {
@@ -1165,7 +1167,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {
@@ -1183,7 +1185,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2,
+      "latencyMs": 3,
       "costUsd": 0
     },
     {

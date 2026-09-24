@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Page } from "@/components/Page";
 import { MeetingPlayer } from "@/components/MeetingPlayer";
 import { getCatalog, getIndex } from "@/lib/engine/data";
 import { formatTime } from "@/lib/engine/text";
@@ -28,18 +29,26 @@ export default async function MeetingPage({
     .map((d) => ({ segmentId: d.segmentId, status: d.status, supersededBy: d.supersededBy }));
   const startAt = t ? Math.max(0, Number(t) || 0) : null;
 
+  const language = { fr: "French", en: "English", es: "Spanish", pt: "Portuguese" }[rec.transcription.language] ?? rec.transcription.language;
+
   return (
-    <div className="max-w-3xl">
-      <Link href="/library" className="text-sm text-ink-soft underline underline-offset-4">Library</Link>
-      <h1 className="mt-2 text-[1.8rem] font-semibold leading-tight tracking-tight">{rec.title}</h1>
-      <p className="mt-1 text-ink-soft">
-        {mission.name}. {new Date(rec.date).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}.
-      </p>
-      <p className="mt-1 text-sm text-ink-faint tabular">
-        {rec.participants.join(", ")}. {formatTime(rec.durationSec)}, {rec.language === "fr" ? "French" : "English"}. Transcribed by Whisper{" "}
-        {rec.transcription.model} at {rec.transcription.realtimeFactor}x real time.
-      </p>
+    <Page
+      title={rec.title}
+      width="max-w-4xl"
+      intro={
+        <>
+          <p>
+            <Link href="/library" className="underline underline-offset-4">{mission.name}</Link>.{" "}
+            {new Date(rec.date).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}.
+          </p>
+          <p className="mt-1 text-sm text-white/55 tabular">
+            {rec.participants.join(", ")}. {formatTime(rec.durationSec)}, {language}. Transcribed by Whisper {rec.transcription.model} at{" "}
+            {rec.transcription.realtimeFactor}x real time{rec.source === "import" ? ", imported" : ""}.
+          </p>
+        </>
+      }
+    >
       <MeetingPlayer recordingId={id} segments={segments} decisions={decisions} startAt={startAt} />
-    </div>
+    </Page>
   );
 }

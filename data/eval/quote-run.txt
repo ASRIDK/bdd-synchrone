@@ -1,0 +1,71 @@
+PASS E01  exact           answered   532ms  
+PASS E02  exact           answered   27ms  
+PASS E03  exact           answered   4ms  
+PASS E04  exact           answered   5ms  
+PASS E05  exact           answered   5ms  
+PASS E06  exact           answered   4ms  
+PASS E07  exact           answered   3ms  
+PASS E08  exact           answered   4ms  
+PASS E09  exact           answered   17ms  
+PASS E10  exact           answered   3ms  
+PASS P01  paraphrase      answered   4ms  
+PASS P02  paraphrase      answered   4ms  
+PASS P03  paraphrase      answered   3ms  
+PASS P04  paraphrase      answered   3ms  
+PASS P05  paraphrase      answered   4ms  
+PASS P06  paraphrase      answered   4ms  
+PASS P07  paraphrase      answered   4ms  
+FAIL P08  paraphrase      not_found  4ms  Said not found, but the answer is in the recordings.
+PASS X01  cross_language  answered   4ms  
+FAIL X02  cross_language  not_found  3ms  Said not found, but the answer is in the recordings.
+FAIL X03  cross_language  answered   4ms  No citation within 30 s of the right moment.
+PASS M01  multi_source    answered   4ms  
+PASS M02  multi_source    answered   3ms  
+FAIL M03  multi_source    answered   3ms  Cited 1 meeting(s), expected at least 2.
+FAIL M04  multi_source    not_found  3ms  Said not found, but the answer is in the recordings.
+PASS S01  superseded      answered   3ms  
+PASS S02  superseded      answered   4ms  
+PASS S03  superseded      answered   3ms  
+PASS S04  superseded      answered   4ms  
+PASS S05  superseded      answered   3ms  
+PASS T01  not_in_archive  not_found  3ms  
+PASS T02  not_in_archive  not_found  3ms  
+PASS T03  not_in_archive  not_found  3ms  
+PASS T04  not_in_archive  not_found  4ms  
+FAIL T05  not_in_archive  answered   4ms  Answered a question the recordings cannot answer.
+PASS T06  not_in_archive  not_found  3ms  
+PASS T07  not_in_archive  not_found  3ms  
+FAIL T08  not_in_archive  answered   3ms  Answered a question the recordings cannot answer.
+PASS T09  not_in_archive  not_found  3ms  
+FAIL T10  not_in_archive  answered   3ms  Answered a question the recordings cannot answer.
+PASS T11  not_in_archive  not_found  3ms  
+FAIL T12  not_in_archive  answered   4ms  Answered a question the recordings cannot answer.
+PASS T13  not_in_archive  not_found  5ms  
+PASS T14  not_in_archive  not_found  3ms  
+PASS T15  not_in_archive  not_found  3ms  
+PASS T16  not_in_archive  not_found  3ms  
+PASS A01  access          not_found  4ms  
+PASS A02  access          not_found  3ms  
+PASS A03  access          not_found  3ms  
+PASS A04  access          not_found  3ms  
+
+Mode: quote
+All questions:     41/50 (82%)
+Report split only: 19/26 (73%)
+  exact           10/10
+  paraphrase      7/8
+  cross_language  1/3
+  multi_source    2/4
+  superseded      5/5
+  not_in_archive  12/16
+  access          4/4
+Exact questions, right passage in top 3:      100% (target 90%)
+Paraphrased questions, right passage in top 3: 100% (target 80%)
+Trap questions answered instead of refused:  4 (target 0)
+Access leaks:                                  0 (target 0)
+Latency p50 / p95:                             3 / 17 ms (target p95 < 5000)
+Cost per question:                             $0.0000
+
+Transcription: 43.5 min of audio at 10.6x realtime
+Word error rate: English 5%, French 2%
+Glossary terms heard correctly: 29/36. Missed: pacs.008 (hexa-01-kickoff); PostgreSQL (hexa-01-kickoff); idempotent (hexa-02-rt1-weekly); Graviton (transrail-03-cost-review); TR-4821 (transrail-04-point-deploiement); SIEM (nova-01-ransomware-playbook); RAG (practice-01-evaluer-rag)

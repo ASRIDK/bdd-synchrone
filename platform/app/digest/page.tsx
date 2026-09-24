@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCatalog, getIndex } from "@/lib/engine/data";
@@ -26,9 +27,7 @@ export default async function DigestPage({ searchParams }: { searchParams: Promi
     .filter((x) => x.list.length > 0);
 
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Decision digest</h1>
-      <p className="mt-2 text-ink-soft">What was decided in your missions, and what it replaced. Ready to paste into a team email.</p>
+    <Page title="Decision" accent="digest" width="max-w-4xl" intro={<>What was decided in your missions, and what it replaced. Ready to paste into a team email.</>}>
       <div className="mt-4 flex gap-2">
         {PERIODS.map((p) => (
           <Link key={p} href={`/digest?days=${p}`} aria-current={p === days ? "page" : undefined} className={`rounded-md border px-3 py-1.5 text-sm ${p === days ? "border-ink" : "border-line text-ink-soft"}`}>
@@ -63,6 +62,6 @@ export default async function DigestPage({ searchParams }: { searchParams: Promi
           ))}
         </article>
       )}
-    </div>
+    </Page>
   );
 }

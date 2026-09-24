@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { getCatalog, getIndex } from "@/lib/engine/data";
 import { excerpt, formatTime } from "@/lib/engine/text";
@@ -21,12 +22,7 @@ export default async function DecisionsPage() {
   );
 
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Decision register</h1>
-      <p className="mt-2 text-ink-soft">
-        Decisions found in the recordings, per mission. When a later meeting explicitly changed a decision, the new one is
-        current and the old one stays here as history. A later meeting that only repeats a decision confirms it; it does not replace it.
-      </p>
+    <Page title="Decision" accent="register" width="max-w-4xl" intro={<>Decisions found in the recordings, per mission. When a later meeting explicitly changed a decision, the new one is current and the old one stays here as history. A later meeting that only repeats a decision confirms it; it does not replace it.</>}>
       <p className="mt-2 text-sm text-ink-faint">
         Found automatically with language cues in English and French and meaning similarity. Each entry links to the moment it was said, so anyone can check it.
       </p>
@@ -60,6 +56,6 @@ export default async function DecisionsPage() {
           </section>
         );
       })}
-    </div>
+    </Page>
   );
 }

@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { FeatureToggle } from "@/components/FeatureToggle";
 import { FEATURES, type FeatureStatus } from "@/lib/features";
@@ -19,11 +20,7 @@ const GROUPS: Array<{ status: FeatureStatus; title: string; intro: string }> = [
 
 export default function AddOnsPage() {
   return (
-    <div className="max-w-4xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Add-ons</h1>
-      <p className="mt-2 max-w-2xl text-ink-soft">
-        What the platform does now, what can be switched on next, and what is prepared for later.
-      </p>
+    <Page title="Add-ons" width="max-w-5xl" intro={<>What the platform does now, what can be switched on next, and what is prepared for later.</>}>
       {GROUPS.map((g) => (
         <section key={g.status} className="mt-10">
           <h2 className="text-xl font-semibold">{g.title}</h2>
@@ -49,6 +46,6 @@ export default function AddOnsPage() {
           </ul>
         </section>
       ))}
-    </div>
+    </Page>
   );
 }

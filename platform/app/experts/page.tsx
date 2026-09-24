@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCatalog, getIndex } from "@/lib/engine/data";
@@ -29,12 +30,7 @@ export default async function ExpertsPage() {
   const leaving = people.filter((x) => x.daysLeft !== null && x.daysLeft >= 0 && x.daysLeft <= 90);
 
   return (
-    <div className="max-w-4xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Who knows what</h1>
-      <p className="mt-2 max-w-2xl text-ink-soft">
-        People and the recorded meetings they took part in, within the missions you can see. It tells you who to call, and
-        which knowledge sits with one person only.
-      </p>
+    <Page title="Who knows" accent="what" width="max-w-5xl" intro={<>People and the recorded meetings they took part in, within the missions you can see. It tells you who to call, and which knowledge sits with one person only.</>}>
 
       {leaving.length > 0 && (
         <section className="mt-8 rounded-xl border border-history bg-history-bg p-5">
@@ -74,6 +70,6 @@ export default async function ExpertsPage() {
       <p className="mt-4 text-sm text-ink-faint">
         Based on meeting participants. Knowing who said each sentence needs speaker identification, which is prepared as a planned add-on.
       </p>
-    </div>
+    </Page>
   );
 }

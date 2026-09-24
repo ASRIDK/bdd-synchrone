@@ -49,17 +49,49 @@ Rules:
 - Evidence marked CURRENT is the latest decision. Evidence marked HISTORY was replaced later: mention it only as history ("was", "until"), never as the current rule.
 - Keep statements short and factual. Answer in the language of the question.`;
 
-export function llmConfigured(s: Settings): boolean {
-  if (s.provider === "anthropic") return Boolean(s.anthropicKey);
-  if (s.provider === "mistral") return Boolean(s.mistralKey);
-  return s.provider === "ollama";
+// Is the local model reachable and installed? Checked at most every 20 s, with a short timeout,
+// so a stopped Ollama never slows a question down.
+let ollamaCache: { at: number; ok: boolean } | null = null;
+export async function ollamaAvailable(s: Settings): Promise<boolean> {
+  if (ollamaCache && Date.now() - ollamaCache.at < 20_000) return ollamaCache.ok;
+  let ok = false;
+  try {
+    const res = await fetch(`${s.ollamaUrl}/api/tags`, { signal: AbortSignal.timeout(700) });
+    const body = (await res.json()) as { models?: Array<{ name: string }> };
+    ok = res.ok && (body.models ?? []).some((m) => m.name === s.ollamaModel || m.name === `${s.ollamaModel}:latest`);
+  } catch {
+    ok = false;
+  }
+  ollamaCache = { at: Date.now(), ok };
+  return ok;
 }
 
-export async function writeAnswer(s: Settings, userPrompt: string): Promise<LlmResult> {
-  if (s.provider === "anthropic") return anthropicAnswer(s, userPrompt);
-  if (s.provider === "mistral") return mistralAnswer(s, userPrompt);
-  if (s.provider === "ollama") return ollamaAnswer(s, userPrompt);
-  throw new Error("No language model configured");
+// The provider that will actually answer, given the settings and what is available right now.
+export async function resolveProvider(s: Settings): Promise<Exclude<Settings["provider"], "auto">> {
+  if (s.provider !== "auto") {
+    if (s.provider === "anthropic" && !s.anthropicKey) return "none";
+    if (s.provider === "mistral" && !s.mistralKey) return "none";
+    return s.provider;
+  }
+  if (await ollamaAvailable(s)) return "ollama";
+  if (s.anthropicKey) return "anthropic";
+  if (s.mistralKey) return "mistral";
+  return "none";
+}
+
+export function modelName(s: Settings, provider: string): string {
+  if (provider === "ollama") return s.ollamaModel;
+  if (provider === "anthropic") return s.anthropicModel;
+  if (provider === "mistral") return s.mistralModel;
+  return "none";
+}
+
+export async function writeAnswer(s: Settings, userPrompt: string, provider?: string): Promise<LlmResult> {
+  const p = provider ?? (await resolveProvider(s));
+  if (p === "anthropic") return anthropicAnswer(s, userPrompt);
+  if (p === "mistral") return mistralAnswer(s, userPrompt);
+  if (p === "ollama") return ollamaAnswer(s, userPrompt);
+  throw new Error("No language model available");
 }
 
 async function anthropicAnswer(s: Settings, userPrompt: string): Promise<LlmResult> {

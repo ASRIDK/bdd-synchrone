@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { saveModelSettings } from "@/app/actions";
 import { publicSettings, readSettings } from "@/lib/engine/settings";
@@ -7,18 +8,14 @@ export default function SettingsPage() {
   const field = "mt-1 w-full rounded-md border border-line bg-surface px-3 py-2";
 
   return (
-    <div className="max-w-2xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Settings</h1>
-      <p className="mt-2 text-ink-soft">
-        Choose who writes the answers. Without a model, answers are exact quotes from the recordings, which cannot invent
-        anything. With a model, answers read more naturally and every sentence is still checked against its source.
-      </p>
+    <Page title="Settings" width="max-w-4xl" intro={<>Choose who writes the answers. Without a model, answers are exact quotes from the recordings, which cannot invent anything. With a model, answers read more naturally and every sentence is still checked against its source.</>}>
 
       <form action={saveModelSettings} className="mt-8 space-y-6 rounded-xl border border-line bg-surface p-5">
         <fieldset>
           <legend className="font-medium">Answer mode</legend>
           <div className="mt-2 space-y-2">
             {[
+              ["auto", "Automatic (recommended)", "Uses the local model if Ollama is running, otherwise Claude or Mistral if a key is set, otherwise exact quotes."],
               ["none", "Quotes only, no model", "Free, instant, nothing leaves this machine."],
               ["ollama", "Local model with Ollama", "Runs on this machine. Nothing leaves it. Slower."],
               ["mistral", "Mistral (EU)", "Data processed in the EU. Needs an API key."],
@@ -70,6 +67,6 @@ export default function SettingsPage() {
       <p className="mt-6 text-sm text-ink-faint">
         Beta add-ons are switched on and off from the <Link href="/add-ons" className="underline underline-offset-4">Add-ons</Link> page.
       </p>
-    </div>
+    </Page>
   );
 }

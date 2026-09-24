@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getIndex } from "@/lib/engine/data";
 import { paths } from "@/lib/engine/paths";
-import { currentUser } from "@/lib/session";
+import { sessionUser } from "@/lib/session";
 
 export const runtime = "nodejs";
 
@@ -11,7 +11,8 @@ export const runtime = "nodejs";
 export async function GET(request: Request, { params }: { params: Promise<{ recording: string }> }) {
   const { recording } = await params;
   const rec = getIndex().recordingById.get(recording);
-  const user = await currentUser();
+  const user = await sessionUser();
+  if (!user) return new Response("Sign in first", { status: 401 });
   if (!rec || !user.missions.includes(rec.mission)) {
     return new Response("Not found", { status: 404 });
   }

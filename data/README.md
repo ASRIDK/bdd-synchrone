@@ -9,7 +9,8 @@ data/
 │   ├── meetings.json       the 13 meeting scripts, one ID per line (used to make audio and to score)
 │   └── ground_truth.json   exact start and end second of every scripted line in the audio
 ├── recordings.json         the recording registry: mission, title, date, participants, file (no words)
-├── audio/                  13 recordings, AAC, 17 minutes, 5.9 MB
+├── audio/                  21 recordings, AAC, 44 minutes, 18 MB (13 scripted, 7 TED segments, 1 test import)
+├── jobs.json               import jobs and their status (local only)
 ├── transcripts/            Whisper output, one JSON per recording
 ├── index/index.json        segments, passages, vectors and the decision register (built by npm run index)
 ├── eval/
@@ -19,6 +20,7 @@ data/
 │   └── llm-ollama-run.txt      console output of that run
 ├── corrections.json        transcript corrections saved from Transcript review (created on first save)
 ├── settings.local.json     model choice, API keys, beta switches (local only, never committed)
+├── .secrets/               the key that signs sessions (local only, never committed)
 └── logs/questions.jsonl    every question asked: user, status, citations, time, cost (local only)
 ```
 
@@ -43,9 +45,10 @@ which each line starts). The search index is built from what Whisper heard.
 
 ## Adding real recordings
 
-1. Put the audio file (m4a, mp3, wav, mp4...) in `audio/`.
-2. Add an entry to `recordings.json` with its mission, title, date, participants and language.
-3. Run `pipeline/.venv/bin/python pipeline/transcribe.py`, then `npm run index` in `platform/`.
+Use the Import page, or for a whole folder: `npm run import -- <folder> --mission <id> --date YYYY-MM-DD`
+in `platform/`. Both hash the file (duplicates are refused), store it in `audio/` (WAV is compressed
+to AAC), add it to `recordings.json`, transcribe it with Whisper and rebuild the index.
 
-The TED talks from the case can be added this way; their missions and dates would be invented,
-which is why they are not in the demo.
+The 7 TED segments from the case were added this way into the open "Talks library" mission, with
+titles and speakers read from their file names. Their real dates are unknown, so they carry the
+import date.

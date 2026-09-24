@@ -18,7 +18,7 @@ async function main() {
   for (const [user, q] of CASES) {
     const { hits } = search(idx, q, await embedQuery(q), allowedMissions(user));
     const prompt = [`Question: ${q}`, "", "Evidence:", ...hits.slice(0, 3).map((h, i) => `[E${i + 1}] ${h.recording.date}, "${h.recording.title}", at ${formatTime(h.chunk.start)}: ${h.chunk.text}`)].join("\n");
-    const r = await writeAnswer({ ...DEFAULT_SETTINGS, provider: "ollama" }, prompt);
+    const r = await writeAnswer(DEFAULT_SETTINGS, prompt, "ollama");
     console.log(`\n${q}\n  ${JSON.stringify(r.answer)}`);
   }
 }

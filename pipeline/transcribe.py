@@ -10,6 +10,7 @@ What it does, per recording
 
 Run:  pipeline/.venv/bin/python pipeline/transcribe.py            (model: small)
       WHISPER_MODEL=medium pipeline/.venv/bin/python pipeline/transcribe.py
+      pipeline/.venv/bin/python pipeline/transcribe.py --only <recording_id>   (used by imports)
 """
 
 from __future__ import annotations
@@ -17,6 +18,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -47,6 +49,11 @@ def glossary_prompt() -> str:
 
 def main() -> None:
     recordings = json.loads(REGISTRY.read_text())
+    if "--only" in sys.argv:
+        wanted = sys.argv[sys.argv.index("--only") + 1]
+        recordings = [r for r in recordings if r["id"] == wanted]
+        if not recordings:
+            sys.exit(f"No recording {wanted!r} in the registry")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     prompt = glossary_prompt()
     model = None
@@ -68,7 +75,7 @@ def main() -> None:
         started = time.perf_counter()
         segments, info = model.transcribe(
             str(audio),
-            language=rec.get("language"),
+            language=rec.get("language") or None,  # empty means: let Whisper detect it
             vad_filter=True,
             initial_prompt=prompt,
             condition_on_previous_text=False,

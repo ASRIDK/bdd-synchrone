@@ -173,5 +173,126 @@
     ],
     "file": "practice-03-sepa-instant-intro.m4a",
     "source": "demo_tts"
+  },
+  {
+    "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e",
+    "mission": "talks-library",
+    "title": "Joshua Prager: Wisdom from great writers on every year of life (part 1)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joshua Prager"
+    ],
+    "file": "joshua-prager-wisdom-from-great-writers-on-every-ed219e.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:02.380Z",
+    "sourceSha256": "ed219ef3ac400bb3923d06f2607c14d0df7e5d4913a9459bed5c2f6bb0cefe9e"
+  },
+  {
+    "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1",
+    "mission": "talks-library",
+    "title": "Joshua Prager: Wisdom from great writers on every year of life (part 2)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joshua Prager"
+    ],
+    "file": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:02.726Z",
+    "sourceSha256": "f9bce1be43c6776edf168515d4f1fe8f21573b90a2050b0049657572f8c49007"
+  },
+  {
+    "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb",
+    "mission": "talks-library",
+    "title": "Joshua Smith: New nanotech to catch cancer early (part 1)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joshua Smith"
+    ],
+    "file": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:02.890Z",
+    "sourceSha256": "e980fb9fb44fbb604153c83fafae758c4cce046d606953c346365b5e1c563a25"
+  },
+  {
+    "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed",
+    "mission": "talks-library",
+    "title": "Joshua Smith: New nanotech to catch cancer early (part 2)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joshua Smith"
+    ],
+    "file": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:03.158Z",
+    "sourceSha256": "59a6ed37b374b654edd358b138c03feaf772cf452d2a05b7805fc6a16c6511fd"
+  },
+  {
+    "id": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577",
+    "mission": "talks-library",
+    "title": "Joshua Smith: New nanotech to catch cancer early (part 3)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joshua Smith"
+    ],
+    "file": "joshua-smith-new-nanotech-to-catch-cancer-early--c01577.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:03.429Z",
+    "sourceSha256": "c015772f36e123878fd811cbebaca989c0faa11ea805efb416b74355ed25bc48"
+  },
+  {
+    "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a",
+    "mission": "talks-library",
+    "title": "Joy Buolamwini: How I'm fighting bias in algorithms (part 1)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joy Buolamwini"
+    ],
+    "file": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:03.712Z",
+    "sourceSha256": "b6d15a06d5a73ad2a0ea24e7b524fbf31605e24c91e89d2c6494534406291769"
+  },
+  {
+    "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc",
+    "mission": "talks-library",
+    "title": "Joy Buolamwini: How I'm fighting bias in algorithms (part 2)",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Joy Buolamwini"
+    ],
+    "file": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-ac9cdc.m4a",
+    "source": "import",
+    "importedBy": "marc.delorme@synchrone.fr",
+    "importedAt": "2026-09-24T16:41:03.983Z",
+    "sourceSha256": "ac9cdc9cab2383aa61e97d5ffad47dc5245c19a5de91d71e202d95a276df80a5"
+  },
+  {
+    "id": "transrail-quick-sync-5315d7",
+    "mission": "transrail-cloud",
+    "title": "TransRail quick sync",
+    "date": "2026-09-24",
+    "language": "",
+    "participants": [
+      "Thomas Girard",
+      "Aisha Naidoo"
+    ],
+    "file": "transrail-quick-sync-5315d7.m4a",
+    "source": "import",
+    "importedBy": "thomas.girard@synchrone.fr",
+    "importedAt": "2026-09-24T16:49:10.982Z",
+    "sourceSha256": "5315d757110e02c4a8b07714caf687c94abc330aa73ac27c7c3a12601774928f"
   }
 ]

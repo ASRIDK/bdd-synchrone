@@ -13,8 +13,12 @@ import { cosine } from "./embed";
 import { normalize, topicTokens, type Canonicalizer } from "./text";
 import type { Decision, Recording, Segment } from "./types";
 
+// "decided" counts only when it records the team's decision ("Decided, ...", "we decided"),
+// not in narration ("the organizers decided to take a tour").
+const DECIDED = /\b(?:we|i|it is|it's|is|was) decided\b|\bdecided\s*[,.:;]/;
+
 const DECISION_CUES = [
-  /\bthe decision is\b/, /\bdecision\b/, /\bdecided\b/, /\bwe go with\b/, /\bagreed\b/,
+  /\bthe decision is\b/, /\bdecision\b/, DECIDED, /\bwe go with\b/, /\bagreed\b/,
   /\bwe keep\b/, /\blet'?s keep\b/, /\bwe replace\b/, /\bfrom today\b/, /\bfrom now on\b/,
   /\bthe rule is\b/, /\bwe reduce\b/, /\bwe move\b/, /\bmoves to\b/, /\bwe change\b/, /\bwe stay\b/,
   /\bdoes not change\b/, /\bfull stop\b/, /\bgo out on\b/, /\bretention is\b/, /\breplaces\b/,
@@ -24,7 +28,7 @@ const DECISION_CUES = [
 
 const PROPOSAL_CUES = [/\bi propose\b/, /\bi suggest\b/, /\bwe could\b/, /\bshould we\b/, /\bje propose\b/];
 const STRONG_CUES = [
-  /\bthe decision is\b/, /\bdecided\b/, /\bdecision\b/, /\bagreed\b/, /\bwe go with\b/, /\bfrom today\b/,
+  /\bthe decision is\b/, /\b(?:we|i|it is|it's|is|was) decided\b|\bdecided\s*[,.:;]/, /\bdecision\b/, /\bagreed\b/, /\bwe go with\b/, /\bfrom today\b/,
   /\bfrom now on\b/, /\bthe rule is\b/, /\ba partir de maintenant\b/,
 ];
 

@@ -13,7 +13,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { allowedMissions, getIndex, getUser, type LoadedIndex } from "./data";
 import { cosine, embedPassages, embedQuery } from "./embed";
-import { llmConfigured, writeAnswer } from "./llm";
+import { modelName, resolveProvider, writeAnswer } from "./llm";
 import { paths } from "./paths";
 import { search } from "./retrieve";
 import { readSettings } from "./settings";
@@ -99,7 +99,14 @@ function logQuestion(answer: Answer) {
   }
 }
 
-export async function answerQuestion(question: string, login: string, mode: Mode = "auto"): Promise<Answer> {
+export type AnswerEvent = { type: "sources"; model: string; statements: Statement[] };
+
+export async function answerQuestion(
+  question: string,
+  login: string,
+  mode: Mode = "auto",
+  onEvent?: (event: AnswerEvent) => void,
+): Promise<Answer> {
   const started = performance.now();
   const idx = getIndex();
   const trace: TraceStep[] = [];
@@ -199,16 +206,36 @@ export async function answerQuestion(question: string, login: string, mode: Mode
   });
 
   const settings = readSettings();
-  const useLlm = mode === "llm" || (mode === "auto" && llmConfigured(settings));
+  const provider = mode === "quote" ? "none" : await resolveProvider(settings);
+  if (mode === "llm" && provider === "none") {
+    trace.push({ step: "Model", detail: "No language model is available right now (Ollama not running, no API key). Answering with exact quotes." });
+  }
 
   let statements: Statement[] = [];
   let usage: Answer["usage"];
   let usedMode: Answer["mode"] = "quote";
 
-  if (useLlm && llmConfigured(settings)) {
+  if (provider !== "none") {
+    // The sources are ready before the model writes: send them first, so the user reads the
+    // evidence while the model works.
+    onEvent?.({
+      type: "sources",
+      model: modelName(settings, provider).replace(/:latest$/, ""),
+      statements: composeQuotes(idx, currentList.some((d) => d.supersedes.length > 0) ? [] : evidenceSegments, currentList, historyList),
+    });
     try {
-      const result = await composeWithModel(idx, question, evidenceHits, currentList, historyList, settings, trace);
+      const result = await composeWithModel(idx, question, evidenceHits, currentList, historyList, settings, provider, trace);
       statements = result.statements;
+      // The replaced decisions stay visible as history, quoted from the register, whatever the
+      // model chose to write (the brief: keep the old decision as history).
+      if (statements.length > 0) {
+        const cited = new Set(statements.flatMap((s) => s.citations.map((c) => c.segmentId)));
+        for (const d of historyList) {
+          if (cited.has(d.segmentId) && statements.some((s) => s.role === "history")) continue;
+          const seg = segmentById(idx, d.segmentId);
+          statements.push({ text: excerpt(d.text), role: "history", citations: [citationFor(idx, seg, excerpt(d.text))] });
+        }
+      }
       usage = result.usage;
       usedMode = "llm";
     } catch (err) {
@@ -281,6 +308,7 @@ async function composeWithModel(
   current: Decision[],
   history: Decision[],
   settings: ReturnType<typeof readSettings>,
+  provider: string,
   trace: TraceStep[],
 ): Promise<{ statements: Statement[]; usage: Answer["usage"] }> {
   // Evidence blocks: the retrieved passages plus the passages holding current decisions.
@@ -309,7 +337,7 @@ async function composeWithModel(
   ].join("\n");
 
   if (process.env.KW_DEBUG_PROMPT) console.error(prompt);
-  const result = await writeAnswer(settings, prompt);
+  const result = await writeAnswer(settings, prompt, provider);
   trace.push({
     step: "Model",
     detail: `${result.provider} ${result.model} wrote ${result.answer.statements.length} statement(s) (${result.inputTokens} input and ${result.outputTokens} output tokens, $${result.costUsd.toFixed(4)}).`,

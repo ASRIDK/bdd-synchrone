@@ -1,5 +1,5 @@
 {
-  "runAt": "2026-09-24T16:07:27.340Z",
+  "runAt": "2026-09-24T16:53:22.469Z",
   "mode": "llm",
   "gate": {
     "minSegmentSimilarity": 0.78,
@@ -60,8 +60,8 @@
     "paraphraseHitAt3": 1,
     "answeredTraps": 0,
     "accessLeaks": 0,
-    "latencyP50": 4096,
-    "latencyP95": 9302,
+    "latencyP50": 3645,
+    "latencyP95": 9094,
     "costPerQuestionUsd": 0
   },
   "asr": {
@@ -160,8 +160,8 @@
         "RAG (practice-01-evaluer-rag)"
       ]
     },
-    "realtimeFactor": 10.545510392136789,
-    "audioMinutes": 17.166333333333334
+    "realtimeFactor": 10.646458877284594,
+    "audioMinutes": 43.49433333333333
   },
   "questions": [
     {
@@ -182,7 +182,7 @@
       "citations": [
         "hexa-02-rt1-weekly @ 11s"
       ],
-      "latencyMs": 10278,
+      "latencyMs": 5452,
       "costUsd": 0
     },
     {
@@ -204,9 +204,10 @@
         "hexa-02-rt1-weekly @ 30s",
         "hexa-02-rt1-weekly @ 11s",
         "hexa-02-rt1-weekly @ 41s",
-        "hexa-02-rt1-weekly @ 58s"
+        "hexa-02-rt1-weekly @ 58s",
+        "hexa-02-rt1-weekly @ 70s"
       ],
-      "latencyMs": 8811,
+      "latencyMs": 9339,
       "costUsd": 0
     },
     {
@@ -228,7 +229,7 @@
         "transrail-02-incident-certificates @ 11s",
         "transrail-02-incident-certificates @ 24s"
       ],
-      "latencyMs": 7489,
+      "latencyMs": 6974,
       "costUsd": 0
     },
     {
@@ -251,7 +252,7 @@
         "transrail-02-incident-certificates @ 85s",
         "transrail-04-point-deploiement @ 40s"
       ],
-      "latencyMs": 6923,
+      "latencyMs": 6954,
       "costUsd": 0
     },
     {
@@ -272,7 +273,7 @@
       "citations": [
         "nova-01-ransomware-playbook @ 7s"
       ],
-      "latencyMs": 4433,
+      "latencyMs": 4475,
       "costUsd": 0
     },
     {
@@ -293,7 +294,7 @@
       "citations": [
         "nova-01-ransomware-playbook @ 36s"
       ],
-      "latencyMs": 3975,
+      "latencyMs": 3645,
       "costUsd": 0
     },
     {
@@ -314,7 +315,7 @@
       "citations": [
         "hexa-04-cutover-retro @ 15s"
       ],
-      "latencyMs": 5187,
+      "latencyMs": 4910,
       "costUsd": 0
     },
     {
@@ -335,7 +336,7 @@
       "citations": [
         "transrail-01-landing-zone @ 15s"
       ],
-      "latencyMs": 4647,
+      "latencyMs": 4177,
       "costUsd": 0
     },
     {
@@ -356,7 +357,7 @@
       "citations": [
         "hexa-04-cutover-retro @ 38s"
       ],
-      "latencyMs": 4100,
+      "latencyMs": 3546,
       "costUsd": 0
     },
     {
@@ -378,7 +379,7 @@
         "practice-03-sepa-instant-intro @ 8s",
         "practice-03-sepa-instant-intro @ 14s"
       ],
-      "latencyMs": 6399,
+      "latencyMs": 5537,
       "costUsd": 0
     },
     {
@@ -399,7 +400,7 @@
       "citations": [
         "transrail-02-incident-certificates @ 73s"
       ],
-      "latencyMs": 4936,
+      "latencyMs": 4345,
       "costUsd": 0
     },
     {
@@ -421,7 +422,7 @@
         "hexa-02-rt1-weekly @ 23s",
         "hexa-02-rt1-weekly @ 41s"
       ],
-      "latencyMs": 8211,
+      "latencyMs": 7067,
       "costUsd": 0
     },
     {
@@ -442,7 +443,7 @@
       "citations": [
         "nova-02-playbook-update @ 44s"
       ],
-      "latencyMs": 5063,
+      "latencyMs": 4559,
       "costUsd": 0
     },
     {
@@ -461,9 +462,12 @@
         "citationWithin30s": true
       },
       "citations": [
-        "transrail-03-cost-review @ 22s"
+        "transrail-01-landing-zone @ 42s",
+        "transrail-03-cost-review @ 22s",
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 5507,
+      "latencyMs": 7168,
       "costUsd": 0
     },
     {
@@ -485,7 +489,7 @@
         "practice-02-kafka-lag @ 23s",
         "practice-02-kafka-lag @ 31s"
       ],
-      "latencyMs": 7256,
+      "latencyMs": 6833,
       "costUsd": 0
     },
     {
@@ -506,9 +510,10 @@
       "citations": [
         "hexa-03-design-review @ 71s",
         "hexa-01-kickoff @ 79s",
-        "hexa-03-design-review @ 85s"
+        "hexa-03-design-review @ 85s",
+        "hexa-01-kickoff @ 92s"
       ],
-      "latencyMs": 8980,
+      "latencyMs": 8461,
       "costUsd": 0
     },
     {
@@ -527,9 +532,10 @@
         "citationWithin30s": true
       },
       "citations": [
-        "transrail-03-cost-review @ 38s"
+        "transrail-03-cost-review @ 38s",
+        "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 4812,
+      "latencyMs": 5465,
       "costUsd": 0
     },
     {
@@ -549,7 +555,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 10,
+      "latencyMs": 14,
       "costUsd": 0
     },
     {
@@ -570,7 +576,7 @@
       "citations": [
         "practice-01-evaluer-rag @ 9s"
       ],
-      "latencyMs": 4101,
+      "latencyMs": 3796,
       "costUsd": 0
     },
     {
@@ -590,7 +596,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 8,
+      "latencyMs": 16,
       "costUsd": 0
     },
     {
@@ -614,7 +620,7 @@
         "transrail-02-incident-certificates @ 24s",
         "transrail-01-landing-zone @ 69s"
       ],
-      "latencyMs": 9662,
+      "latencyMs": 9094,
       "costUsd": 0
     },
     {
@@ -639,7 +645,7 @@
         "transrail-02-incident-certificates @ 44s",
         "transrail-02-incident-certificates @ 24s"
       ],
-      "latencyMs": 9302,
+      "latencyMs": 9212,
       "costUsd": 0
     },
     {
@@ -662,7 +668,7 @@
       "citations": [
         "practice-03-sepa-instant-intro @ 33s"
       ],
-      "latencyMs": 4332,
+      "latencyMs": 4317,
       "costUsd": 0
     },
     {
@@ -686,7 +692,7 @@
         "practice-02-kafka-lag @ 0s",
         "practice-02-kafka-lag @ 13s"
       ],
-      "latencyMs": 6316,
+      "latencyMs": 5962,
       "costUsd": 0
     },
     {
@@ -707,7 +713,7 @@
       },
       "failure": "Said not found, but the answer is in the recordings.",
       "citations": [],
-      "latencyMs": 13,
+      "latencyMs": 12,
       "costUsd": 0
     },
     {
@@ -728,9 +734,10 @@
         "oldShownAsCurrent": false
       },
       "citations": [
-        "hexa-03-design-review @ 29s"
+        "hexa-03-design-review @ 29s",
+        "hexa-01-kickoff @ 61s"
       ],
-      "latencyMs": 4127,
+      "latencyMs": 4075,
       "costUsd": 0
     },
     {
@@ -751,9 +758,10 @@
         "oldShownAsCurrent": false
       },
       "citations": [
-        "hexa-03-design-review @ 71s"
+        "hexa-03-design-review @ 71s",
+        "hexa-01-kickoff @ 92s"
       ],
-      "latencyMs": 4177,
+      "latencyMs": 4048,
       "costUsd": 0
     },
     {
@@ -774,9 +782,10 @@
         "oldShownAsCurrent": false
       },
       "citations": [
-        "transrail-03-cost-review @ 22s"
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
       ],
-      "latencyMs": 4759,
+      "latencyMs": 4763,
       "costUsd": 0
     },
     {
@@ -798,9 +807,10 @@
       },
       "citations": [
         "nova-02-playbook-update @ 22s",
-        "nova-02-playbook-update @ 28s"
+        "nova-02-playbook-update @ 28s",
+        "nova-01-ransomware-playbook @ 50s"
       ],
-      "latencyMs": 5016,
+      "latencyMs": 4932,
       "costUsd": 0
     },
     {
@@ -821,9 +831,10 @@
         "oldShownAsCurrent": false
       },
       "citations": [
-        "transrail-04-point-deploiement @ 22s"
+        "transrail-04-point-deploiement @ 22s",
+        "transrail-03-cost-review @ 55s"
       ],
-      "latencyMs": 4096,
+      "latencyMs": 4443,
       "costUsd": 0
     },
     {
@@ -841,7 +852,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 14,
+      "latencyMs": 12,
       "costUsd": 0
     },
     {
@@ -859,7 +870,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 12,
+      "latencyMs": 7,
       "costUsd": 0
     },
     {
@@ -877,7 +888,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 8,
+      "latencyMs": 9,
       "costUsd": 0
     },
     {
@@ -895,7 +906,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 5,
+      "latencyMs": 6,
       "costUsd": 0
     },
     {
@@ -913,7 +924,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 5,
+      "latencyMs": 2560,
       "costUsd": 0
     },
     {
@@ -931,7 +942,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 5,
+      "latencyMs": 119,
       "costUsd": 0
     },
     {
@@ -967,7 +978,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 1758,
+      "latencyMs": 2234,
       "costUsd": 0
     },
     {
@@ -985,7 +996,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 31,
+      "latencyMs": 41,
       "costUsd": 0
     },
     {
@@ -1003,7 +1014,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 2143,
+      "latencyMs": 2266,
       "costUsd": 0
     },
     {
@@ -1021,7 +1032,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 28,
+      "latencyMs": 35,
       "costUsd": 0
     },
     {
@@ -1039,7 +1050,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 1656,
+      "latencyMs": 2096,
       "costUsd": 0
     },
     {
@@ -1057,7 +1068,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 36,
+      "latencyMs": 37,
       "costUsd": 0
     },
     {
@@ -1093,7 +1104,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 14,
+      "latencyMs": 9,
       "costUsd": 0
     },
     {
@@ -1111,7 +1122,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 7,
+      "latencyMs": 9,
       "costUsd": 0
     },
     {
@@ -1129,7 +1140,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 9,
+      "latencyMs": 8,
       "costUsd": 0
     },
     {
@@ -1147,7 +1158,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 13,
+      "latencyMs": 7,
       "costUsd": 0
     },
     {
@@ -1165,7 +1176,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 4,
+      "latencyMs": 10,
       "costUsd": 0
     },
     {
@@ -1183,7 +1194,7 @@
         "answeredTrap": false
       },
       "citations": [],
-      "latencyMs": 6,
+      "latencyMs": 12,
       "costUsd": 0
     }
   ]

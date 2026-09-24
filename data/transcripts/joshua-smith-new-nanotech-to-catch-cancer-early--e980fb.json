@@ -1,0 +1,401 @@
+{
+  "recording_id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb",
+  "file": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb.m4a",
+  "sha256": "4f9d840e61e1ecdd984885f36a9d612be9ab11fa63e500befb47c3e6e692a16e",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.986,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:41:56Z",
+  "wall_time_sec": 18.61,
+  "realtime_factor": 12.9,
+  "segments": [
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0000",
+      "start": 1.74,
+      "end": 19.12,
+      "text": "You have cancer.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0001",
+      "start": 20.46,
+      "end": 25.46,
+      "text": "Sadly, about 40% of us will hear those three words within our lifetime.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0002",
+      "start": 25.46,
+      "end": 28.46,
+      "text": "And half will not survive.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0003",
+      "start": 28.46,
+      "end": 32.46,
+      "text": "This means that two out of five of your closest friends and relatives",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0004",
+      "start": 32.46,
+      "end": 36.46,
+      "text": "will be diagnosed with some form of cancer, and one will die.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0005",
+      "start": 36.46,
+      "end": 40.29,
+      "text": "Beyond the physical hardships,",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0006",
+      "start": 40.29,
+      "end": 43.29,
+      "text": "roughly one-third of cancer survivors here in the U.S.",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0007",
+      "start": 43.29,
+      "end": 45.29,
+      "text": "will go into debt from treatment,",
+      "avg_logprob": -0.121,
+      "no_speech_prob": 0.733,
+      "compression_ratio": 1.542
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0008",
+      "start": 45.29,
+      "end": 49.77,
+      "text": "and they're at least two and a half times more likely to declare bankruptcy than those",
+      "avg_logprob": -0.159,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.543
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0009",
+      "start": 49.77,
+      "end": 51.85,
+      "text": "without cancer.",
+      "avg_logprob": -0.159,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.543
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0010",
+      "start": 51.85,
+      "end": 60.05,
+      "text": "This disease is pervasive, it's emotionally draining, and for many, financially destructive.",
+      "avg_logprob": -0.159,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.543
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0011",
+      "start": 60.05,
+      "end": 64.27,
+      "text": "But a cancer diagnosis doesn't have to be a death sentence.",
+      "avg_logprob": -0.159,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.543
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0012",
+      "start": 64.27,
+      "end": 69.37,
+      "text": "Finding cancer early, closer to its genesis, is one of the critical factors to improving",
+      "avg_logprob": -0.159,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.543
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0013",
+      "start": 69.37,
+      "end": 75.85,
+      "text": "treatment options, reducing its emotional impact, and minimizing financial burdens.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.607
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0014",
+      "start": 75.85,
+      "end": 81.33,
+      "text": "Most importantly, finding cancer early, which is one of the primary aims of my research,",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.607
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0015",
+      "start": 81.33,
+      "end": 84.25,
+      "text": "greatly enhances your odds of survival.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.607
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0016",
+      "start": 84.25,
+      "end": 88.59,
+      "text": "If we just look at the case of breast cancer, for example, we find that those who are diagnosed",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.607
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0017",
+      "start": 88.59,
+      "end": 95.05,
+      "text": "and treated at stage one have a five-year survival rate of nearly 100 percent, odds",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.607
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0018",
+      "start": 95.05,
+      "end": 100.15,
+      "text": "that decreased to just 22% if treated at stage 4.",
+      "avg_logprob": -0.149,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.561
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0019",
+      "start": 100.15,
+      "end": 106.09,
+      "text": "And similar trends are found for colorectal and ovarian cancer.",
+      "avg_logprob": -0.149,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.561
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0020",
+      "start": 106.09,
+      "end": 115.64,
+      "text": "Now we're all aware that an early diagnosis that is accurate is critical for survival.",
+      "avg_logprob": -0.149,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.561
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0021",
+      "start": 115.64,
+      "end": 121.6,
+      "text": "The problem is that many cancer diagnostic tools are invasive, costly, often inaccurate",
+      "avg_logprob": -0.149,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.561
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0022",
+      "start": 121.6,
+      "end": 126.76,
+      "text": "and they can take an agonizing amount of time to get the results back.",
+      "avg_logprob": -0.149,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.561
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0023",
+      "start": 126.76,
+      "end": 132.28,
+      "text": "Even worse, when it comes to some forms of cancer such as ovarian, liver, or pancreatic",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.095,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0024",
+      "start": 132.28,
+      "end": 138.7,
+      "text": "cancer, good screening methods simply don't exist, meaning that often people wait until",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.095,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0025",
+      "start": 138.7,
+      "end": 146.06,
+      "text": "physical symptoms surface, which are themselves already indicators of late stage progression.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.095,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0026",
+      "start": 146.06,
+      "end": 150.52,
+      "text": "Like a tornado strike in an area without an early warning system, there is no alarm",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.095,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0027",
+      "start": 150.52,
+      "end": 156.08,
+      "text": "to warn before the danger is already at your doorstep, when your odds of survival",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.095,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0028",
+      "start": 156.08,
+      "end": 163.65,
+      "text": "are greatly reduced. Having the convenience and accessibility of regular screening options",
+      "avg_logprob": -0.123,
+      "no_speech_prob": 0.096,
+      "compression_ratio": 1.632
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0029",
+      "start": 163.65,
+      "end": 169.65,
+      "text": "that are affordable, non-invasive, and could provide results much sooner would provide us",
+      "avg_logprob": -0.123,
+      "no_speech_prob": 0.096,
+      "compression_ratio": 1.632
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0030",
+      "start": 169.65,
+      "end": 176.25,
+      "text": "with a formidable weapon in the fight against cancer. An early warning would allow us to",
+      "avg_logprob": -0.123,
+      "no_speech_prob": 0.096,
+      "compression_ratio": 1.632
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0031",
+      "start": 176.25,
+      "end": 180.77,
+      "text": "get out ahead of the disease instead of merely following in its relentless wake. And this",
+      "avg_logprob": -0.123,
+      "no_speech_prob": 0.096,
+      "compression_ratio": 1.632
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0032",
+      "start": 180.77,
+      "end": 184.97,
+      "text": "is exactly what I've been doing. For the past three years, I've been developing",
+      "avg_logprob": -0.123,
+      "no_speech_prob": 0.096,
+      "compression_ratio": 1.632
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0033",
+      "start": 184.97,
+      "end": 191.09,
+      "text": "technologies that could ultimately aid clinicians with rapid early stage cancer diagnostics.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.043,
+      "compression_ratio": 1.564
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0034",
+      "start": 191.09,
+      "end": 199.21,
+      "text": "And I've been fueled by a deep scientific curiosity and a passion to change these statistics.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.043,
+      "compression_ratio": 1.564
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0035",
+      "start": 199.21,
+      "end": 205.49,
+      "text": "Last year, however, this fight became much more personal when my wife was diagnosed with",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.043,
+      "compression_ratio": 1.564
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0036",
+      "start": 205.49,
+      "end": 212.01,
+      "text": "breast cancer. It was an experience that added a strong and unexpected emotional dimension",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.043,
+      "compression_ratio": 1.564
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0037",
+      "start": 212.01,
+      "end": 219.69,
+      "text": "these efforts. I know firsthand how life-altering treatment can be. And I'm",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0038",
+      "start": 219.69,
+      "end": 224.81,
+      "text": "keenly aware of the emotional havoc that cancer can wreak on a family, which",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0039",
+      "start": 224.81,
+      "end": 229.69,
+      "text": "in our case included our two young daughters. Because we found it early",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0040",
+      "start": 229.69,
+      "end": 234.85,
+      "text": "during a routine mammogram, we were able to focus primarily on treatment",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0041",
+      "start": 234.85,
+      "end": 239.09,
+      "text": "options for the localized tumor, reaffirming to me how important an",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--e980fb#0042",
+      "start": 239.09,
+      "end": 240.09,
+      "text": "early d-",
+      "avg_logprob": -0.212,
+      "no_speech_prob": 0.086,
+      "compression_ratio": 1.565
+    }
+  ]
+}

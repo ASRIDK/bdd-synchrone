@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
-/* Tokens. Two accents only, each with one meaning:
-   teal = current and verified, amber = replaced (history). "Not found" is neutral slate. */
+/* Tokens. Inspired by AmplifyME: black hero bands, one red accent, white floating navigation,
+   light grey pages. Two meaning colours stay: teal = current and verified, amber = replaced. */
 :root {
-  --paper: #f5f6f8;
+  --paper: #f5f5f5;
   --surface: #ffffff;
-  --ink: #1b2433;
-  --ink-soft: #4a5568;
-  --ink-faint: #7a8494;
-  --line: #dde1e7;
+  --night: #000000;
+  --ink: #16181d;
+  --ink-soft: #4b5059;
+  --ink-faint: #80858f;
+  --line: #e2e3e6;
+  --signal: #e2352b;
   --valid: #0f766e;
   --valid-bg: #e6f4f2;
   --history: #b45309;
@@ -19,10 +21,12 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-surface: var(--surface);
+  --color-night: var(--night);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-faint: var(--ink-faint);
   --color-line: var(--line);
+  --color-signal: var(--signal);
   --color-valid: var(--valid);
   --color-valid-bg: var(--valid-bg);
   --color-history: var(--history);
@@ -43,6 +47,14 @@ body {
   line-height: 1.55;
 }
 
+/* Display headlines: heavy, uppercase, tight, as on AmplifyME. */
+.display {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+}
+
 /* Words actually spoken in a meeting are set in the serif, like evidence in a file. */
 .spoken {
   font-family: var(--font-spoken), Georgia, serif;
@@ -50,8 +62,6 @@ body {
   line-height: 1.65;
 }
 
-/* Lining figures for times and counts. (Tabular figures in this face also widen ":" and ",",
-   which reads as "05 : 14", so they are not used.) */
 .tabular {
   font-variant-numeric: lining-nums;
 }
@@ -59,7 +69,32 @@ body {
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+/* The meeting timeline in the heroes: a playhead sweeps across the recorded meetings. */
+@keyframes sweep {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+.playhead {
+  animation: sweep 9s linear infinite;
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+}
+.dot-live {
+  animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -67,6 +102,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

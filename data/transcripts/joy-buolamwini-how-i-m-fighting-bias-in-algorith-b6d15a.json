@@ -1,0 +1,599 @@
+{
+  "recording_id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a",
+  "file": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a.m4a",
+  "sha256": "c094634e8d347fcbf15640e3799155405a37842e5f582cf0513116db88333edf",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.994,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:43:21Z",
+  "wall_time_sec": 24.42,
+  "realtime_factor": 9.83,
+  "segments": [
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0000",
+      "start": 1.74,
+      "end": 21.62,
+      "text": "Hello, I'm Joy, a poet of code on a mission to stop an unseen force that's rising, a force",
+      "avg_logprob": -0.157,
+      "no_speech_prob": 0.588,
+      "compression_ratio": 1.559
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0001",
+      "start": 21.62,
+      "end": 27.94,
+      "text": "that I called the coded gaze, my term for algorithmic bias.",
+      "avg_logprob": -0.157,
+      "no_speech_prob": 0.588,
+      "compression_ratio": 1.559
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0002",
+      "start": 27.94,
+      "end": 31.66,
+      "text": "Algorithmic bias, like human bias, results in unfairness.",
+      "avg_logprob": -0.157,
+      "no_speech_prob": 0.588,
+      "compression_ratio": 1.559
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0003",
+      "start": 31.66,
+      "end": 40.42,
+      "text": "However, algorithms like viruses can spread bias on a massive scale at a rapid pace.",
+      "avg_logprob": -0.157,
+      "no_speech_prob": 0.588,
+      "compression_ratio": 1.559
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0004",
+      "start": 40.42,
+      "end": 46.58,
+      "text": "Bias can also lead to exclusionary experiences and discriminatory practices.",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0005",
+      "start": 46.58,
+      "end": 48.18,
+      "text": "Let me show you what I mean.",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0006",
+      "start": 48.18,
+      "end": 52.3,
+      "text": "Hi camera, I've got a face.",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0007",
+      "start": 52.3,
+      "end": 54.3,
+      "text": "Can you see my face?",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0008",
+      "start": 54.3,
+      "end": 55.8,
+      "text": "No glasses face?",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0009",
+      "start": 55.8,
+      "end": 57.8,
+      "text": "You can see her face.",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0010",
+      "start": 57.8,
+      "end": 59.3,
+      "text": "What about my face?",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0011",
+      "start": 59.3,
+      "end": 65.53,
+      "text": "Well I've got a mask.",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0012",
+      "start": 65.53,
+      "end": 68.65,
+      "text": "Can you see my mask?",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0013",
+      "start": 68.65,
+      "end": 71.01,
+      "text": "So how did this happen?",
+      "avg_logprob": -0.314,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.505
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0014",
+      "start": 71.01,
+      "end": 75.57,
+      "text": "Why am I sitting in front of a computer in a white mask",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0015",
+      "start": 75.57,
+      "end": 79.25,
+      "text": "trying to be detected by a cheap webcam?",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0016",
+      "start": 79.25,
+      "end": 83.13,
+      "text": "Well, when I'm not fighting the coded gaze as a poet of code,",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0017",
+      "start": 83.13,
+      "end": 86.37,
+      "text": "I'm a graduate student at the MIT Media Lab.",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0018",
+      "start": 86.37,
+      "end": 88.57,
+      "text": "And there I have the opportunity",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0019",
+      "start": 88.57,
+      "end": 91.49,
+      "text": "to work on all sorts of whimsical projects,",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0020",
+      "start": 91.49,
+      "end": 94.61,
+      "text": "including the Aspire Mirror, a project I did",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0021",
+      "start": 94.61,
+      "end": 98.45,
+      "text": "so I could project digital masks onto my reflection.",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0022",
+      "start": 98.45,
+      "end": 100.77,
+      "text": "So in the morning, if I wanted to feel powerful,",
+      "avg_logprob": -0.12,
+      "no_speech_prob": 0.015,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0023",
+      "start": 100.77,
+      "end": 102.25,
+      "text": "I could put on a lion.",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0024",
+      "start": 102.27,
+      "end": 105.81,
+      "text": "If I wanted to be uplifted, I might have a quote.",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0025",
+      "start": 105.83,
+      "end": 110.25,
+      "text": "So I used generic facial recognition software to build the system,",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0026",
+      "start": 110.27,
+      "end": 113.05,
+      "text": "but found that it was really hard to test it,",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0027",
+      "start": 113.07,
+      "end": 115.27,
+      "text": "unless if I wore a white mask.",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0028",
+      "start": 116.33,
+      "end": 120.67,
+      "text": "Unfortunately, I've run into this issue before.",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0029",
+      "start": 120.69,
+      "end": 125.03,
+      "text": "When I was an undergraduate at Georgia Tech studying computer science,",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0030",
+      "start": 125.05,
+      "end": 127.11,
+      "text": "I used to work on social robots.",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0031",
+      "start": 127.13,
+      "end": 130.75,
+      "text": "And one of my tasks was to get a robot to play peek-a-boo,",
+      "avg_logprob": -0.187,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.558
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0032",
+      "start": 130.77,
+      "end": 134.49,
+      "text": "a simple turn-taking game where partners cover their face",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0033",
+      "start": 134.49,
+      "end": 136.89,
+      "text": "and then uncover it saying peek-a-boo.",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0034",
+      "start": 136.89,
+      "end": 139.81,
+      "text": "The problem is peek-a-boo doesn't really work",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0035",
+      "start": 139.81,
+      "end": 143.85,
+      "text": "if I can't see you, and my robot couldn't see me.",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0036",
+      "start": 143.85,
+      "end": 147.89,
+      "text": "But I barred my roommate's face to get the project done,",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0037",
+      "start": 147.89,
+      "end": 150.45,
+      "text": "submitted the assignment, and figured, you know what?",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0038",
+      "start": 150.45,
+      "end": 153.69,
+      "text": "Somebody else will solve this problem.",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0039",
+      "start": 153.69,
+      "end": 156.93,
+      "text": "Not too long after, I was in Hong Kong",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0040",
+      "start": 156.93,
+      "end": 160.35,
+      "text": "for an entrepreneurship competition.",
+      "avg_logprob": -0.166,
+      "no_speech_prob": 0.041,
+      "compression_ratio": 1.554
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0041",
+      "start": 160.35,
+      "end": 165.31,
+      "text": "The organizers decided to take participants on a tour of local startups.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0042",
+      "start": 165.35,
+      "end": 170.07,
+      "text": "One of the startups had a social robot, and they decided to do a demo.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0043",
+      "start": 170.11,
+      "end": 175.03,
+      "text": "The demo worked on everybody until it got to me, and you can probably guess it.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0044",
+      "start": 175.07,
+      "end": 178.03,
+      "text": "It couldn't detect my face.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0045",
+      "start": 178.07,
+      "end": 180.43,
+      "text": "I asked the developers what was going on,",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0046",
+      "start": 180.47,
+      "end": 186.11,
+      "text": "and it turned out we had used the same generic facial recognition software.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0047",
+      "start": 186.15,
+      "end": 187.71,
+      "text": "Halfway around the world,",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.008,
+      "compression_ratio": 1.599
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0048",
+      "start": 187.71,
+      "end": 191.79,
+      "text": "that I learned that algorithmic bias can travel as quickly",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0049",
+      "start": 191.79,
+      "end": 195.79,
+      "text": "as it takes to download some files off of the internet.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0050",
+      "start": 195.79,
+      "end": 196.75,
+      "text": "So what's going on?",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0051",
+      "start": 196.75,
+      "end": 198.87,
+      "text": "Why isn't my face being detected?",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0052",
+      "start": 198.87,
+      "end": 202.27,
+      "text": "Well, we have to look at how we give machine sight.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0053",
+      "start": 202.27,
+      "end": 205.71,
+      "text": "Computer vision uses machine learning techniques",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0054",
+      "start": 205.71,
+      "end": 207.59,
+      "text": "to do facial recognition.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0055",
+      "start": 207.59,
+      "end": 210.11,
+      "text": "So how this works is you create a training set",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0056",
+      "start": 210.11,
+      "end": 211.39,
+      "text": "with examples of faces.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0057",
+      "start": 211.39,
+      "end": 214.35,
+      "text": "This is a face, this is a face, this is not a face.",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0058",
+      "start": 214.35,
+      "end": 216.87,
+      "text": "And over time, you can teach a computer",
+      "avg_logprob": -0.139,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.665
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0059",
+      "start": 216.87,
+      "end": 218.93,
+      "text": "to recognize other faces.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.15,
+      "compression_ratio": 1.533
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0060",
+      "start": 218.93,
+      "end": 224.67,
+      "text": "However, if the training sets aren't really that diverse, any face that deviates too much",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.15,
+      "compression_ratio": 1.533
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0061",
+      "start": 224.67,
+      "end": 230.11,
+      "text": "from the established norm will be harder to detect, which is what was happening to me.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.15,
+      "compression_ratio": 1.533
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0062",
+      "start": 230.11,
+      "end": 232.63,
+      "text": "But don't worry, there's some good news.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.15,
+      "compression_ratio": 1.533
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0063",
+      "start": 232.63,
+      "end": 236.99,
+      "text": "Training sets don't just materialize out of nowhere, we actually can create them.",
+      "avg_logprob": -0.154,
+      "no_speech_prob": 0.15,
+      "compression_ratio": 1.533
+    },
+    {
+      "id": "joy-buolamwini-how-i-m-fighting-bias-in-algorith-b6d15a#0064",
+      "start": 236.99,
+      "end": 240.07,
+      "text": "So there's an opportunity to create full spectrum.",
+      "avg_logprob": -0.381,
+      "no_speech_prob": 0.058,
+      "compression_ratio": 0.862
+    }
+  ]
+}

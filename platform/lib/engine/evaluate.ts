@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { answerQuestion } from "./answer";
-import { getCatalog, getIndex, readJson } from "./data";
+import { allowedMissions, getCatalog, getIndex, readJson } from "./data";
 import { GATE } from "./retrieve";
 import { paths } from "./paths";
 import { makeCanonicalizer, normalize } from "./text";
@@ -262,14 +262,13 @@ export function measureAsr(): AsrReport {
 export async function runEvaluation(mode: "auto" | "quote" | "llm" = "auto", onProgress?: (r: QuestionResult) => void): Promise<EvalReport> {
   const { questions } = readJson<{ questions: EvalQuestion[] }>(paths.evalQuestions);
   const truth = readJson<Truth>(paths.groundTruth);
-  const catalog = getCatalog();
   const results: QuestionResult[] = [];
   let usedMode = "quote";
 
   for (const q of questions) {
     const answer = await answerQuestion(q.question, q.user, mode);
     if (answer.mode === "llm") usedMode = "llm";
-    const userMissions = catalog.users.find((u) => u.login === q.user)?.missions ?? [];
+    const userMissions = allowedMissions(q.user);
     const r = scoreQuestion(q, answer, truth, userMissions);
     results.push(r);
     onProgress?.(r);

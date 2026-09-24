@@ -58,7 +58,7 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4 text-sm text-ink-faint">
           <span>
-            {answer.mode === "quote" ? "Quote mode: the answer is made of the exact words spoken." : `Written by ${answer.usage?.model ?? "a language model"}, every sentence checked against its source.`}{" "}
+            {answer.mode === "quote" ? "Quote mode: the answer is made of the exact words spoken." : `Written by ${(answer.usage?.model ?? "a language model").replace(/:latest$/, "")}, every sentence checked against its source.`}{" "}
             <span className="tabular">Answered in {answer.latencyMs < 1000 ? `${answer.latencyMs} ms` : `${(answer.latencyMs / 1000).toFixed(1)} s`}.</span>
           </span>
           <button type="button" onClick={() => setShowTrace((v) => !v)} aria-expanded={showTrace} className="text-ink-soft underline underline-offset-4 hover:text-ink">

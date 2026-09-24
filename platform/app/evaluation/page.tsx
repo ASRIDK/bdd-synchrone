@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import fs from "node:fs";
 import path from "node:path";
 import { paths } from "@/lib/engine/paths";
@@ -67,12 +68,7 @@ export default function EvaluationPage() {
   const a = quote.asr;
 
   return (
-    <div className="max-w-4xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Quality report</h1>
-      <p className="mt-2 text-ink-soft">
-        The 50 test questions from our reverse brief, written before tuning, scored pass or fail. Failures are listed with
-        the reason. Thresholds were set on half of the questions only; the other half shows how the system does on questions it was not tuned on.
-      </p>
+    <Page title="Quality" accent="report" width="max-w-5xl" intro={<>The 50 test questions from our reverse brief, written before tuning, scored pass or fail. Failures are listed with the reason. Thresholds were set on half of the questions only; the other half shows how the system does on questions it was not tuned on.</>}>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         <Scorecard r={quote} title="Quote mode (no language model)" />
@@ -124,6 +120,6 @@ export default function EvaluationPage() {
       <p className="mt-10 text-sm text-ink-faint">
         Run on {new Date(quote.runAt).toLocaleString("en-GB")}. Reproduce with <code>npm run eval</code>. Questions: data/eval/questions.json.
       </p>
-    </div>
+    </Page>
   );
 }

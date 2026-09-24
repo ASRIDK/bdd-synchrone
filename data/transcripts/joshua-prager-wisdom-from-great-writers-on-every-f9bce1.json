@@ -1,0 +1,266 @@
+{
+  "recording_id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1",
+  "file": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1.m4a",
+  "sha256": "be34d70693bff1cb0292601b8aa768b9bf40a70dbaa12d970a61554cb0cfe082",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.998,
+  "audio_duration_sec": 125.95,
+  "transcribed_at": "2026-09-24T16:41:35Z",
+  "wall_time_sec": 10.52,
+  "realtime_factor": 11.97,
+  "segments": [
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0000",
+      "start": 0.0,
+      "end": 3.76,
+      "text": "Reflection in the mirror to the life that I had been living,",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0001",
+      "start": 3.76,
+      "end": 8.06,
+      "text": "finding a 20 that one is less and less sure of who one is,",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0002",
+      "start": 8.06,
+      "end": 11.36,
+      "text": "emerging at 30 from the wasteland of preparation",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0003",
+      "start": 11.36,
+      "end": 16.68,
+      "text": "into active life, learning at 40 to close softly the doors",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0004",
+      "start": 16.68,
+      "end": 20.8,
+      "text": "to rooms I would not be coming back to.",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0005",
+      "start": 20.8,
+      "end": 24.0,
+      "text": "There I was.",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0006",
+      "start": 24.0,
+      "end": 26.84,
+      "text": "Of course, there we all are.",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0007",
+      "start": 26.84,
+      "end": 29.32,
+      "text": "Milton Glaser, the great graphic designer",
+      "avg_logprob": -0.165,
+      "no_speech_prob": 0.629,
+      "compression_ratio": 1.553
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0008",
+      "start": 29.32,
+      "end": 32.6,
+      "text": "whose beautiful visualizations you see here",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0009",
+      "start": 32.6,
+      "end": 35.96,
+      "text": "and who today is 85 all those years are ripening",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0010",
+      "start": 35.96,
+      "end": 40.96,
+      "text": "and an apotheosis wrote Nabokov noted to me that like art",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0011",
+      "start": 41.56,
+      "end": 45.04,
+      "text": "and like color literature helps us to remember",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0012",
+      "start": 45.04,
+      "end": 46.34,
+      "text": "what we've experienced.",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0013",
+      "start": 47.24,
+      "end": 51.0,
+      "text": "And indeed when I shared the list with my grandfather",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0014",
+      "start": 51.0,
+      "end": 53.2,
+      "text": "he nodded in recognition.",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0015",
+      "start": 53.2,
+      "end": 57.32,
+      "text": "He was then 95 and soon to die.",
+      "avg_logprob": -0.18,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.507
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0016",
+      "start": 57.32,
+      "end": 63.5,
+      "text": "which wrote Roberto Bellagno is the same as never dying.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0017",
+      "start": 63.5,
+      "end": 66.34,
+      "text": "And looking back, he said to me that yes,",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0018",
+      "start": 67.42,
+      "end": 73.94,
+      "text": "Proust was right that at 22, we are sure we will not die.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0019",
+      "start": 73.94,
+      "end": 76.86,
+      "text": "Just as a Thanatologist named Edwin Schneidman was right",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0020",
+      "start": 76.86,
+      "end": 81.28,
+      "text": "that at 90, we are sure we will.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0021",
+      "start": 81.28,
+      "end": 87.58,
+      "text": "It had happened to him as to them.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0022",
+      "start": 87.58,
+      "end": 92.44,
+      "text": "Now the list is done a hundred years.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.541
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0023",
+      "start": 92.44,
+      "end": 98.84,
+      "text": "And looking back over it, I know that I am not done.",
+      "avg_logprob": -0.256,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.353
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0024",
+      "start": 98.84,
+      "end": 104.68,
+      "text": "I still have my life to live, still have many more pages to pass into.",
+      "avg_logprob": -0.256,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.353
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0025",
+      "start": 104.68,
+      "end": 108.96,
+      "text": "And mindful of Mailer, I await 44.",
+      "avg_logprob": -0.256,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.353
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0026",
+      "start": 108.96,
+      "end": 113.51,
+      "text": "Thank you.",
+      "avg_logprob": -0.256,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.353
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-f9bce1#0027",
+      "start": 113.51,
+      "end": 114.01,
+      "text": "Thank you.",
+      "avg_logprob": -0.256,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.353
+    }
+  ]
+}

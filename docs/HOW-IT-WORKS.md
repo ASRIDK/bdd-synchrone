@@ -110,7 +110,29 @@ Six steps, all visible in the "How this answer was built" panel of each answer.
 Every question is logged (user, question, answer status, citations, time, cost) in
 `data/logs/questions.jsonl`, which is what measures real usage after launch.
 
-## 5. How we measured it
+## 5. Sign-in, import and the choice of model
+
+**Files:** `platform/lib/session.ts`, `platform/proxy.ts`, `platform/lib/engine/importer.ts`,
+`platform/lib/engine/llm.ts`
+
+- **Sign-in.** An address ending in `@synchrone.fr` opens a session: a cookie holding the email
+  and an expiry (12 hours), signed with a key kept on the server (HMAC-SHA256). Editing the cookie
+  to become someone else breaks the signature. Every page and API route checks it; `proxy.ts`
+  only sends visitors without a cookie to the login page. A known address gets its missions; an
+  unknown Synchrone address signs in as a guest who sees the open missions only (internal talks).
+- **Import.** The upload is streamed to disk and hashed in the same pass. If the same content is
+  already in the archive, under any name, the import stops and says where it is. Otherwise the
+  file is stored (WAV compressed to AAC), registered with its mission, title, date and
+  participants, and a job runs Whisper on it then rebuilds the index. The page shows each step
+  live. A 13 second meeting was searchable 15 seconds after the upload.
+- **Choice of model.** On "Automatic" (the default), each question checks, at most every 20
+  seconds and with a 0.7 second timeout, whether Ollama is running with the local model. If it is,
+  the local model writes the answer. If not, Claude or Mistral is used if a key is set, otherwise
+  the answer is made of exact quotes. The assistant shows which one answers.
+- **Sources before the answer.** Search takes milliseconds, the model a few seconds. The chat
+  endpoint streams the evidence first, so the user reads the quotes while the model writes.
+
+## 6. How we measured it
 
 **Files:** `data/eval/questions.json`, `platform/lib/engine/evaluate.ts`
 

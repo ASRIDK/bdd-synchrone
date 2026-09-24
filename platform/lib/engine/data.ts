@@ -16,12 +16,38 @@ export function getCatalog(): Catalog {
   return catalogCache;
 }
 
-export function getUser(login: string): User | undefined {
-  return getCatalog().users.find((u) => u.login === login);
+export function isAllowedEmail(email: string): boolean {
+  const domain = email.trim().toLowerCase().split("@")[1] ?? "";
+  return /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email.trim()) && getCatalog().allowedEmailDomains.includes(domain);
 }
 
-export function allowedMissions(login: string): string[] {
-  return getUser(login)?.missions ?? [];
+function guestFromEmail(email: string): User {
+  const local = email.split("@")[0];
+  const name = local
+    .split(/[._-]+/)
+    .filter(Boolean)
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+  return { login: email.toLowerCase(), email: email.toLowerCase(), name, role: "Synchrone consultant", missions: [], guest: true };
+}
+
+// A user is found by login (demo, eval) or by email (sign-in). A valid Synchrone address that
+// is not in the catalog signs in as a guest who sees the open missions only.
+export function getUser(loginOrEmail: string): User | undefined {
+  const key = loginOrEmail.trim().toLowerCase();
+  const known = getCatalog().users.find((u) => u.login === key || u.email.toLowerCase() === key);
+  if (known) return known;
+  return isAllowedEmail(key) ? guestFromEmail(key) : undefined;
+}
+
+export function openMissions(): string[] {
+  return getCatalog().missions.filter((m) => m.open).map((m) => m.id);
+}
+
+export function allowedMissions(loginOrEmail: string): string[] {
+  const user = getUser(loginOrEmail);
+  if (!user) return [];
+  return [...new Set([...user.missions, ...openMissions()])];
 }
 
 export type LoadedIndex = KnowledgeIndex & {

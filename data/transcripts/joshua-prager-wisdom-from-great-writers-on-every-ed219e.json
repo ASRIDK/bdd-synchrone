@@ -1,0 +1,527 @@
+{
+  "recording_id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e",
+  "file": "joshua-prager-wisdom-from-great-writers-on-every-ed219e.m4a",
+  "sha256": "710a21fd20799cdf0f565e117c471b1727ecdd67397908e73133d30d72a9af5c",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.993,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:41:22Z",
+  "wall_time_sec": 18.89,
+  "realtime_factor": 12.71,
+  "segments": [
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0000",
+      "start": 1.74,
+      "end": 19.99,
+      "text": "I'm turning 44 next month, and I have a sense that 44 is going to be a very good year, a year",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.796,
+      "compression_ratio": 1.482
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0001",
+      "start": 19.99,
+      "end": 23.55,
+      "text": "of fulfillment, realization.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.796,
+      "compression_ratio": 1.482
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0002",
+      "start": 23.55,
+      "end": 29.27,
+      "text": "I have that sense not because of anything particular in store for me, but because I read",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.796,
+      "compression_ratio": 1.482
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0003",
+      "start": 29.27,
+      "end": 34.59,
+      "text": "it would be a good year in a 1968 book by Norman Mailer.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.796,
+      "compression_ratio": 1.482
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0004",
+      "start": 34.59,
+      "end": 36.27,
+      "text": "He felt his own age.",
+      "avg_logprob": -0.197,
+      "no_speech_prob": 0.796,
+      "compression_ratio": 1.482
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0005",
+      "start": 36.27,
+      "end": 40.43,
+      "text": "44, wrote Mailer in the Armies of the Night,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0006",
+      "start": 40.43,
+      "end": 43.99,
+      "text": "felt as if he were a solid embodiment of bone, muscle,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0007",
+      "start": 43.99,
+      "end": 46.75,
+      "text": "heart, mind, and sentiment to be a man,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0008",
+      "start": 46.75,
+      "end": 49.23,
+      "text": "as if he had arrived.",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0009",
+      "start": 49.23,
+      "end": 52.37,
+      "text": "Yes, I know Mailer wasn't writing about me,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0010",
+      "start": 52.37,
+      "end": 54.67,
+      "text": "but I also know that he was.",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0011",
+      "start": 54.67,
+      "end": 58.67,
+      "text": "For all of us, you, me, the subject of his book,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0012",
+      "start": 58.67,
+      "end": 60.91,
+      "text": "age more or less in step,",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0013",
+      "start": 60.91,
+      "end": 63.87,
+      "text": "proceed from birth along the same great sequence",
+      "avg_logprob": -0.167,
+      "no_speech_prob": 0.31,
+      "compression_ratio": 1.523
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0014",
+      "start": 63.87,
+      "end": 72.47,
+      "text": "Through the wonders and confinements of childhood, the emancipations and frustrations of adolescence,",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.177,
+      "compression_ratio": 1.662
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0015",
+      "start": 72.47,
+      "end": 80.51,
+      "text": "the empowerments and millstones of adulthood, the recognitions and resignations of old age.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.177,
+      "compression_ratio": 1.662
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0016",
+      "start": 80.51,
+      "end": 84.37,
+      "text": "There are patterns to life, and they are shared.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.177,
+      "compression_ratio": 1.662
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0017",
+      "start": 84.37,
+      "end": 89.83,
+      "text": "As Thomas Mann wrote, it will happen to me as to them.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.177,
+      "compression_ratio": 1.662
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0018",
+      "start": 89.83,
+      "end": 92.11,
+      "text": "We don't simply live these patterns.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.177,
+      "compression_ratio": 1.662
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0019",
+      "start": 92.11,
+      "end": 93.87,
+      "text": "We record them too.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0020",
+      "start": 93.87,
+      "end": 99.99,
+      "text": "We write them down in books where they become narratives that we can then read and recognize.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0021",
+      "start": 99.99,
+      "end": 105.67,
+      "text": "Books tell us who we've been, who we are, who we will be to.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0022",
+      "start": 105.67,
+      "end": 108.31,
+      "text": "So they have for millennia.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0023",
+      "start": 108.31,
+      "end": 115.15,
+      "text": "As James Salter wrote, life passes into pages if it passes into anything.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0024",
+      "start": 115.15,
+      "end": 118.45,
+      "text": "And so six years ago, a thought left to mind.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0025",
+      "start": 118.45,
+      "end": 124.85,
+      "text": "If life passed into pages, there were, somewhere, passages written about every age.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.689
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0026",
+      "start": 124.85,
+      "end": 128.33,
+      "text": "If I could find them, I could assemble them into a narrative.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.689
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0027",
+      "start": 128.33,
+      "end": 134.09,
+      "text": "I could assemble them into a life, a long life, a hundred-year life, the entirety of that",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.689
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0028",
+      "start": 134.09,
+      "end": 139.35,
+      "text": "same great sequence through which the luckiest among us pass.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.689
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0029",
+      "start": 139.35,
+      "end": 147.1,
+      "text": "I was then 37 years old, in the age of discretion, wrote William Trevor.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 1.689
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0030",
+      "start": 147.1,
+      "end": 150.38,
+      "text": "I was prone to meditating on time and age,",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0031",
+      "start": 150.38,
+      "end": 153.18,
+      "text": "in illness in the family and later an injury to me",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0032",
+      "start": 153.18,
+      "end": 157.02,
+      "text": "had long made clear that grown old could not be assumed.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0033",
+      "start": 157.02,
+      "end": 160.72,
+      "text": "And besides, grown old only postponed the inevitable.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0034",
+      "start": 160.72,
+      "end": 163.98,
+      "text": "Time seeing through what circumstance did not.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0035",
+      "start": 163.98,
+      "end": 165.54,
+      "text": "It was all a bit disheartening.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0036",
+      "start": 166.46,
+      "end": 169.34,
+      "text": "A list, though, would last.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0037",
+      "start": 169.34,
+      "end": 172.54,
+      "text": "To chronicle a life year by vulnerable year",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0038",
+      "start": 172.54,
+      "end": 175.78,
+      "text": "would be to clasp and to ground what was fleeting.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.631
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0039",
+      "start": 175.78,
+      "end": 179.12,
+      "text": "would be to provide myself and others a glimpse into the future",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0040",
+      "start": 179.14,
+      "end": 181.54,
+      "text": "whether we made it there or not.",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0041",
+      "start": 181.56,
+      "end": 183.48,
+      "text": "And when I then began to compile my list,",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0042",
+      "start": 183.5,
+      "end": 189.64,
+      "text": "I was quickly obsessed searching pages and pages for ages and ages.",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0043",
+      "start": 189.66,
+      "end": 194.6,
+      "text": "Here we were at every annual step through our first hundred years,",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0044",
+      "start": 194.62,
+      "end": 199.04,
+      "text": "twenty-seven a time of sudden revelations,",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0045",
+      "start": 199.06,
+      "end": 203.98,
+      "text": "sixty-two of subtle diminishments.",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0046",
+      "start": 204.0,
+      "end": 205.6,
+      "text": "I was mindful, of course,",
+      "avg_logprob": -0.227,
+      "no_speech_prob": 0.033,
+      "compression_ratio": 1.584
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0047",
+      "start": 205.6,
+      "end": 208.36,
+      "text": "that such insights were relative.",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0048",
+      "start": 208.36,
+      "end": 212.32,
+      "text": "For starters, we now live longer and so age more slowly.",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0049",
+      "start": 213.12,
+      "end": 216.32,
+      "text": "Christopher Isherwood used the phrase the yellow leaf",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0050",
+      "start": 216.32,
+      "end": 218.52,
+      "text": "to describe a man at 53,",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0051",
+      "start": 218.52,
+      "end": 221.0,
+      "text": "only one century after Lord Byron used it",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0052",
+      "start": 221.0,
+      "end": 225.14,
+      "text": "to describe himself at 36.",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0053",
+      "start": 225.14,
+      "end": 228.06,
+      "text": "I was mindful too that life can swing wildly",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0054",
+      "start": 228.06,
+      "end": 230.58,
+      "text": "and unpredictably from one year to the next",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0055",
+      "start": 230.58,
+      "end": 234.06,
+      "text": "and that people may experience the same age differently.",
+      "avg_logprob": -0.147,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.536
+    },
+    {
+      "id": "joshua-prager-wisdom-from-great-writers-on-every-ed219e#0056",
+      "start": 234.06,
+      "end": 239.98,
+      "text": "But even so, as the list coalesced so too on the page clear as the",
+      "avg_logprob": -0.309,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.048
+    }
+  ]
+}

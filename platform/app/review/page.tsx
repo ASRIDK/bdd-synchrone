@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import fs from "node:fs";
 import { notFound } from "next/navigation";
@@ -39,12 +40,7 @@ export default async function ReviewPage() {
     .filter((x) => x.reasons.length > 0);
 
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Transcript review</h1>
-      <p className="mt-2 text-ink-soft">
-        Sentences worth a human look. Listen, correct the text, save. Corrections are used the next time the index is
-        built (<code>npm run index</code>), and the audio always stays the reference.
-      </p>
+    <Page title="Transcript" accent="review" width="max-w-4xl" intro={<>Sentences worth a human look. Listen, correct the text, save. Corrections are used the next time the index is built (<code>npm run index</code>), and the audio always stays the reference.</>}>
       <p className="mt-2 text-sm text-ink-faint">{queue.length} sentences to review in your missions, {corrections.length} corrections saved.</p>
 
       <ul className="mt-6 space-y-4">
@@ -68,6 +64,6 @@ export default async function ReviewPage() {
           );
         })}
       </ul>
-    </div>
+    </Page>
   );
 }

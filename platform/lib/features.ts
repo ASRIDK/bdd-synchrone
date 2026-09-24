@@ -17,12 +17,36 @@ export type Feature = {
 
 export const FEATURES: Feature[] = [
   {
+    id: "signin",
+    name: "Sign in with a Synchrone email",
+    status: "live",
+    forWho: "everyone",
+    summary: "Sign in with an address ending in @synchrone.fr. The session is signed on the server; each person sees only their missions and the open ones.",
+    href: "/login",
+  },
+  {
+    id: "dashboard",
+    name: "Dashboard",
+    status: "live",
+    forWho: "everyone",
+    summary: "The meetings you took part in, your missions, what changed recently, and where your imports are in the pipeline.",
+    href: "/",
+  },
+  {
     id: "ask",
-    name: "Ask the recordings",
+    name: "Assistant",
     status: "live",
     forWho: "engineers on missions",
-    summary: "A plain-language question returns the answer, the meeting and minute that prove it, whether it is still valid, or a clear \"not found\".",
-    href: "/",
+    summary: "Ask in plain words. Keyword and meaning search find the evidence, then the best model available right now (the local Qwen model when Ollama runs) writes the answer, with the meeting and minute behind every sentence.",
+    href: "/assistant",
+  },
+  {
+    id: "upload",
+    name: "Import a recording",
+    status: "live",
+    forWho: "everyone",
+    summary: "Drop an audio or video file into one of your missions; it is transcribed locally, indexed, and searchable a few minutes later. The same file is never imported twice.",
+    href: "/import",
   },
   {
     id: "library",
@@ -89,19 +113,11 @@ export const FEATURES: Feature[] = [
     needs: "Microsoft Teams bot registration and Graph API recording permissions from Synchrone IT. Plugs into the recording registry (data/recordings.json) as a new source.",
   },
   {
-    id: "upload",
-    name: "Upload a recording",
-    status: "planned",
-    forWho: "everyone",
-    summary: "Drop an existing recording in the library; it is transcribed and indexed automatically.",
-    needs: "A job queue and a transcription worker (the pipeline already exists: pipeline/transcribe.py). Storage in Synchrone's tenant.",
-  },
-  {
     id: "sso",
     name: "Sign-in with Synchrone accounts",
     status: "planned",
     forWho: "Synchrone IT",
-    summary: "Use the login employees already have. Mission access follows directory groups instead of the demo catalog.",
+    summary: "Replace the demo email sign-in with the company account (single sign-on). Mission access then follows directory groups instead of the demo catalog.",
     needs: "Microsoft Entra ID app registration; one group per mission. Replaces lib/session.ts and the users list in catalog.json.",
   },
   {
@@ -110,7 +126,7 @@ export const FEATURES: Feature[] = [
     status: "planned",
     forWho: "engineers",
     summary: "The same question and answer, inside a Teams chat.",
-    needs: "A Teams app calling POST /api/ask with the signed-in user. No change to the engine.",
+    needs: "A Teams app calling POST /api/chat with the signed-in user. No change to the engine.",
   },
   {
     id: "speakers",

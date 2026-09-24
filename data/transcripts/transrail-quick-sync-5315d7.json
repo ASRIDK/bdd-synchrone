@@ -1,0 +1,41 @@
+{
+  "recording_id": "transrail-quick-sync-5315d7",
+  "file": "transrail-quick-sync-5315d7.m4a",
+  "sha256": "5315d757110e02c4a8b07714caf687c94abc330aa73ac27c7c3a12601774928f",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.993,
+  "audio_duration_sec": 13.37,
+  "transcribed_at": "2026-09-24T16:49:15Z",
+  "wall_time_sec": 2.71,
+  "realtime_factor": 4.94,
+  "segments": [
+    {
+      "id": "transrail-quick-sync-5315d7#0000",
+      "start": 0.0,
+      "end": 6.4,
+      "text": "Quick sync on Transrail, the MQTT bridge restarted twice this week under load, so the decision",
+      "avg_logprob": -0.228,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.374
+    },
+    {
+      "id": "transrail-quick-sync-5315d7#0001",
+      "start": 6.4,
+      "end": 10.4,
+      "text": "is, from now on the bridge runs with three replicas instead of two.",
+      "avg_logprob": -0.228,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.374
+    },
+    {
+      "id": "transrail-quick-sync-5315d7#0002",
+      "start": 10.4,
+      "end": 13.36,
+      "text": "Aisha will change the Kubernetes deployment today.",
+      "avg_logprob": -0.228,
+      "no_speech_prob": 0.007,
+      "compression_ratio": 1.374
+    }
+  ]
+}

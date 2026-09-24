@@ -13,24 +13,43 @@ Built for the Business Deep Dive I case (Synchrone x Dataiku x Albert School, Te
 2026). Everything runs on one laptop, with no paid service and no data leaving the machine. A
 language model can be plugged in, but is not needed.
 
+## What you see
+
+1. **Sign in** with a Synchrone email address (ending in `@synchrone.fr`). The login page lists
+   the demo accounts; each one sees different missions.
+2. **Dashboard**: the meetings you took part in, your missions, the decisions a later meeting
+   changed, and where your imports are in the pipeline. A question box sends you to the assistant.
+3. **Import**: drop an audio or video file into one of your missions. It is transcribed on this
+   machine by Whisper, indexed, and searchable a few minutes later (about 15 seconds for a short
+   meeting). The same file is never imported twice, whatever its name.
+4. **Assistant**: a chat. Keyword and meaning search find the evidence and show it at once; then
+   the best model available right now writes the answer. With Ollama running, that is the local
+   Qwen 3.5 model, so nothing leaves the machine. Without it, the answer is made of exact quotes.
+5. Library, Decisions, and under "More": Quality report, Value and cost, Add-ons, Settings.
+
+The design follows the AmplifyME website: black hero bands with heavy capitals and one red
+accent, a white floating navigation bar, white cards on light grey. The one signature element is
+a timeline of the archive, one red dot per recorded meeting, with a playhead sweeping across.
+
 ## Results on our own test set
 
 The 50 test questions from our reverse brief were written before any tuning. Thresholds were
 tuned on half of them ("tune"); the other half ("report") was never used to choose anything.
+Measured on the full 44 minute archive (after the TED talks and a test import were added).
 
 | Target from the reverse brief | Quote mode (no model) | Model mode (local Qwen 3.5, 9.7B) |
 |---|---|---|
-| Questions passed, all 50 | 42 / 50 | 44 / 50 |
+| Questions passed, all 50 | 41 / 50 | 44 / 50 |
 | Questions passed, report half only | 19 / 26 | 21 / 26 |
 | Right passage in the top 3, direct questions (target 90%) | 100% | 100% |
 | Right passage in the top 3, reworded questions (target 80%) | 100% | 100% |
 | Decision changed later, latest shown as current (5 cases) | 5 / 5 | 5 / 5 |
-| Trap questions answered instead of refused (target 0 of 20) | 3 | 0 |
+| Trap questions answered instead of refused (target 0 of 20) | 4 | 0 |
 | Content shown from a mission the user cannot see (target 0) | 0 | 0 |
-| Time to answer, 95th percentile (target under 5 s) | under 20 ms | 9.3 s (laptop) |
+| Time to answer, 95th percentile (target under 5 s) | under 20 ms | 9.1 s (laptop) |
 
-Transcription, measured against the meeting scripts: 17 minutes of audio transcribed on a laptop
-processor at 10.5 times real time, word error rate 5% in English and 2% in French, 29 of 36
+Transcription: 44 minutes of audio transcribed on a laptop processor at 10.6 times real time;
+against the meeting scripts, word error rate 5% in English and 2% in French, 29 of 36
 client terms heard correctly. Every failure is listed, with its reason, on the Quality report
 page and in `data/eval/results.json`.
 
@@ -40,8 +59,8 @@ What the numbers say, plainly:
   mistakes in it.
 - **Knowing what is still true works** on all five decisions that were changed later, including
   one decided in English and changed in a French meeting.
-- **Saying "I don't know" is the hard part.** Without a model, the system refuses 17 of the 20
-  trap questions; the 3 it answers are near misses (the archive talks about Kafka, but never about
+- **Saying "I don't know" is the hard part.** Without a model, the system refuses 16 of the 20
+  trap questions; the 4 it answers are near misses (the archive talks about Kafka, but never about
   the Kafka *version*). It still does not invent anything: in quote mode every sentence shown is
   a verbatim quote. With a model, all 20 traps are refused, at the cost of speed on a laptop.
 
@@ -68,13 +87,16 @@ to `npm run dev`. Other commands, from `platform/`:
 | Command | What it does |
 |---|---|
 | `npm run ask -- thomas.girard "Which day do we deploy?"` | Ask from the terminal, with the full trace |
-| `npm run eval` | Run the 50 questions and write `data/eval/results.json` |
+| `npm run import -- <folder> --mission talks-library` | Import every audio or video file of a folder, like the Import page |
+| `npm run eval -- --quote` (or `--llm`) | Run the 50 questions and write `data/eval/results.json` |
 | `npm run calibrate` | Re-tune the "not found" thresholds on the tune half only |
-| `npm test` | Unit tests of the engine |
+| `npm test` | Unit tests of the engine and of the sign-in |
 
-Use the "Viewing as" menu at the top to switch between the demo users and see the access rules
-at work. To let a model write the answers, open Settings and pick Ollama (local), Mistral (EU)
-or Claude. Keys stay in `data/settings.local.json` on your machine.
+Sign in as any demo account from the login page (for example thomas.girard@synchrone.fr) and
+sign out from the menu under your name to try another one. For the local model, install
+[Ollama](https://ollama.com) and run `ollama pull qwen3.5`; the assistant picks it up by itself
+when it is running. Mistral (EU) or Claude can be used instead from Settings; keys stay in
+`data/settings.local.json` on your machine.
 
 ## How it works
 
@@ -141,23 +163,37 @@ Synchrone's real practices: Finance Consulting, InfraCloud, Cybersecurity, Data 
 
 ## About the demo data
 
-The sample talks provided with the case (TED talks) have no meetings, decisions or missions, so
-they cannot test half of what the brief promises. We wrote 13 meetings that can: decisions changed
-later (one across languages), a troubleshooting story with its ticket, a restricted mission, an
-expert about to leave, French meetings and six English accents. Each line was spoken by a macOS
-voice and recorded as real audio, then transcribed by Whisper like any recording. The script is
-used only to score the answers; the search never reads it. Details in [data/README.md](data/README.md).
+The archive holds 21 recordings, 44 minutes:
+
+- **13 scripted meetings** for four fictional missions. The sample talks provided with the case
+  have no decisions or missions, so they cannot test half of what the brief promises; these can:
+  decisions changed later (one across languages), a troubleshooting story with its ticket, a
+  restricted mission, an expert about to leave, French meetings and six English accents. Each line
+  was spoken by a macOS voice, recorded as real audio, and transcribed by Whisper like any
+  recording. The script is used only to score the answers.
+- **7 TED talk segments** from the case ("Team 9 Flow Videos"), imported through the import
+  pipeline into an open "Talks library" mission. The folder had 8 files; one (`demo_test.wav.wav`)
+  was byte for byte the same audio as a Prager segment and was caught as a duplicate.
+- **1 meeting imported through the Import page** while testing it ("TransRail quick sync", 13
+  seconds, a decision to run the MQTT bridge with three replicas). It was searchable 15 seconds
+  after the upload.
+
+Details in [data/README.md](data/README.md).
 
 ## Limits we know about
 
-- The archive is small (17 minutes). The design is built for thousands of hours
-  ([docs/SCALE.md](docs/SCALE.md)), but the quality numbers above are measured on 17 minutes.
+- The archive is small (44 minutes). The design is built for thousands of hours
+  ([docs/SCALE.md](docs/SCALE.md)), but the quality numbers above are measured on 44 minutes.
 - Demo voices are cleaner than a real meeting room. Real recordings will have more errors; the
   Transcript review add-on exists for that.
 - The decision register uses language rules and meaning similarity, calibrated on these meetings.
   At scale, a model should confirm each "replaced by" link (prepared as an add-on).
-- Identity is simulated with the "Viewing as" menu. In production it comes from Synchrone's
-  company sign-in (prepared as an add-on).
+- Sign-in trusts the email typed in: it is a demo sign-in, with a signed session so the cookie
+  cannot be edited to become someone else. In production the same session is created after the
+  company sign-in (Microsoft Entra ID, prepared as an add-on).
+- Import jobs run one at a time inside the web server. If the server stops during a job, that job
+  stays in its last state and has to be imported again. At scale this becomes a separate worker
+  with a queue ([docs/SCALE.md](docs/SCALE.md)).
 
 ## Why it moved out of Dataiku
 
@@ -165,3 +201,12 @@ The first version was a Dataiku Flow (kept in `archive/dataiku/`). Moving it in 
 things the Flow could not: an interface built for the people who ask the questions, full control
 of the answer pipeline (the verification and "not found" logic are the product), and a setup that
 runs anywhere without a platform licence or a shared quota.
+
+## Growth check
+
+The brief asked that quality drop by at most 5 points when the archive grows. Adding the TED talks
+and a test import took the archive from 17 to 44 minutes (2.6 times). Retrieval did not move (100%
+of right passages in the top 3), access leaks stayed at 0, model mode stayed at 44/50. Quote mode
+went from 42 to 41: one more trap answered ("Which EDR product does Nova use?"), because the word
+"product" now appears in the open talks, which weakens the "never mentioned" signal. That is the
+effect to watch at 10 and 100 times; model mode is not affected by it.

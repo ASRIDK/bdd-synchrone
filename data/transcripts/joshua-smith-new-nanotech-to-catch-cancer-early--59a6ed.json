@@ -1,0 +1,572 @@
+{
+  "recording_id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed",
+  "file": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed.m4a",
+  "sha256": "9d803b5661708ca8b268ad18a868c4a61feff22822d985c3281acb3fb25a8669",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.998,
+  "audio_duration_sec": 240.06,
+  "transcribed_at": "2026-09-24T16:42:25Z",
+  "wall_time_sec": 26.43,
+  "realtime_factor": 9.08,
+  "segments": [
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0000",
+      "start": 0.0,
+      "end": 7.52,
+      "text": "The diagnosis is, unlike other forms of cancer, mammograms do offer an early-stage screening",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0001",
+      "start": 7.52,
+      "end": 9.12,
+      "text": "option for breast cancer.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0002",
+      "start": 9.12,
+      "end": 13.8,
+      "text": "Still, not everyone has this done, or they may develop breast cancer before the middle-aged",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0003",
+      "start": 13.8,
+      "end": 17.72,
+      "text": "recommendation for having a mammogram.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0004",
+      "start": 17.72,
+      "end": 22.2,
+      "text": "So there's still a lot of room for improvement, even for cancers that do have screening options,",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0005",
+      "start": 22.2,
+      "end": 25.68,
+      "text": "and of course, considerable benefits for those that don't.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.789,
+      "compression_ratio": 1.731
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0006",
+      "start": 25.68,
+      "end": 28.44,
+      "text": "A key challenge then for cancer researchers",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0007",
+      "start": 28.44,
+      "end": 31.84,
+      "text": "is to develop methods that make regular screening",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0008",
+      "start": 31.84,
+      "end": 34.68,
+      "text": "for many types of cancers much more accessible.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0009",
+      "start": 36.02,
+      "end": 39.04,
+      "text": "Imagine a scenario where, during your regular checkup,",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0010",
+      "start": 39.04,
+      "end": 42.88,
+      "text": "your doctor can take a simple non-invasive urine sample",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0011",
+      "start": 42.88,
+      "end": 46.24,
+      "text": "or other liquid biopsy and present you with the results",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0012",
+      "start": 46.24,
+      "end": 48.84,
+      "text": "before you even leave the doctor's office.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0013",
+      "start": 48.84,
+      "end": 51.44,
+      "text": "Such a technology could dramatically reduce",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0014",
+      "start": 51.44,
+      "end": 53.72,
+      "text": "the number of people who slipped through the net",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.62
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0015",
+      "start": 53.72,
+      "end": 57.0,
+      "text": "of an early stage cancer diagnosis.",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0016",
+      "start": 57.0,
+      "end": 59.72,
+      "text": "Now my research team of engineers and biochemists",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0017",
+      "start": 59.72,
+      "end": 62.4,
+      "text": "is working on exactly this challenge.",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0018",
+      "start": 62.4,
+      "end": 65.24,
+      "text": "We're working on ways to frequently activate",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0019",
+      "start": 65.24,
+      "end": 69.44,
+      "text": "an early stage cancer alarm by enabling regular screenings",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0020",
+      "start": 69.44,
+      "end": 71.88,
+      "text": "that would start when a person is healthy,",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0021",
+      "start": 71.88,
+      "end": 74.64,
+      "text": "so that action could be taken to stop cancer",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0022",
+      "start": 74.64,
+      "end": 76.92,
+      "text": "the moment it emerges and before it",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0023",
+      "start": 76.92,
+      "end": 80.72,
+      "text": "can progress beyond its infancy.",
+      "avg_logprob": -0.16,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.67
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0024",
+      "start": 80.72,
+      "end": 86.56,
+      "text": "The silver bullet in this case are tiny vesicles, little escape pods regularly shed by cells",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0025",
+      "start": 86.56,
+      "end": 89.32,
+      "text": "called exosomes.",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0026",
+      "start": 89.32,
+      "end": 94.08,
+      "text": "Exosomes are important biomarkers that provide an early warning system for the development",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0027",
+      "start": 94.08,
+      "end": 95.84,
+      "text": "of cancer.",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0028",
+      "start": 95.84,
+      "end": 99.16,
+      "text": "And because they are abundantly present in just about every bodily fluid, including",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0029",
+      "start": 99.16,
+      "end": 107.2,
+      "text": "blood, urine, and saliva, they are extremely attractive for non-invasive liquid biopsies.",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0030",
+      "start": 107.2,
+      "end": 108.76,
+      "text": "There's just one problem.",
+      "avg_logprob": -0.153,
+      "no_speech_prob": 0.004,
+      "compression_ratio": 1.563
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0031",
+      "start": 108.76,
+      "end": 115.84,
+      "text": "An automated system for rapidly sorting these important biomarkers is not currently available.",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0032",
+      "start": 115.84,
+      "end": 122.46,
+      "text": "We've created a technology that we call Nano-DLD that is capable of precisely this.",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0033",
+      "start": 122.46,
+      "end": 128.68,
+      "text": "Automated exosome isolation to aid rapid cancer diagnostics.",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0034",
+      "start": 128.68,
+      "end": 133.08,
+      "text": "Exosomes are the newest early warning weapon, if you will, to emerge on the liquid biopsy",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0035",
+      "start": 133.08,
+      "end": 134.08,
+      "text": "front.",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0036",
+      "start": 134.08,
+      "end": 136.08,
+      "text": "And they are really, really small.",
+      "avg_logprob": -0.171,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0037",
+      "start": 136.08,
+      "end": 140.42,
+      "text": "They measure just 30 to 150 nanometers in diameter.",
+      "avg_logprob": -0.113,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.547
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0038",
+      "start": 140.42,
+      "end": 146.0,
+      "text": "This is so tiny that you could fit about a million of them into a single red blood cell.",
+      "avg_logprob": -0.113,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.547
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0039",
+      "start": 146.0,
+      "end": 151.2,
+      "text": "That's roughly the difference between a golf ball and a fine-grained piece of sand.",
+      "avg_logprob": -0.113,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.547
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0040",
+      "start": 151.2,
+      "end": 156.04,
+      "text": "Once thought to be little bins for unwanted cellular waste, it has been found that cells",
+      "avg_logprob": -0.113,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.547
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0041",
+      "start": 156.04,
+      "end": 162.14,
+      "text": "actually communicate by producing and absorbing these exosomes, which contain surface",
+      "avg_logprob": -0.113,
+      "no_speech_prob": 0.003,
+      "compression_ratio": 1.547
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0042",
+      "start": 162.14,
+      "end": 167.14,
+      "text": "contraceptors, proteins, and other genetic material collected from their cell of origin.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0043",
+      "start": 168.14,
+      "end": 171.14,
+      "text": "Now, when absorbed by a neighboring cell,",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0044",
+      "start": 171.14,
+      "end": 174.14,
+      "text": "exosomes release their contents into the receiving cell",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0045",
+      "start": 174.14,
+      "end": 178.14,
+      "text": "and can set in motion fundamental changes in gene expression.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0046",
+      "start": 178.14,
+      "end": 182.14,
+      "text": "Some good, and this is where cancer comes in, some bad.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0047",
+      "start": 182.14,
+      "end": 186.14,
+      "text": "Because they are clothed in the material of the mother cell",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0048",
+      "start": 186.14,
+      "end": 188.14,
+      "text": "and contain a sample of its environment,",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.68
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0049",
+      "start": 188.14,
+      "end": 194.14,
+      "text": "They provide a genetic snapshot of that cell's health and its origin.",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0050",
+      "start": 194.14,
+      "end": 198.14,
+      "text": "All of these qualities make exosomes invaluable messengers",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0051",
+      "start": 198.14,
+      "end": 203.14,
+      "text": "that potentially allow physicians to eavesdrop on your health at the cellular level.",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0052",
+      "start": 203.14,
+      "end": 208.14,
+      "text": "To catch cancer early, however, you have to frequently intercept these messages",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0053",
+      "start": 208.14,
+      "end": 212.14,
+      "text": "to determine when cancer-causing troublemakers within your body",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0054",
+      "start": 212.14,
+      "end": 217.14,
+      "text": "decide to start staging a coup, which is why regular screening is so critical.",
+      "avg_logprob": -0.105,
+      "no_speech_prob": 0.306,
+      "compression_ratio": 1.621
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0055",
+      "start": 217.14,
+      "end": 221.18,
+      "text": "and why we're developing technologies to make this possible.",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0056",
+      "start": 221.18,
+      "end": 224.24,
+      "text": "Now, while the first exosome-based diagnostics",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0057",
+      "start": 224.24,
+      "end": 226.9,
+      "text": "emerged on the market just this year,",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0058",
+      "start": 226.9,
+      "end": 231.38,
+      "text": "they are not yet part of mainstream health care options.",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0059",
+      "start": 231.38,
+      "end": 232.9,
+      "text": "In addition to their recent emergence,",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0060",
+      "start": 232.9,
+      "end": 236.74,
+      "text": "another factor that's limiting their widespread adoption",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    },
+    {
+      "id": "joshua-smith-new-nanotech-to-catch-cancer-early--59a6ed#0061",
+      "start": 236.74,
+      "end": 240.02,
+      "text": "is that currently no automated exosome isolation system",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.58
+    }
+  ]
+}

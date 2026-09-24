@@ -118,6 +118,13 @@ export function excerpt(text: string, maxWords = 24): string {
   return `${start > 0 ? "... " : ""}${words.slice(start, end).join(" ")}${end < words.length ? " ..." : ""}`;
 }
 
+// A total length in words: "43 min", "2 h 05 min".
+export function formatDuration(seconds: number): string {
+  const m = Math.round(seconds / 60);
+  if (m < 60) return `${m} min`;
+  return `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")} min`;
+}
+
 export function formatTime(seconds: number): string {
   const s = Math.max(0, Math.floor(seconds));
   const h = Math.floor(s / 3600);

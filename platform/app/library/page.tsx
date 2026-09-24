@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import Link from "next/link";
 import { getCatalog, getIndex } from "@/lib/engine/data";
 import { formatTime } from "@/lib/engine/text";
@@ -9,18 +10,14 @@ export default async function LibraryPage() {
   const missions = getCatalog().missions.filter((m) => user.missions.includes(m.id));
 
   return (
-    <div className="max-w-4xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Library</h1>
-      <p className="mt-2 text-ink-soft">
-        Every recording is filed under its mission, with its date and participants. You see the missions you belong to.
-      </p>
+    <Page title="The" accent="library" width="max-w-5xl" intro={<>Every recording is filed under its mission, with its date and participants. You see the missions you belong to.</>}>
 
       <div className="mt-8 space-y-10">
         {missions.map((m) => {
           const recs = idx.recordings.filter((r) => r.mission === m.id).sort((a, b) => b.date.localeCompare(a.date));
           const decisions = idx.decisions.filter((d) => d.mission === m.id);
           return (
-            <section key={m.id}>
+            <section key={m.id} id={m.id} className="scroll-mt-28">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h2 className="text-xl font-semibold">{m.name}</h2>
                 <p className="text-sm text-ink-faint">
@@ -53,6 +50,6 @@ export default async function LibraryPage() {
           );
         })}
       </div>
-    </div>
+    </Page>
   );
 }

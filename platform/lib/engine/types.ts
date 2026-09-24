@@ -7,6 +7,8 @@ export type Mission = {
   sector: string;
   practice: string;
   restricted: boolean;
+  // Open missions are visible to everyone who signs in (internal talks, trainings).
+  open?: boolean;
   description: string;
 };
 
@@ -21,9 +23,13 @@ export type Person = {
 
 export type User = {
   login: string;
+  email: string;
   name: string;
   role: string;
   missions: string[];
+  // Link to the person record, so the dashboard knows which meetings they attended.
+  personId?: string;
+  guest?: boolean;
 };
 
 // aliases: other correct ways to say the term ("Postgres").
@@ -36,6 +42,7 @@ export type Catalog = {
   people: Person[];
   users: User[];
   glossary: GlossaryEntry[];
+  allowedEmailDomains: string[];
 };
 
 export type Recording = {
@@ -47,6 +54,8 @@ export type Recording = {
   participants: string[];
   file: string;
   source: string;
+  importedBy?: string;
+  importedAt?: string;
   durationSec: number;
   transcription: {
     model: string;

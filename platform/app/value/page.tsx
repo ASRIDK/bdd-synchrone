@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import fs from "node:fs";
 import { ValueCalculator } from "@/components/ValueCalculator";
 import { paths } from "@/lib/engine/paths";
@@ -8,13 +9,7 @@ export default function ValuePage() {
   const rtf = report?.asr.realtimeFactor ?? 10;
 
   return (
-    <div className="max-w-4xl">
-      <h1 className="text-[2rem] font-semibold tracking-tight">Value and cost</h1>
-      <p className="mt-2 max-w-2xl text-ink-soft">
-        The business case from our reverse brief, as a calculator. One hour of Synchrone is valued at revenue divided by
-        staff and by the French reference of 1,607 hours a year: €139M / 1,500 / 1,607 = €57.7. It is not a salary, only a
-        way to price an hour.
-      </p>
+    <Page title="Value and" accent="cost" width="max-w-5xl" intro={<>The business case from our reverse brief, as a calculator. One hour of Synchrone is valued at revenue divided by staff and by the French reference of 1,607 hours a year: €139M / 1,500 / 1,607 = €57.7. It is not a salary, only a way to price an hour.</>}>
       <ValueCalculator />
 
       <section className="mt-12">
@@ -97,6 +92,6 @@ export default function ValuePage() {
           which also covers hosting and maintenance. The build cost (€110k, about 10 person-months) dominates the first year.
         </p>
       </section>
-    </div>
+    </Page>
   );
 }
