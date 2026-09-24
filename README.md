@@ -78,7 +78,7 @@ pipeline/.venv/bin/python pipeline/transcribe.py # audio -> timestamped transcri
 cd platform
 npm install
 npm run index        # transcripts -> search index and decision register (about 2 s)
-npm run dev          # http://localhost:3000
+npm run dev          # http://localhost:3120 (or the next free port, printed on start)
 ```
 
 Everything the platform needs is already in `data/`, so after `npm install` you can go straight
