@@ -1,0 +1,218 @@
+BUSINESS DEEP DIVE I · 14 SEP – 2 OCT 2026
+Making a company's own recordings usable again
+Synchrone × Dataiku × Albert School.
+The case
+You have a two-hour lecture recording open. You know the thing you need is in there,
+somewhere in the middle. You drag the progress bar, land too late, drag back, land too early,
+and give up.
+Now scale that up to a company.
+Meetings, internal training, an engineer explaining to a colleague how he solved something. Thousands
+of hours, recorded and never opened again. Two years later the same problem comes back, the
+engineer has left, and nothing tells anyone that the answer is sitting at minute 34 of a file called
+"Weekly product sync".
+So the work is done a second time, from nothing. It takes three weeks.
+Synchrone is an engineering consultancy. What its clients buy is what its engineers know. When one of
+them moves on, what is left is whatever happened to be recorded.
+For the next three weeks, Synchrone is your client.
+THE BRIEF
+Build them something that would turn their recordings into value, and that they
+would pay for.
+Why this is hard
+Getting an answer out of one recording is easy. You watch it. At a thousand hours, nothing is easy any
+more.
+What does it cost to process a thousand hours, and is what you get back worth that?
+When the answer could be in any of a thousand files, how do you land on the right one, and on the
+right minute inside it?
+How do you know the answer you are handed is right, when nobody is going to watch the source to
+check?
+What can all of it answer, and what can it not? Who finds out, and how?
+
+=== PAGE ===
+So what is asked of you is not to make something run. It is to build something that would hold at that
+size, for a price they would accept, and to show both.
+Almost nothing is decided
+Who in the company this is for. What value means for them. What shape the thing takes. What counts as
+good enough, what it may cost, and whether it is worth doing at all.
+None of that is settled, by Synchrone or by us. It is yours to settle, and yours to defend.
+How you work
+Your team
+The teams are in this list. Find your name: the number next to it is your team for the three weeks.
+Every team mixes first and second year, on purpose. The second years have done a BDD before, so this
+time they lead one. The first years learn it from someone who has.
+Your team lead is the last student listed in your team. They receive the Dataiku invitation, and they file
+the team's submissions on Inside. If they cannot, any of you can.
+Everything is in English, what you write, what you submit and what you present. The one exception: a
+team whose members all speak French may write and present in French.
+What you can lean on
+A sample of recorded talks, a couple of hours of it, to build and test on. What you are solving for is
+thousands of hours.
+A Dataiku project, one per team, on Synchrone's shared environment, with a language model and a
+quota to spend.
+2 coaches. Jean-Baptiste Brun, on the work itself, with you at sessions 1 to 3. Nathan Bry, on Dataiku,
+over video during the first two weeks.
+Synchrone's engineers. They know the business, and they have already tried to solve this.
+Your Dataiku access
+One account per team. The invitation goes to your team lead, who creates the account and then shares
+the credentials with the rest of you. You all work under the same login, in the same project, at this
+address.
+Name that project Team X, where X is your team number, so that your coaches can find it. The
+connections you work from are dataiku-managed-storage, managed-snowflake and challenge-llm.
+
+=== PAGE ===
+Your project comes with a quota, and it runs out. Dataiku's guide explains how to join and how not to
+burn it (French version).
+How you are graded
+Every grade is out of 100. The percentages are how much each one counts.
+Reverse brief
+15% · Submission due Wed 16 Sep 23:59 · one per team on Inside
+FORMAT A PDF of 2 pages, named Team X - Reverse brief.pdf.
+CONTENT 1. The problem as you understand it, who in the company has it, and what it costs them
+today.
+2. The routes you could take to solve it, and what you think of each.
+3. What a good result looks like: the cases you will test it on, and the outcome you
+expect for each.
+4. What fixing it would be worth at full scale, what it would cost to build and to run,
+and where each figure comes from.
+5. What you expect to be hard, and who owns what in the team.
+GRADE Problem framing 25%
+Whether you state the problem better than it was given to you, who has it, and what
+it costs them today.
+Options and judgement 25%
+How many real routes you considered, and whether you have a view on each of
+them.
+What a good result is 20%
+Whether your cases and expected outcomes are specific enough to be checked.
+Value and cost 20%
+Whether your estimate of what fixing it is worth and what it would cost holds up,
+and where each figure comes from.
+Risks and ownership 10%
+Whether you name the real difficulties, and whether each person owns something.
+FEEDBACK Your grade and a written feedback on Inside.
+
+=== PAGE ===
+On the Grill 1
+15% · Defence on Fri 18 Sep · one grade per team
+FORMAT 12 minutes in front of a Synchrone engineer: 5 where you present on slides, 7 where
+they challenge you.
+CONTENT Where you are: what you have found in the data, the approach you settled on, and what
+you have already tried.
+GRADE Knowledge of the data 20%
+Whether you have been into the data yourself, and can say what is in it.
+Relevance for the client 15%
+Whether what you propose would matter to the client, who would use it, and why
+they would.
+What you have already tried 25%
+How much ground you covered, and what you learned from each attempt. The ones
+that failed count as much as the ones that worked.
+Holding up under questioning 30%
+Whether your answers stand when pushed, and whether you say you do not know
+when you do not.
+Clarity 10%
+Whether you get to the point in the 5 minutes you have.
+FEEDBACK What the engineer tells you in the room. Your grade on Inside afterwards.
+
+=== PAGE ===
+On the Grill 2
+20% · Defence on Fri 25 Sep · one grade per team
+FORMAT 12 minutes in front of a Synchrone engineer: 5 where you present on slides, 7 where
+they challenge you.
+CONTENT What you changed since the first grill, something that runs, the results you have
+measured against your own cases, and what it would be worth.
+GRADE What changed since the first grill 10%
+Whether you took what you were told, and can say what you changed and why.
+What runs 25%
+Whether there is a working chain from the data to a result, and whether it holds on
+the hard cases.
+Evidence 20%
+Whether the results come from your own cases, failures included.
+The business case 30%
+Whether the value stands against the cost, and whether you can defend the figures.
+Holding up under questioning 15%
+Whether your answers stand when pushed, and whether you say you do not know
+when you do not.
+FEEDBACK What the engineer tells you in the room. Your grade on Inside afterwards.
+
+=== PAGE ===
+The demo
+30% · Submission due Tue 29 Sep 23:59 · one per team on Inside
+FORMAT The video, 4 minutes maximum, as a Loom link or as a file named Team X - Video.
+Nothing past 4 minutes is watched.
+The slides, as a PDF named Team X - Slides.pdf.
+CONTENT The video is a live demonstration of your solution and of how it works, editing allowed.
+The slides are the ones you would present at the final.
+GRADE Only the video is graded.
+What it does 25%
+How much of the problem it solves, shown running end to end on screen.
+How it works 25%
+Whether you show what happens between the data going in and the result coming
+out, step by step.
+The cases you run it on 20%
+Whether you run it on cases that could break it, and show what happens when they
+do.
+Quality of what it produces 20%
+Whether what comes out is right and useful, judged on what you show.
+Clarity 10%
+Whether someone watching it alone, once, can follow it.
+FEEDBACK Your grade and a written feedback on Inside.
+
+=== PAGE ===
+Peer review
+20% · Submission due Thu 1 Oct 23:59 · one per student on Inside
+FORMAT Individual: each of you submits your own. What you write about a teammate reaches
+that teammate with your name on it, and nobody else on the team sees it.
+CONTENT You split 100 points between your teammates, according to how much each of them
+contributed compared with the others, and you write a few lines about each of them.
+You do not rate yourself: your own points are the ones your teammates give you. An
+equal split is 100 divided by the number of teammates you have, so 25 if you have four
+of them.
+GRADE Your grade is the average of what your teammates gave you, as a percentage of an equal
+split, capped at 100. With four teammates an equal split is 25: 25 points gives you 100, 20
+gives you 80, 10 gives you 40, and nothing gives you 0. The points your teammates gave
+you only count if you submitted yours: otherwise your grade is 0.
+FEEDBACK The points and the lines each of your teammates gave you, with their names.
+The calendar
+Mon 14 Sep
+14:00–17:00
+Session 1 · Kick-off, Auditorium
+Synchrone, the case, the terms. Then you meet your team and start.
+Wed 16 Sep
+23:59
+Submission · Reverse brief
+On Inside, one per team.
+Fri 18 Sep
+11:00–15:00
+Session 2 · On the Grill 1, Auditorium
+Your team passes in front of a Synchrone engineer and is graded on it. The rest
+of the time, coaching.
+Fri 25 Sep
+11:00–15:00
+Session 3 · On the Grill 2, Auditorium
+Your team passes in front of a Synchrone engineer and is graded on it. The rest
+of the time, coaching.
+Tue 29 Sep
+23:59
+Submission · The demo
+On Inside, one per team: your video and your slides.
+Thu 1 Oct
+18:00
+Finalists announced
+Selected on the total over the reverse brief, the two On the Grill passages and
+the demo.
+
+=== PAGE ===
+Thu 1 Oct
+23:59
+Submission · Peer review
+On Inside, one per student.
+Fri 2 Oct
+11:00–15:00
+Session 4 · The final, Auditorium
+The selected teams present in front of the whole cohort. The winning teams
+are named at the end.
+If you are stuck
+On the case and the business. Synchrone's engineers, in person only, at the kick-off and at the two On
+the Grill sessions. That is when you reach them, so prepare for it.
+On Dataiku and the tool. Nathan Bry, your Dataiku coach, over video, in his office hours: Tuesday 15,
+Wednesday 16, Monday 21 and Tuesday 22 September, 18:00 to 19:30.
+On everything else. Jean-Baptiste Brun, your coach, in person at sessions 1 to 3.
+BDD I · Synchrone × Dataiku × Albert School · Paris, September 2026
