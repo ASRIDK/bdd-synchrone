@@ -1,0 +1,247 @@
+[
+  {
+    "id": "hexa-01-kickoff",
+    "mission": "hexa-instant-payments",
+    "title": "Kickoff: SCT Inst gateway architecture",
+    "date": "2026-03-10",
+    "language": "en",
+    "lines": [
+      ["h1-01", "camille", "Good morning everyone. This is the kickoff for the Banque Hexa instant payments mission. The goal is to move Hexa's SEPA Instant Credit Transfer flows, SCT Inst, to the new payment gateway before the end of June."],
+      ["h1-02", "rahul", "Thanks Camille. Quick context for Sophie. Today Hexa runs instant payments through a legacy hub that translates everything into an internal format. The new gateway speaks ISO 20022 natively, so we receive and send pacs.008 messages without any translation."],
+      ["h1-03", "sophie", "Understood. What does that change for testing?"],
+      ["h1-04", "rahul", "A lot. The scheme gives us ten seconds end to end for the whole transaction. Inside that budget, the gateway waits for the answer of the clearing house. We need a timeout on that call."],
+      ["h1-05", "camille", "What do you propose?"],
+      ["h1-06", "rahul", "Five seconds. If the clearing does not answer in five seconds, we reject the payment and return it to the customer channel with a clear status."],
+      ["h1-07", "camille", "OK. So the decision is: the gateway timeout towards the clearing is five seconds. Sophie, please build the test cases around that."],
+      ["h1-08", "sophie", "Noted. I will add a test where the clearing answers after six seconds, to check that we reject cleanly."],
+      ["h1-09", "camille", "Second topic, the database for the payment journal."],
+      ["h1-10", "rahul", "Hexa's platform team supports PostgreSQL 14 today. I suggest we stay on PostgreSQL 14 for the journal. It is the version their database administrators operate."],
+      ["h1-11", "camille", "Agreed. We go with PostgreSQL 14 for the payment journal."],
+      ["h1-12", "sophie", "For certification, do we test against EBA Clearing RT1 directly?"],
+      ["h1-13", "rahul", "Yes, on the RT1 test environment from April. We need the certificates from Hexa's security team first."],
+      ["h1-14", "camille", "I will chase that. The target for cutover is the weekend of June twentieth. Anything else?"],
+      ["h1-15", "sophie", "Only one risk. Fraud scoring runs before we send the payment. If it is slow, it eats our ten second budget."],
+      ["h1-16", "rahul", "Good point. Today fraud scoring takes around eight hundred milliseconds. We should keep it under one second."],
+      ["h1-17", "camille", "Let's track that as a risk. Thanks everyone."]
+    ]
+  },
+  {
+    "id": "hexa-02-rt1-weekly",
+    "mission": "hexa-instant-payments",
+    "title": "Weekly: RT1 certification tests",
+    "date": "2026-04-14",
+    "language": "en",
+    "lines": [
+      ["h2-01", "camille", "Weekly point on the RT1 certification. Sophie, where are we?"],
+      ["h2-02", "sophie", "Eighty four test cases passed out of ninety. The six failures are all the same problem. When the clearing times out and the channel retries, the customer is debited twice."],
+      ["h2-03", "rahul", "Yes, I looked at it yesterday. It is ticket HEX-2291. The retry creates a new payment instead of recognising the first one."],
+      ["h2-04", "camille", "How do we fix it?"],
+      ["h2-05", "rahul", "We make the gateway idempotent. Every payment already carries an end to end identifier and a UETR. We store the UETR with a unique constraint in the journal. If the same UETR comes back, we return the status of the first payment instead of creating a new one."],
+      ["h2-06", "sophie", "So the retry after a timeout gets rejected, instead of debiting the customer again?"],
+      ["h2-07", "rahul", "Exactly. The first attempt was rejected at five seconds, so the retry gets the same rejected status, and the channel can start a clean new payment with a new UETR."],
+      ["h2-08", "camille", "Good. Is the five second timeout still right?"],
+      ["h2-09", "rahul", "For now, yes. We keep five seconds. I want more data from RT1 before touching it."],
+      ["h2-10", "camille", "OK. Sophie, once the fix is in, please rerun the six failing cases."],
+      ["h2-11", "sophie", "Will do. I also want a test with two retries in less than one second."],
+      ["h2-12", "camille", "Perfect. Last point: the security team delivered the RT1 certificates on Friday, so we are no longer blocked."]
+    ]
+  },
+  {
+    "id": "hexa-03-design-review",
+    "mission": "hexa-instant-payments",
+    "title": "Design review: clearing timeout and database version",
+    "date": "2026-05-19",
+    "language": "en",
+    "lines": [
+      ["h3-01", "camille", "This design review has two topics: the clearing timeout and the database version. Rahul, go ahead."],
+      ["h3-02", "rahul", "On the timeout. We now have four weeks of RT1 measurements. The ninety ninth percentile of the clearing response time is six point one seconds. With a five second timeout, we reject about two percent of valid payments."],
+      ["h3-03", "sophie", "That matches what we see in testing. Most of the late answers arrive between five and seven seconds."],
+      ["h3-04", "rahul", "So I propose to change the gateway timeout from five seconds to seven seconds. We stay inside the ten second scheme limit, because fraud scoring is now under five hundred milliseconds."],
+      ["h3-05", "camille", "Any objection? No. Then we replace the five second timeout. From today, the gateway timeout towards the clearing is seven seconds. Sophie, please update the test that used six seconds."],
+      ["h3-06", "sophie", "Yes. The six second case now has to pass, and I will add one at eight seconds that must be rejected."],
+      ["h3-07", "camille", "Second topic, the database."],
+      ["h3-08", "rahul", "Hexa's platform team announced that they will stop supporting PostgreSQL 14 next year. They now offer PostgreSQL 16, and its logical replication makes our reporting copy much simpler."],
+      ["h3-09", "camille", "So we move the payment journal from PostgreSQL 14 to PostgreSQL 16 before cutover?"],
+      ["h3-10", "rahul", "Yes. It is a small migration for us now, and a big one after go live."],
+      ["h3-11", "camille", "Decided. The payment journal moves to PostgreSQL 16 instead of 14. Rahul owns the migration."],
+      ["h3-12", "sophie", "I will rerun the full regression on PostgreSQL 16 next week."]
+    ]
+  },
+  {
+    "id": "hexa-04-cutover-retro",
+    "mission": "hexa-instant-payments",
+    "title": "Cutover retrospective",
+    "date": "2026-06-23",
+    "language": "en",
+    "lines": [
+      ["h4-01", "camille", "The cutover happened on Saturday, June twentieth. Let's do the retrospective. What went well?"],
+      ["h4-02", "sophie", "The rollback plan. We rehearsed it twice, so nobody panicked when the first batch of test payments failed at two in the morning."],
+      ["h4-03", "rahul", "The failure was a firewall rule. The new gateway called the clearing from a new IP range, and Hexa's network team had only opened the old one. We fixed it in forty minutes."],
+      ["h4-04", "camille", "What should we do differently next time?"],
+      ["h4-05", "rahul", "Put the network flows in the cutover checklist with the exact IP ranges, and ask the network team to test them the day before."],
+      ["h4-06", "sophie", "And keep the feature flag. We can switch instant payments on or off for each branch with the flag called instant enabled. It saved us on Saturday."],
+      ["h4-07", "camille", "Agreed. We keep the feature flag for each branch for at least three months after go live."],
+      ["h4-08", "camille", "One last thing. Fraud scoring stayed under four hundred milliseconds all weekend. Good work, everyone."]
+    ]
+  },
+  {
+    "id": "transrail-01-landing-zone",
+    "mission": "transrail-cloud",
+    "title": "Landing zone design",
+    "date": "2026-02-05",
+    "language": "en",
+    "lines": [
+      ["t1-01", "thomas", "Welcome to the landing zone design session for TransRail's passenger information system. We are moving it from their data centre to AWS."],
+      ["t1-02", "aisha", "First question is the region."],
+      ["t1-03", "thomas", "TransRail needs the data to stay in France. So we deploy in the Paris region, eu-west-3. The primary region is Paris, full stop."],
+      ["t1-04", "aisha", "Fine for me. For messaging, we keep Kafka, but managed, with Amazon MSK."],
+      ["t1-05", "chloe", "What retention do we set on the topics? The train position topic is the biggest one."],
+      ["t1-06", "aisha", "The old platform kept seven days. Operations like to replay a full week when they investigate a delay."],
+      ["t1-07", "thomas", "Let's keep that. Kafka retention is seven days on all topics."],
+      ["t1-08", "chloe", "The station displays are the tricky part. They don't read Kafka. They talk MQTT."],
+      ["t1-09", "aisha", "Right. We run an MQTT bridge on Kubernetes. It reads the Kafka topics and publishes to the displays over MQTT, with mutual TLS."],
+      ["t1-10", "thomas", "Mutual TLS means certificates on both sides. Who owns the certificate rotation?"],
+      ["t1-11", "aisha", "TransRail's PKI team issues new certificates every year. We only deploy them."],
+      ["t1-12", "thomas", "OK. Let's write that down as a dependency. Next session, we look at costs."]
+    ]
+  },
+  {
+    "id": "transrail-02-incident-certificates",
+    "mission": "transrail-cloud",
+    "title": "Incident review: station displays blank after certificate rotation",
+    "date": "2026-03-26",
+    "language": "en",
+    "lines": [
+      ["t2-01", "thomas", "This is the review of last week's incident. On March nineteenth, the displays in forty stations went blank for two hours. Aisha, can you walk us through it?"],
+      ["t2-02", "aisha", "Sure. At six in the morning, TransRail's PKI team rotated the server certificates of the MQTT broker. The new certificate was signed by a new intermediate certificate authority."],
+      ["t2-03", "aisha", "Our MQTT bridge only trusted the old intermediate. So every TLS handshake failed, and the bridge stopped publishing to the displays."],
+      ["t2-04", "chloe", "And the logs only said handshake failure, nothing about the certificate chain. That is why it took so long to find."],
+      ["t2-05", "thomas", "How did we fix it?"],
+      ["t2-06", "aisha", "We added the new intermediate CA bundle to the bridge truststore, which is the Kubernetes secret called mqtt bridge truststore. Then we restarted the bridge pods. The displays came back within five minutes."],
+      ["t2-07", "thomas", "What is the ticket number?"],
+      ["t2-08", "aisha", "TR-4821. The full procedure is in the ticket."],
+      ["t2-09", "thomas", "Honestly, if this happens again in a year, nobody will remember. So let me say it clearly for the recording. If the displays go blank after a certificate rotation, check the intermediate CA in the bridge truststore first."],
+      ["t2-10", "chloe", "We should also get an alert before it happens."],
+      ["t2-11", "aisha", "Yes. I will add monitoring that warns thirty days before any certificate in the chain expires, and a check that the truststore contains the intermediate of the live certificate."],
+      ["t2-12", "thomas", "Good. That is an action for Aisha. Thanks, all."]
+    ]
+  },
+  {
+    "id": "transrail-03-cost-review",
+    "mission": "transrail-cloud",
+    "title": "Cost review",
+    "date": "2026-06-02",
+    "language": "en",
+    "lines": [
+      ["t3-01", "thomas", "Cost review for the TransRail platform. We are twenty two percent above budget."],
+      ["t3-02", "chloe", "The biggest line is Kafka storage. The train position topic alone is four terabytes, with seven days of retention."],
+      ["t3-03", "aisha", "I checked with operations. They never replay more than two days. Seven days was a habit from the old platform."],
+      ["t3-04", "thomas", "So we reduce the Kafka retention from seven days to three days. That keeps a safety margin over the two days they actually use."],
+      ["t3-05", "chloe", "That cuts storage by more than half."],
+      ["t3-06", "aisha", "Second saving: move the bridge and the consumers to Graviton instances. Our tests show about twenty percent lower compute cost for the same load."],
+      ["t3-07", "thomas", "Do it. And to be clear, the region does not change. We stay in Paris, eu-west-3. Someone asked about Ireland because it is cheaper, but the data must stay in France."],
+      ["t3-08", "thomas", "Last point, deployments. Production deployments go out on Thursday morning, after the weekly change board."],
+      ["t3-09", "aisha", "Noted. Thursday morning."]
+    ]
+  },
+  {
+    "id": "transrail-04-point-deploiement",
+    "mission": "transrail-cloud",
+    "title": "Point déploiement TransRail",
+    "date": "2026-07-08",
+    "language": "fr",
+    "lines": [
+      ["t4-01", "julien", "Bonjour à tous. On fait le point sur les mises en production de TransRail."],
+      ["t4-02", "elise", "Le problème, c'est le jeudi. Le jeudi matin, c'est le pic de trafic des abonnés, et la dernière mise en production a coupé les écrans de deux gares pendant dix minutes."],
+      ["t4-03", "hugo", "Oui. Et le comité des changements a lieu le lundi soir maintenant, donc on peut déployer plus tôt dans la semaine."],
+      ["t4-04", "julien", "Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."],
+      ["t4-05", "elise", "Je préviens les équipes d'exploitation et je mets à jour le calendrier."],
+      ["t4-06", "hugo", "Autre sujet, le pont MQTT. On a eu une nouvelle rotation de certificats la semaine dernière, et cette fois tout s'est bien passé, grâce à l'alerte à trente jours."],
+      ["t4-07", "julien", "Parfait. Ça montre que la correction du ticket TR-4821 tient."],
+      ["t4-08", "elise", "Dernier point : la rétention Kafka à trois jours ne pose aucun problème côté exploitation."],
+      ["t4-09", "julien", "Merci à tous, on se revoit dans un mois."]
+    ]
+  },
+  {
+    "id": "nova-01-ransomware-playbook",
+    "mission": "nova-soc",
+    "title": "Ransomware playbook walkthrough",
+    "date": "2026-04-02",
+    "language": "en",
+    "lines": [
+      ["n1-01", "nadia", "Arjun, you wrote the ransomware playbook for Nova Télécom. Can you walk the team through it, for the recording?"],
+      ["n1-02", "arjun", "Sure. Step one: the SIEM raises an alert when a host renames more than five hundred files in one minute. That is our main ransomware signal."],
+      ["n1-03", "arjun", "Step two: the analyst on duty isolates the host immediately from the EDR console. Isolation first, questions later."],
+      ["n1-04", "nadia", "How long do we have?"],
+      ["n1-05", "arjun", "Our target is to isolate within fifteen minutes of the alert, and to restore service within four hours. That is the MTTR target in the Nova contract."],
+      ["n1-06", "arjun", "Step three: we open a crisis ticket and call Nova's security officer. Step four: we restore from the immutable backups, which are kept for thirty days."],
+      ["n1-07", "nadia", "So the rule is: isolate the host first."],
+      ["n1-08", "arjun", "Yes. Isolate the host first, every time."]
+    ]
+  },
+  {
+    "id": "nova-02-playbook-update",
+    "mission": "nova-soc",
+    "title": "Playbook update after forensic review",
+    "date": "2026-07-15",
+    "language": "en",
+    "lines": [
+      ["n2-01", "nadia", "We need to update the ransomware playbook after the June incident. Arjun, what did the forensic review find?"],
+      ["n2-02", "arjun", "When we isolated the host, the EDR also killed the process tree and the machine rebooted. We lost the memory, and with it the encryption key that was still in memory. Without the key, we had to restore everything from backup."],
+      ["n2-03", "nadia", "So what changes?"],
+      ["n2-04", "arjun", "We change the order. From now on, the analyst captures a memory snapshot first, with the EDR live response tool, and only then isolates the host. The capture takes about four minutes, so we still meet the fifteen minute target."],
+      ["n2-05", "nadia", "That replaces isolate the host first. Decision: capture the memory, then isolate."],
+      ["n2-06", "arjun", "One thing worries me. I am the only one who has done a memory capture on the Nova fleet. The command needs a special profile for Nova's Linux kernels."],
+      ["n2-07", "nadia", "And you leave at the end of October."],
+      ["n2-08", "arjun", "Yes. So I will record a full training on the memory capture before I go, and put the kernel profile in the team vault."],
+      ["n2-09", "nadia", "Please do. Otherwise we lose that knowledge the day you leave."]
+    ]
+  },
+  {
+    "id": "practice-01-evaluer-rag",
+    "mission": "practice-data-ai",
+    "title": "Formation : évaluer un assistant RAG",
+    "date": "2026-03-18",
+    "language": "fr",
+    "lines": [
+      ["p1-01", "elise", "Bonjour à tous. Aujourd'hui, on parle de l'évaluation d'un assistant RAG, c'est-à-dire un assistant qui cherche dans des documents avant de répondre."],
+      ["p1-02", "elise", "Première règle : on écrit les questions de test avant de construire l'assistant, avec pour chaque question le document attendu et la réponse attendue."],
+      ["p1-03", "hugo", "Combien de questions faut-il ?"],
+      ["p1-04", "elise", "Pour commencer, une cinquantaine suffit. Mais il faut des questions pièges, dont la réponse n'est pas dans les documents. L'assistant doit alors répondre qu'il ne sait pas."],
+      ["p1-05", "elise", "Deuxième règle : on mesure la recherche séparément de la génération. Si le bon passage n'est pas dans les trois premiers résultats, aucun modèle ne pourra corriger la réponse."],
+      ["p1-06", "hugo", "Et pour les sources ?"],
+      ["p1-07", "elise", "Chaque phrase de la réponse doit citer sa source. Une phrase sans source, on la supprime."],
+      ["p1-08", "elise", "Troisième règle : on combine la recherche par mots-clés et la recherche sémantique. Les mots-clés trouvent les numéros de ticket et les acronymes, la recherche sémantique trouve les reformulations."]
+    ]
+  },
+  {
+    "id": "practice-02-kafka-lag",
+    "mission": "practice-data-ai",
+    "title": "Practice talk: troubleshooting Kafka consumer lag",
+    "date": "2026-05-06",
+    "language": "en",
+    "lines": [
+      ["p2-01", "chloe", "Hi everyone. This talk is about Kafka consumer lag, based on what we learned on TransRail."],
+      ["p2-02", "chloe", "Consumer lag is the number of messages that a consumer still has to read. When it grows, your data is late. On TransRail, late data means a display showing a train that already left."],
+      ["p2-03", "chloe", "First reflex: check if the lag grows on all partitions, or only on one. If it is only one partition, you probably have a hot key. On TransRail, it was one busy station sending most of the messages."],
+      ["p2-04", "chloe", "The fix was to change the message key from the station identifier to the train identifier, so that the load spreads across the partitions."],
+      ["p2-05", "chloe", "Second reflex: check the processing time of the consumer. If each message takes too long, add consumers. But never add more consumers than partitions, because the extra ones stay idle."],
+      ["p2-06", "chloe", "And third: set an alert. On TransRail, we alert when the lag stays above ten thousand messages for five minutes."]
+    ]
+  },
+  {
+    "id": "practice-03-sepa-instant-intro",
+    "mission": "practice-data-ai",
+    "title": "Practice talk: SEPA Instant for newcomers",
+    "date": "2026-08-12",
+    "language": "en",
+    "lines": [
+      ["p3-01", "rahul", "Welcome. This is an introduction to SEPA Instant payments, for people who are joining finance missions."],
+      ["p3-02", "rahul", "SCT Inst means that the money arrives on the beneficiary's account in less than ten seconds, twenty four hours a day, every day of the year."],
+      ["p3-03", "rahul", "Messages follow the ISO 20022 standard. The payment itself is a pacs.008 message, and the answer is a pacs.002 status report."],
+      ["p3-04", "rahul", "The hardest part in real projects is timeouts. On the Banque Hexa mission, we started with a five second timeout towards the clearing, and moved to seven seconds after measuring real response times. So don't copy a number. Measure it."],
+      ["p3-05", "rahul", "Second trap: retries. A retry must never create a second payment. Use the UETR as an idempotency key."],
+      ["p3-06", "rahul", "And last: since October 2025, the Instant Payments Regulation requires a verification of payee before the payment, so the customer sees whether the name matches the IBAN."]
+    ]
+  }
+]

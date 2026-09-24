@@ -1,0 +1,140 @@
+{
+  "recording_id": "practice-03-sepa-instant-intro",
+  "file": "practice-03-sepa-instant-intro.m4a",
+  "sha256": "161060d68448e89f8e78a0aa3ba6c49f495923b2d8ceccd2a7028494336e7fea",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 67.32,
+  "transcribed_at": "2026-09-24T15:33:40Z",
+  "wall_time_sec": 6.25,
+  "realtime_factor": 10.77,
+  "segments": [
+    {
+      "id": "practice-03-sepa-instant-intro#0000",
+      "start": 0.62,
+      "end": 7.22,
+      "text": "Welcome, this is an introduction to CPER Instant Payments, for people who are joining finance",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0001",
+      "start": 7.22,
+      "end": 8.22,
+      "text": "missions.",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0002",
+      "start": 8.22,
+      "end": 14.34,
+      "text": "SCT Inst means that the money arrives on the beneficiary's account in less than 10 seconds,",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0003",
+      "start": 14.34,
+      "end": 18.34,
+      "text": "24 hours a day, every day of the year.",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0004",
+      "start": 18.34,
+      "end": 25.94,
+      "text": "Messages follow the ISO 20022 standard, the payment itself is a PACS, 008 message,",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0005",
+      "start": 25.94,
+      "end": 30.06,
+      "text": "and the answer is a PACS, 002 status report.",
+      "avg_logprob": -0.209,
+      "no_speech_prob": 0.115,
+      "compression_ratio": 1.472
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0006",
+      "start": 30.06,
+      "end": 33.3,
+      "text": "The hardest part in real projects is timeouts.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0007",
+      "start": 33.3,
+      "end": 38.82,
+      "text": "On the Bank HexA mission, we started with a 5 second timeout towards the clearing, and",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0008",
+      "start": 38.82,
+      "end": 44.98,
+      "text": "moved to 7 seconds after measuring real response times, so don't copy a number.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0009",
+      "start": 44.98,
+      "end": 45.98,
+      "text": "Measure it.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0010",
+      "start": 45.98,
+      "end": 51.1,
+      "text": "Second trap, retries, a retry must never create a second payment.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0011",
+      "start": 51.1,
+      "end": 54.46,
+      "text": "Use the UETR as an idempotency key.",
+      "avg_logprob": -0.207,
+      "no_speech_prob": 0.082,
+      "compression_ratio": 1.493
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0012",
+      "start": 54.46,
+      "end": 61.5,
+      "text": "And last, since October 2025, the instant payments regulation requires a verification",
+      "avg_logprob": -0.234,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.295
+    },
+    {
+      "id": "practice-03-sepa-instant-intro#0013",
+      "start": 61.5,
+      "end": 66.3,
+      "text": "of payee before the payment, so the customer sees whether the name matches the I-BAN.",
+      "avg_logprob": -0.234,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.295
+    }
+  ]
+}

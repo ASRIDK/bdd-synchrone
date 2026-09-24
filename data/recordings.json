@@ -1,0 +1,177 @@
+[
+  {
+    "id": "hexa-01-kickoff",
+    "mission": "hexa-instant-payments",
+    "title": "Kickoff: SCT Inst gateway architecture",
+    "date": "2026-03-10",
+    "language": "en",
+    "participants": [
+      "Camille Moreau",
+      "Rahul Iyer",
+      "Sophie Laurent"
+    ],
+    "file": "hexa-01-kickoff.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "hexa-02-rt1-weekly",
+    "mission": "hexa-instant-payments",
+    "title": "Weekly: RT1 certification tests",
+    "date": "2026-04-14",
+    "language": "en",
+    "participants": [
+      "Camille Moreau",
+      "Sophie Laurent",
+      "Rahul Iyer"
+    ],
+    "file": "hexa-02-rt1-weekly.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "hexa-03-design-review",
+    "mission": "hexa-instant-payments",
+    "title": "Design review: clearing timeout and database version",
+    "date": "2026-05-19",
+    "language": "en",
+    "participants": [
+      "Camille Moreau",
+      "Rahul Iyer",
+      "Sophie Laurent"
+    ],
+    "file": "hexa-03-design-review.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "hexa-04-cutover-retro",
+    "mission": "hexa-instant-payments",
+    "title": "Cutover retrospective",
+    "date": "2026-06-23",
+    "language": "en",
+    "participants": [
+      "Camille Moreau",
+      "Sophie Laurent",
+      "Rahul Iyer"
+    ],
+    "file": "hexa-04-cutover-retro.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "transrail-01-landing-zone",
+    "mission": "transrail-cloud",
+    "title": "Landing zone design",
+    "date": "2026-02-05",
+    "language": "en",
+    "participants": [
+      "Thomas Girard",
+      "Aisha Naidoo",
+      "Chloé Martin"
+    ],
+    "file": "transrail-01-landing-zone.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "transrail-02-incident-certificates",
+    "mission": "transrail-cloud",
+    "title": "Incident review: station displays blank after certificate rotation",
+    "date": "2026-03-26",
+    "language": "en",
+    "participants": [
+      "Thomas Girard",
+      "Aisha Naidoo",
+      "Chloé Martin"
+    ],
+    "file": "transrail-02-incident-certificates.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "transrail-03-cost-review",
+    "mission": "transrail-cloud",
+    "title": "Cost review",
+    "date": "2026-06-02",
+    "language": "en",
+    "participants": [
+      "Thomas Girard",
+      "Chloé Martin",
+      "Aisha Naidoo"
+    ],
+    "file": "transrail-03-cost-review.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "transrail-04-point-deploiement",
+    "mission": "transrail-cloud",
+    "title": "Point déploiement TransRail",
+    "date": "2026-07-08",
+    "language": "fr",
+    "participants": [
+      "Julien Roche",
+      "Élise Fontaine",
+      "Hugo Bernard"
+    ],
+    "file": "transrail-04-point-deploiement.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "nova-01-ransomware-playbook",
+    "mission": "nova-soc",
+    "title": "Ransomware playbook walkthrough",
+    "date": "2026-04-02",
+    "language": "en",
+    "participants": [
+      "Nadia Benali",
+      "Arjun Mehta"
+    ],
+    "file": "nova-01-ransomware-playbook.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "nova-02-playbook-update",
+    "mission": "nova-soc",
+    "title": "Playbook update after forensic review",
+    "date": "2026-07-15",
+    "language": "en",
+    "participants": [
+      "Nadia Benali",
+      "Arjun Mehta"
+    ],
+    "file": "nova-02-playbook-update.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "practice-01-evaluer-rag",
+    "mission": "practice-data-ai",
+    "title": "Formation : évaluer un assistant RAG",
+    "date": "2026-03-18",
+    "language": "fr",
+    "participants": [
+      "Élise Fontaine",
+      "Hugo Bernard"
+    ],
+    "file": "practice-01-evaluer-rag.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "practice-02-kafka-lag",
+    "mission": "practice-data-ai",
+    "title": "Practice talk: troubleshooting Kafka consumer lag",
+    "date": "2026-05-06",
+    "language": "en",
+    "participants": [
+      "Chloé Martin"
+    ],
+    "file": "practice-02-kafka-lag.m4a",
+    "source": "demo_tts"
+  },
+  {
+    "id": "practice-03-sepa-instant-intro",
+    "mission": "practice-data-ai",
+    "title": "Practice talk: SEPA Instant for newcomers",
+    "date": "2026-08-12",
+    "language": "en",
+    "participants": [
+      "Rahul Iyer"
+    ],
+    "file": "practice-03-sepa-instant-intro.m4a",
+    "source": "demo_tts"
+  }
+]

@@ -9,3 +9,8 @@ __pycache__/
 data/settings.local.json
 data/.cache/
 pipeline/work/
+data/logs/
+.playwright-mcp/
+.claude/
+pipeline/.venv
+.omc/

@@ -1,0 +1,176 @@
+{
+  "recording_id": "hexa-03-design-review",
+  "file": "hexa-03-design-review.m4a",
+  "sha256": "b15468d92e2ea91d2d48a60c54008aa467dc2bec88b3fb05261f019f4e7162c2",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 104.96,
+  "transcribed_at": "2026-09-24T15:32:33Z",
+  "wall_time_sec": 10.03,
+  "realtime_factor": 10.46,
+  "segments": [
+    {
+      "id": "hexa-03-design-review#0000",
+      "start": 0.62,
+      "end": 7.62,
+      "text": "This design review has two topics, the clearing timeout and the database version. Rahul, go ahead.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.581
+    },
+    {
+      "id": "hexa-03-design-review#0001",
+      "start": 7.62,
+      "end": 17.62,
+      "text": "On the timeout, we now have four weeks of RT1 measurements. The 99th percentile of the clearing response time is 6.1 seconds.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.581
+    },
+    {
+      "id": "hexa-03-design-review#0002",
+      "start": 17.62,
+      "end": 22.62,
+      "text": "With a 5-second timeout, we reject about 2% of valid payments.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.581
+    },
+    {
+      "id": "hexa-03-design-review#0003",
+      "start": 22.62,
+      "end": 29.62,
+      "text": "That matches what we see in testing. Most of the late answers arrive between 5 and 7 seconds.",
+      "avg_logprob": -0.118,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.581
+    },
+    {
+      "id": "hexa-03-design-review#0004",
+      "start": 29.62,
+      "end": 36.42,
+      "text": "So I propose to change the gateway timeout from 5 seconds to 7 seconds, we stay inside",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0005",
+      "start": 36.42,
+      "end": 43.06,
+      "text": "the 10 second scheme limit, because fraud scoring is now under 500 milliseconds.",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0006",
+      "start": 43.06,
+      "end": 44.06,
+      "text": "Any objection?",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0007",
+      "start": 44.06,
+      "end": 45.06,
+      "text": "No.",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0008",
+      "start": 45.06,
+      "end": 49.42,
+      "text": "Then we replace the 5 second timeout, from today, the gateway timeout towards the",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0009",
+      "start": 49.42,
+      "end": 55.02,
+      "text": "clearing is 7 seconds, Sophie, please update the test that used 6 seconds.",
+      "avg_logprob": -0.201,
+      "no_speech_prob": 0.127,
+      "compression_ratio": 1.641
+    },
+    {
+      "id": "hexa-03-design-review#0010",
+      "start": 55.02,
+      "end": 62.22,
+      "text": "Yes, the 6 second case now has to pass, and I will add one at 8 seconds that must be rejected.",
+      "avg_logprob": -0.237,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.478
+    },
+    {
+      "id": "hexa-03-design-review#0011",
+      "start": 62.22,
+      "end": 65.22,
+      "text": "Second topic, the database.",
+      "avg_logprob": -0.237,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.478
+    },
+    {
+      "id": "hexa-03-design-review#0012",
+      "start": 65.22,
+      "end": 71.42,
+      "text": "Hexa's platform team announced that they will stop supporting PostgreSQL 14 next year.",
+      "avg_logprob": -0.237,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.478
+    },
+    {
+      "id": "hexa-03-design-review#0013",
+      "start": 71.42,
+      "end": 78.62,
+      "text": "They now offer PostgreSQL 16, and its logical replication makes our reporting copy much simpler.",
+      "avg_logprob": -0.237,
+      "no_speech_prob": 0.051,
+      "compression_ratio": 1.478
+    },
+    {
+      "id": "hexa-03-design-review#0014",
+      "start": 78.62,
+      "end": 85.62,
+      "text": "So we move the payment journal from Post-Gur-SQL 14 to Post-Gur-SQL 16 before cut over?",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.617
+    },
+    {
+      "id": "hexa-03-design-review#0015",
+      "start": 85.62,
+      "end": 91.62,
+      "text": "Yes, it is a small migration for us now, and a big one after go live.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.617
+    },
+    {
+      "id": "hexa-03-design-review#0016",
+      "start": 91.62,
+      "end": 98.62,
+      "text": "Decided, the payment journal moves to Post-Gur-SQL 16 instead of 14. Rahul owns the migration.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.617
+    },
+    {
+      "id": "hexa-03-design-review#0017",
+      "start": 98.62,
+      "end": 104.62,
+      "text": "I will rear on the full regression on Post-Gur-SQL 16 next week.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.01,
+      "compression_ratio": 1.617
+    }
+  ]
+}

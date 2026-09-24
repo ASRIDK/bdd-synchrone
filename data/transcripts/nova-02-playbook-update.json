@@ -1,0 +1,167 @@
+{
+  "recording_id": "nova-02-playbook-update",
+  "file": "nova-02-playbook-update.m4a",
+  "sha256": "6586b68e932ad511d5a3e9a99d9abb70c1cc03dd1df7807e3db9c478c9294a45",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 68.99,
+  "transcribed_at": "2026-09-24T15:33:20Z",
+  "wall_time_sec": 6.47,
+  "realtime_factor": 10.66,
+  "segments": [
+    {
+      "id": "nova-02-playbook-update#0000",
+      "start": 0.62,
+      "end": 4.62,
+      "text": "We need to update the ransomware playbook after the June incident.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0001",
+      "start": 4.62,
+      "end": 7.62,
+      "text": "Arjun, what did the forensic review find?",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0002",
+      "start": 7.62,
+      "end": 12.62,
+      "text": "When we isolated the host the EDR also killed the process tree and the machine rebooted,",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0003",
+      "start": 12.62,
+      "end": 17.62,
+      "text": "we lost the memory, and with it the encryption key that was still in memory.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0004",
+      "start": 17.62,
+      "end": 20.62,
+      "text": "Without the key we had to restore everything from backup.",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0005",
+      "start": 20.62,
+      "end": 22.62,
+      "text": "So what changes?",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0006",
+      "start": 22.62,
+      "end": 28.62,
+      "text": "We change the order, from now on the analyst captures a memory snapshot first,",
+      "avg_logprob": -0.119,
+      "no_speech_prob": 0.018,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "nova-02-playbook-update#0007",
+      "start": 28.62,
+      "end": 33.06,
+      "text": "with the EDR live response tool, and only then isolates the host.",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0008",
+      "start": 33.06,
+      "end": 38.02,
+      "text": "The capture takes about 4 minutes so we still meet the 15 minute target.",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0009",
+      "start": 38.02,
+      "end": 40.54,
+      "text": "That replaces isolate the host first,",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0010",
+      "start": 40.54,
+      "end": 44.46,
+      "text": "decision, capture the memory, then isolate.",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0011",
+      "start": 44.46,
+      "end": 49.62,
+      "text": "One thing worries me, I am the only one who has done a memory capture on the Nova fleet.",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0012",
+      "start": 49.62,
+      "end": 53.86,
+      "text": "The command needs a special profile for Nova's Linux kernels.",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0013",
+      "start": 53.86,
+      "end": 56.5,
+      "text": "And you leave at the end of October?",
+      "avg_logprob": -0.175,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.619
+    },
+    {
+      "id": "nova-02-playbook-update#0014",
+      "start": 56.5,
+      "end": 61.22,
+      "text": "Yes, so I will record a full training on the memory capture before I go,",
+      "avg_logprob": -0.25,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.361
+    },
+    {
+      "id": "nova-02-playbook-update#0015",
+      "start": 61.22,
+      "end": 63.7,
+      "text": "and put the kernel profile in the team vault.",
+      "avg_logprob": -0.25,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.361
+    },
+    {
+      "id": "nova-02-playbook-update#0016",
+      "start": 64.42,
+      "end": 68.02,
+      "text": "Please do, otherwise we lose that knowledge the day you leave.",
+      "avg_logprob": -0.25,
+      "no_speech_prob": 0.002,
+      "compression_ratio": 1.361
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "recording_id": "hexa-01-kickoff",
+  "file": "hexa-01-kickoff.m4a",
+  "sha256": "179f78ccdab67c9c9e72644d27382644037557e2e344b8bb726636db61d35060",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 139.26,
+  "transcribed_at": "2026-09-24T15:32:15Z",
+  "wall_time_sec": 12.54,
+  "realtime_factor": 11.11,
+  "segments": [
+    {
+      "id": "hexa-01-kickoff#0000",
+      "start": 0.62,
+      "end": 5.62,
+      "text": "Good morning everyone, this is the kick-off for the Bonk HEXA Instant Payments mission.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.059,
+      "compression_ratio": 1.5
+    },
+    {
+      "id": "hexa-01-kickoff#0001",
+      "start": 5.62,
+      "end": 13.62,
+      "text": "The goal is to move HEXA's SEPA Instant Credit Transfer Flows, SCT Inst, to the new payment gateway before the end of June.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.059,
+      "compression_ratio": 1.5
+    },
+    {
+      "id": "hexa-01-kickoff#0002",
+      "start": 13.62,
+      "end": 16.62,
+      "text": "Thanks Kamil, quick context for Sophie.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.059,
+      "compression_ratio": 1.5
+    },
+    {
+      "id": "hexa-01-kickoff#0003",
+      "start": 16.62,
+      "end": 23.62,
+      "text": "Today HEXA runs instant payments through a legacy hub that translates everything into an internal format.",
+      "avg_logprob": -0.191,
+      "no_speech_prob": 0.059,
+      "compression_ratio": 1.5
+    },
+    {
+      "id": "hexa-01-kickoff#0004",
+      "start": 23.62,
+      "end": 31.38,
+      "text": "The new gateway speaks ISO 20,022 natively, so we receive and send packs, 008 messages",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0005",
+      "start": 31.38,
+      "end": 33.62,
+      "text": "without any translation.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0006",
+      "start": 33.62,
+      "end": 35.06,
+      "text": "Understood.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0007",
+      "start": 35.06,
+      "end": 37.74,
+      "text": "What does that change for testing?",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0008",
+      "start": 37.74,
+      "end": 38.74,
+      "text": "A lot.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0009",
+      "start": 38.74,
+      "end": 42.74,
+      "text": "The scheme gives us 10 seconds end-to-end for the whole transaction.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0010",
+      "start": 42.74,
+      "end": 47.46,
+      "text": "Inside that budget, the gateway waits for the answer of the clearinghouse.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0011",
+      "start": 47.46,
+      "end": 50.42,
+      "text": "We need a timeout on that call.",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0012",
+      "start": 50.42,
+      "end": 52.7,
+      "text": "What do you propose?",
+      "avg_logprob": -0.248,
+      "no_speech_prob": 0.027,
+      "compression_ratio": 1.515
+    },
+    {
+      "id": "hexa-01-kickoff#0013",
+      "start": 52.7,
+      "end": 58.62,
+      "text": "seconds, if the clearing does not answer in 5 seconds, we reject the payment and return",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0014",
+      "start": 58.62,
+      "end": 61.78,
+      "text": "it to the customer channel with a clear status.",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0015",
+      "start": 61.78,
+      "end": 67.58,
+      "text": "Okay, so the decision is, the gateway timeout towards the clearing is 5 seconds.",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0016",
+      "start": 67.58,
+      "end": 70.9,
+      "text": "Sophie, please build the test cases around that.",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0017",
+      "start": 70.9,
+      "end": 77.06,
+      "text": "Noted, I will add a test where the clearing answers after 6 seconds, to check that we",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0018",
+      "start": 77.06,
+      "end": 79.46,
+      "text": "reject cleanly.",
+      "avg_logprob": -0.213,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.715
+    },
+    {
+      "id": "hexa-01-kickoff#0019",
+      "start": 79.46,
+      "end": 86.02,
+      "text": "topic the database for the payment journal hexas platform team supports postgrescal 14",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.119,
+      "compression_ratio": 1.81
+    },
+    {
+      "id": "hexa-01-kickoff#0020",
+      "start": 86.02,
+      "end": 92.1,
+      "text": "today i suggest we stay on postgrescal 14 for the journal it is the version their database",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.119,
+      "compression_ratio": 1.81
+    },
+    {
+      "id": "hexa-01-kickoff#0021",
+      "start": 92.1,
+      "end": 100.82,
+      "text": "administrators operate agreed we go with post grsql 14 for the payment journal for certification",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.119,
+      "compression_ratio": 1.81
+    },
+    {
+      "id": "hexa-01-kickoff#0022",
+      "start": 100.82,
+      "end": 109.06,
+      "text": "do we test against eba clearing rt1 directly yes on the rt1 test environment from april",
+      "avg_logprob": -0.211,
+      "no_speech_prob": 0.119,
+      "compression_ratio": 1.81
+    },
+    {
+      "id": "hexa-01-kickoff#0023",
+      "start": 109.06,
+      "end": 112.66,
+      "text": "We need the certificates from HEXA's security team first.",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0024",
+      "start": 113.46,
+      "end": 118.66,
+      "text": "I will chase that. The target for cutover is the weekend of June 20th. Anything else?",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0025",
+      "start": 119.62,
+      "end": 123.94,
+      "text": "Only one risk. Fraud scoring runs before we send the payment.",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0026",
+      "start": 123.94,
+      "end": 126.82,
+      "text": "If it is slow, it eats our 10 second budget.",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0027",
+      "start": 127.86,
+      "end": 134.5,
+      "text": "Good point. Today fraud scoring takes around 800 milliseconds. We should keep it under one second.",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0028",
+      "start": 135.46,
+      "end": 138.02,
+      "text": "Let's track that as a risk. Thanks everyone.",
+      "avg_logprob": -0.172,
+      "no_speech_prob": 0.006,
+      "compression_ratio": 1.504
+    },
+    {
+      "id": "hexa-01-kickoff#0029",
+      "start": 139.06,
+      "end": 141.06,
+      "text": "You",
+      "avg_logprob": -0.937,
+      "no_speech_prob": 0.696,
+      "compression_ratio": 0.273
+    }
+  ]
+}

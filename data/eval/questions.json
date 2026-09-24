@@ -1,0 +1,69 @@
+{
+  "note": "50 test questions written before tuning, following the reverse brief (section 3). 'refs' are line ids of data/meetings/meetings.json; the evaluation turns them into audio seconds with ground_truth.json. 'split' separates the questions used to calibrate thresholds (tune) from the ones used to report results (report).",
+  "targets": {
+    "exact_hit_at_3": 0.9,
+    "paraphrase_hit_at_3": 0.8,
+    "invented_on_traps": 0,
+    "access_leaks": 0,
+    "p95_latency_ms": 5000,
+    "citation_window_sec": 30
+  },
+  "questions": [
+    { "id": "E01", "split": "tune", "category": "exact", "user": "camille.moreau", "question": "What was ticket HEX-2291 about?", "expected": "answered", "refs": ["h2-03", "h2-05"] },
+    { "id": "E02", "split": "report", "category": "exact", "user": "camille.moreau", "question": "How did we fix the duplicate debits when the channel retries after a timeout?", "expected": "answered", "refs": ["h2-05", "h2-07"] },
+    { "id": "E03", "split": "tune", "category": "exact", "user": "thomas.girard", "question": "What caused the station displays to go blank on March 19th?", "expected": "answered", "refs": ["t2-02", "t2-03"] },
+    { "id": "E04", "split": "report", "category": "exact", "user": "thomas.girard", "question": "What is the fix described in ticket TR-4821?", "expected": "answered", "refs": ["t2-06", "t2-08"] },
+    { "id": "E05", "split": "tune", "category": "exact", "user": "nadia.benali", "question": "Which SIEM signal triggers the ransomware playbook?", "expected": "answered", "refs": ["n1-02"] },
+    { "id": "E06", "split": "report", "category": "exact", "user": "nadia.benali", "question": "What is the MTTR target in the Nova contract?", "expected": "answered", "refs": ["n1-05"] },
+    { "id": "E07", "split": "tune", "category": "exact", "user": "camille.moreau", "question": "What went wrong during the Hexa cutover on June 20th?", "expected": "answered", "refs": ["h4-02", "h4-03"] },
+    { "id": "E08", "split": "report", "category": "exact", "user": "thomas.girard", "question": "Which AWS region does the TransRail platform run in?", "expected": "answered", "refs": ["t1-03", "t3-07"] },
+    { "id": "E09", "split": "tune", "category": "exact", "user": "camille.moreau", "question": "What is the name of the feature flag that switches instant payments per branch?", "expected": "answered", "refs": ["h4-06"] },
+    { "id": "E10", "split": "report", "category": "exact", "user": "new.joiner", "question": "What does SCT Inst guarantee to the beneficiary?", "expected": "answered", "refs": ["p3-02"] },
+
+    { "id": "P01", "split": "tune", "category": "paraphrase", "user": "thomas.girard", "question": "Screens in the train stations stopped working right after new certificates were installed. What should I check first?", "expected": "answered", "refs": ["t2-09", "t2-06", "t2-03"] },
+    { "id": "P02", "split": "report", "category": "paraphrase", "user": "camille.moreau", "question": "Customers were charged twice when a payment was sent again. How was that solved?", "expected": "answered", "refs": ["h2-02", "h2-05"] },
+    { "id": "P03", "split": "tune", "category": "paraphrase", "user": "nadia.benali", "question": "Who on the team knows how to grab the RAM of a Nova Linux machine?", "expected": "answered", "refs": ["n2-06"] },
+    { "id": "P04", "split": "report", "category": "paraphrase", "user": "thomas.girard", "question": "Why did we cut how long Kafka keeps its messages?", "expected": "answered", "refs": ["t3-02", "t3-03", "t3-04"] },
+    { "id": "P05", "split": "tune", "category": "paraphrase", "user": "new.joiner", "question": "Our Kafka readers fall behind on a single partition only. What is the likely cause?", "expected": "answered", "refs": ["p2-03"] },
+    { "id": "P06", "split": "report", "category": "paraphrase", "user": "camille.moreau", "question": "Why was the payment journal database upgraded before go live?", "expected": "answered", "refs": ["h3-08", "h3-10"] },
+    { "id": "P07", "split": "tune", "category": "paraphrase", "user": "thomas.girard", "question": "How much cheaper are the ARM based instances for the bridge and consumers?", "expected": "answered", "refs": ["t3-06"] },
+    { "id": "P08", "split": "report", "category": "paraphrase", "user": "new.joiner", "question": "Why shouldn't I reuse the Hexa timeout value on my new payments project?", "expected": "answered", "refs": ["p3-04"] },
+
+    { "id": "X01", "split": "tune", "category": "cross_language", "user": "new.joiner", "question": "When evaluating a RAG assistant, how many test questions should we start with?", "expected": "answered", "refs": ["p1-04"] },
+    { "id": "X02", "split": "report", "category": "cross_language", "user": "new.joiner", "question": "Why should retrieval be measured separately from generation?", "expected": "answered", "refs": ["p1-05"] },
+    { "id": "X03", "split": "report", "category": "cross_language", "user": "thomas.girard", "question": "Did the certificate rotation in July cause problems again on TransRail?", "expected": "answered", "refs": ["t4-06", "t4-07"] },
+
+    { "id": "M01", "split": "tune", "category": "multi_source", "user": "thomas.girard", "question": "Summarise everything we know about the MQTT bridge certificates.", "expected": "answered", "refs": ["t1-10", "t1-11", "t2-03", "t2-06", "t2-11", "t4-06"], "minMeetings": 2 },
+    { "id": "M02", "split": "report", "category": "multi_source", "user": "direction", "question": "How did the Hexa clearing timeout evolve over the mission?", "expected": "answered", "refs": ["h1-07", "h3-05", "h3-04", "p3-04"], "minMeetings": 2 },
+    { "id": "M03", "split": "tune", "category": "multi_source", "user": "direction", "question": "What do we know about Kafka on TransRail, from retention to consumer lag?", "expected": "answered", "refs": ["t1-07", "t3-04", "p2-03", "p2-06", "t4-08"], "minMeetings": 2 },
+    { "id": "M04", "split": "report", "category": "multi_source", "user": "elise.fontaine", "question": "What did we learn about fraud scoring latency on Hexa?", "expected": "answered", "refs": ["h1-15", "h1-16", "h3-04", "h4-08"], "minMeetings": 2 },
+
+    { "id": "S01", "split": "tune", "category": "superseded", "user": "camille.moreau", "question": "What is the gateway timeout towards the clearing?", "expected": "answered", "refs": ["h3-05"], "current": "h3-05", "history": "h1-07" },
+    { "id": "S02", "split": "report", "category": "superseded", "user": "camille.moreau", "question": "Which PostgreSQL version does the Hexa payment journal use?", "expected": "answered", "refs": ["h3-11", "h3-09"], "current": "h3-11", "history": "h1-11" },
+    { "id": "S03", "split": "tune", "category": "superseded", "user": "thomas.girard", "question": "What is the Kafka retention on TransRail?", "expected": "answered", "refs": ["t3-04"], "current": "t3-04", "history": "t1-07" },
+    { "id": "S04", "split": "report", "category": "superseded", "user": "nadia.benali", "question": "In the ransomware playbook, what is the first thing to do on an infected host?", "expected": "answered", "refs": ["n2-04", "n2-05"], "current": "n2-05", "history": "n1-08" },
+    { "id": "S05", "split": "report", "category": "superseded", "user": "thomas.girard", "question": "On which day do TransRail production deployments go out?", "expected": "answered", "refs": ["t4-04"], "current": "t4-04", "history": "t3-08" },
+
+    { "id": "T01", "split": "tune", "category": "not_in_archive", "user": "camille.moreau", "question": "Which vendor provides fraud scoring for Banque Hexa?", "expected": "not_found" },
+    { "id": "T02", "split": "report", "category": "not_in_archive", "user": "thomas.girard", "question": "What is the disaster recovery region for TransRail?", "expected": "not_found" },
+    { "id": "T03", "split": "tune", "category": "not_in_archive", "user": "thomas.girard", "question": "How many display screens does TransRail have in total?", "expected": "not_found" },
+    { "id": "T04", "split": "report", "category": "not_in_archive", "user": "camille.moreau", "question": "What was the budget of the Hexa mission?", "expected": "not_found" },
+    { "id": "T05", "split": "tune", "category": "not_in_archive", "user": "nadia.benali", "question": "Which EDR product does Nova Télécom use?", "expected": "not_found" },
+    { "id": "T06", "split": "report", "category": "not_in_archive", "user": "new.joiner", "question": "What is Synchrone's policy on remote work?", "expected": "not_found" },
+    { "id": "T07", "split": "tune", "category": "not_in_archive", "user": "thomas.girard", "question": "Who is the CTO of TransRail?", "expected": "not_found" },
+    { "id": "T08", "split": "report", "category": "not_in_archive", "user": "camille.moreau", "question": "When does Hexa go live with SEPA Direct Debit?", "expected": "not_found" },
+    { "id": "T09", "split": "tune", "category": "not_in_archive", "user": "elise.fontaine", "question": "What score did our RAG assistant reach in the evaluation training?", "expected": "not_found" },
+    { "id": "T10", "split": "report", "category": "not_in_archive", "user": "thomas.girard", "question": "Which Kafka version does TransRail run?", "expected": "not_found" },
+    { "id": "T11", "split": "tune", "category": "not_in_archive", "user": "camille.moreau", "question": "Which bank acquired Banque Hexa?", "expected": "not_found" },
+    { "id": "T12", "split": "report", "category": "not_in_archive", "user": "nadia.benali", "question": "How many ransomware incidents did Nova have in 2025?", "expected": "not_found" },
+    { "id": "T13", "split": "tune", "category": "not_in_archive", "user": "new.joiner", "question": "How do I book a meeting room in the Aix-en-Provence office?", "expected": "not_found" },
+    { "id": "T14", "split": "report", "category": "not_in_archive", "user": "thomas.girard", "question": "What was decided about moving TransRail to Azure?", "expected": "not_found" },
+    { "id": "T15", "split": "tune", "category": "not_in_archive", "user": "camille.moreau", "question": "What is the interest rate on Hexa savings accounts?", "expected": "not_found" },
+    { "id": "T16", "split": "report", "category": "not_in_archive", "user": "elise.fontaine", "question": "Which cloud provider hosts the Data and AI practice lab?", "expected": "not_found" },
+
+    { "id": "A01", "split": "tune", "category": "access", "user": "elise.fontaine", "question": "What is the first step of the Nova ransomware playbook?", "expected": "not_found", "forbidden": "nova-soc" },
+    { "id": "A02", "split": "report", "category": "access", "user": "new.joiner", "question": "What caused the TransRail station displays to go blank?", "expected": "not_found", "forbidden": "transrail-cloud" },
+    { "id": "A03", "split": "tune", "category": "access", "user": "camille.moreau", "question": "Who is the only person who can do memory captures on the Nova fleet?", "expected": "not_found", "forbidden": "nova-soc" },
+    { "id": "A04", "split": "report", "category": "access", "user": "thomas.girard", "question": "What was ticket HEX-2291 about?", "expected": "not_found", "forbidden": "hexa-instant-payments" }
+  ]
+}

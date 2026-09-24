@@ -1,0 +1,1208 @@
+{
+  "runAt": "2026-09-24T16:07:49.470Z",
+  "mode": "quote",
+  "gate": {
+    "minSegmentSimilarity": 0.78,
+    "strongSegmentSimilarity": 0.86,
+    "maxUnknownTopicShare": 0.2,
+    "minCoverage": 0.6
+  },
+  "windowSec": 30,
+  "summary": {
+    "all": {
+      "total": 50,
+      "passed": 42,
+      "rate": 0.84
+    },
+    "report": {
+      "total": 26,
+      "passed": 19,
+      "rate": 0.7307692307692307
+    },
+    "byCategory": {
+      "exact": {
+        "total": 10,
+        "passed": 10,
+        "rate": 1
+      },
+      "paraphrase": {
+        "total": 8,
+        "passed": 7,
+        "rate": 0.875
+      },
+      "cross_language": {
+        "total": 3,
+        "passed": 1,
+        "rate": 0.3333333333333333
+      },
+      "multi_source": {
+        "total": 4,
+        "passed": 2,
+        "rate": 0.5
+      },
+      "superseded": {
+        "total": 5,
+        "passed": 5,
+        "rate": 1
+      },
+      "not_in_archive": {
+        "total": 16,
+        "passed": 13,
+        "rate": 0.8125
+      },
+      "access": {
+        "total": 4,
+        "passed": 4,
+        "rate": 1
+      }
+    },
+    "exactHitAt3": 1,
+    "paraphraseHitAt3": 1,
+    "answeredTraps": 3,
+    "accessLeaks": 0,
+    "latencyP50": 3,
+    "latencyP95": 11,
+    "costPerQuestionUsd": 0
+  },
+  "asr": {
+    "meetings": [
+      {
+        "id": "hexa-01-kickoff",
+        "language": "en",
+        "words": 326,
+        "wer": 0.06441717791411043
+      },
+      {
+        "id": "hexa-02-rt1-weekly",
+        "language": "en",
+        "words": 230,
+        "wer": 0.017391304347826087
+      },
+      {
+        "id": "hexa-03-design-review",
+        "language": "en",
+        "words": 243,
+        "wer": 0.07818930041152264
+      },
+      {
+        "id": "hexa-04-cutover-retro",
+        "language": "en",
+        "words": 162,
+        "wer": 0.018518518518518517
+      },
+      {
+        "id": "transrail-01-landing-zone",
+        "language": "en",
+        "words": 190,
+        "wer": 0.03684210526315789
+      },
+      {
+        "id": "transrail-02-incident-certificates",
+        "language": "en",
+        "words": 237,
+        "wer": 0.05485232067510549
+      },
+      {
+        "id": "transrail-03-cost-review",
+        "language": "en",
+        "words": 158,
+        "wer": 0.03164556962025317
+      },
+      {
+        "id": "transrail-04-point-deploiement",
+        "language": "fr",
+        "words": 165,
+        "wer": 0.024242424242424242
+      },
+      {
+        "id": "nova-01-ransomware-playbook",
+        "language": "en",
+        "words": 137,
+        "wer": 0.10218978102189781
+      },
+      {
+        "id": "nova-02-playbook-update",
+        "language": "en",
+        "words": 187,
+        "wer": 0
+      },
+      {
+        "id": "practice-01-evaluer-rag",
+        "language": "fr",
+        "words": 166,
+        "wer": 0.012048192771084338
+      },
+      {
+        "id": "practice-02-kafka-lag",
+        "language": "en",
+        "words": 162,
+        "wer": 0.06172839506172839
+      },
+      {
+        "id": "practice-03-sepa-instant-intro",
+        "language": "en",
+        "words": 152,
+        "wer": 0.02631578947368421
+      }
+    ],
+    "werEnglish": 0.045787545787545784,
+    "werFrench": 0.01812688821752266,
+    "glossary": {
+      "checked": 36,
+      "heard": 29,
+      "missed": [
+        "pacs.008 (hexa-01-kickoff)",
+        "PostgreSQL (hexa-01-kickoff)",
+        "idempotent (hexa-02-rt1-weekly)",
+        "Graviton (transrail-03-cost-review)",
+        "TR-4821 (transrail-04-point-deploiement)",
+        "SIEM (nova-01-ransomware-playbook)",
+        "RAG (practice-01-evaluer-rag)"
+      ]
+    },
+    "realtimeFactor": 10.545510392136789,
+    "audioMinutes": 17.166333333333334
+  },
+  "questions": [
+    {
+      "id": "E01",
+      "split": "tune",
+      "category": "exact",
+      "user": "camille.moreau",
+      "question": "What was ticket HEX-2291 about?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-02-rt1-weekly @ 17s"
+      ],
+      "latencyMs": 429,
+      "costUsd": 0
+    },
+    {
+      "id": "E02",
+      "split": "report",
+      "category": "exact",
+      "user": "camille.moreau",
+      "question": "How did we fix the duplicate debits when the channel retries after a timeout?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-03-design-review @ 45s",
+        "hexa-02-rt1-weekly @ 70s"
+      ],
+      "latencyMs": 34,
+      "costUsd": 0
+    },
+    {
+      "id": "E03",
+      "split": "tune",
+      "category": "exact",
+      "user": "thomas.girard",
+      "question": "What caused the station displays to go blank on March 19th?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-02-incident-certificates @ 0s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "E04",
+      "split": "report",
+      "category": "exact",
+      "user": "thomas.girard",
+      "question": "What is the fix described in ticket TR-4821?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-02-incident-certificates @ 61s",
+        "transrail-04-point-deploiement @ 44s",
+        "practice-02-kafka-lag @ 31s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "E05",
+      "split": "tune",
+      "category": "exact",
+      "user": "nadia.benali",
+      "question": "Which SIEM signal triggers the ransomware playbook?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "nova-01-ransomware-playbook @ 7s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "E06",
+      "split": "report",
+      "category": "exact",
+      "user": "nadia.benali",
+      "question": "What is the MTTR target in the Nova contract?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "nova-01-ransomware-playbook @ 36s"
+      ],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "E07",
+      "split": "tune",
+      "category": "exact",
+      "user": "camille.moreau",
+      "question": "What went wrong during the Hexa cutover on June 20th?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-04-cutover-retro @ 0s",
+        "hexa-01-kickoff @ 113s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "E08",
+      "split": "report",
+      "category": "exact",
+      "user": "thomas.girard",
+      "question": "Which AWS region does the TransRail platform run in?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-01-landing-zone @ 0s",
+        "transrail-02-incident-certificates @ 11s",
+        "practice-02-kafka-lag @ 0s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "E09",
+      "split": "tune",
+      "category": "exact",
+      "user": "camille.moreau",
+      "question": "What is the name of the feature flag that switches instant payments per branch?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-04-cutover-retro @ 38s"
+      ],
+      "latencyMs": 11,
+      "costUsd": 0
+    },
+    {
+      "id": "E10",
+      "split": "report",
+      "category": "exact",
+      "user": "new.joiner",
+      "question": "What does SCT Inst guarantee to the beneficiary?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "practice-03-sepa-instant-intro @ 8s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P01",
+      "split": "tune",
+      "category": "paraphrase",
+      "user": "thomas.girard",
+      "question": "Screens in the train stations stopped working right after new certificates were installed. What should I check first?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-02-incident-certificates @ 73s",
+        "practice-02-kafka-lag @ 31s",
+        "practice-02-kafka-lag @ 18s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P02",
+      "split": "report",
+      "category": "paraphrase",
+      "user": "camille.moreau",
+      "question": "Customers were charged twice when a payment was sent again. How was that solved?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-02-rt1-weekly @ 11s",
+        "hexa-04-cutover-retro @ 7s",
+        "hexa-02-rt1-weekly @ 48s"
+      ],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "P03",
+      "split": "tune",
+      "category": "paraphrase",
+      "user": "nadia.benali",
+      "question": "Who on the team knows how to grab the RAM of a Nova Linux machine?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "nova-01-ransomware-playbook @ 0s",
+        "nova-02-playbook-update @ 49s"
+      ],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "P04",
+      "split": "report",
+      "category": "paraphrase",
+      "user": "thomas.girard",
+      "question": "Why did we cut how long Kafka keeps its messages?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P05",
+      "split": "tune",
+      "category": "paraphrase",
+      "user": "new.joiner",
+      "question": "Our Kafka readers fall behind on a single partition only. What is the likely cause?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "practice-02-kafka-lag @ 23s",
+        "practice-02-kafka-lag @ 44s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P06",
+      "split": "report",
+      "category": "paraphrase",
+      "user": "camille.moreau",
+      "question": "Why was the payment journal database upgraded before go live?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "hexa-03-design-review @ 78s",
+        "hexa-01-kickoff @ 92s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P07",
+      "split": "tune",
+      "category": "paraphrase",
+      "user": "thomas.girard",
+      "question": "How much cheaper are the ARM based instances for the bridge and consumers?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "P08",
+      "split": "report",
+      "category": "paraphrase",
+      "user": "new.joiner",
+      "question": "Why shouldn't I reuse the Hexa timeout value on my new payments project?",
+      "expected": "answered",
+      "status": "not_found",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": false,
+        "citationWithin30s": false
+      },
+      "failure": "Said not found, but the answer is in the recordings.",
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "X01",
+      "split": "tune",
+      "category": "cross_language",
+      "user": "new.joiner",
+      "question": "When evaluating a RAG assistant, how many test questions should we start with?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true
+      },
+      "citations": [
+        "practice-01-evaluer-rag @ 9s",
+        "practice-02-kafka-lag @ 18s",
+        "practice-02-kafka-lag @ 52s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "X02",
+      "split": "report",
+      "category": "cross_language",
+      "user": "new.joiner",
+      "question": "Why should retrieval be measured separately from generation?",
+      "expected": "answered",
+      "status": "not_found",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": false,
+        "citationWithin30s": false
+      },
+      "failure": "Said not found, but the answer is in the recordings.",
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "X03",
+      "split": "report",
+      "category": "cross_language",
+      "user": "thomas.girard",
+      "question": "Did the certificate rotation in July cause problems again on TransRail?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": false
+      },
+      "failure": "No citation within 30 s of the right moment.",
+      "citations": [
+        "transrail-02-incident-certificates @ 11s",
+        "transrail-01-landing-zone @ 69s",
+        "transrail-02-incident-certificates @ 73s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "M01",
+      "split": "tune",
+      "category": "multi_source",
+      "user": "thomas.girard",
+      "question": "Summarise everything we know about the MQTT bridge certificates.",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "meetingsCited": 2
+      },
+      "citations": [
+        "transrail-02-incident-certificates @ 44s",
+        "transrail-01-landing-zone @ 60s",
+        "transrail-02-incident-certificates @ 24s"
+      ],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "M02",
+      "split": "report",
+      "category": "multi_source",
+      "user": "direction",
+      "question": "How did the Hexa clearing timeout evolve over the mission?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "meetingsCited": 2
+      },
+      "citations": [
+        "practice-03-sepa-instant-intro @ 33s",
+        "hexa-04-cutover-retro @ 15s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "M03",
+      "split": "tune",
+      "category": "multi_source",
+      "user": "direction",
+      "question": "What do we know about Kafka on TransRail, from retention to consumer lag?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "meetingsCited": 1
+      },
+      "failure": "Cited 1 meeting(s), expected at least 2.",
+      "citations": [
+        "practice-02-kafka-lag @ 0s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "M04",
+      "split": "report",
+      "category": "multi_source",
+      "user": "elise.fontaine",
+      "question": "What did we learn about fraud scoring latency on Hexa?",
+      "expected": "answered",
+      "status": "not_found",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": false,
+        "citationWithin30s": false,
+        "meetingsCited": 0
+      },
+      "failure": "Said not found, but the answer is in the recordings.",
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "S01",
+      "split": "tune",
+      "category": "superseded",
+      "user": "camille.moreau",
+      "question": "What is the gateway timeout towards the clearing?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "currentShownAsCurrent": true,
+        "oldShownAsCurrent": false
+      },
+      "citations": [
+        "hexa-03-design-review @ 45s",
+        "hexa-01-kickoff @ 61s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "S02",
+      "split": "report",
+      "category": "superseded",
+      "user": "camille.moreau",
+      "question": "Which PostgreSQL version does the Hexa payment journal use?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "currentShownAsCurrent": true,
+        "oldShownAsCurrent": false
+      },
+      "citations": [
+        "hexa-03-design-review @ 78s",
+        "hexa-01-kickoff @ 92s"
+      ],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "S03",
+      "split": "tune",
+      "category": "superseded",
+      "user": "thomas.girard",
+      "question": "What is the Kafka retention on TransRail?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "currentShownAsCurrent": true,
+        "oldShownAsCurrent": false
+      },
+      "citations": [
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
+      ],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "S04",
+      "split": "report",
+      "category": "superseded",
+      "user": "nadia.benali",
+      "question": "In the ransomware playbook, what is the first thing to do on an infected host?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "currentShownAsCurrent": true,
+        "oldShownAsCurrent": false
+      },
+      "citations": [
+        "nova-02-playbook-update @ 22s",
+        "nova-01-ransomware-playbook @ 50s"
+      ],
+      "latencyMs": 5,
+      "costUsd": 0
+    },
+    {
+      "id": "S05",
+      "split": "report",
+      "category": "superseded",
+      "user": "thomas.girard",
+      "question": "On which day do TransRail production deployments go out?",
+      "expected": "answered",
+      "status": "answered",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "hitAt3": true,
+        "answered": true,
+        "citationWithin30s": true,
+        "currentShownAsCurrent": true,
+        "oldShownAsCurrent": false
+      },
+      "citations": [
+        "transrail-04-point-deploiement @ 22s",
+        "transrail-03-cost-review @ 55s"
+      ],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "T01",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "camille.moreau",
+      "question": "Which vendor provides fraud scoring for Banque Hexa?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T02",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "thomas.girard",
+      "question": "What is the disaster recovery region for TransRail?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 4,
+      "costUsd": 0
+    },
+    {
+      "id": "T03",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "thomas.girard",
+      "question": "How many display screens does TransRail have in total?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T04",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "camille.moreau",
+      "question": "What was the budget of the Hexa mission?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T05",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "nadia.benali",
+      "question": "Which EDR product does Nova Télécom use?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T06",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "new.joiner",
+      "question": "What is Synchrone's policy on remote work?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T07",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "thomas.girard",
+      "question": "Who is the CTO of TransRail?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T08",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "camille.moreau",
+      "question": "When does Hexa go live with SEPA Direct Debit?",
+      "expected": "not_found",
+      "status": "answered",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": false,
+        "answeredTrap": true
+      },
+      "failure": "Answered a question the recordings cannot answer.",
+      "citations": [
+        "hexa-01-kickoff @ 5s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T09",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "elise.fontaine",
+      "question": "What score did our RAG assistant reach in the evaluation training?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T10",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "thomas.girard",
+      "question": "Which Kafka version does TransRail run?",
+      "expected": "not_found",
+      "status": "answered",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": false,
+        "answeredTrap": true
+      },
+      "failure": "Answered a question the recordings cannot answer.",
+      "citations": [
+        "transrail-03-cost-review @ 22s",
+        "transrail-01-landing-zone @ 42s"
+      ],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T11",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "camille.moreau",
+      "question": "Which bank acquired Banque Hexa?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T12",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "nadia.benali",
+      "question": "How many ransomware incidents did Nova have in 2025?",
+      "expected": "not_found",
+      "status": "answered",
+      "pass": false,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": false,
+        "answeredTrap": true
+      },
+      "failure": "Answered a question the recordings cannot answer.",
+      "citations": [
+        "nova-01-ransomware-playbook @ 0s"
+      ],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T13",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "new.joiner",
+      "question": "How do I book a meeting room in the Aix-en-Provence office?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "T14",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "thomas.girard",
+      "question": "What was decided about moving TransRail to Azure?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T15",
+      "split": "tune",
+      "category": "not_in_archive",
+      "user": "camille.moreau",
+      "question": "What is the interest rate on Hexa savings accounts?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "T16",
+      "split": "report",
+      "category": "not_in_archive",
+      "user": "elise.fontaine",
+      "question": "Which cloud provider hosts the Data and AI practice lab?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "A01",
+      "split": "tune",
+      "category": "access",
+      "user": "elise.fontaine",
+      "question": "What is the first step of the Nova ransomware playbook?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    },
+    {
+      "id": "A02",
+      "split": "report",
+      "category": "access",
+      "user": "new.joiner",
+      "question": "What caused the TransRail station displays to go blank?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "A03",
+      "split": "tune",
+      "category": "access",
+      "user": "camille.moreau",
+      "question": "Who is the only person who can do memory captures on the Nova fleet?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 2,
+      "costUsd": 0
+    },
+    {
+      "id": "A04",
+      "split": "report",
+      "category": "access",
+      "user": "thomas.girard",
+      "question": "What was ticket HEX-2291 about?",
+      "expected": "not_found",
+      "status": "not_found",
+      "pass": true,
+      "checks": {
+        "accessLeak": false,
+        "saidNotFound": true,
+        "answeredTrap": false
+      },
+      "citations": [],
+      "latencyMs": 3,
+      "costUsd": 0
+    }
+  ]
+}

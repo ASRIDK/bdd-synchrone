@@ -1,0 +1,113 @@
+{
+  "recording_id": "nova-01-ransomware-playbook",
+  "file": "nova-01-ransomware-playbook.m4a",
+  "sha256": "3f8c8ad0a8fc5ff3589f4a2803bac14a4062ce0d4b32de979ef49fc3bdc422c5",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 57.6,
+  "transcribed_at": "2026-09-24T15:33:14Z",
+  "wall_time_sec": 5.36,
+  "realtime_factor": 10.74,
+  "segments": [
+    {
+      "id": "nova-01-ransomware-playbook#0000",
+      "start": 0.62,
+      "end": 7.62,
+      "text": "Arjun, do you wrote the ransomware playbook for Nova Telecom? Can you walk the team through it for the recording?",
+      "avg_logprob": -0.263,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.503
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0001",
+      "start": 7.62,
+      "end": 16.62,
+      "text": "Sure. Step 1. The SIM raises an alert when a host renames more than 500 files in one minute. That is our main ransomware signal.",
+      "avg_logprob": -0.263,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.503
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0002",
+      "start": 16.62,
+      "end": 24.62,
+      "text": "Step 2. Peer Clois Thermal P. Sahis Singh Pashtimi Afriki Rendinevian Lyoni Duty isolates the host immediately from the EDR console.",
+      "avg_logprob": -0.263,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.503
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0003",
+      "start": 24.62,
+      "end": 27.62,
+      "text": "Isolation first, questions later.",
+      "avg_logprob": -0.263,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.503
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0004",
+      "start": 27.62,
+      "end": 29.62,
+      "text": "How long do we have?",
+      "avg_logprob": -0.263,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.503
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0005",
+      "start": 29.62,
+      "end": 36.26,
+      "text": "Our target is to isolate within 15 minutes, or the alert, and to restore service within 4 hours.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0006",
+      "start": 36.26,
+      "end": 39.52,
+      "text": "That is the MTTR target in the NOVA contract.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0007",
+      "start": 39.52,
+      "end": 44.42,
+      "text": "Step 3, we open a crisis ticket and call NOVA security officer.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0008",
+      "start": 44.42,
+      "end": 50.02,
+      "text": "Step 4, we restore from the immutable backups, which are kept for 30 days.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0009",
+      "start": 50.02,
+      "end": 53.62,
+      "text": "So the rule is, isolate the host first.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    },
+    {
+      "id": "nova-01-ransomware-playbook#0010",
+      "start": 53.62,
+      "end": 57.42,
+      "text": "Yes, isolate the host first every time.",
+      "avg_logprob": -0.251,
+      "no_speech_prob": 0.028,
+      "compression_ratio": 1.597
+    }
+  ]
+}

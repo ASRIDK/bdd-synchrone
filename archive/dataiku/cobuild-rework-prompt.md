@@ -1,12 +1,12 @@
-# Cobuild rework prompt — Team 9 "Knowledge Warranty"
+# Cobuild rework prompt, Team 9 "Knowledge Warranty"
 
 How to use: paste **Part 0 (context)** into Cobuild once, then paste **one phase at a time**.
-After each phase, check its "Done when" list before moving on. Phases 1–4 are what Grill 2
-(Fri 25 Sep) needs; 5–7 are for the demo video (Tue 29 Sep).
+After each phase, check its "Done when" list before moving on. Phases 1-4 are what Grill 2
+(Fri 25 Sep) needs; 5-7 are for the demo video (Tue 29 Sep).
 
 ---
 
-## PART 0 — Context (paste first, once)
+## PART 0, Context (paste first, once)
 
 You are rebuilding the Flow of this Dataiku project for Team 9 of the Synchrone × Dataiku ×
 Albert School case. First rename the project to **"Team 9"** (project key can stay BDD_9).
@@ -14,8 +14,8 @@ Albert School case. First rename the project to **"Team 9"** (project key can st
 **Product.** Synchrone records meetings, trainings and troubleshooting sessions. We build a
 "Knowledge Warranty": an engineer asks a question in plain language and in under a minute gets
 (1) the answer, (2) the exact meeting file and minute that proves it, (3) whether it is still
-valid — if a later meeting changed a decision, the latest one is shown as *current* and the old
-one kept as *history* — and (4) an explicit "not found in the recordings" when the archive does
+valid, if a later meeting changed a decision, the latest one is shown as *current* and the old
+one kept as *history*, and (4) an explicit "not found in the recordings" when the archive does
 not contain the answer. Users only see and search missions they belong to. The recordings stay
 the proof.
 
@@ -57,11 +57,11 @@ Acknowledge, list the current Flow objects you will delete/keep/replace, and wai
 
 ---
 
-## PHASE 1 — Ingest (zone 1)
+## PHASE 1, Ingest (zone 1)
 
 **Editable dataset `recordings_catalog`** (one row per audio file; humans own it):
 `file` (exact file name in Videos), `meeting_id`, `meeting_title`, `part_number` (int, 1-based),
-`part_offset_sec` (double: where this file starts in the meeting — for the TED parts it is
+`part_offset_sec` (double: where this file starts in the meeting, for the TED parts it is
 `240 × (part_number − 1)`), `mission`, `meeting_date` (YYYY-MM-DD, **same for all parts of one
 meeting**), `participants`, `owner`, `language` (`en`/`fr`), `source_kind` (`sample_talk` |
 `synthetic_meeting`).
@@ -95,7 +95,7 @@ the prompt (print it in the log).
 
 ---
 
-## PHASE 2 — Clean & chunk (zone 2)
+## PHASE 2, Clean & chunk (zone 2)
 
 **Editable `transcript_corrections`**: `segment_id`, `corrected_text`, `reviewer`,
 `reviewed_at`, `status` (`approved` | `rejected` | `pending`).
@@ -120,7 +120,7 @@ an approved correction.
 5. Columns: `chunk_id` (stable: `{file}:{int(file_start_sec)}`), `mission`, `meeting_id`,
    `meeting_title`, `meeting_date`, `participants`, `source_kind`, `file`, `file_start_sec`,
    `file_end_sec`, `meeting_start_sec`, `meeting_end_sec`, `segment_ids` (JSON list),
-   `context_text` (overlap), `text`, `citation` (e.g. `"<meeting_title> — 00:34:12"` using
+   `context_text` (overlap), `text`, `citation` (e.g. `"<meeting_title>, 00:34:12"` using
    meeting time), `jump_ref` (`"<file>#t=<int(file_start_sec)>"`).
 
 **Done when:** for every chunk, `file_start_sec < audio_duration_sec` of its file (write this
@@ -129,7 +129,7 @@ boundaries; an approved correction changes the chunk text on rebuild.
 
 ---
 
-## PHASE 3 — Decisions: what is still true (zone 3)
+## PHASE 3, Decisions: what is still true (zone 3)
 
 This is our differentiator; keep it simple and auditable.
 
@@ -154,7 +154,7 @@ substring of the chunk text (anti-hallucination check). Columns: `claim_id`, `ch
 2. Per (mission, topic_key), order by (meeting_date, meeting_start_sec). For each decision
    and the next later one, ask the LLM: does B **SUPERSEDE** A, **CONFIRM** A, or is it
    **UNRELATED**? Return the label and the quote from B that shows it.
-3. `status`: `current` (latest in its chain), `superseded` (a later decision SUPERSEDES it —
+3. `status`: `current` (latest in its chain), `superseded` (a later decision SUPERSEDES it , 
    the brief's rule: *only if a later recording confirms it*; a merely more recent mention
    does not supersede), `confirmed` (still current and re-confirmed later).
 4. `decision_overrides` (Editable: `decision_id`, `forced_status`, `superseded_by`,
@@ -169,7 +169,7 @@ mere repetition.
 
 ---
 
-## PHASE 4 — Retrieval + answer engine + evaluation (zones 4–5) — *Grill 2 minimum*
+## PHASE 4, Retrieval + answer engine + evaluation (zones 4-5), *Grill 2 minimum*
 
 **Retrieval (`python/kw/retrieve.py`)**
 - Semantic: if `challenge-llm` exposes an embedding model, build a **Knowledge Bank**
@@ -182,7 +182,7 @@ mere repetition.
   never after.
 - `search(question, missions, k=8) -> list[hit]` with both scores and the fused rank.
 
-**Answer (`python/kw/answer.py`)** — `answer(question, user_login) -> dict`:
+**Answer (`python/kw/answer.py`)**, `answer(question, user_login) -> dict`:
 1. `missions = allowed_missions(user_login)` from `user_mission_access` (Editable:
    `user_login`, `mission`, `valid_from`, `valid_to`). Unknown user → no missions → refuse.
 2. `hits = search(...)`. **Evidence gate**: if the best hit is below a calibrated threshold
@@ -216,36 +216,36 @@ one row per question per `run_id`) and `eval_summary`.
 Per question: `hit_at_3` (an expected ref's file is in the top 3 **and** |file_start_sec −
 expected| ≤ 30 s), `status_ok`, `every_statement_cited`, `current_ok` (superseded category:
 current decision named as current, old one only as history), `access_leak` (any retrieved
-or cited chunk from a mission the user cannot see — must be 0), `invented` (not_in_archive
+or cited chunk from a mission the user cannot see, must be 0), `invented` (not_in_archive
 category: answered anything at all), `latency_ms`, `tokens`, `pass`.
 `eval_summary` per run and category, against targets from our brief: exact hit@3 ≥ 90 %,
 paraphrase ≥ 80 %, invented facts on traps = 0, access leaks = 0, p95 latency < 5 s; plus
 LLM tokens and an estimated € cost per question.
 
-**Scenario `rebuild_and_evaluate`**: build zones 1–4, then `run_evaluation` in
+**Scenario `rebuild_and_evaluate`**: build zones 1-4, then `run_evaluation` in
 `retrieval_only`, then `full` only if a checkbox variable is set.
 
 **Done when:** `eval_summary` exists for one `full` run with real numbers, including the
-failures. Do not tune the threshold on the same questions you report without saying so —
+failures. Do not tune the threshold on the same questions you report without saying so , 
 split eval_questions into `tune` / `report` via a column.
 
 ---
 
-## PHASE 5 — Scale test (zone 5)
+## PHASE 5, Scale test (zone 5)
 
 **Recipe `build_scale_corpus`**: create distractor chunks ×10 and ×100 (other missions'
 chunks with shuffled ids and shifted dates, plus paraphrased copies via cached LLM only if
-quota allows — otherwise pure duplicates with perturbed ids) into `transcript_chunks_x10`,
+quota allows, otherwise pure duplicates with perturbed ids) into `transcript_chunks_x10`,
 `_x100`. **Recipe `run_scale_eval`**: retrieval-only eval on each size → `scale_results`
 (hit@3 per size, p95 search latency, index size). Target: drop ≤ 5 points, search < 5 s.
 
 ---
 
-## PHASE 6 — Demo webapp (zone 6)
+## PHASE 6, Demo webapp (zone 6)
 
 Standard (HTML/JS + Python Flask backend) webapp `knowledge_warranty`, backend imports
 `python/kw`:
-- **User switcher** (simulated logins from `user_mission_access`) — say on screen that it is
+- **User switcher** (simulated logins from `user_mission_access`), say on screen that it is
   simulated because the team shares one Dataiku login.
 - **Archive**: missions the user can see → meetings (title, date, participants, parts) →
   transcript with timestamps; clicking a line plays the audio from `Videos` at that second
@@ -258,7 +258,7 @@ Standard (HTML/JS + Python Flask backend) webapp `knowledge_warranty`, backend i
   statements dropped by verification → latency and tokens.
 - **Results** tab: `eval_summary` latest run by category vs targets, and `scale_results`.
 
-## PHASE 7 — Dashboard
-Dashboard "Team 9 – Evidence": eval_summary by category vs targets, failures table (question,
+## PHASE 7, Dashboard
+Dashboard "Team 9 - Evidence": eval_summary by category vs targets, failures table (question,
 expected, got), transcription_runs (realtime factor, € per audio hour estimate),
 llm_usage (€ per question), scale_results chart.

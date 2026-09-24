@@ -1,0 +1,104 @@
+{
+  "recording_id": "transrail-04-point-deploiement",
+  "file": "transrail-04-point-deploiement.m4a",
+  "sha256": "2b8f4d36d64d93ae7188dd909169baa0f393e723558d03b3ed4831966cd455d4",
+  "model": "small",
+  "language": "fr",
+  "language_probability": 1,
+  "audio_duration_sec": 60.48,
+  "transcribed_at": "2026-09-24T15:33:09Z",
+  "wall_time_sec": 6.78,
+  "realtime_factor": 8.91,
+  "segments": [
+    {
+      "id": "transrail-04-point-deploiement#0000",
+      "start": 0.62,
+      "end": 5.62,
+      "text": "Bonjour à tous, on fait le point sur les mises en production de TransRai.",
+      "avg_logprob": -0.11,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.683
+    },
+    {
+      "id": "transrail-04-point-deploiement#0001",
+      "start": 5.62,
+      "end": 15.62,
+      "text": "Le problème, c'est le jeudi. Le jeudi matin, c'est le pic de trafic des abonnés, et la dernière mise en production a coupé les écrans de deux gares pendant 10 minutes.",
+      "avg_logprob": -0.11,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.683
+    },
+    {
+      "id": "transrail-04-point-deploiement#0002",
+      "start": 15.62,
+      "end": 22.62,
+      "text": "Oui. Et le comité des changements a lieu le lundi soir maintenant, donc on peut déployer plus tôt dans la semaine.",
+      "avg_logprob": -0.11,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.683
+    },
+    {
+      "id": "transrail-04-point-deploiement#0003",
+      "start": 22.62,
+      "end": 29.62,
+      "text": "Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi.",
+      "avg_logprob": -0.11,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.683
+    },
+    {
+      "id": "transrail-04-point-deploiement#0004",
+      "start": 29.62,
+      "end": 34.62,
+      "text": "Je préviens les équipes d'exploitation et je mets à jour le calendrier.",
+      "avg_logprob": -0.188,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.425
+    },
+    {
+      "id": "transrail-04-point-deploiement#0005",
+      "start": 34.62,
+      "end": 40.62,
+      "text": "Autre sujet, le pont MQTT. On a eu une nouvelle rotation de certificat la semaine dernière,",
+      "avg_logprob": -0.188,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.425
+    },
+    {
+      "id": "transrail-04-point-deploiement#0006",
+      "start": 40.62,
+      "end": 44.62,
+      "text": "et cette fois tout s'est bien passé, grâce à l'alerte à 30 jours.",
+      "avg_logprob": -0.188,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.425
+    },
+    {
+      "id": "transrail-04-point-deploiement#0007",
+      "start": 44.62,
+      "end": 50.62,
+      "text": "Parfait, ça montre que la correction du ticket ER4-1821 tient.",
+      "avg_logprob": -0.188,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.425
+    },
+    {
+      "id": "transrail-04-point-deploiement#0008",
+      "start": 50.62,
+      "end": 56.62,
+      "text": "Dernier point, la rétention Kafka à 3 jours ne pose aucun problème côté exploitation.",
+      "avg_logprob": -0.188,
+      "no_speech_prob": 0.109,
+      "compression_ratio": 1.425
+    },
+    {
+      "id": "transrail-04-point-deploiement#0009",
+      "start": 56.62,
+      "end": 59.62,
+      "text": "Merci à tous, on se revoit dans un mois.",
+      "avg_logprob": -0.232,
+      "no_speech_prob": 0.009,
+      "compression_ratio": 0.837
+    }
+  ]
+}

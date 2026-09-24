@@ -1,0 +1,167 @@
+{
+  "recording_id": "transrail-02-incident-certificates",
+  "file": "transrail-02-incident-certificates.m4a",
+  "sha256": "a63fc85c2acf78923635b65ecf887c1d06d86bd8509725354b1cb650b9156361",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 101.69,
+  "transcribed_at": "2026-09-24T15:32:56Z",
+  "wall_time_sec": 8.46,
+  "realtime_factor": 12.02,
+  "segments": [
+    {
+      "id": "transrail-02-incident-certificates#0000",
+      "start": 0.62,
+      "end": 8.42,
+      "text": "This is the review of last week's incident. On March 19, the displays in 40 stations went blank for two hours.",
+      "avg_logprob": -0.202,
+      "no_speech_prob": 0.05,
+      "compression_ratio": 1.464
+    },
+    {
+      "id": "transrail-02-incident-certificates#0001",
+      "start": 8.42,
+      "end": 11.02,
+      "text": "Aisha, can you walk us through it?",
+      "avg_logprob": -0.202,
+      "no_speech_prob": 0.05,
+      "compression_ratio": 1.464
+    },
+    {
+      "id": "transrail-02-incident-certificates#0002",
+      "start": 11.02,
+      "end": 19.62,
+      "text": "Sure. At six in the morning, Transrails PKI team rotated the server certificates of the MQTT broker.",
+      "avg_logprob": -0.202,
+      "no_speech_prob": 0.05,
+      "compression_ratio": 1.464
+    },
+    {
+      "id": "transrail-02-incident-certificates#0003",
+      "start": 19.62,
+      "end": 24.62,
+      "text": "The new certificate was signed by a new intermediate certificate authority.",
+      "avg_logprob": -0.202,
+      "no_speech_prob": 0.05,
+      "compression_ratio": 1.464
+    },
+    {
+      "id": "transrail-02-incident-certificates#0004",
+      "start": 24.62,
+      "end": 34.98,
+      "text": "Our MQTT bridge only trusted the old intermediate, so every TLS handshake failed, and the bridge stopped publishing to the displays.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.682
+    },
+    {
+      "id": "transrail-02-incident-certificates#0005",
+      "start": 34.98,
+      "end": 42.46,
+      "text": "And the logs only said handshake failure, nothing about the certificate chain, that is why it took so long to find.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.682
+    },
+    {
+      "id": "transrail-02-incident-certificates#0006",
+      "start": 42.46,
+      "end": 44.58,
+      "text": "How did we fix it?",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.682
+    },
+    {
+      "id": "transrail-02-incident-certificates#0007",
+      "start": 44.58,
+      "end": 53.22,
+      "text": "We added the new intermediate CA bundle to the bridge trust store, which is the Kubernetes secret called MQTT bridge trust store.",
+      "avg_logprob": -0.144,
+      "no_speech_prob": 0.026,
+      "compression_ratio": 1.682
+    },
+    {
+      "id": "transrail-02-incident-certificates#0008",
+      "start": 53.22,
+      "end": 59.02,
+      "text": "Then we restarted the bridge pods, the displays came back within 5 minutes.",
+      "avg_logprob": -0.161,
+      "no_speech_prob": 0.053,
+      "compression_ratio": 1.535
+    },
+    {
+      "id": "transrail-02-incident-certificates#0009",
+      "start": 59.02,
+      "end": 61.26,
+      "text": "What is the ticket number?",
+      "avg_logprob": -0.161,
+      "no_speech_prob": 0.053,
+      "compression_ratio": 1.535
+    },
+    {
+      "id": "transrail-02-incident-certificates#0010",
+      "start": 61.26,
+      "end": 67.34,
+      "text": "TR4821, the full procedure is in the ticket.",
+      "avg_logprob": -0.161,
+      "no_speech_prob": 0.053,
+      "compression_ratio": 1.535
+    },
+    {
+      "id": "transrail-02-incident-certificates#0011",
+      "start": 67.34,
+      "end": 73.94,
+      "text": "Honestly, if this happens again in a year, nobody will remember, so let me say it clearly for the recording.",
+      "avg_logprob": -0.161,
+      "no_speech_prob": 0.053,
+      "compression_ratio": 1.535
+    },
+    {
+      "id": "transrail-02-incident-certificates#0012",
+      "start": 73.94,
+      "end": 81.66,
+      "text": "If the displays go blank after a certificate rotation, check the intermediate CA in the bridge trust store first.",
+      "avg_logprob": -0.161,
+      "no_speech_prob": 0.053,
+      "compression_ratio": 1.535
+    },
+    {
+      "id": "transrail-02-incident-certificates#0013",
+      "start": 81.66,
+      "end": 85.02,
+      "text": "We should also get an alert before it happens.",
+      "avg_logprob": -0.22,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.486
+    },
+    {
+      "id": "transrail-02-incident-certificates#0014",
+      "start": 85.02,
+      "end": 91.34,
+      "text": "Yes, I will add monitoring that warns 30 days before any certificate in the chain expires,",
+      "avg_logprob": -0.22,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.486
+    },
+    {
+      "id": "transrail-02-incident-certificates#0015",
+      "start": 91.34,
+      "end": 96.74,
+      "text": "and a check that the trust store contains the intermediate of the live certificate.",
+      "avg_logprob": -0.22,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.486
+    },
+    {
+      "id": "transrail-02-incident-certificates#0016",
+      "start": 96.74,
+      "end": 101.54,
+      "text": "Good, that is an action for Aisha, thanks, all.",
+      "avg_logprob": -0.22,
+      "no_speech_prob": 0.016,
+      "compression_ratio": 1.486
+    }
+  ]
+}

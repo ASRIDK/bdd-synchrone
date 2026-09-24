@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* Tokens. Two accents only, each with one meaning:
+   teal = current and verified, amber = replaced (history). "Not found" is neutral slate. */
+:root {
+  --paper: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #1b2433;
+  --ink-soft: #4a5568;
+  --ink-faint: #7a8494;
+  --line: #dde1e7;
+  --valid: #0f766e;
+  --valid-bg: #e6f4f2;
+  --history: #b45309;
+  --history-bg: #fdf3e7;
+  --focus: #2b59c3;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-valid: var(--valid);
+  --color-valid-bg: var(--valid-bg);
+  --color-history: var(--history);
+  --color-history-bg: var(--history-bg);
+  --color-focus: var(--focus);
+  --font-sans: var(--font-ui);
+  --font-serif: var(--font-spoken);
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Words actually spoken in a meeting are set in the serif, like evidence in a file. */
+.spoken {
+  font-family: var(--font-spoken), Georgia, serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+/* Lining figures for times and counts. (Tabular figures in this face also widen ":" and ",",
+   which reads as "05 : 14", so they are not used.) */
+.tabular {
+  font-variant-numeric: lining-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

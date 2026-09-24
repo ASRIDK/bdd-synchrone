@@ -1,0 +1,95 @@
+{
+  "recording_id": "hexa-04-cutover-retro",
+  "file": "hexa-04-cutover-retro.m4a",
+  "sha256": "8c709b35d9edcd589c35ae96a0bd563c3796cce7f85108aba45c1971dea8e4b5",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 61.63,
+  "transcribed_at": "2026-09-24T15:32:40Z",
+  "wall_time_sec": 6.87,
+  "realtime_factor": 8.97,
+  "segments": [
+    {
+      "id": "hexa-04-cutover-retro#0000",
+      "start": 0.62,
+      "end": 7.12,
+      "text": "The cutover happened on Saturday, June 20th. Let's do the retrospective. What went well?",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.498
+    },
+    {
+      "id": "hexa-04-cutover-retro#0001",
+      "start": 7.12,
+      "end": 15.62,
+      "text": "The rollback plan. We rehearsed it twice, so nobody panicked when the first batch of test payments failed at 2 in the morning.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.498
+    },
+    {
+      "id": "hexa-04-cutover-retro#0002",
+      "start": 15.62,
+      "end": 27.62,
+      "text": "The failure was a firewall rule. The new gateway called the clearing from a new IP range, and Hexa's network team had only opened the old one. We fixed it in 40 minutes.",
+      "avg_logprob": -0.134,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.498
+    },
+    {
+      "id": "hexa-04-cutover-retro#0003",
+      "start": 27.62,
+      "end": 30.62,
+      "text": "What should we do differently next time?",
+      "avg_logprob": -0.135,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.672
+    },
+    {
+      "id": "hexa-04-cutover-retro#0004",
+      "start": 30.62,
+      "end": 38.62,
+      "text": "Put the network flows in the cutover checklist with the exact IP ranges, and ask the network team to test them the day before.",
+      "avg_logprob": -0.135,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.672
+    },
+    {
+      "id": "hexa-04-cutover-retro#0005",
+      "start": 38.62,
+      "end": 48.62,
+      "text": "And keep the feature flag. We can switch instant payments on or off for each branch with the flag called InstantEnabled. It saved us on Saturday.",
+      "avg_logprob": -0.135,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.672
+    },
+    {
+      "id": "hexa-04-cutover-retro#0006",
+      "start": 48.62,
+      "end": 53.62,
+      "text": "Agreed. We keep the feature flag for each branch for at least three months after go live.",
+      "avg_logprob": -0.135,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.672
+    },
+    {
+      "id": "hexa-04-cutover-retro#0007",
+      "start": 53.62,
+      "end": 59.1,
+      "text": "One last thing, fraud scoring stayed under 400 milliseconds all weekend.",
+      "avg_logprob": -0.331,
+      "no_speech_prob": 0.081,
+      "compression_ratio": 1.069
+    },
+    {
+      "id": "hexa-04-cutover-retro#0008",
+      "start": 59.1,
+      "end": 60.54,
+      "text": "Good work, everyone.",
+      "avg_logprob": -0.331,
+      "no_speech_prob": 0.081,
+      "compression_ratio": 1.069
+    }
+  ]
+}

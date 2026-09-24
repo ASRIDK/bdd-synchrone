@@ -1,0 +1,81 @@
+{
+  "note": "Demo data. Clients, people and meetings are fictional. They are modelled on the kind of missions Synchrone runs (finance, transport, telecom, cybersecurity, cloud, data and AI).",
+  "missions": [
+    {
+      "id": "hexa-instant-payments",
+      "name": "Banque Hexa: SEPA Instant payments",
+      "client": "Banque Hexa",
+      "sector": "Banking and finance",
+      "practice": "Finance Consulting",
+      "restricted": false,
+      "description": "Move the bank's SEPA Instant Credit Transfer flows to a new ISO 20022 payment gateway before the end of June 2026."
+    },
+    {
+      "id": "transrail-cloud",
+      "name": "TransRail: passenger information on AWS",
+      "client": "TransRail",
+      "sector": "Transport",
+      "practice": "InfraCloud",
+      "restricted": false,
+      "description": "Migrate the passenger information system (train positions, station displays) from the client's data centre to AWS Paris."
+    },
+    {
+      "id": "nova-soc",
+      "name": "Nova Télécom: security operations",
+      "client": "Nova Télécom",
+      "sector": "Telecom",
+      "practice": "Cybersecurity",
+      "restricted": true,
+      "description": "Run incident response for the client's security operations centre. Restricted: only the mission team may see it."
+    },
+    {
+      "id": "practice-data-ai",
+      "name": "Data & AI practice: internal talks",
+      "client": "Synchrone (internal)",
+      "sector": "Internal",
+      "practice": "Data & AI",
+      "restricted": false,
+      "description": "Internal trainings and talks, open to every consultant."
+    }
+  ],
+  "people": [
+    { "id": "camille", "name": "Camille Moreau", "role": "Mission lead, Banque Hexa", "voice": "Samantha", "language": "en" },
+    { "id": "rahul", "name": "Rahul Iyer", "role": "Payments architect", "voice": "Rishi", "language": "en" },
+    { "id": "sophie", "name": "Sophie Laurent", "role": "QA lead", "voice": "Moira", "language": "en" },
+    { "id": "thomas", "name": "Thomas Girard", "role": "Cloud lead, TransRail", "voice": "Daniel", "language": "en" },
+    { "id": "aisha", "name": "Aisha Naidoo", "role": "Site reliability engineer", "voice": "Tessa", "language": "en" },
+    { "id": "chloe", "name": "Chloé Martin", "role": "Data engineer", "voice": "Karen", "language": "en" },
+    { "id": "nadia", "name": "Nadia Benali", "role": "SOC lead, Nova Télécom", "voice": "Tara", "language": "en" },
+    { "id": "arjun", "name": "Arjun Mehta", "role": "Incident responder", "voice": "Aman", "language": "en", "departure_date": "2026-10-31" },
+    { "id": "julien", "name": "Julien Roche", "role": "Delivery manager, TransRail", "voice": "Thomas", "language": "fr" },
+    { "id": "hugo", "name": "Hugo Bernard", "role": "DevOps engineer", "voice": "Jacques", "language": "fr" },
+    { "id": "elise", "name": "Élise Fontaine", "role": "Data & AI practice lead", "voice": "Amélie", "language": "fr" }
+  ],
+  "users": [
+    { "login": "camille.moreau", "name": "Camille Moreau", "role": "Mission lead, Banque Hexa", "missions": ["hexa-instant-payments", "practice-data-ai"] },
+    { "login": "thomas.girard", "name": "Thomas Girard", "role": "Cloud lead, TransRail", "missions": ["transrail-cloud", "practice-data-ai"] },
+    { "login": "nadia.benali", "name": "Nadia Benali", "role": "SOC lead, Nova Télécom", "missions": ["nova-soc", "practice-data-ai"] },
+    { "login": "elise.fontaine", "name": "Élise Fontaine", "role": "Practice lead, Data & AI", "missions": ["practice-data-ai", "transrail-cloud", "hexa-instant-payments"] },
+    { "login": "new.joiner", "name": "New joiner", "role": "Consultant, first week", "missions": ["practice-data-ai"] },
+    { "login": "direction", "name": "Delivery director", "role": "Director, all missions", "missions": ["hexa-instant-payments", "transrail-cloud", "nova-soc", "practice-data-ai"] }
+  ],
+  "glossary": [
+    { "term": "SCT Inst", "aliases": ["SCT instant"] },
+    { "term": "ISO 20022", "aliases": [] },
+    { "term": "pacs.008", "aliases": ["pacs 008"], "misheard": ["packs 008", "pax 008"] },
+    { "term": "UETR", "aliases": ["U.E.T.R."], "misheard": ["UTR"] },
+    { "term": "RT1", "aliases": ["RT one", "RT-1"] },
+    { "term": "PostgreSQL", "aliases": ["Postgres", "Postgre SQL", "Postgres SQL"], "misheard": ["Post-Gur-SQL", "postgrescal", "post grsql"] },
+    { "term": "idempotent", "aliases": [], "misheard": ["id important"] },
+    { "term": "MQTT", "aliases": ["M.Q.T.T."], "misheard": ["MQ TT"] },
+    { "term": "truststore", "aliases": ["trust store"] },
+    { "term": "Graviton", "aliases": [] },
+    { "term": "eu-west-3", "aliases": ["EU West 3", "EU-West-3"] },
+    { "term": "EDR", "aliases": ["E.D.R."] },
+    { "term": "SIEM", "aliases": ["S.I.E.M."], "misheard": ["seam"] },
+    { "term": "MTTR", "aliases": ["M.T.T.R."] },
+    { "term": "Kafka", "aliases": [], "misheard": ["Kafca"] },
+    { "term": "RAG", "aliases": [] },
+    { "term": "TR-4821", "aliases": ["TR 4821"], "misheard": ["ER4-1821"] }
+  ]
+}

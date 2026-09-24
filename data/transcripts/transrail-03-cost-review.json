@@ -1,0 +1,122 @@
+{
+  "recording_id": "transrail-03-cost-review",
+  "file": "transrail-03-cost-review.m4a",
+  "sha256": "177ae2ac82e9d8840d6ccde7da141eb117fd9ee6203e643a0add66a2f6806831",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 66.88,
+  "transcribed_at": "2026-09-24T15:33:02Z",
+  "wall_time_sec": 5.94,
+  "realtime_factor": 11.26,
+  "segments": [
+    {
+      "id": "transrail-03-cost-review#0000",
+      "start": 0.66,
+      "end": 6.26,
+      "text": "Cost review for the transrail platform, we are 22% above budget.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.633
+    },
+    {
+      "id": "transrail-03-cost-review#0001",
+      "start": 6.26,
+      "end": 14.06,
+      "text": "The biggest line is Kafka storage, the train position topic alone is 4TB, with 7 days of retention.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.633
+    },
+    {
+      "id": "transrail-03-cost-review#0002",
+      "start": 14.06,
+      "end": 22.26,
+      "text": "I checked with operations, they never replay more than 2 days, 7 days was a habit from the old platform.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.633
+    },
+    {
+      "id": "transrail-03-cost-review#0003",
+      "start": 22.26,
+      "end": 30.46,
+      "text": "So we reduce the Kafka retention from 7 days to 3 days, that keeps a safety margin over the 2 days they actually use.",
+      "avg_logprob": -0.179,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.633
+    },
+    {
+      "id": "transrail-03-cost-review#0004",
+      "start": 30.46,
+      "end": 33.46,
+      "text": "That cuts storage by more than half.",
+      "avg_logprob": -0.145,
+      "no_speech_prob": 0.089,
+      "compression_ratio": 1.485
+    },
+    {
+      "id": "transrail-03-cost-review#0005",
+      "start": 33.46,
+      "end": 38.46,
+      "text": "Second saving, move the bridge and the consumers to gravitan instances.",
+      "avg_logprob": -0.145,
+      "no_speech_prob": 0.089,
+      "compression_ratio": 1.485
+    },
+    {
+      "id": "transrail-03-cost-review#0006",
+      "start": 38.46,
+      "end": 43.46,
+      "text": "Our tests show about 20% lower compute cost for the same load.",
+      "avg_logprob": -0.145,
+      "no_speech_prob": 0.089,
+      "compression_ratio": 1.485
+    },
+    {
+      "id": "transrail-03-cost-review#0007",
+      "start": 43.46,
+      "end": 47.46,
+      "text": "Do it, and to be clear, the region does not change.",
+      "avg_logprob": -0.145,
+      "no_speech_prob": 0.089,
+      "compression_ratio": 1.485
+    },
+    {
+      "id": "transrail-03-cost-review#0008",
+      "start": 47.46,
+      "end": 55.46,
+      "text": "We stay in Paris, EU West 3, someone asked about Ireland because it is cheaper, but the data must stay in France.",
+      "avg_logprob": -0.145,
+      "no_speech_prob": 0.089,
+      "compression_ratio": 1.485
+    },
+    {
+      "id": "transrail-03-cost-review#0009",
+      "start": 55.46,
+      "end": 62.08,
+      "text": "Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly",
+      "avg_logprob": -0.334,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.272
+    },
+    {
+      "id": "transrail-03-cost-review#0010",
+      "start": 62.08,
+      "end": 63.96,
+      "text": "change board.",
+      "avg_logprob": -0.334,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.272
+    },
+    {
+      "id": "transrail-03-cost-review#0011",
+      "start": 63.96,
+      "end": 65.8,
+      "text": "Noted, Thursday morning.",
+      "avg_logprob": -0.334,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 1.272
+    }
+  ]
+}

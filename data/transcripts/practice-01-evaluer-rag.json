@@ -1,0 +1,167 @@
+{
+  "recording_id": "practice-01-evaluer-rag",
+  "file": "practice-01-evaluer-rag.m4a",
+  "sha256": "2a25759de1c3ced9e25e4722bd2a10c41f53bcc4468683a88828fb08c54250c0",
+  "model": "small",
+  "language": "fr",
+  "language_probability": 1,
+  "audio_duration_sec": 58.62,
+  "transcribed_at": "2026-09-24T15:33:27Z",
+  "wall_time_sec": 6.5,
+  "realtime_factor": 9.02,
+  "segments": [
+    {
+      "id": "practice-01-evaluer-rag#0000",
+      "start": 0.62,
+      "end": 5.32,
+      "text": "Bonjour à tous. Aujourd'hui, on parle de l'évaluation d'un assistant RA,",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0001",
+      "start": 5.32,
+      "end": 9.12,
+      "text": "c'est-à-dire un assistant qui cherche dans des documents avant de répondre.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0002",
+      "start": 9.12,
+      "end": 13.62,
+      "text": "Première règle, on écrit les questions de test avant de construire l'assistant,",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0003",
+      "start": 13.62,
+      "end": 17.32,
+      "text": "avec pour chaque question le document attendu et la réponse attendue.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0004",
+      "start": 17.32,
+      "end": 19.62,
+      "text": "Combien de questions faut-il ?",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0005",
+      "start": 19.62,
+      "end": 23.12,
+      "text": "Pour commencer, une cinquantaine suffit.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0006",
+      "start": 23.12,
+      "end": 26.92,
+      "text": "Mais il faut des questions pièges, dont la réponse n'est pas dans les documents.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0007",
+      "start": 26.92,
+      "end": 29.52,
+      "text": "L'assistant doit alors répondre qu'il ne sait pas.",
+      "avg_logprob": -0.15,
+      "no_speech_prob": 0.054,
+      "compression_ratio": 1.751
+    },
+    {
+      "id": "practice-01-evaluer-rag#0008",
+      "start": 29.52,
+      "end": 33.52,
+      "text": "Deuxième règle, on mesure la recherche séparément de la génération.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0009",
+      "start": 33.52,
+      "end": 37.52,
+      "text": "Si le bon passage n'est pas dans les trois premiers résultats, aucun modèle ne pourra",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0010",
+      "start": 37.52,
+      "end": 39.52,
+      "text": "corriger la réponse.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0011",
+      "start": 39.52,
+      "end": 41.52,
+      "text": "Et pour mes sources ?",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0012",
+      "start": 41.52,
+      "end": 44.52,
+      "text": "Chaque phrase de la réponse doit citer sa source.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0013",
+      "start": 44.52,
+      "end": 47.52,
+      "text": "Une phrase sans source, on la supprime.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0014",
+      "start": 47.52,
+      "end": 51.52,
+      "text": "Troisième règle, on combine la recherche par mots-clés et la recherche sémantique.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0015",
+      "start": 51.52,
+      "end": 54.52,
+      "text": "Les mots-clés trouvent les numéros de ticket et les acronymes.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    },
+    {
+      "id": "practice-01-evaluer-rag#0016",
+      "start": 54.52,
+      "end": 57.52,
+      "text": "La recherche sémantique trouve les reformulations.",
+      "avg_logprob": -0.156,
+      "no_speech_prob": 0.021,
+      "compression_ratio": 1.773
+    }
+  ]
+}

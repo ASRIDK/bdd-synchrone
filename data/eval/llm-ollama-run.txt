@@ -1,0 +1,71 @@
+PASS E01  exact           answered   10278ms  
+PASS E02  exact           answered   8811ms  
+PASS E03  exact           answered   7489ms  
+PASS E04  exact           answered   6923ms  
+PASS E05  exact           answered   4433ms  
+PASS E06  exact           answered   3975ms  
+PASS E07  exact           answered   5187ms  
+PASS E08  exact           answered   4647ms  
+PASS E09  exact           answered   4100ms  
+PASS E10  exact           answered   6399ms  
+PASS P01  paraphrase      answered   4936ms  
+PASS P02  paraphrase      answered   8211ms  
+PASS P03  paraphrase      answered   5063ms  
+PASS P04  paraphrase      answered   5507ms  
+PASS P05  paraphrase      answered   7256ms  
+PASS P06  paraphrase      answered   8980ms  
+PASS P07  paraphrase      answered   4812ms  
+FAIL P08  paraphrase      not_found  10ms  Said not found, but the answer is in the recordings.
+PASS X01  cross_language  answered   4101ms  
+FAIL X02  cross_language  not_found  8ms  Said not found, but the answer is in the recordings.
+FAIL X03  cross_language  answered   9662ms  No citation within 30 s of the right moment.
+PASS M01  multi_source    answered   9302ms  
+FAIL M02  multi_source    answered   4332ms  Cited 1 meeting(s), expected at least 2.
+FAIL M03  multi_source    answered   6316ms  Cited 1 meeting(s), expected at least 2.
+FAIL M04  multi_source    not_found  13ms  Said not found, but the answer is in the recordings.
+PASS S01  superseded      answered   4127ms  
+PASS S02  superseded      answered   4177ms  
+PASS S03  superseded      answered   4759ms  
+PASS S04  superseded      answered   5016ms  
+PASS S05  superseded      answered   4096ms  
+PASS T01  not_in_archive  not_found  14ms  
+PASS T02  not_in_archive  not_found  12ms  
+PASS T03  not_in_archive  not_found  8ms  
+PASS T04  not_in_archive  not_found  5ms  
+PASS T05  not_in_archive  not_found  5ms  
+PASS T06  not_in_archive  not_found  5ms  
+PASS T07  not_in_archive  not_found  5ms  
+PASS T08  not_in_archive  not_found  1758ms  
+PASS T09  not_in_archive  not_found  31ms  
+PASS T10  not_in_archive  not_found  2143ms  
+PASS T11  not_in_archive  not_found  28ms  
+PASS T12  not_in_archive  not_found  1656ms  
+PASS T13  not_in_archive  not_found  36ms  
+PASS T14  not_in_archive  not_found  11ms  
+PASS T15  not_in_archive  not_found  14ms  
+PASS T16  not_in_archive  not_found  7ms  
+PASS A01  access          not_found  9ms  
+PASS A02  access          not_found  13ms  
+PASS A03  access          not_found  4ms  
+PASS A04  access          not_found  6ms  
+
+Mode: llm
+All questions:     44/50 (88%)
+Report split only: 21/26 (81%)
+  exact           10/10
+  paraphrase      7/8
+  cross_language  1/3
+  multi_source    1/4
+  superseded      5/5
+  not_in_archive  16/16
+  access          4/4
+Exact questions, right passage in top 3:      100% (target 90%)
+Paraphrased questions, right passage in top 3: 100% (target 80%)
+Trap questions answered instead of refused:  0 (target 0)
+Access leaks:                                  0 (target 0)
+Latency p50 / p95:                             4096 / 9302 ms (target p95 < 5000)
+Cost per question:                             $0.0000
+
+Transcription: 17.2 min of audio at 10.5x realtime
+Word error rate: English 5%, French 2%
+Glossary terms heard correctly: 29/36. Missed: pacs.008 (hexa-01-kickoff); PostgreSQL (hexa-01-kickoff); idempotent (hexa-02-rt1-weekly); Graviton (transrail-03-cost-review); TR-4821 (transrail-04-point-deploiement); SIEM (nova-01-ransomware-playbook); RAG (practice-01-evaluer-rag)

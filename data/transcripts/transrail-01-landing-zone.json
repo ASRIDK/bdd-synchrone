@@ -1,0 +1,149 @@
+{
+  "recording_id": "transrail-01-landing-zone",
+  "file": "transrail-01-landing-zone.m4a",
+  "sha256": "72e58e6fdc90d9d7acc053cd13e97584e5ea1293507682b208ea8e2ac65ea405",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 85.05,
+  "transcribed_at": "2026-09-24T15:32:47Z",
+  "wall_time_sec": 7.62,
+  "realtime_factor": 11.16,
+  "segments": [
+    {
+      "id": "transrail-01-landing-zone#0000",
+      "start": 0.62,
+      "end": 6.12,
+      "text": "Welcome to the landing zone design session for TransRail's passenger information system.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0001",
+      "start": 6.12,
+      "end": 9.12,
+      "text": "We are moving it from their data center to OZ.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0002",
+      "start": 9.12,
+      "end": 12.12,
+      "text": "First question is the region.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0003",
+      "start": 12.12,
+      "end": 15.12,
+      "text": "TransRail needs the data to stay in France.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0004",
+      "start": 15.12,
+      "end": 22.12,
+      "text": "So we deploy in the Paris region, eu-west-3, the primary region is Paris, full stock.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0005",
+      "start": 22.12,
+      "end": 29.12,
+      "text": "Fine for me, for messaging, we keep Kafka, but managed, with Amazon MSK.",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.029,
+      "compression_ratio": 1.508
+    },
+    {
+      "id": "transrail-01-landing-zone#0006",
+      "start": 29.12,
+      "end": 35.12,
+      "text": "What retention do we set on the topics? The train position topic is the biggest one.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.06,
+      "compression_ratio": 1.578
+    },
+    {
+      "id": "transrail-01-landing-zone#0007",
+      "start": 35.12,
+      "end": 42.12,
+      "text": "The old platform kept 7 days. Operations like to replay a full week when they investigate a delay.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.06,
+      "compression_ratio": 1.578
+    },
+    {
+      "id": "transrail-01-landing-zone#0008",
+      "start": 42.12,
+      "end": 47.12,
+      "text": "Let's keep that. Kafka retention is 7 days on all topics.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.06,
+      "compression_ratio": 1.578
+    },
+    {
+      "id": "transrail-01-landing-zone#0009",
+      "start": 47.12,
+      "end": 53.12,
+      "text": "The station displays are the tricky part. They don't read Kafka. They talk MQTT.",
+      "avg_logprob": -0.128,
+      "no_speech_prob": 0.06,
+      "compression_ratio": 1.578
+    },
+    {
+      "id": "transrail-01-landing-zone#0010",
+      "start": 53.12,
+      "end": 60.6,
+      "text": "Right. We run an MQTT bridge on Kubernetes. It reads the Kafka topics and publishes to",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.246,
+      "compression_ratio": 1.502
+    },
+    {
+      "id": "transrail-01-landing-zone#0011",
+      "start": 60.6,
+      "end": 69.0,
+      "text": "the displays over MQTT, with Mutual TLS. Mutual TLS means certificates on both sides.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.246,
+      "compression_ratio": 1.502
+    },
+    {
+      "id": "transrail-01-landing-zone#0012",
+      "start": 69.0,
+      "end": 75.24,
+      "text": "Who owns the certificate rotation? Transrails PKI team issues new certificates",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.246,
+      "compression_ratio": 1.502
+    },
+    {
+      "id": "transrail-01-landing-zone#0013",
+      "start": 75.24,
+      "end": 82.0,
+      "text": "every year. We only deploy them. Okay. Let's write that down as a dependency.",
+      "avg_logprob": -0.189,
+      "no_speech_prob": 0.246,
+      "compression_ratio": 1.502
+    },
+    {
+      "id": "transrail-01-landing-zone#0014",
+      "start": 82.0,
+      "end": 84.0,
+      "text": "session, we look at costs.",
+      "avg_logprob": -0.285,
+      "no_speech_prob": 0.032,
+      "compression_ratio": 0.765
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "recording_id": "hexa-02-rt1-weekly",
+  "file": "hexa-02-rt1-weekly.m4a",
+  "sha256": "49c0e04964c0ec2505aca1ce211056cef069cb5f7615d2005684de4632b6da5c",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 97.28,
+  "transcribed_at": "2026-09-24T15:32:23Z",
+  "wall_time_sec": 8.23,
+  "realtime_factor": 11.81,
+  "segments": [
+    {
+      "id": "hexa-02-rt1-weekly#0000",
+      "start": 0.62,
+      "end": 5.78,
+      "text": "Weekly point on the RT1 certification. Sophie, where are we?",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0001",
+      "start": 5.78,
+      "end": 11.46,
+      "text": "84 test cases passed out of 90. The six failures are all the same problem.",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0002",
+      "start": 11.46,
+      "end": 17.06,
+      "text": "When the clearing times out and the channel retries, the customer is debited twice.",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0003",
+      "start": 17.06,
+      "end": 23.06,
+      "text": "Yes, I looked at it yesterday. It is Ticket Hex 2291.",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0004",
+      "start": 23.06,
+      "end": 28.14,
+      "text": "The retry creates a new payment instead of recognizing the first one.",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0005",
+      "start": 28.14,
+      "end": 30.1,
+      "text": "How do we fix it?",
+      "avg_logprob": -0.218,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.467
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0006",
+      "start": 30.1,
+      "end": 37.4,
+      "text": "We make the gateway id important, every payment already carries an end-to-end identifier and a UETR.",
+      "avg_logprob": -0.177,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0007",
+      "start": 37.4,
+      "end": 41.1,
+      "text": "We store the UETR with a unique constraint in the journal.",
+      "avg_logprob": -0.177,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0008",
+      "start": 41.1,
+      "end": 48.7,
+      "text": "If the same UETR comes back, we return the status of the first payment instead of creating a new one.",
+      "avg_logprob": -0.177,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0009",
+      "start": 48.7,
+      "end": 54.6,
+      "text": "So the retry after a timeout gets rejected, instead of debiting the customer again?",
+      "avg_logprob": -0.177,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0010",
+      "start": 54.6,
+      "end": 58.9,
+      "text": "Exactly. The first attempt was rejected at 5 seconds.",
+      "avg_logprob": -0.177,
+      "no_speech_prob": 0.031,
+      "compression_ratio": 1.629
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0011",
+      "start": 58.9,
+      "end": 66.3,
+      "text": "So the retry gets the same rejected status, and the channel can start a clean new payment with a new UETR.",
+      "avg_logprob": -0.204,
+      "no_speech_prob": 0.03,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0012",
+      "start": 66.8,
+      "end": 69.7,
+      "text": "Good. Is the 5 second timeout still right?",
+      "avg_logprob": -0.204,
+      "no_speech_prob": 0.03,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0013",
+      "start": 70.4,
+      "end": 76.9,
+      "text": "For now, yes. We keep 5 seconds. I want more data from RT1 before touching it.",
+      "avg_logprob": -0.204,
+      "no_speech_prob": 0.03,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0014",
+      "start": 77.5,
+      "end": 82.7,
+      "text": "Okay. Sophie, once the fix is in, please rerun the six failing cases.",
+      "avg_logprob": -0.204,
+      "no_speech_prob": 0.03,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0015",
+      "start": 83.3,
+      "end": 88.1,
+      "text": "Will do. I also want a test with two retries in less than one second.",
+      "avg_logprob": -0.204,
+      "no_speech_prob": 0.03,
+      "compression_ratio": 1.546
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0016",
+      "start": 88.9,
+      "end": 95.06,
+      "text": "Perfect. Last point. The security team delivered the RT1 certificates on Friday, so we are",
+      "avg_logprob": -0.236,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.09
+    },
+    {
+      "id": "hexa-02-rt1-weekly#0017",
+      "start": 95.06,
+      "end": 96.14,
+      "text": "no longer blocked.",
+      "avg_logprob": -0.236,
+      "no_speech_prob": 0.012,
+      "compression_ratio": 1.09
+    }
+  ]
+}

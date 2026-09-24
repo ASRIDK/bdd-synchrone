@@ -1,0 +1,140 @@
+{
+  "recording_id": "practice-02-kafka-lag",
+  "file": "practice-02-kafka-lag.m4a",
+  "sha256": "b826c4e6bc04cafedd1d6978f01f343c92b153b52e1b5cf8e8dd1e7d68619f9f",
+  "model": "small",
+  "language": "en",
+  "language_probability": 1,
+  "audio_duration_sec": 60.22,
+  "transcribed_at": "2026-09-24T15:33:34Z",
+  "wall_time_sec": 6.62,
+  "realtime_factor": 9.1,
+  "segments": [
+    {
+      "id": "practice-02-kafka-lag#0000",
+      "start": 0.72,
+      "end": 7.64,
+      "text": "Hi everyone, this talk is about Kafka consumer lag, based on what we learned on TransRail.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0001",
+      "start": 7.64,
+      "end": 11.36,
+      "text": "Consumer lag is the number of messages that a consumer still has to read.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0002",
+      "start": 11.36,
+      "end": 13.6,
+      "text": "When it grows, your data is late.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0003",
+      "start": 13.6,
+      "end": 18.84,
+      "text": "On TransRail, late data means a display showing a train that already left.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0004",
+      "start": 18.84,
+      "end": 23.6,
+      "text": "First reflex, check if the lag grows on all partitions, or only on one.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0005",
+      "start": 23.6,
+      "end": 27.12,
+      "text": "If it is only one partition, you probably have a hotkey.",
+      "avg_logprob": -0.125,
+      "no_speech_prob": 0.107,
+      "compression_ratio": 1.634
+    },
+    {
+      "id": "practice-02-kafka-lag#0006",
+      "start": 27.12,
+      "end": 31.8,
+      "text": "On Trans Rail, it was one busy station sending most of the messages.",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0007",
+      "start": 31.8,
+      "end": 37.1,
+      "text": "The fix was to change the message key from the station identifier to the train identifier,",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0008",
+      "start": 37.1,
+      "end": 40.48,
+      "text": "so that the load spreads across the partitions.",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0009",
+      "start": 40.48,
+      "end": 44.0,
+      "text": "Second reflex, check the processing time of the consumer.",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0010",
+      "start": 44.0,
+      "end": 50.12,
+      "text": "If each message takes too long, add consumers, but never add more consumers than partitions,",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0011",
+      "start": 50.12,
+      "end": 52.32,
+      "text": "because the extra ones stay idle.",
+      "avg_logprob": -0.143,
+      "no_speech_prob": 0.014,
+      "compression_ratio": 1.742
+    },
+    {
+      "id": "practice-02-kafka-lag#0012",
+      "start": 52.32,
+      "end": 58.12,
+      "text": "On 3rd, said an alert, on trans rail, we alert when the lag stays above 10,000 messages",
+      "avg_logprob": -0.289,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.154
+    },
+    {
+      "id": "practice-02-kafka-lag#0013",
+      "start": 58.12,
+      "end": 59.2,
+      "text": "for five minutes.",
+      "avg_logprob": -0.289,
+      "no_speech_prob": 0.005,
+      "compression_ratio": 1.154
+    }
+  ]
+}
