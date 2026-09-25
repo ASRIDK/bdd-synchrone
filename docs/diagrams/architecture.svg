@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#161a20" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8a919b"/>
+    </marker>
+    <marker id="arrow-small" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#6b727c"/>
+    </marker>
+    <style>
+      .panel { fill: #1c2026; stroke: #464c55; stroke-width: 1.5; }
+      .box { fill: #262a31; stroke: #5b616a; stroke-width: 1.5; }
+      .title { fill: #f1f3f5; font-size: 24px; font-weight: 500; text-anchor: middle; }
+      .sub { fill: #a9afb7; font-size: 16px; text-anchor: middle; }
+      .heading { fill: #e6e8eb; font-size: 17px; font-weight: 800; letter-spacing: 4px; }
+      .flow { fill: none; stroke: #8a919b; stroke-width: 2; }
+      .inner { fill: none; stroke: #6b727c; stroke-width: 1.5; }
+      .dashed { fill: none; stroke: #8a919b; stroke-width: 2; stroke-dasharray: 7 7; }
+      .pill { fill: #0e1115; stroke: #3b4149; stroke-width: 1; }
+      .pill-text { fill: #e6e8eb; font-size: 15px; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0b0d11"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- Sources -->
+  <rect class="panel" x="70" y="170" width="380" height="560" rx="6"/>
+  <text class="heading" x="100" y="214">SOURCES</text>
+  <g>
+    <rect class="box" x="100" y="238" width="320" height="100" rx="4"/>
+    <text class="title" x="260" y="281">Meeting recordings</text>
+    <text class="sub" x="260" y="309">audio + video</text>
+
+    <rect class="box" x="100" y="358" width="320" height="100" rx="4"/>
+    <text class="title" x="260" y="401">Import page</text>
+    <text class="sub" x="260" y="429">hash · mission · metadata</text>
+
+    <rect class="box" x="100" y="478" width="320" height="100" rx="4"/>
+    <text class="title" x="260" y="521">Transcript review</text>
+    <text class="sub" x="260" y="549">human corrections</text>
+
+    <rect class="box" x="100" y="598" width="320" height="100" rx="4"/>
+    <text class="title" x="260" y="641">Domain glossary</text>
+    <text class="sub" x="260" y="669">client terms</text>
+  </g>
+
+  <!-- Whisper -->
+  <rect class="box" x="540" y="385" width="310" height="130" rx="4"/>
+  <text class="title" x="695" y="443">Whisper transcription</text>
+  <text class="sub" x="695" y="471">local · timestamped segments</text>
+
+  <!-- Knowledge engine -->
+  <rect class="panel" x="940" y="130" width="460" height="700" rx="6"/>
+  <text class="heading" x="972" y="176">KNOWLEDGE ENGINE</text>
+  <g>
+    <rect x="975" y="200" width="390" height="110" rx="4" fill="#1d3533" stroke="#3fb3a0" stroke-width="1.5"/>
+    <text class="title" x="1170" y="246">Passage index</text>
+    <text class="sub" x="1170" y="275">25-40 sec chunks · BM25 + embeddings</text>
+
+    <rect x="975" y="350" width="390" height="110" rx="4" fill="#352f20" stroke="#d9a441" stroke-width="1.5"/>
+    <text class="title" x="1170" y="396">Decision register</text>
+    <text class="sub" x="1170" y="425">current · replaced · history</text>
+
+    <rect class="box" x="975" y="500" width="390" height="110" rx="4"/>
+    <text class="title" x="1170" y="546">Access + retrieval</text>
+    <text class="sub" x="1170" y="575">permissions · hybrid search · evidence gate</text>
+
+    <rect x="975" y="650" width="390" height="110" rx="4" fill="#3a2226" stroke="#d9534f" stroke-width="1.5"/>
+    <text class="title" x="1170" y="696">Answer + verification</text>
+    <text class="sub" x="1170" y="725">quotes or local model · citations</text>
+
+    <path class="inner" d="M1170 310V346" marker-end="url(#arrow-small)"/>
+    <path class="inner" d="M1170 460V496" marker-end="url(#arrow-small)"/>
+    <path class="inner" d="M1170 610V646" marker-end="url(#arrow-small)"/>
+  </g>
+
+  <!-- Next.js frontend -->
+  <rect class="box" x="1525" y="385" width="345" height="130" rx="4"/>
+  <text class="title" x="1697" y="443">Next.js frontend</text>
+  <text class="sub" x="1697" y="471">assistant · library · timeline</text>
+
+  <!-- Bottom row -->
+  <rect class="box" x="540" y="880" width="340" height="130" rx="4"/>
+  <text class="title" x="710" y="938">Quality report</text>
+  <text class="sub" x="710" y="966">50 questions · WER · latency · leaks</text>
+
+  <rect class="box" x="1525" y="880" width="345" height="130" rx="4"/>
+  <text class="title" x="1697" y="938">Evaluation loop</text>
+  <text class="sub" x="1697" y="966">tune thresholds · report results</text>
+
+  <!-- Flows -->
+  <path class="flow" d="M450 450H532" marker-end="url(#arrow)"/>
+  <rect class="pill" x="455" y="410" width="72" height="28" rx="4"/>
+  <text class="pill-text" x="491" y="429">ingest</text>
+
+  <path class="flow" d="M850 450H932" marker-end="url(#arrow)"/>
+  <rect class="pill" x="848" y="410" width="88" height="28" rx="4"/>
+  <text class="pill-text" x="892" y="429">segments</text>
+
+  <path class="flow" d="M1400 450H1517" marker-end="url(#arrow)"/>
+  <rect class="pill" x="1405" y="410" width="114" height="28" rx="4"/>
+  <text class="pill-text" x="1462" y="429">serves answers</text>
+
+  <!-- The quality report measures the engine -->
+  <path class="flow" d="M880 945H1030V838" marker-end="url(#arrow)"/>
+  <rect class="pill" x="1005" y="860" width="84" height="28" rx="4"/>
+  <text class="pill-text" x="1047" y="879">measures</text>
+
+  <!-- Evaluation loop calibrates the engine -->
+  <path class="dashed" d="M1525 945H1310V838" marker-end="url(#arrow)"/>
+  <rect class="pill" x="1318" y="860" width="92" height="28" rx="4"/>
+  <text class="pill-text" x="1364" y="879">calibrates</text>
+
+  <!-- Quality report feeds the evaluation loop -->
+  <path class="flow" d="M710 1010V1040H1697V1018" marker-end="url(#arrow)"/>
+  <rect class="pill" x="1150" y="1026" width="70" height="28" rx="4"/>
+  <text class="pill-text" x="1185" y="1045">results</text>
+</svg>
