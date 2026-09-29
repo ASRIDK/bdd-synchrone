@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-// Every signed-in page: a black hero band (the navigation floats over its top edge) and the
-// content below on the light grey page.
+// Every signed-in page: a black rounded hero card under the navigation, and the content below
+// on the paper floor.
 export function Page({
   title,
   accent,
@@ -21,11 +21,11 @@ export function Page({
 }) {
   return (
     <>
-      <section className="bg-night pb-16 pt-32 text-white sm:pt-40">
+      <section className="pt-24 sm:pt-28">
         <div className={`mx-auto ${width} px-5 sm:px-8 lg:px-12`}>
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-8 rounded-hero bg-night px-6 pb-12 pt-10 text-white sm:px-10 sm:pt-12 lg:flex-row lg:items-end lg:justify-between lg:px-12">
             <div className="max-w-4xl">
-              <h1 className="display text-[2.4rem] sm:text-[3.4rem]">
+              <h1 className="display text-[2.5rem] sm:text-[3.6rem]">
                 {title}
                 {accent && (
                   <>
@@ -50,12 +50,12 @@ export function Page({
   );
 }
 
-// The white pill of links overlapping the hero, as on AmplifyME's audience tabs.
+// The white pill of links overlapping the bottom of the hero card.
 export function PillLinks({ items }: { items: Array<{ href: string; label: string }> }) {
   return (
-    <nav aria-label="On this page" className="mx-auto flex w-fit max-w-full gap-1 overflow-x-auto rounded-2xl bg-surface p-2 shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+    <nav aria-label="On this page" className="mx-auto flex w-fit max-w-full gap-1 overflow-x-auto rounded-full bg-surface p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
       {items.map((i) => (
-        <a key={i.href} href={i.href} className="whitespace-nowrap rounded-xl px-4 py-2.5 text-[15px] text-ink hover:bg-paper">
+        <a key={i.href} href={i.href} className="whitespace-nowrap rounded-full px-4 py-2 text-[14px] text-ink hover:bg-paper">
           {i.label}
         </a>
       ))}

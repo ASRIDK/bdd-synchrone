@@ -99,7 +99,7 @@ export function ImportForm({ missions, people, me, accept }: { missions: Mission
           <>
             <p className="text-lg font-bold">Drop a recording here</p>
             <p className="mt-1 text-sm text-ink-faint">Audio or video: wav, mp3, m4a, mp4, mov, webm. Up to 2 GB.</p>
-            <button type="button" onClick={() => input.current?.click()} className="mt-4 rounded-xl bg-night px-4 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white">
+            <button type="button" onClick={() => input.current?.click()} className="mt-4 rounded-full bg-ink px-5 py-2.5 text-[14px] font-semibold text-white">
               Choose a file
             </button>
           </>
@@ -183,7 +183,7 @@ export function ImportForm({ missions, people, me, accept }: { missions: Mission
       <button
         type="submit"
         disabled={!file || progress !== null}
-        className="mt-6 w-full rounded-xl bg-signal px-5 py-3.5 text-[14px] font-bold uppercase tracking-wide text-white disabled:opacity-40 sm:w-auto"
+        className="mt-6 w-full rounded-full bg-signal px-6 py-3.5 text-[15px] font-semibold text-white disabled:opacity-40 sm:w-auto"
       >
         Import into the archive
       </button>

@@ -173,7 +173,7 @@ export function AssistantChat({
           e.preventDefault();
           void ask(draft);
         }}
-        className="sticky bottom-4 mt-8 flex gap-2 rounded-2xl bg-surface p-2 shadow-[0_10px_40px_rgba(0,0,0,0.12)]"
+        className="sticky bottom-4 mt-8 flex gap-2 rounded-full bg-surface p-1.5 shadow-[0_0_0_1px_var(--line),0_10px_30px_rgba(0,0,0,0.08)]"
       >
         <label htmlFor="assistant-q" className="sr-only">Your question</label>
         <input
@@ -182,9 +182,9 @@ export function AssistantChat({
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Ask about a mission, a decision, an incident..."
           autoComplete="off"
-          className="min-w-0 flex-1 rounded-xl px-3 py-3 text-[15px] placeholder:text-ink-faint"
+          className="min-w-0 flex-1 rounded-full px-4 py-3 text-[16px] placeholder:text-ink-faint"
         />
-        <button type="submit" disabled={busy || draft.trim().length < 3} className="rounded-xl bg-signal px-5 py-3 text-[13px] font-bold uppercase tracking-wide text-white disabled:opacity-40">
+        <button type="submit" disabled={busy || draft.trim().length < 3} className="rounded-full bg-ink px-6 py-3 text-[14px] font-semibold text-white disabled:opacity-40">
           {busy ? "Working" : "Ask"}
         </button>
       </form>

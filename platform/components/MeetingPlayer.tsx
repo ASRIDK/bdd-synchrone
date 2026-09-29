@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { formatTime } from "@/lib/engine/text";
+import { loadPeaks } from "./MeetingTimeline";
+
+const BARS = 140;
 
 type Seg = { id: string; start: number; end: number; text: string; lowConfidence: boolean };
 type Dec = { segmentId: string; status: "current" | "superseded"; supersededBy?: string };
@@ -19,6 +22,15 @@ export function MeetingPlayer({
 }) {
   const audio = useRef<HTMLAudioElement>(null);
   const [now, setNow] = useState(startAt ?? 0);
+  const [length, setLength] = useState(0);
+  const [peaks, setPeaks] = useState<number[] | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadPeaks(recordingId, BARS).then((p) => live && setPeaks(p));
+    return () => {
+      live = false;
+    };
+  }, [recordingId]);
   // Links carry whole seconds (a sentence at 44.6 s is linked as t=44), so allow one second.
   const cited = startAt === null ? null : segments.reduce<Seg | null>((best, s) => (s.start < startAt + 1 ? s : best), null);
   const decisionOf = new Map(decisions.map((d) => [d.segmentId, d]));
@@ -46,8 +58,33 @@ export function MeetingPlayer({
   return (
     <div className="mt-6">
       <div className="sticky top-0 z-10 -mx-1 bg-paper px-1 py-3">
+        {/* The tape: click anywhere to play from there. The red bar follows the playback. */}
+        <div
+          aria-hidden="true"
+          onClick={(e) => {
+            const el = audio.current;
+            if (!el || !length) return;
+            const r = e.currentTarget.getBoundingClientRect();
+            el.currentTime = ((e.clientX - r.left) / r.width) * length;
+            void el.play();
+          }}
+          className="mb-3 flex h-16 cursor-pointer items-center gap-[2px] rounded-card bg-night px-4 py-3"
+        >
+          {Array.from({ length: BARS }, (_, i) => {
+            const at = length ? Math.min(BARS - 1, Math.floor((now / length) * BARS)) : -1;
+            const v = peaks ? Math.max(0.1, peaks[i]) : 0.3;
+            return (
+              <span
+                key={i}
+                className={`flex-1 rounded-[2px] ${i === at ? "bg-signal" : i < at ? "bg-white" : "bg-white/25"}`}
+                style={{ height: `${Math.round((i === at ? 1 : v) * 100)}%` }}
+              />
+            );
+          })}
+        </div>
         <audio
           ref={audio}
+          onLoadedMetadata={(e) => setLength(e.currentTarget.duration || 0)}
           controls
           preload="metadata"
           src={`/api/audio/${recordingId}`}

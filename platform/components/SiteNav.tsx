@@ -15,12 +15,10 @@ const MAIN = [
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className={`flex items-center gap-2.5 ${light ? "text-white" : "text-ink"}`}>
-      <span aria-hidden="true" className="flex h-5 items-end gap-[3px]">
-        {[9, 18, 12, 20, 7].map((h, i) => (
-          <span key={i} className="w-[3px] rounded-full bg-signal" style={{ height: h }} />
-        ))}
+      <span aria-hidden="true" className={`relative h-[22px] w-[22px] rounded-full border-[5px] ${light ? "border-white" : "border-ink"}`}>
+        <span className="absolute inset-[3px] rounded-full bg-signal" />
       </span>
-      <span className="text-[15px] font-extrabold uppercase tracking-[0.18em]">Knowledge Warranty</span>
+      <span className="text-[16px] font-bold tracking-[-0.02em]">Knowledge Warranty</span>
     </span>
   );
 }
@@ -36,8 +34,8 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
     .toUpperCase();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div className="mx-auto flex max-w-[1440px] items-center gap-3 rounded-2xl bg-surface px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] sm:px-5">
+    <header className="fixed inset-x-0 top-0 z-40 px-5 pt-3 sm:px-8 sm:pt-4 lg:px-12">
+      <div className="mx-auto flex max-w-[1440px] items-center gap-3 rounded-card bg-surface py-2 pl-4 pr-2 shadow-[0_1px_0_var(--line),0_8px_24px_rgba(0,0,0,0.06)] sm:pl-5">
         <Link href="/" className="shrink-0">
           <Logo />
         </Link>
@@ -47,7 +45,7 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
               key={l.href}
               href={l.href}
               aria-current={active(l.href) ? "page" : undefined}
-              className={`whitespace-nowrap rounded-xl px-3 py-2 text-[15px] ${active(l.href) ? "bg-paper font-semibold text-ink" : "text-ink-soft hover:text-ink"}`}
+              className={`whitespace-nowrap rounded-full px-3.5 py-2 text-[14px] ${active(l.href) ? "bg-ink font-medium text-white" : "text-ink-soft hover:bg-paper hover:text-ink"}`}
             >
               {l.label}
             </Link>
@@ -55,11 +53,11 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
         </nav>
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
           <details className="relative">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-xl py-1 pl-1 pr-2 hover:bg-paper">
+            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full py-1 pl-1 pr-3 hover:bg-paper">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-night text-[12px] font-bold text-white">{initials}</span>
               <span className="hidden whitespace-nowrap text-[14px] font-medium xl:block">{name}</span>
             </summary>
-            <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-surface p-3 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
+            <div className="absolute right-0 mt-2 w-64 rounded-card bg-surface p-3 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
               <p className="px-2 text-[14px] font-medium">{name}</p>
               <p className="px-2 text-[13px] text-ink-faint">{email}</p>
               <div className="mt-2 border-t border-line pt-2 lg:hidden">
@@ -76,8 +74,8 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
               </form>
             </div>
           </details>
-          <Link href="/import" className="hidden whitespace-nowrap rounded-xl bg-night px-4 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white sm:block">
-            Import a meeting
+          <Link href="/import" className="hidden whitespace-nowrap rounded-full bg-signal px-4 py-2.5 text-[14px] font-semibold text-white sm:block">
+            ● Import a meeting
           </Link>
         </div>
       </div>

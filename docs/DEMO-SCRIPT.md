@@ -55,10 +55,11 @@ still true?"
    Cut the model wait.
 5. **Point at**, top to bottom:
    - the answer: "The TransRail staging environment is shut down every night at 8 p.m."
-   - **Said in the meeting**: the exact words, in quotes
+   - under it, in the serif, the exact words spoken, in quotes
    - the meeting name and date: "TransRail update, staging schedule, 29 September 2026"
-   - **Play from 00:07 of 00:17**
-6. Click **Play from 00:07**. The meeting opens and plays from the sentence ("One decision...").
+   - the **▶ 00:07** chip and the waveform, with the red bar where the sentence is (00:17 on the right)
+6. Click the **▶ 00:07** chip. The meeting opens and plays from the sentence ("One decision...");
+   the red bar on the big waveform moves with the audio.
    Let 3 seconds of audio play.
    Say: "Every answer gives the exact words, the meeting and the second. One click and you hear it."
 
@@ -77,7 +78,7 @@ and a decision that changed.
    `On which day do TransRail production deployments go out?`
 2. **Point at:**
    - **Current decision**: Tuesday morning, with the French quote "Alors on change... le mardi
-     matin, et plus le jeudi", Point déploiement TransRail, 8 July 2026, Play from 00:22
+     matin, et plus le jeudi", Point déploiement TransRail, 8 Jul 2026, ▶ 00:22
    - **Replaced, kept as history**: Thursday morning, Cost review, 2 June 2026
    Say: "I asked in English. The answer is in a French meeting, and it replaced an older decision,
    which is kept as history, not deleted."
@@ -175,7 +176,7 @@ Do all of this in the main checkout (`~/BDD Synchrone`), not a worktree.
       `data/transcripts/transrail-update-staging-schedule-*.json`, and remove its entry from
       `data/jobs.json`. The team-sync import changes nothing in the archive and can be repeated;
       remove its entry from `data/jobs.json` only to keep the imports list short.
-- [ ] Case a answer: the Thursday history line has its "Play from 00:55" just under the question
+- [ ] Case a answer: the Thursday history card has its "▶ 00:55" waveform just above the question
       bar; scroll a little so it shows.
 
 ## If something goes wrong while recording

@@ -113,7 +113,7 @@ export default async function DashboardPage() {
             <p className="mt-1 text-ink-soft">
               Meetings you import, or that your mission records, will appear here. Your missions&apos; recordings are listed below.
             </p>
-            <Link href="/import" className="mt-4 inline-block rounded-xl bg-night px-4 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white">
+            <Link href="/import" className="mt-4 inline-block rounded-full bg-ink px-5 py-2.5 text-[14px] font-semibold text-white">
               Import a meeting
             </Link>
           </div>

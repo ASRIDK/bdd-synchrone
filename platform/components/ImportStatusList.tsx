@@ -18,16 +18,23 @@ function Steps({ status }: { status: JobStatus }) {
   const at = STEPS.indexOf(status);
   if (at < 0) return null;
   return (
-    <ol className="mt-3 flex items-center gap-2" aria-label="Progress">
-      {STEPS.map((s, i) => (
-        <li key={s} className="flex items-center gap-2 text-[12px]">
-          <span
-            className={`h-2 w-2 rounded-full ${i < at || status === "ready" ? "bg-valid" : i === at ? "dot-live bg-signal" : "bg-line"}`}
-          />
-          <span className={i <= at ? "text-ink" : "text-ink-faint"}>{LABEL[s]}</span>
-          {i < STEPS.length - 1 && <span className="h-px w-5 bg-line" />}
-        </li>
-      ))}
+    <ol className="mt-3 flex flex-wrap items-center gap-2" aria-label="Progress">
+      {STEPS.map((s, i) => {
+        const done = i < at || status === "ready";
+        return (
+          <li key={s} className="flex items-center gap-2">
+            <span
+              className={`rounded-full px-3 py-1 font-mono text-[12px] ${
+                done ? "bg-ink text-white" : i === at ? "bg-signal text-white" : "bg-paper text-ink-faint"
+              }`}
+            >
+              {i === at && !done && <span className="dot-live mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-white align-middle" />}
+              {LABEL[s]}
+            </span>
+            {i < STEPS.length - 1 && <span className={`h-[2px] w-6 ${i < at ? "bg-ink" : "bg-line"}`} />}
+          </li>
+        );
+      })}
     </ol>
   );
 }

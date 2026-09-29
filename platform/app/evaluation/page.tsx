@@ -204,8 +204,8 @@ export default function EvaluationPage() {
       </div>
 
       {demo && demoExpected?.kind === "lines" && (
-        <section className="mt-8 rounded-xl border border-history bg-surface p-5">
-          <p className="text-sm font-semibold uppercase tracking-wide text-history">Known failure, shown in the demo</p>
+        <section className="mt-8 rounded-card bg-surface p-5">
+          <span className="inline-block rounded-full bg-history-bg px-2.5 py-1 text-[12px] font-semibold text-history">Known failure, shown in the demo</span>
           <p className="mt-1 text-lg font-medium">{demo.id}: {demo.question}</p>
           <dl className="mt-3 grid gap-x-4 gap-y-2 text-[14px] sm:grid-cols-[11rem_1fr]">
             <dt className="text-ink-faint">Expected</dt>

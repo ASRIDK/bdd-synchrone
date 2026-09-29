@@ -37,7 +37,7 @@ export function LoginForm({ next, accounts }: { next: string; accounts: Account[
         <button
           type="submit"
           disabled={pending}
-          className="w-full rounded-xl bg-night px-5 py-3.5 text-[14px] font-bold uppercase tracking-wide text-white disabled:opacity-50"
+          className="w-full rounded-full bg-ink px-5 py-3.5 text-[15px] font-semibold text-white disabled:opacity-50"
         >
           {pending ? "Signing in" : "Continue"}
         </button>

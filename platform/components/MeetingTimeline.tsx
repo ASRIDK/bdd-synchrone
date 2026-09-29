@@ -1,8 +1,44 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { formatTime } from "@/lib/engine/text";
 
-// A recording drawn as a bar, with a mark where the cited sentence is. It shows
-// "minute 1 of a 2 minute meeting" and links straight to that moment.
+const BARS = 64;
+
+// Peaks per recording, decoded once per page load from the same audio the player streams
+// (access is checked by /api/audio). Shared between every waveform of the same recording.
+const peaksCache = new Map<string, Promise<number[] | null>>();
+
+export function loadPeaks(recordingId: string, bars = BARS): Promise<number[] | null> {
+  const key = `${recordingId}:${bars}`;
+  let p = peaksCache.get(key);
+  if (!p) {
+    p = (async () => {
+      try {
+        const res = await fetch(`/api/audio/${recordingId}`);
+        if (!res.ok) return null;
+        const buf = await new OfflineAudioContext(1, 1, 22050).decodeAudioData(await res.arrayBuffer());
+        const data = buf.getChannelData(0);
+        const size = Math.floor(data.length / bars) || 1;
+        const peaks = Array.from({ length: bars }, (_, i) => {
+          let max = 0;
+          for (let j = i * size; j < Math.min(data.length, (i + 1) * size); j += 16) max = Math.max(max, Math.abs(data[j]));
+          return max;
+        });
+        const top = Math.max(...peaks) || 1;
+        return peaks.map((v) => v / top);
+      } catch {
+        return null;
+      }
+    })();
+    peaksCache.set(key, p);
+  }
+  return p;
+}
+
+// A recording drawn as its waveform, with the cited second as the red playhead. The timecode
+// chip and the bars both open the recording at that second, where it starts playing.
 export function MeetingTimeline({
   recordingId,
   start,
@@ -14,24 +50,42 @@ export function MeetingTimeline({
   duration: number;
   tone?: "neutral" | "current" | "history";
 }) {
-  const pct = Math.min(100, Math.max(0, (start / Math.max(1, duration)) * 100));
-  const color = tone === "current" ? "var(--valid)" : tone === "history" ? "var(--history)" : "var(--ink)";
+  const [peaks, setPeaks] = useState<number[] | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadPeaks(recordingId).then((p) => live && setPeaks(p));
+    return () => {
+      live = false;
+    };
+  }, [recordingId]);
+
+  const head = Math.min(BARS - 1, Math.max(0, Math.floor((start / Math.max(1, duration)) * BARS)));
+  const chip = tone === "current" ? "bg-valid" : tone === "history" ? "bg-history" : "bg-ink";
   return (
     <Link
       href={`/library/${recordingId}?t=${Math.floor(start)}`}
-      className="group flex items-center gap-3 text-sm"
-      aria-label={`Open the recording at ${formatTime(start)} of ${formatTime(duration)}`}
+      className="group grid grid-cols-[auto_1fr_auto] items-center gap-3"
+      aria-label={`Play the recording from ${formatTime(start)} of ${formatTime(duration)}`}
     >
-      <span className="relative block h-2 w-40 rounded-full bg-line">
-        <span className="absolute inset-y-0 left-0 rounded-full opacity-25" style={{ width: `${pct}%`, background: color }} />
-        <span
-          className="absolute top-1/2 h-3.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-sm"
-          style={{ left: `${pct}%`, background: color }}
-        />
+      <span className="inline-flex items-center gap-2 rounded-full bg-paper py-1 pl-1 pr-3 font-mono text-[13px] font-medium text-ink group-hover:bg-line">
+        <span aria-hidden="true" className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[9px] text-white ${chip}`}>
+          ▶
+        </span>
+        {formatTime(start)}
       </span>
-      <span className="tabular text-ink-soft group-hover:text-ink group-hover:underline">
-        Play from {formatTime(start)} <span className="text-ink-faint">of {formatTime(duration)}</span>
+      <span aria-hidden="true" className="flex h-7 items-center gap-[2px]">
+        {Array.from({ length: BARS }, (_, i) => {
+          const v = peaks ? Math.max(0.12, peaks[i]) : 0.3;
+          return (
+            <span
+              key={i}
+              className={`flex-1 rounded-[2px] transition-[height] duration-300 ${i === head ? "bg-signal" : i < head ? "bg-ink" : "bg-wave"}`}
+              style={{ height: `${Math.round((i === head ? 1 : v) * 100)}%` }}
+            />
+          );
+        })}
       </span>
+      <span className="font-mono text-[12px] text-ink-faint">{formatTime(duration)}</span>
     </Link>
   );
 }

@@ -11,9 +11,9 @@ const STATUS_LABEL: Record<PipelineStatus, string> = {
   not_applicable: "Not applicable",
 };
 const STATUS_STYLE: Record<PipelineStatus, string> = {
-  done: "bg-paper text-ink",
+  done: "bg-paper text-ink-soft",
   passed: "bg-valid-bg text-valid",
-  refused: "bg-history-bg text-history",
+  refused: "bg-signal/10 text-signal",
   not_applicable: "bg-paper text-ink-faint",
 };
 
@@ -29,72 +29,78 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
 
   return (
     <section className="mt-8">
-      <div className={`rounded-xl border bg-surface p-5 sm:p-6 ${notFound ? "border-line" : "border-line"}`}>
-        <p className={`text-lg font-medium ${notFound ? "text-ink-soft" : "text-ink"}`}>{answer.headline}</p>
-
+      <div>
         {notFound ? (
-          <p className="mt-2 text-ink-soft">
-            Nothing in your missions answers this. Nothing was guessed. If the answer should exist, it may be in a
-            mission you do not belong to, or it was never recorded.
-          </p>
+          <div className="rounded-card bg-surface p-5 sm:p-6">
+            <span className="inline-block rounded-full bg-signal/10 px-2.5 py-1 text-[12px] font-semibold text-signal">Refused</span>
+            <p className="mt-3 text-[17px] font-semibold text-ink">{answer.headline}</p>
+            <p className="mt-1 text-ink-soft">
+              Nothing in your missions answers this. Nothing was guessed. If the answer should exist, it may be in a
+              mission you do not belong to, or it was never recorded.
+            </p>
+          </div>
         ) : (
-          <ul className="mt-5 space-y-5">
+          <>
+          <p className="text-[17px] font-semibold text-ink">{answer.headline}</p>
+          <ul className="mt-4 space-y-3">
             {answer.statements.map((s, i) => {
               const c = s.citations[0];
               // Quote mode, and decisions added from the register, show the exact words spoken.
               const verbatim = answer.mode === "quote" || c.quote === s.text;
               const tone = s.role === "current" ? "current" : s.role === "history" ? "history" : "neutral";
               return (
-                <li
-                  key={i}
-                  className={`border-l-[3px] pl-4 ${
-                    s.role === "current" ? "border-valid" : s.role === "history" ? "border-history" : "border-line"
-                  }`}
-                >
-                  {ROLE_LABEL[s.role] && (
-                    <p className={`mb-1 text-sm font-medium ${s.role === "current" ? "text-valid" : "text-history"}`}>
-                      {ROLE_LABEL[s.role]}
-                    </p>
-                  )}
-                  <p className={verbatim ? "spoken" : "text-[15px]"}>{verbatim ? `“${s.text}”` : s.text}</p>
-                  {!verbatim && c.quote && (
-                    <p className="spoken mt-1.5 text-[15px] text-ink-soft">
-                      <span className="font-sans text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Said in the meeting </span>
-                      &ldquo;{c.quote}&rdquo;
-                    </p>
-                  )}
-                  <p className="mt-2 text-sm text-ink-soft">
-                    {c.title}, {new Date(c.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
-                  </p>
-                  <div className="mt-1.5">
+                <li key={i} className="rounded-card bg-surface p-5">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    {ROLE_LABEL[s.role] ? (
+                      <span
+                        className={`rounded-full px-2.5 py-1 text-[12px] font-semibold ${
+                          s.role === "current" ? "bg-valid-bg text-valid" : "bg-history-bg text-history"
+                        }`}
+                      >
+                        {ROLE_LABEL[s.role]}
+                      </span>
+                    ) : (
+                      <span className="rounded-full bg-paper px-2.5 py-1 text-[12px] font-semibold text-ink-soft">Evidence</span>
+                    )}
+                    <span className="font-mono text-[12px] text-ink-faint">
+                      {c.title} · {new Date(c.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
+                    </span>
+                  </div>
+                  {!verbatim && <p className="mt-3 text-[16px] font-semibold">{s.text}</p>}
+                  {(verbatim || c.quote) && <p className={`spoken ${verbatim ? "mt-3" : "mt-1.5"} ${s.role === "history" ? "text-ink-soft" : ""}`} style={{ fontSize: s.role === "history" ? 17 : 20 }}>
+                    &ldquo;{verbatim ? s.text : c.quote}&rdquo;
+                  </p>}
+                  <div className="mt-4">
                     <MeetingTimeline recordingId={c.recordingId} start={c.start} duration={durations[c.recordingId] ?? c.start + 60} tone={tone} />
                   </div>
                 </li>
               );
             })}
           </ul>
+          </>
         )}
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4 text-sm text-ink-faint">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-1 text-sm text-ink-faint">
           <span>
             {notFound ? "No answer written: the evidence gate stopped it." : answer.mode === "quote" ? "Quote mode: the answer is made of the exact words spoken." : `Written by ${(answer.usage?.model ?? "a language model").replace(/:latest$/, "")}, every sentence checked against its source.`}{" "}
             <span className="tabular">Answered in {answer.latencyMs < 1000 ? `${answer.latencyMs} ms` : `${(answer.latencyMs / 1000).toFixed(1)} s`}.</span>
           </span>
-          <button type="button" onClick={() => setShowTrace((v) => !v)} aria-expanded={showTrace} className="text-ink-soft underline underline-offset-4 hover:text-ink">
+          <button type="button" onClick={() => setShowTrace((v) => !v)} aria-expanded={showTrace} className="rounded-full bg-surface px-4 py-2 font-semibold text-ink hover:bg-line">
             {showTrace ? "Hide how this answer was built" : "How this answer was built"}
           </button>
         </div>
       </div>
 
       {showTrace && (
-        <ol aria-label="How this answer was built" className="mt-4 space-y-4 rounded-xl border border-line bg-surface p-5 text-[14px] sm:p-6">
+        <ol aria-label="How this answer was built" className="mt-3 space-y-4 rounded-card bg-surface p-5 text-[14px] sm:p-6">
           {(answer.pipeline ?? []).map((p) => (
             <li key={p.n} className={`grid gap-2 sm:grid-cols-[11rem_1fr] sm:gap-4 ${p.n > 1 ? "border-t border-line pt-4" : ""}`}>
-              <div>
-                <p className="font-bold text-ink">
-                  {p.n}. {p.name}
+              <div className="flex items-start gap-3 sm:block">
+                <p className="flex items-center gap-2.5 font-semibold text-ink">
+                  <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-paper font-mono text-[12px]">{p.n}</span>
+                  {p.name}
                 </p>
-                <span className={`mt-1 inline-block rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${STATUS_STYLE[p.status]}`}>
+                <span className={`mt-1.5 inline-block rounded-full px-2.5 py-0.5 text-[12px] font-semibold sm:ml-[2.375rem] ${STATUS_STYLE[p.status]}`}>
                   {STATUS_LABEL[p.status]}
                 </span>
               </div>
