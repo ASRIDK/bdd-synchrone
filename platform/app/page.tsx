@@ -56,6 +56,15 @@ export default async function DashboardPage() {
   const jobs = listJobs().filter((j) => j.user === user.email || user.missions.includes(j.mission)).slice(0, 3);
   const firstName = user.name.split(" ")[0];
   const attendedSeconds = attended.reduce((s, r) => s + r.durationSec, 0);
+  const inForce = idx.decisions.filter((d) => user.missions.includes(d.mission) && d.status === "current").length;
+  const replaced = idx.decisions.filter((d) => user.missions.includes(d.mission) && d.status === "superseded").length;
+  // Your own figures in one line: meetings you were in, then the state of your missions' decisions.
+  const summary = [
+    attended.length === 0
+      ? "No recorded meeting lists you yet."
+      : `You were in ${attended.length} recorded meeting${attended.length > 1 ? "s" : ""} (${formatDuration(attendedSeconds)}).`,
+    `${inForce} decision${inForce === 1 ? "" : "s"} in force, ${replaced} replaced.`,
+  ].join(" ");
 
   return (
     <Page
@@ -67,6 +76,7 @@ export default async function DashboardPage() {
             {user.role}. You can search {missions.length} mission{missions.length > 1 ? "s" : ""}, {mine.length} recordings and{" "}
             {formatDuration(mine.reduce((s, r) => s + r.durationSec, 0))} of audio.
           </p>
+          <p className="mt-1 tabular">{summary}</p>
           <div className="mt-6 max-w-xl">
             <MeetingLine dates={mine.map((r) => r.date)} />
           </div>
@@ -84,21 +94,7 @@ export default async function DashboardPage() {
         />
       }
     >
-      <dl className="grid gap-4 sm:grid-cols-4">
-        {[
-          ["Meetings you were in", String(attended.length)],
-          ["Of them recorded", formatDuration(attendedSeconds)],
-          ["Decisions in force", String(idx.decisions.filter((d) => user.missions.includes(d.mission) && d.status === "current").length)],
-          ["Decisions replaced", String(idx.decisions.filter((d) => user.missions.includes(d.mission) && d.status === "superseded").length)],
-        ].map(([label, value]) => (
-          <div key={label} className="rounded-2xl bg-surface p-5">
-            <dt className="text-sm text-ink-faint">{label}</dt>
-            <dd className="mt-1 text-3xl font-extrabold tabular">{value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <section id="attended" className="mt-16 scroll-mt-28">
+      <section id="attended" className="scroll-mt-28">
         <h2 className="display text-2xl">Meetings you were in</h2>
         <p className="mt-1 text-ink-soft">Recorded, transcribed and searchable. Open one to read it and play any sentence.</p>
         {attended.length > 0 ? (

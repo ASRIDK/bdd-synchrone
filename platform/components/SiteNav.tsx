@@ -56,7 +56,7 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
           <details className="relative">
             <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full py-1 pl-1 pr-3 hover:bg-paper">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-night text-[12px] font-bold text-white">{initials}</span>
-              <span className="hidden whitespace-nowrap text-[14px] font-medium xl:block">{name}</span>
+              <span className="hidden whitespace-nowrap text-[14px] font-medium 2xl:block">{name}</span>
             </summary>
             <div className="absolute right-0 mt-2 w-64 rounded-card bg-surface p-3 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
               <p className="px-2 text-[14px] font-medium">{name}</p>
@@ -76,7 +76,7 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
             </div>
           </details>
           <Link href="/import" className="hidden whitespace-nowrap rounded-full bg-signal px-4 py-2.5 text-[14px] font-semibold text-white sm:block">
-            ● Import a meeting
+            ● Import<span className="hidden xl:inline"> a meeting</span>
           </Link>
         </div>
       </div>

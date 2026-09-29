@@ -85,7 +85,7 @@ export function MeetingTimeline({
           );
         })}
       </span>
-      <span className="font-mono text-[12px] text-ink-faint">{formatTime(duration)}</span>
+      <span className="font-mono text-[12px] text-ink-soft">{formatTime(duration)}</span>
     </Link>
   );
 }

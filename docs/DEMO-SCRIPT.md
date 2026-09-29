@@ -162,7 +162,12 @@ Do all of this in the main checkout (`~/BDD Synchrone`), not a worktree.
 - [ ] Settings file uses Ollama: `data/settings.local.json` has `"provider": "ollama"` (or
       `auto` with no cloud key).
 - [ ] `npm run index` done in `platform/` after any data change.
-- [ ] `npm run dev` in `platform/` (Node 24), app on http://localhost:3120.
+- [ ] Record on the production build: `npm run build && npm start` in `platform/` (Node 24),
+      app on http://localhost:3120 like dev. Why: no Next.js dev badge on screen and faster pages.
+      Stop any dev server first (`kill $(lsof -ti:3120)`): if 3120 is taken, `npm start` quietly
+      moves to 3121.
+- [ ] After any code change, stop the server and run `npm run build && npm start` again (the
+      production build does not reload changes on its own).
 - [ ] Warm-up: sign in and ask one throwaway question, so the first real answer is not a cold
       start (the first one can take over 30 s).
 - [ ] Browser window at 1360 x 900, zoom 100%, no bookmarks bar, no other tabs visible.

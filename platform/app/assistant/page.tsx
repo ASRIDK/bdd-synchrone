@@ -36,6 +36,7 @@ export default async function AssistantPage({ searchParams }: { searchParams: Pr
       accent="archive"
       intro="Ask in English or French. Each answer gives the meeting and the minute, flags a decision a later meeting changed, and says when the recordings have no answer."
       width="max-w-5xl"
+      compact
     >
       <AssistantChat key={user.email} suggestions={suggestions} durations={durations} initialQuestion={q} />
     </Page>

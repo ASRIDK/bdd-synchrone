@@ -14,7 +14,7 @@ const STATUS_STYLE: Record<PipelineStatus, string> = {
   done: "bg-paper text-ink-soft",
   passed: "bg-valid-bg text-valid",
   refused: "bg-signal/10 text-signal",
-  not_applicable: "bg-paper text-ink-faint",
+  not_applicable: "bg-paper text-ink-soft",
 };
 
 const ROLE_LABEL: Record<Statement["role"], string | null> = {
@@ -62,7 +62,7 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
                     ) : (
                       <span className="rounded-full bg-paper px-2.5 py-1 text-[12px] font-semibold text-ink-soft">Evidence</span>
                     )}
-                    <span className="font-mono text-[12px] text-ink-faint">
+                    <span className="font-mono text-[12px] text-ink-soft">
                       {c.title} · {new Date(c.date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
                     </span>
                   </div>
@@ -109,7 +109,7 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
                 {p.columns && p.rows && p.rows.length > 0 && (
                   <div className="mt-2 overflow-x-auto">
                     <table className="w-full text-left text-[13px]">
-                      <thead className="text-ink-faint">
+                      <thead className="text-ink-soft">
                         <tr>
                           {p.columns.map((c) => (
                             <th key={c} className="py-1 pr-3 font-medium">

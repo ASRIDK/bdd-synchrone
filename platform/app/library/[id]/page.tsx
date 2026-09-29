@@ -35,6 +35,7 @@ export default async function MeetingPage({
     <Page
       title={rec.title}
       width="max-w-5xl"
+      compact
       intro={
         <>
           <p>

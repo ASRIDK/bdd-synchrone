@@ -95,14 +95,11 @@ export function AssistantChat({
 
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-surface px-5 py-3">
-        <p className="text-sm">
-          <span className="text-ink-faint">Answering with </span>
-          <span className="font-semibold">{model ? model.label : "checking"}</span>
-          {model && <span className="text-ink-faint">{model.local ? ", on this machine" : ", external service"}</span>}
-        </p>
-        <p className="text-sm text-ink-faint">Keyword and meaning search first, then the model writes from the evidence only.</p>
-      </div>
+      <p className="w-fit max-w-full rounded-full bg-surface px-4 py-1.5 text-[13px]">
+        <span className="text-ink-faint">Answering with </span>
+        <span className="font-semibold">{model ? model.label : "checking"}</span>
+        {model && <span className="text-ink-faint">{model.local ? ", on this machine" : ", external service"}</span>}
+      </p>
 
       <div className="mt-6 space-y-8" aria-live="polite">
         {turns.length === 0 && (
