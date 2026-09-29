@@ -29,8 +29,8 @@ is it still true?"
 - Ask in plain words, English or French: the answer, the exact words spoken, the meeting, the second
 - One click plays the recording from that second
 
-**Figure:** `docs/screenshots/answer-voice-memo.png` (answer about the memo imported live, "Play
-from 00:07 of 00:17").
+**Figure:** a screenshot of the answer about the meeting imported live
+("transrail-display-cache.m4a", cited at 00:15 of 00:32), taken during the recording.
 
 ## 4. How it works: from audio to a checked answer
 

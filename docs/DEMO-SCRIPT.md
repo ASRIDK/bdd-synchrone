@@ -42,32 +42,36 @@ still true?"
 
 1. Click **Thomas Girard** in the demo accounts, then **Continue**.
    Say: "I sign in with my Synchrone address. I only ever see my own missions."
-2. Click **Import a meeting**. Drop `~/Desktop/voice-memo.m4a`.
-   - Title: type `TransRail update, staging schedule`
+2. Click **Import a meeting**. Drop `~/Desktop/transrail-display-cache.m4a`.
+   - Title: it fills in as "Transrail display cache"; type `TransRail display cache`
    - Mission: TransRail: passenger information on AWS
    - Click **Import into the archive**.
 3. **Point at** the steps under "Your imports": Waiting, Transcribing, Indexing, In the archive.
-   The whole import takes about 12 s; cut it to 3 s in editing.
+   The whole import takes about 15 s; cut it to 3 s in editing.
    Say: "Whisper transcribes it on this laptop. Nothing leaves the machine."
-   The result line reads "In the archive: 5 sentences, 17 s of audio, language en."
+   The result line reads "In the archive: 5 sentences, 32 s of audio, language en."
 4. Click **Assistant**. Type:
-   `When is the TransRail staging environment shut down?`
+   `When is the station display cache cleared on TransRail?`
    Cut the model wait.
 5. **Point at**, top to bottom:
-   - the answer: "The TransRail staging environment is shut down every night at 8 p.m."
+   - the answer: "The station display cache is cleared every Sunday at 2 in the morning, before the first train."
    - under it, in the serif, the exact words spoken, in quotes
-   - the meeting name and date: "TransRail update, staging schedule, 29 September 2026"
-   - the **▶ 00:07** chip and the waveform, with the red bar where the sentence is (00:17 on the right)
-6. Click the **▶ 00:07** chip. The meeting opens and plays from the sentence ("One decision...");
+   - the meeting name and date, top right: "TransRail display cache · 29 Sept 2026"
+   - the **▶ 00:15** chip and the waveform, with the red bar where the sentence is (00:32 on the right)
+6. Click the **▶ 00:15** chip. The meeting opens and plays from the sentence ("Then we fix it for good...");
    the red bar on the big waveform moves with the audio.
    Let 3 seconds of audio play.
    Say: "Every answer gives the exact words, the meeting and the second. One click and you hear it."
 
-The memo text (made with `say`, voice Samantha): "Quick TransRail update from Thomas, after the
-call with the client this morning. Nothing urgent on the incident side. One decision: from now
-on, the staging environment is shut down every night at eight p.m. to cut the cloud bill. Aisha
-owns the schedule. That's all for today." If you record your own memo instead, the second changes:
-check it in rehearsal.
+The meeting (two macOS voices, 32 s, made by `pipeline/make_demo_meeting.py`):
+- 00:00 Daniel: "Quick TransRail point on the station displays. Hugo, where are we on the stale timetables?"
+- 00:06 Samantha: "The displays keep old timetables in their cache. After the Friday change, two stations showed yesterday's trains until someone restarted them."
+- 00:15 Daniel: "Then we fix it for good. Decision: from now on, the station display cache is cleared every Sunday at two in the morning, before the first train."
+- 00:24 Samantha: "Understood. I will schedule it tonight and add an alert if a display does not come back."
+- 00:29 Daniel: "Perfect. That is all for today."
+
+Nothing else in the archive mentions a cache or Sunday, so the answer can only come from this
+import. Checked live on 29 September 2026: Whisper got every line right and the answer cites 00:15.
 
 ## 1:10 to 2:10, how it works (How it works, Quality)
 
@@ -171,14 +175,15 @@ Do all of this in the main checkout (`~/BDD Synchrone`), not a worktree.
 - [ ] Warm-up: sign in and ask one throwaway question, so the first real answer is not a cold
       start (the first one can take over 30 s).
 - [ ] Browser window at 1360 x 900, zoom 100%, no bookmarks bar, no other tabs visible.
-- [ ] `~/Desktop/voice-memo.m4a` and `~/Desktop/team-sync.m4a` present. To recreate team-sync:
+- [ ] `~/Desktop/transrail-display-cache.m4a` and `~/Desktop/team-sync.m4a` present. To recreate
+      the meeting: `python3 pipeline/make_demo_meeting.py`. To recreate team-sync:
       `cp data/audio/joshua-prager-wisdom-from-great-writers-on-every-ed219e.m4a ~/Desktop/team-sync.m4a`
 - [ ] Every case run once, in the order above, before recording.
 - [ ] Account switch rehearsed (avatar top right, Sign out, click the persona, Continue).
 - [ ] After a rehearsal import of the voice memo, remove it, or the real import is refused as a
       duplicate: `git checkout -- data/index/index.json data/recordings.json`, delete
-      `data/audio/transrail-update-staging-schedule-*.m4a` and
-      `data/transcripts/transrail-update-staging-schedule-*.json`, and remove its entry from
+      `data/audio/transrail-display-cache-*.m4a` and
+      `data/transcripts/transrail-display-cache-*.json`, and remove its entry from
       `data/jobs.json`. The team-sync import changes nothing in the archive and can be repeated;
       remove its entry from `data/jobs.json` only to keep the imports list short.
 - [ ] Case a answer: the Thursday history card has its "▶ 00:55" waveform just above the question
