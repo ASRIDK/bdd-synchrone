@@ -196,7 +196,7 @@ export default function EvaluationPage() {
   const demoExpected = expected.get(DEMO_FAILURE.id);
 
   return (
-    <Page title="Quality" accent="report" width="max-w-5xl" intro={<>The 50 test questions from our reverse brief, written before tuning, scored pass or fail. Failures are listed with the reason. Thresholds were set on half of the questions only; the other half shows how the system does on questions it was not tuned on.</>}>
+    <Page title="Quality" accent="report" intro={<>50 test questions from our reverse brief, written before any tuning. Thresholds were set on half of them; the other half shows how the system does on questions it never saw.</>}>
 
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         <Scorecard r={quote} title="Quote mode (no language model)" />

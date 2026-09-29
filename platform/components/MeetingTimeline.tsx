@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { formatTime } from "@/lib/engine/text";
 
-// A recording drawn as a bar, with a mark where the cited sentence is. It tells at a glance
+// A recording drawn as a bar, with a mark where the cited sentence is. It shows
 // "minute 1 of a 2 minute meeting" and links straight to that moment.
 export function MeetingTimeline({
   recordingId,

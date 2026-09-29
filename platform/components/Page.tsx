@@ -9,7 +9,7 @@ export function Page({
   aside,
   overlap,
   children,
-  width = "max-w-6xl",
+  width = "max-w-[1440px]",
 }: {
   title: string;
   accent?: string;
@@ -21,10 +21,10 @@ export function Page({
 }) {
   return (
     <>
-      <section className="bg-night pb-14 pt-32 text-white sm:pt-36">
-        <div className={`mx-auto ${width} px-5 sm:px-8`}>
+      <section className="bg-night pb-16 pt-32 text-white sm:pt-40">
+        <div className={`mx-auto ${width} px-5 sm:px-8 lg:px-12`}>
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               <h1 className="display text-[2.4rem] sm:text-[3.4rem]">
                 {title}
                 {accent && (
@@ -34,18 +34,18 @@ export function Page({
                   </>
                 )}
               </h1>
-              {intro && <div className="mt-4 max-w-2xl text-[16px] text-white/75">{intro}</div>}
+              {intro && <div className="mt-4 max-w-3xl text-[16px] text-white/75">{intro}</div>}
             </div>
             {aside && <div className="shrink-0">{aside}</div>}
           </div>
         </div>
       </section>
       {overlap && (
-        <div className={`relative z-10 mx-auto -mt-7 ${width} px-5 sm:px-8`}>
+        <div className={`relative z-10 mx-auto -mt-7 ${width} px-5 sm:px-8 lg:px-12`}>
           {overlap}
         </div>
       )}
-      <div className={`mx-auto ${width} px-5 pb-20 pt-10 sm:px-8`}>{children}</div>
+      <div className={`mx-auto ${width} px-5 pb-24 pt-12 sm:px-8 lg:px-12`}>{children}</div>
     </>
   );
 }

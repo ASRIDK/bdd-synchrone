@@ -27,7 +27,7 @@ export default async function DigestPage({ searchParams }: { searchParams: Promi
     .filter((x) => x.list.length > 0);
 
   return (
-    <Page title="Decision" accent="digest" width="max-w-4xl" intro={<>What was decided in your missions, and what it replaced. Ready to paste into a team email.</>}>
+    <Page title="Decision" accent="digest" width="max-w-6xl" intro={<>What was decided in your missions, and what it replaced. Ready to paste into a team email.</>}>
       <div className="mt-4 flex gap-2">
         {PERIODS.map((p) => (
           <Link key={p} href={`/digest?days=${p}`} aria-current={p === days ? "page" : undefined} className={`rounded-md border px-3 py-1.5 text-sm ${p === days ? "border-ink" : "border-line text-ink-soft"}`}>

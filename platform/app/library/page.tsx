@@ -10,7 +10,7 @@ export default async function LibraryPage() {
   const missions = getCatalog().missions.filter((m) => user.missions.includes(m.id));
 
   return (
-    <Page title="The" accent="library" width="max-w-5xl" intro={<>Every recording is filed under its mission, with its date and participants. You see the missions you belong to.</>}>
+    <Page title="The" accent="library" intro={<>Every recording is filed under its mission, with its date and participants. You see the missions you belong to.</>}>
 
       <div className="mt-8 space-y-10">
         {missions.map((m) => {

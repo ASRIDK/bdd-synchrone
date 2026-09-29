@@ -22,7 +22,7 @@ export default async function DecisionsPage() {
   );
 
   return (
-    <Page title="Decision" accent="register" width="max-w-4xl" intro={<>Decisions found in the recordings, per mission. When a later meeting explicitly changed a decision, the new one is current and the old one stays here as history. A later meeting that only repeats a decision confirms it; it does not replace it.</>}>
+    <Page title="Decision" accent="register" width="max-w-6xl" intro={<>Decisions found in the recordings, per mission. When a later meeting changes a decision, the new one is current and the old one stays as history. A meeting that only repeats a decision confirms it.</>}>
       <p className="mt-2 text-sm text-ink-faint">
         Found automatically with language cues in English and French and meaning similarity. Each entry links to the moment it was said, so anyone can check it.
       </p>

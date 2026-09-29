@@ -34,7 +34,7 @@ export default async function MeetingPage({
   return (
     <Page
       title={rec.title}
-      width="max-w-4xl"
+      width="max-w-5xl"
       intro={
         <>
           <p>

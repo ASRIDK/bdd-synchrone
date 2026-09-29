@@ -37,7 +37,7 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 rounded-2xl bg-surface px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] sm:px-5">
+      <div className="mx-auto flex max-w-[1440px] items-center gap-3 rounded-2xl bg-surface px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] sm:px-5">
         <Link href="/" className="shrink-0">
           <Logo />
         </Link>
@@ -47,7 +47,7 @@ export function SiteNav({ name, email }: { name: string; email: string }) {
               key={l.href}
               href={l.href}
               aria-current={active(l.href) ? "page" : undefined}
-              className={`rounded-xl px-3 py-2 text-[15px] ${active(l.href) ? "bg-paper font-semibold text-ink" : "text-ink-soft hover:text-ink"}`}
+              className={`whitespace-nowrap rounded-xl px-3 py-2 text-[15px] ${active(l.href) ? "bg-paper font-semibold text-ink" : "text-ink-soft hover:text-ink"}`}
             >
               {l.label}
             </Link>

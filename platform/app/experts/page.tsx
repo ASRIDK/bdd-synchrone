@@ -30,7 +30,7 @@ export default async function ExpertsPage() {
   const leaving = people.filter((x) => x.daysLeft !== null && x.daysLeft >= 0 && x.daysLeft <= 90);
 
   return (
-    <Page title="Who knows" accent="what" width="max-w-5xl" intro={<>People and the recorded meetings they took part in, within the missions you can see. It tells you who to call, and which knowledge sits with one person only.</>}>
+    <Page title="Who knows" accent="what" intro={<>People and the recorded meetings they took part in, within the missions you can see. It tells you who to call, and which knowledge sits with one person only.</>}>
 
       {leaving.length > 0 && (
         <section className="mt-8 rounded-xl border border-history bg-history-bg p-5">

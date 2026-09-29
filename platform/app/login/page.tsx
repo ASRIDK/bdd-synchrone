@@ -18,7 +18,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
   return (
     <div className="min-h-screen bg-night text-white">
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-5 py-6 sm:px-8">
+      <div className="mx-auto flex min-h-screen max-w-[1440px] flex-col px-5 py-6 sm:px-8 lg:px-12">
         <Logo light />
 
         <div className="grid flex-1 items-center gap-12 py-12 lg:grid-cols-[1.15fr_1fr]">

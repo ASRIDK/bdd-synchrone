@@ -9,7 +9,7 @@ export default function ValuePage() {
   const rtf = report?.asr.realtimeFactor ?? 10;
 
   return (
-    <Page title="Value and" accent="cost" width="max-w-5xl" intro={<>The business case from our reverse brief, as a calculator. One hour of Synchrone is valued at revenue divided by staff and by the French reference of 1,607 hours a year: €139M / 1,500 / 1,607 = €57.7. It is not a salary, only a way to price an hour.</>}>
+    <Page title="Value and" accent="cost" intro={<>The business case from our reverse brief, as a calculator. One hour of Synchrone is valued at revenue divided by staff and by the French reference of 1,607 hours a year: €139M / 1,500 / 1,607 = €57.7. It is not a salary, only a way to price an hour.</>}>
       <ValueCalculator />
 
       <section className="mt-12">

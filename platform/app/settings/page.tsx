@@ -8,7 +8,7 @@ export default function SettingsPage() {
   const field = "mt-1 w-full rounded-md border border-line bg-surface px-3 py-2";
 
   return (
-    <Page title="Settings" width="max-w-4xl" intro={<>Choose who writes the answers. Without a model, answers are exact quotes from the recordings, which cannot invent anything. With a model, answers read more naturally and every sentence is still checked against its source.</>}>
+    <Page title="Settings" width="max-w-6xl" intro={<>Choose who writes the answers. Without a model, answers are exact quotes from the recordings, which cannot invent anything. With a model, answers read more naturally and every sentence is still checked against its source.</>}>
 
       <form action={saveModelSettings} className="mt-8 space-y-6 rounded-xl border border-line bg-surface p-5">
         <fieldset>

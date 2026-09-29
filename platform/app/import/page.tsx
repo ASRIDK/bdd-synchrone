@@ -20,7 +20,7 @@ export default async function ImportPage() {
       title="Import a"
       accent="meeting"
       intro="Add a recording to one of your missions. It is transcribed on Synchrone's own machine, indexed, and searchable a few minutes later. The same file is never imported twice."
-      width="max-w-4xl"
+      width="max-w-6xl"
     >
       <ImportForm
         missions={missions}

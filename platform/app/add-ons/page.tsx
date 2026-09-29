@@ -20,7 +20,7 @@ const GROUPS: Array<{ status: FeatureStatus; title: string; intro: string }> = [
 
 export default function AddOnsPage() {
   return (
-    <Page title="Add-ons" width="max-w-5xl" intro={<>What the platform does now, what can be switched on next, and what is prepared for later.</>}>
+    <Page title="Add-ons" intro={<>What the platform does now, what can be switched on next, and what is prepared for later.</>}>
       {GROUPS.map((g) => (
         <section key={g.status} className="mt-10">
           <h2 className="text-xl font-semibold">{g.title}</h2>

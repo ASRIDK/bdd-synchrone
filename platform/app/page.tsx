@@ -59,8 +59,8 @@ export default async function DashboardPage() {
 
   return (
     <Page
-      title={`Bonjour ${firstName},`}
-      accent="here is your archive"
+      title="Bonjour"
+      accent={firstName}
       intro={
         <>
           <p>
@@ -84,7 +84,7 @@ export default async function DashboardPage() {
         />
       }
     >
-      <dl className="grid gap-3 sm:grid-cols-4">
+      <dl className="grid gap-4 sm:grid-cols-4">
         {[
           ["Meetings you were in", String(attended.length)],
           ["Of them recorded", formatDuration(attendedSeconds)],
@@ -98,7 +98,7 @@ export default async function DashboardPage() {
         ))}
       </dl>
 
-      <section id="attended" className="mt-12 scroll-mt-28">
+      <section id="attended" className="mt-16 scroll-mt-28">
         <h2 className="display text-2xl">Meetings you were in</h2>
         <p className="mt-1 text-ink-soft">Recorded, transcribed and searchable. Open one to read it and play any sentence.</p>
         {attended.length > 0 ? (
@@ -120,9 +120,9 @@ export default async function DashboardPage() {
         )}
       </section>
 
-      <section id="missions" className="mt-12 scroll-mt-28">
+      <section id="missions" className="mt-16 scroll-mt-28">
         <h2 className="display text-2xl">Your missions</h2>
-        <ul className="mt-4 grid gap-3 md:grid-cols-2">
+        <ul className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {missions.map((m) => {
             const recs = mine.filter((r) => r.mission === m.id).sort((a, b) => b.date.localeCompare(a.date));
             return (
@@ -146,13 +146,13 @@ export default async function DashboardPage() {
         </ul>
       </section>
 
-      <section id="changes" className="mt-12 scroll-mt-28">
+      <section id="changes" className="mt-16 scroll-mt-28">
         <h2 className="display text-2xl">What changed</h2>
         <p className="mt-1 text-ink-soft">Decisions a later meeting replaced, in your missions. The old answer is kept as history.</p>
         {changes.length === 0 ? (
           <p className="mt-4 rounded-2xl bg-surface p-5 text-ink-soft">No decision has been replaced in your missions.</p>
         ) : (
-          <ul className="mt-4 grid gap-3 md:grid-cols-2">
+          <ul className="mt-5 grid gap-4 md:grid-cols-2">
             {changes.map((d) => {
               const old = byId.get(d.supersedes[0]);
               return (
@@ -175,7 +175,7 @@ export default async function DashboardPage() {
         )}
       </section>
 
-      <section id="imports" className="mt-12 scroll-mt-28">
+      <section id="imports" className="mt-16 scroll-mt-28">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="display text-2xl">Imports</h2>
           <Link href="/import" className="text-sm font-semibold underline underline-offset-4">
