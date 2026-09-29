@@ -238,7 +238,7 @@ async function processJob(job: Job) {
     const index = await buildIndex();
     const rec = index.recordings.find((r) => r.id === job.recordingId);
     const segments = index.segments.filter((s) => s.recordingId === job.recordingId).length;
-    update(current, "ready", `In the archive: ${segments} sentences, ${Math.round((rec?.durationSec ?? 0) / 60)} min of audio, language ${rec?.transcription.language ?? "unknown"}.`);
+    update(current, "ready", `In the archive: ${segments} sentences, ${(rec?.durationSec ?? 0) < 90 ? `${Math.round(rec?.durationSec ?? 0)} s` : `${Math.round((rec?.durationSec ?? 0) / 60)} min`} of audio, language ${rec?.transcription.language ?? "unknown"}.`);
   } catch (err) {
     update(current, "failed", `Indexing failed: ${(err as Error).message}`);
   }
