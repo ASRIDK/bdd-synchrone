@@ -1,67 +1,74 @@
 # Voice-over for the demo video
 
-Video: https://www.loom.com/share/177ccf46cbd04f8ebaaa059e35019db6 (3:43, recorded 29 September 2026).
-Written for a text-to-speech voice at about 140 words a minute, calm and clear. Each block matches
-what is on screen at that moment. The plain text to paste into the voice tool is first; the timed
-version below is for lining the audio up in editing.
+Video: `Screen Recording 2026-09-29 at 17.51.33.mov` (3:04), edited in iMovie.
+Written for a text-to-speech voice at about 140 words a minute, calm and clear. About 320 words,
+so there is room to breathe between blocks and to let the recording's own moments play.
 
 ## Instructions for the voice AI
 
-Read the text below as a narrator for a product demo. Calm, clear, confident, not salesy. Medium
-pace, short pauses between paragraphs. Pronounce "Synchrone" the French way (san-krohn), "Qwen" as
-"chwen", "BM25" as "B M twenty-five", "SEPA" as "see-pa", "TransRail" as "trans rail".
+Read each block as a narrator for a product demo. Calm, clear, confident, not salesy. Medium
+pace. Pronounce "Synchrone" the French way (san-krohn), "Whisper" normally, "Banque Hexa" as
+"bank hexa".
 
-## Text to paste
+## How to put it in iMovie
 
-Synchrone records its meetings, but nobody opens them again. Knowledge Warranty makes them usable. I sign in with a Synchrone address, as Camille Moreau.
+1. In the voice tool, generate **one audio file per block** below (paste one block at a time).
+   Name them 01.mp3, 02.mp3, and so on.
+2. In iMovie, drag the screen recording into the timeline. Turn its volume down to zero if it has
+   no useful sound.
+3. Drag each audio file under the video and line its start with the time given for its block
+   (skim the timeline; the time shows under the viewer). The clips then stay in sync even if one
+   voice clip is a little longer or shorter than planned.
+4. If a clip runs past the next block's start, select it and use the speed control (the gauge
+   icon) at 110 percent rather than cutting words.
 
-Camille leads the Banque Hexa mission. She only sees her own missions: three of them, fourteen recordings. Here are the meetings she was in, her missions, and what changed. The payment gateway timeout went from five to seven seconds, and the database from PostgreSQL fourteen to sixteen. The old decisions are kept as history, never deleted.
+## Blocks
 
-Now the assistant. It runs on a local model, on this laptop. Nothing leaves the machine. Camille asks: which vendor provides fraud scoring for Banque Hexa? The answer is not found. Nothing was guessed. The recordings never name a vendor, so the system refuses instead of inventing one.
+### 01. Start at 0:00 (ends by 0:14). Login page, click Camille Moreau, Continue.
 
-Here is why, step by step. First, the access filter removes twenty of the hundred and four passages, from missions Camille cannot see, before any search. Then keyword and meaning search run together. The evidence gate sees that the best passages cover only half of the question's key words. So it stops, and the last three steps are marked not applicable.
+Synchrone records its meetings, trainings and troubleshooting sessions, and nobody opens them again. Knowledge Warranty makes them searchable. I sign in with a Synchrone address, as Camille Moreau.
 
-Every recording can be opened and played. This is the cutover retrospective. The transcript follows the audio, and the decision to keep the feature flag for three months is marked as current.
+### 02. Start at 0:15 (ends by 0:38). Camille's dashboard, scroll to What changed and Imports.
 
-The library files every recording under its mission.
+Camille leads the Banque Hexa mission and only sees her own missions. Here are her meetings, and what changed: the payment gateway timeout went from five to seven seconds, with the old decision kept as history. Below, her imports, and the duplicates that were refused.
 
-The decision register shows every decision found in the recordings. When a later meeting changes one, the new one is current, and the old one stays visible, with a link to the exact second.
+### 03. Start at 0:39 (ends by 0:59). Assistant, question about customers charged twice, then the trace.
 
-The quality report. Fifty test questions, written before any tuning. Forty-four pass with the local model. Known failures are shown, not hidden. Transcription runs ten times faster than real time, with five percent word errors in English and two in French.
+In the assistant, Camille asks how customers charged twice were handled. The answer comes from two meetings, with the exact words, the meeting and the second. The trace shows each step: twenty passages from other missions removed first, then a strong match.
 
-How it works, in ten steps. Recordings come in. Whisper transcribes them on this machine. Passages are indexed by keywords and by meaning. Decisions are tracked over time. A question is filtered by access first, then searched, then checked by the evidence gate. The answer is written from the evidence only, and each sentence is checked against its source. Finally, fifty questions measure the whole system, and the thresholds are tuned on half of them only.
+### 04. Start at 1:00 (ends by 1:26). The library.
 
-Now a new meeting that is not in the archive yet. I import it into the Talks library, which is open to everyone. The same file is never imported twice. It waits, it is transcribed, it is indexed, and it is in the archive. Five sentences, thirty-two seconds of audio.
+The library files every recording under its mission: Banque Hexa, the internal Data and AI talks, and the talks library, open to everyone. It already holds the meeting imported earlier today, about the station display cache.
 
-It opens right away. The decision to clear the station display cache every Sunday at two in the morning is already found, and marked as current.
+### 05. Start at 1:27 (ends by 1:35). The decision register.
 
-Now I sign in as Thomas Girard, from the TransRail mission. His archive already includes the new meeting: sixteen recordings instead of fifteen, and six decisions in force instead of five.
+The decision register lists every decision, what replaced it, and the second it was said.
 
-Knowledge Warranty. The answer, the exact words, and the second that proves it. Or an honest "not found".
+### 06. Start at 1:36 (ends by 1:53). The quality report.
 
-## Timed version
+The quality report. Fifty test questions, written before any tuning. Forty-four pass with the local model, and nothing ever leaks from another mission. Known failures are shown, not hidden.
 
-| Video time | On screen | Voice-over |
-|---|---|---|
-| 0:00 to 0:08 | Login page, click Camille Moreau, Continue | Synchrone records its meetings, but nobody opens them again. Knowledge Warranty makes them usable. I sign in with a Synchrone address, as Camille Moreau. |
-| 0:08 to 0:36 | Camille's dashboard: meetings, missions, What changed, Imports | Camille leads the Banque Hexa mission. She only sees her own missions: three of them, fourteen recordings. Here are the meetings she was in, her missions, and what changed. The payment gateway timeout went from five to seven seconds, and the database from PostgreSQL fourteen to sixteen. The old decisions are kept as history, never deleted. |
-| 0:36 to 1:00 | Assistant, question "Which vendor provides fraud scoring for Banque Hexa?", Refused | Now the assistant. It runs on a local model, on this laptop. Nothing leaves the machine. Camille asks: which vendor provides fraud scoring for Banque Hexa? The answer is not found. Nothing was guessed. The recordings never name a vendor, so the system refuses instead of inventing one. |
-| 1:00 to 1:17 | "How this answer was built": access filter, hybrid search, evidence gate refused, steps 4 to 6 not applicable | Here is why, step by step. First, the access filter removes twenty of the hundred and four passages, from missions Camille cannot see, before any search. Then keyword and meaning search run together. The evidence gate sees that the best passages cover only half of the question's key words. So it stops, and the last three steps are marked not applicable. |
-| 1:17 to 1:36 | Library, Cutover retrospective playing, decision marked current | Every recording can be opened and played. This is the cutover retrospective. The transcript follows the audio, and the decision to keep the feature flag for three months is marked as current. |
-| 1:36 to 1:44 | Library list, Kickoff recording | The library files every recording under its mission. |
-| 1:44 to 1:52 | Decision register | The decision register shows every decision found in the recordings. When a later meeting changes one, the new one is current, and the old one stays visible, with a link to the exact second. |
-| 1:52 to 2:12 | Quality report: 41/50 and 44/50, known failure X03, transcription quality, every question | The quality report. Fifty test questions, written before any tuning. Forty-four pass with the local model. Known failures are shown, not hidden. Transcription runs ten times faster than real time, with five percent word errors in English and two in French. |
-| 2:12 to 2:43 | How it works, walkthrough playing steps 1 to 10 | How it works, in ten steps. Recordings come in. Whisper transcribes them on this machine. Passages are indexed by keywords and by meaning. Decisions are tracked over time. A question is filtered by access first, then searched, then checked by the evidence gate. The answer is written from the evidence only, and each sentence is checked against its source. Finally, fifty questions measure the whole system, and the thresholds are tuned on half of them only. |
-| 2:43 to 3:13 | Import: pick transrail-display-cache.m4a, mission Talks library, Import, Waiting, Transcribing, Indexing, In the archive | Now a new meeting that is not in the archive yet. I import it into the Talks library, which is open to everyone. The same file is never imported twice. It waits, it is transcribed, it is indexed, and it is in the archive. Five sentences, thirty-two seconds of audio. |
-| 3:13 to 3:26 | The new recording opens and plays, decision at 00:15 marked current | It opens right away. The decision to clear the station display cache every Sunday at two in the morning is already found, and marked as current. |
-| 3:26 to 3:37 | Sign out, sign in as Thomas Girard, dashboard: 16 recordings, 6 decisions in force | Now I sign in as Thomas Girard, from the TransRail mission. His archive already includes the new meeting: sixteen recordings instead of fifteen, and six decisions in force instead of five. |
-| 3:37 to 3:43 | Sign out, login page | Knowledge Warranty. The answer, the exact words, and the second that proves it. Or an honest "not found". |
+### 07. Start at 1:54 (ends by 2:22). How it works, the walkthrough plays its ten steps.
 
-## Notes for editing
+How it works, in ten steps. Recordings are transcribed on this machine, then indexed by keywords and by meaning. Decisions are tracked over time. A question is filtered by access, searched, and checked by the evidence gate. The answer is checked against its source, and fifty questions measure the whole system.
 
-- About 500 words for 3:43 (about 3:36 at 140 words a minute). If a block runs long in the voice tool, speed that block up slightly
-  rather than cutting words that name something on screen.
-- The walkthrough block (2:12 to 2:43) is the densest. It is written to follow the ten steps as
-  they light up; start it exactly when the walkthrough starts playing.
-- The video plays at 1.2x by default on Loom. The times above are the video's own times (3:43
-  total), which is what an editor uses.
+### 08. Start at 2:23 (ends by 2:43). Import: choose voice-memo.m4a, Import, progress steps.
+
+Now a new recording: a short voice memo, imported into Banque Hexa. It waits, Whisper transcribes it in six seconds on this laptop, it is indexed, and it is in the archive. Five sentences, seventeen seconds of audio.
+
+### 09. Start at 2:44 (ends by 2:53). The memo opens and plays.
+
+It opens right away, and the decision it contains is already found and marked as current.
+
+### 10. Start at 2:54 (ends by 3:04). Dashboard, sign out, login page.
+
+Back on the dashboard: sixteen recordings, five decisions in force. Knowledge Warranty. The exact words, and the second that proves them.
+
+## Notes
+
+- At 0:54 the trace shows step 5 as "the language model failed (fetch failed)": Ollama was not
+  running during this take, so this answer is made of exact quotes. The voice-over does not
+  claim the model wrote it. If you want to avoid the line on screen, speed up 0:52 to 0:58 in
+  iMovie, or re-record that part with Ollama running.
+- The memo imported at 2:23 talks about TransRail but was filed under Banque Hexa. The
+  voice-over just calls it "a short voice memo", so this does not matter.
