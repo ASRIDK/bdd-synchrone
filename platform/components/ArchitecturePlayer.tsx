@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // The architecture diagram (docs/diagrams/architecture.png) redrawn in SVG and played step by
 // step: each step lights up the boxes it involves and sends a dot along the arrows it uses.
@@ -171,33 +171,40 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
   const [tick, setTick] = useState(0);
   const step = all[at];
 
-  const go = useCallback((i: number) => {
-    setAt(((i % all.length) + all.length) % all.length);
+  const count = all.length;
+  const go = (i: number) => {
+    setAt(((i % count) + count) % count);
     setTick((t) => t + 1);
-  }, [all.length]);
+  };
 
   useEffect(() => {
     if (!playing) return;
     const t = setTimeout(() => {
-      if (at === all.length - 1) setPlaying(false);
-      else go(at + 1);
+      if (at === count - 1) {
+        setPlaying(false);
+      } else {
+        setAt(at + 1);
+        setTick((n) => n + 1);
+      }
     }, STEP_MS);
     return () => clearTimeout(t);
-  }, [playing, at, tick, go, all.length]);
+  }, [playing, at, tick, count]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === "INPUT") return;
-      if (e.key === "ArrowRight") go(at + 1);
-      else if (e.key === "ArrowLeft") go(at - 1);
-      else if (e.key === " ") {
+      const move = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (move) {
+        setAt((((at + move) % count) + count) % count);
+        setTick((n) => n + 1);
+      } else if (e.key === " ") {
         e.preventDefault();
         setPlaying((p) => !p);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [at, go]);
+  }, [at, count]);
 
   const lit = new Set(step.nodes);
   const flowing = new Set(step.edges);
