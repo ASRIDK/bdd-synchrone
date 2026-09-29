@@ -25,7 +25,8 @@ language model can be plugged in, but is not needed.
 4. **Assistant**: a chat. Keyword and meaning search find the evidence and show it at once; then
    the best model available right now writes the answer. With Ollama running, that is the local
    Qwen 3.5 model, so nothing leaves the machine. Without it, the answer is made of exact quotes.
-5. Library, Decisions, and under "More": Quality report, Value and cost, Add-ons, Settings.
+5. Library, Decisions and the Quality report are in the main navigation. Value and cost, Add-ons
+   and Settings are reached by their address (`/value`, `/add-ons`, `/settings`).
 
 The design follows the AmplifyME website: black hero bands with heavy capitals and one red
 accent, a white floating navigation bar, white cards on light grey. The one signature element is
