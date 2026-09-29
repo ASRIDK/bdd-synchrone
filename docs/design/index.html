@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter+Tight:wght@500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 "IBM Plex Sans", system-ui, sans-serif; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  header { background: var(--night); color: #fff; padding: 72px 0 56px; }
+  header p.kicker { font: 500 13px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); margin: 0 0 18px; }
+  header h1 { font: 600 52px/1.05 "Source Serif 4", Georgia, serif; margin: 0; max-width: 800px; }
+  header p.lede { color: rgba(255,255,255,.72); max-width: 680px; margin: 20px 0 0; font-size: 18px; }
+  h2 { font: 600 30px/1.2 "Source Serif 4", Georgia, serif; margin: 72px 0 8px; }
+  h2 + p { color: var(--ink-soft); margin-top: 0; }
+  .brief { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 24px; }
+  .brief div { background: var(--surface); padding: 22px; }
+  .brief b { display: block; font: 500 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); margin-bottom: 6px; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .swatches span { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); padding: 6px 10px 6px 6px; font: 12px "IBM Plex Mono", monospace; }
+  .swatches i { width: 22px; height: 22px; display: inline-block; border: 1px solid rgba(0,0,0,.08); }
+  .chat { margin-top: 28px; border-top: 1px solid var(--line); }
+  .turn { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .who { font: 500 13px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .06em; padding-top: 3px; }
+  .who.ceo { color: var(--signal); } .who.cto { color: var(--valid); } .who.eng { color: var(--history); } .who.des { color: var(--focus); } .who.us { color: var(--ink); }
+  .turn p { margin: 0; max-width: 760px; }
+  .turn p + p { margin-top: 8px; }
+  .phase { font: 500 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-faint); padding: 28px 0 6px; border-bottom: 1px solid var(--line); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-top: 24px; }
+  .card { background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: border-color .15s; }
+  .card:hover { border-color: var(--ink); }
+  .card .thumb { height: 150px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .card .body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .card .num { font: 500 12px "IBM Plex Mono", monospace; color: var(--ink-faint); }
+  .card h3 { font: 600 22px/1.2 "Source Serif 4", Georgia, serif; margin: 4px 0 8px; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+  .card .open { margin-top: auto; padding-top: 16px; font: 500 13px "IBM Plex Mono", monospace; color: var(--signal); }
+  .dropped { background: transparent; border-style: dashed; }
+  .dropped .open { color: var(--ink-faint); }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--surface); font-size: 14px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font: 500 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); background: var(--paper); }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .dots { letter-spacing: 2px; color: var(--signal); }
+  .dots i { color: var(--line); font-style: normal; }
+  .rec { margin-top: 24px; background: var(--night); color: #fff; padding: 32px; }
+  .rec h3 { font: 600 26px/1.2 "Source Serif 4", Georgia, serif; margin: 0 0 10px; }
+  .rec p { color: rgba(255,255,255,.78); margin: 0; max-width: 760px; }
+  .rec p + p { margin-top: 10px; }
+  footer { padding: 56px 0 72px; color: var(--ink-faint); font-size: 14px; }
+  @media (max-width: 760px) {
+    .wrap { padding: 0 16px; }
+    header h1 { font-size: 36px; }
+    .brief { grid-template-columns: 1fr; }
+    .turn { grid-template-columns: 1fr; gap: 4px; }
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="kicker">Knowledge Warranty, design session, 29 September 2026</p>
+    <h1>Five design directions for a product that has to be believed.</h1>
+    <p class="lede">A working session between the agency and the Knowledge Warranty team. Six directions were pitched, one was cut, five are built out below as a design system and a UI kit each. Same colours in all five.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>The brief</h2>
+  <p>What we agreed before anyone drew anything.</p>
+  <div class="brief">
+    <div><b>Who uses it</b>Synchrone engineers and mission leads, on a laptop, often mid-incident. They want the answer, the proof, and the minute.</div>
+    <div><b>What it must say</b>Every answer is checkable. When it does not know, it says so. Current and replaced decisions are never confused.</div>
+    <div><b>Constraints</b>Keep the palette. Keep Tailwind tokens so the swap is a theme change, not a rewrite. Readable in a 1360 x 900 video frame.</div>
+  </div>
+  <div class="swatches">
+    <span><i style="background:#000"></i>night #000000</span>
+    <span><i style="background:#f5f5f5"></i>paper #f5f5f5</span>
+    <span><i style="background:#fff"></i>surface #ffffff</span>
+    <span><i style="background:#16181d"></i>ink #16181d</span>
+    <span><i style="background:#4b5059"></i>ink-soft #4b5059</span>
+    <span><i style="background:#e2e3e6"></i>line #e2e3e6</span>
+    <span><i style="background:#e2352b"></i>signal #e2352b</span>
+    <span><i style="background:#0f766e"></i>valid #0f766e</span>
+    <span><i style="background:#b45309"></i>history #b45309</span>
+    <span><i style="background:#2b59c3"></i>focus #2b59c3</span>
+  </div>
+
+  <h2>The session</h2>
+  <p>Condensed from the working meeting. CEO, CTO, lead engineer, product designer, and us.</p>
+  <div class="chat">
+    <div class="phase">1. What is wrong today</div>
+    <div class="turn"><div class="who ceo">CEO</div><div><p>It works, but it looks like every other SaaS dashboard. White cards on grey, a black band on top, rounded everything. Nobody would guess it is the thing that tells you whether a decision is still true.</p></div></div>
+    <div class="turn"><div class="who des">Designer</div><div><p>The AmplifyME borrowing gave us a look, not a language. Heavy uppercase headlines fight the evidence. The quote from the meeting is the most important thing on the page and it is set smaller than the heading above it.</p></div></div>
+    <div class="turn"><div class="who eng">Engineer</div><div><p>From my side: the trace panel is the product. Six steps, real scores. Right now it is a grey table under a link. If the redesign makes that feel like an afterthought again, I will fight it.</p></div></div>
+    <div class="turn"><div class="who cto">CTO</div><div><p>Two hard rules. We keep the colours, teal and amber already mean current and replaced in the data. And nothing that needs a new component library. Fonts, tokens, spacing, borders. That is the budget.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p>Agreed. So the question is not which colours. It is what the product is, visually: a file, a console, an index, a tape, or a log. Each of those is a different promise to the user. We will pitch six and argue.</p></div></div>
+
+    <div class="phase">2. The pitches</div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>One, Evidence File.</b> The product is a dossier. Serif for everything spoken, monospace for timecodes and IDs, hairline rules instead of cards, red used like a stamp on paper. Every answer reads like an exhibit.</p></div></div>
+    <div class="turn"><div class="who ceo">CEO</div><div><p>That is the trust story in one image. My worry is it feels like a law firm, not a tech product.</p></div></div>
+    <div class="turn"><div class="who des">Designer</div><div><p>It feels like a law firm if we add ornaments. Without them it is closer to a good newspaper. The Financial Times does not look old.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>Two, Control Room.</b> Dark first. The archive is a live system: red is the on-air light, teal and amber are status lamps, timecodes everywhere, dense panels. Built for the engineer mid-incident.</p></div></div>
+    <div class="turn"><div class="who eng">Engineer</div><div><p>I like it more than I should. The trace would finally look like what it is.</p></div></div>
+    <div class="turn"><div class="who cto">CTO</div><div><p>Dark UIs record badly on video and the serif quotes will lose contrast. If we pick it, the answer card has to stay light.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>Three, Swiss Index.</b> International typographic style. One grotesk, a strict 12 column grid, very large numbers, flush left, red only as small square markers. No boxes: whitespace and rules do the grouping.</p></div></div>
+    <div class="turn"><div class="who des">Designer</div><div><p>This is the one that fixes the "centered and cramped" complaint for free. The grid forces a use of the full width.</p></div></div>
+    <div class="turn"><div class="who ceo">CEO</div><div><p>It is the one that looks most like a real company. It is also the one I could imagine forgetting.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>Four, Studio Tape.</b> Audio native. Every recording is a track with a waveform, every citation is a timecode chip you can press, the playhead is the red. Softer shapes, warmer surfaces. It says "we listened".</p></div></div>
+    <div class="turn"><div class="who cto">CTO</div><div><p>The waveform means we store peaks per recording. That is one numpy pass at index time, so fine, but it is the only direction that needs new data.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>Five, Plain Log.</b> Monospace everywhere, black 1.5 px borders, square corners, tables first. The answer and its trace read like a log you can audit. Brutal and honest.</p></div></div>
+    <div class="turn"><div class="who eng">Engineer</div><div><p>Engineers at Synchrone would trust this on sight.</p></div></div>
+    <div class="turn"><div class="who ceo">CEO</div><div><p>Mission leads and the direction would not. Keep it in the set, but it is a hard sell for the final.</p></div></div>
+    <div class="turn"><div class="who us">Agency</div><div><p><b>Six, Soft Glass.</b> Frosted panels, blurred gradients from the red, large radii, floating everything.</p></div></div>
+    <div class="turn"><div class="who des">Designer</div><div><p>No. That is the look we are trying to leave. Blur behind a quote makes it harder to read, and gradients from the signal red turn it pink.</p></div></div>
+    <div class="turn"><div class="who cto">CTO</div><div><p>Also backdrop-filter on a long transcript page is a scroll performance problem. Cut.</p></div></div>
+
+    <div class="phase">3. Rules every direction must follow</div>
+    <div class="turn"><div class="who des">Designer</div><div><p>The spoken quote is the biggest text in an answer, bigger than our own sentence. Teal and amber only ever mean current and replaced. Red is never used for an error that is not a refusal or a failure.</p></div></div>
+    <div class="turn"><div class="who eng">Engineer</div><div><p>The six trace steps are visible in every kit, with "Not applicable" as a first class state, not a greyed row.</p></div></div>
+    <div class="turn"><div class="who cto">CTO</div><div><p>Each file ends with an implementation note: which fonts, which Tailwind tokens change, what gets deleted. If a direction cannot be described in that note, it is too expensive.</p></div></div>
+    <div class="turn"><div class="who ceo">CEO</div><div><p>And every kit shows the same screen, the deployment question, so we compare like for like.</p></div></div>
+  </div>
+
+  <h2>The five directions</h2>
+  <p>Each file: principles, colour roles, type, tokens, the component kit, and the Assistant answer screen with real data.</p>
+  <div class="cards">
+    <a class="card" href="01-evidence-file.html">
+      <div class="thumb" style="background:#fff">
+        <div style="position:absolute;left:22px;top:22px;right:22px;border-top:2px solid #16181d"></div>
+        <div style="position:absolute;left:22px;top:34px;font:600 22px 'Source Serif 4',serif">Exhibit 1: Tuesday</div>
+        <div style="position:absolute;left:22px;top:72px;right:22px;font:italic 15px/1.4 'Source Serif 4',serif;color:#4b5059">"Alors on change. À partir de maintenant, les mises en production passent le mardi matin..."</div>
+        <div style="position:absolute;right:22px;bottom:16px;border:2px solid #e2352b;color:#e2352b;font:500 11px 'IBM Plex Mono',monospace;padding:2px 8px;transform:rotate(-3deg)">CURRENT, 8 JUL 2026</div>
+      </div>
+      <div class="body"><span class="num">01</span><h3>Evidence File</h3><p>A dossier. Serif for what was said, mono for when, hairline rules, red as a stamp. Trust first.</p><span class="open">Open the system</span></div>
+    </a>
+    <a class="card" href="02-control-room.html">
+      <div class="thumb" style="background:#000">
+        <div style="position:absolute;left:20px;top:20px;font:500 11px 'IBM Plex Mono',monospace;color:#e2352b">● LIVE ARCHIVE</div>
+        <div style="position:absolute;left:20px;top:46px;right:20px;height:1px;background:#26282d"></div>
+        <div style="position:absolute;left:20px;top:62px;font:500 12px 'IBM Plex Mono',monospace;color:#9aa0a8">01 ACCESS <span style="color:#fff">22/104 out</span><br>02 SEARCH <span style="color:#fff">0.840</span><br>03 GATE &nbsp;&nbsp;<span style="color:#2dd4bf">PASS</span></div>
+        <div style="position:absolute;right:20px;top:62px;width:110px;height:64px;border:1px solid #26282d;border-radius:6px"></div>
+      </div>
+      <div class="body"><span class="num">02</span><h3>Control Room</h3><p>Dark console for a live system. Status lamps, timecodes, dense panels. The trace takes centre stage.</p><span class="open">Open the system</span></div>
+    </a>
+    <a class="card" href="03-swiss-index.html">
+      <div class="thumb" style="background:#fff">
+        <div style="position:absolute;left:22px;top:18px;font:700 72px/1 'Inter Tight',Helvetica,Arial,sans-serif;letter-spacing:-.04em">44<span style="color:#80858f">/50</span></div>
+        <div style="position:absolute;left:22px;bottom:18px;width:10px;height:10px;background:#e2352b"></div>
+        <div style="position:absolute;left:40px;bottom:14px;font:500 13px Helvetica,Arial,sans-serif">Questions passed, model mode</div>
+        <div style="position:absolute;left:0;right:0;top:110px;height:1px;background:#16181d"></div>
+      </div>
+      <div class="body"><span class="num">03</span><h3>Swiss Index</h3><p>One grotesk, a strict 12 column grid, huge numbers, no boxes. Uses the full width by design.</p><span class="open">Open the system</span></div>
+    </a>
+    <a class="card" href="04-studio-tape.html">
+      <div class="thumb" style="background:#f5f5f5">
+        <div style="position:absolute;left:20px;right:20px;top:34px;height:52px;display:flex;align-items:center;gap:3px">
+          <script>document.write(Array.from({length:60},(_,i)=>`<i style="flex:1;background:${i===22?'#e2352b':i<22?'#16181d':'#c9cbd0'};height:${14+Math.round(Math.abs(Math.sin(i*1.7))*34)}px;border-radius:2px"></i>`).join(''))</script>
+        </div>
+        <div style="position:absolute;left:20px;bottom:18px;background:#fff;border-radius:999px;padding:4px 12px;font:500 12px 'DM Mono',monospace">▶ 00:22 / 01:00</div>
+      </div>
+      <div class="body"><span class="num">04</span><h3>Studio Tape</h3><p>Audio native. Tracks, waveforms, timecode chips, a red playhead. Says "we listened".</p><span class="open">Open the system</span></div>
+    </a>
+    <a class="card" href="05-plain-log.html">
+      <div class="thumb" style="background:#fff;font:500 12px/1.7 'IBM Plex Mono',monospace;padding:18px 20px">
+        <div style="border:1.5px solid #000;padding:8px 10px">
+          $ ask "deploy day?"<br>
+          <span style="color:#0f766e">[current]</span> Tuesday &nbsp;<span style="color:#80858f">t4 @00:22</span><br>
+          <span style="color:#b45309">[replaced]</span> Thursday <span style="color:#80858f">t3 @00:55</span><br>
+          <span style="color:#e2352b">[gate]</span> 0.840 &gt;= 0.78 ok
+        </div>
+      </div>
+      <div class="body"><span class="num">05</span><h3>Plain Log</h3><p>Monospace, black borders, square corners, tables first. Reads like an audit log.</p><span class="open">Open the system</span></div>
+    </a>
+    <div class="card dropped">
+      <div class="thumb" style="background:linear-gradient(135deg,#fdf0ef,#f5f5f5);opacity:.6"></div>
+      <div class="body"><span class="num">06, cut</span><h3>Soft Glass</h3><p>Frosted panels and red gradients. Cut in session: blur hurts the quotes, gradients turn the red pink, and scroll performance on long transcripts.</p><span class="open">Not built</span></div>
+    </div>
+  </div>
+
+  <h2>Side by side</h2>
+  <p>How each direction scores against what the video and the final are graded on. Five dots is best.</p>
+  <table>
+    <thead><tr><th>Direction</th><th>Trust</th><th>Clarity on video</th><th>Uses the width</th><th>Trace visibility</th><th>Cost to ship</th><th>Main risk</th></tr></thead>
+    <tbody>
+      <tr><td>01 Evidence File</td><td class="dots">●●●●●</td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●<i>●●</i></td><td class="dots">●●●●<i>●</i></td><td>Low: two fonts, borders replace shadows</td><td>Reads as formal or old if ornaments creep in</td></tr>
+      <tr><td>02 Control Room</td><td class="dots">●●●<i>●●</i></td><td class="dots">●●●<i>●●</i></td><td class="dots">●●●●●</td><td class="dots">●●●●●</td><td>Medium: full dark theme, contrast pass</td><td>Dark records badly; looks like a monitoring tool</td></tr>
+      <tr><td>03 Swiss Index</td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●●●</td><td class="dots">●●●●●</td><td class="dots">●●●<i>●●</i></td><td>Low: one font, grid, remove cards</td><td>Clean enough to be forgettable</td></tr>
+      <tr><td>04 Studio Tape</td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●<i>●●</i></td><td>Medium: waveform peaks at index time</td><td>Only direction that needs new data</td></tr>
+      <tr><td>05 Plain Log</td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●<i>●●</i></td><td class="dots">●●●●<i>●</i></td><td class="dots">●●●●●</td><td>Low: one mono font, borders</td><td>Alienates non engineers; tiring to read long quotes</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rec">
+    <h3>Our recommendation: 01 Evidence File, with the grid from 03.</h3>
+    <p>The product's one promise is "you can check this". Evidence File is the only direction where that promise is the visual idea itself: the quote is the exhibit, the timecode is the reference, the stamp says current or replaced. It is also cheap: two fonts and borders instead of shadows.</p>
+    <p>Its weakness is layout, which is exactly Swiss Index's strength. Take the 12 column grid and the large numbers from 03 for the dashboard and the Quality report, and keep Evidence File for everything that shows what was said. If the team wants one direction untouched, pick 03: it is the safest on video.</p>
+  </div>
+</main>
+
+<footer class="wrap">Knowledge Warranty, Team 9. Design directions are proposals; nothing here changes the app until one is picked.</footer>
+</body>
+</html>

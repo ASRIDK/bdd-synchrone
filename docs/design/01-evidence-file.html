@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+    --serif: "Source Serif 4", Georgia, serif; --sans: "IBM Plex Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --rule: 1px solid var(--line); --rule-strong: 2px solid var(--ink);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.6 var(--sans); }
+  a { color: inherit; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+  .meta { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+  .top { border-bottom: var(--rule); background: var(--surface); }
+  .top .wrap { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+  .hero { background: var(--surface); border-bottom: var(--rule-strong); padding: 64px 0 48px; }
+  .hero h1 { font: 700 64px/1 var(--serif); letter-spacing: -.02em; margin: 14px 0 0; }
+  .hero p { font: 400 20px/1.5 var(--serif); color: var(--ink-soft); max-width: 720px; margin: 18px 0 0; }
+  section { padding: 56px 0; border-bottom: var(--rule); }
+  .sec-head { display: grid; grid-template-columns: 240px 1fr; gap: 48px; }
+  .sec-head h2 { font: 600 26px/1.2 var(--serif); margin: 6px 0 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: var(--rule-strong); }
+  .grid-3 > div { padding: 20px 24px 0 0; }
+  .grid-3 h3 { font: 600 19px/1.3 var(--serif); margin: 8px 0 6px; }
+  .grid-3 p { margin: 0; color: var(--ink-soft); }
+  .roles { border-top: var(--rule-strong); }
+  .role { display: grid; grid-template-columns: 56px 180px 1fr; gap: 20px; align-items: center; padding: 12px 0; border-bottom: var(--rule); }
+  .role i { height: 36px; border: 1px solid rgba(0,0,0,.08); }
+  .role b { font: 500 13px var(--mono); }
+  .role span { color: var(--ink-soft); }
+  .type-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: baseline; padding: 16px 0; border-bottom: var(--rule); }
+  .tokens { width: 100%; border-collapse: collapse; }
+  .tokens th, .tokens td { text-align: left; padding: 10px 12px 10px 0; border-bottom: var(--rule); }
+  .tokens th { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); border-bottom: var(--rule-strong); }
+  .tokens td:first-child { font: 500 13px var(--mono); }
+  .kit { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; }
+  .kit > div > .meta { display: block; margin-bottom: 12px; }
+  .stage { background: var(--surface); border: var(--rule); padding: 24px; }
+
+  /* Components */
+  .nav { display: flex; align-items: center; gap: 28px; background: var(--surface); border-bottom: var(--rule-strong); padding: 0 24px; height: 56px; }
+  .nav .brand { font: 700 18px var(--serif); display: flex; align-items: center; gap: 10px; }
+  .nav .brand em { font: 500 11px var(--mono); font-style: normal; color: var(--signal); border: 1.5px solid var(--signal); padding: 1px 5px; }
+  .nav a { text-decoration: none; color: var(--ink-soft); font-size: 14px; padding: 17px 0; border-bottom: 2px solid transparent; }
+  .nav a.on { color: var(--ink); border-bottom-color: var(--signal); }
+  .nav .right { margin-left: auto; display: flex; gap: 16px; align-items: center; font-size: 14px; }
+  .btn { font: 500 14px var(--sans); padding: 10px 18px; border: 1.5px solid var(--ink); background: var(--ink); color: #fff; cursor: pointer; border-radius: 0; }
+  .btn.secondary { background: transparent; color: var(--ink); }
+  .btn.ghost { border-color: transparent; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; padding-left: 0; padding-right: 0; }
+  .btn.signal { background: var(--signal); border-color: var(--signal); }
+  .ask { display: flex; border: 1.5px solid var(--ink); background: var(--surface); }
+  .ask input { flex: 1; border: 0; padding: 14px 16px; font: 400 17px var(--serif); outline: none; background: transparent; }
+  .ask button { border: 0; border-left: 1.5px solid var(--ink); background: var(--ink); color: #fff; font: 500 13px var(--mono); letter-spacing: .06em; padding: 0 22px; }
+  .stamp { display: inline-block; font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; border: 1.5px solid currentColor; padding: 2px 7px; }
+  .stamp.current { color: var(--valid); } .stamp.replaced { color: var(--history); } .stamp.refused { color: var(--signal); } .stamp.na { color: var(--ink-faint); border-style: dashed; }
+  .exhibit { border-left: 3px solid var(--valid); padding: 2px 0 2px 20px; }
+  .exhibit.old { border-left-color: var(--history); }
+  .exhibit .label { display: flex; gap: 12px; align-items: center; }
+  .exhibit .claim { font: 500 15px var(--sans); margin: 10px 0 6px; }
+  .exhibit blockquote { margin: 0; font: 400 21px/1.5 var(--serif); }
+  .exhibit.old blockquote { color: var(--ink-soft); font-size: 18px; }
+  .exhibit .ref { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; margin-top: 12px; font: 400 13px var(--mono); color: var(--ink-soft); }
+  .exhibit .play { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); border-bottom: 1.5px solid var(--ink); padding-bottom: 1px; }
+  .bar { position: relative; width: 120px; height: 2px; background: var(--line); display: inline-block; }
+  .bar i { position: absolute; top: -4px; width: 2px; height: 10px; background: var(--ink); }
+  .step { display: grid; grid-template-columns: 44px 200px 1fr; gap: 16px; padding: 16px 0; border-bottom: var(--rule); }
+  .step .n { font: 600 28px/1 var(--serif); color: var(--ink-faint); }
+  .step h4 { margin: 0 0 6px; font: 600 16px var(--serif); }
+  .step p { margin: 0; color: var(--ink-soft); }
+  .step p.na { font-style: italic; color: var(--ink-faint); }
+  .step table { width: 100%; border-collapse: collapse; margin-top: 10px; font: 400 13px var(--mono); }
+  .step td, .step th { text-align: left; padding: 6px 12px 6px 0; border-top: var(--rule); }
+  .step th { font-weight: 500; color: var(--ink-faint); }
+  .ok { color: var(--valid); } .bad { color: var(--signal); font-weight: 500; }
+  .stat { border-top: var(--rule-strong); padding-top: 10px; }
+  .stat b { display: block; font: 700 48px/1 var(--serif); margin-top: 6px; }
+  .pipeline { display: flex; gap: 0; font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+  .pipeline span { flex: 1; border-top: 3px solid var(--ink); padding-top: 8px; color: var(--ink); }
+  .pipeline span.todo { border-top-color: var(--line); color: var(--ink-faint); }
+  .notfound { border-top: var(--rule-strong); padding-top: 16px; }
+  .notfound h4 { font: 600 22px var(--serif); margin: 10px 0 6px; }
+  .notfound p { margin: 0; color: var(--ink-soft); }
+
+  /* Screen */
+  .screen { background: var(--paper); border: var(--rule); }
+  .screen .body { display: grid; grid-template-columns: 1fr 360px; gap: 48px; padding: 40px 40px 48px; }
+  .q { font: 600 30px/1.25 var(--serif); margin: 8px 0 24px; max-width: 760px; }
+  .answer { background: var(--surface); border-top: var(--rule-strong); padding: 28px; }
+  .answer .head { font: 400 17px var(--serif); color: var(--ink-soft); margin: 0 0 24px; }
+  .answer .exhibit + .exhibit { margin-top: 28px; }
+  .side h5 { margin: 0 0 12px; }
+  .impl { background: var(--night); color: #fff; }
+  .impl .meta { color: var(--signal); }
+  .impl h2 { color: #fff; }
+  .impl li { color: rgba(255,255,255,.8); margin-bottom: 8px; }
+  .impl code { font: 13px var(--mono); color: #fff; }
+  @media (max-width: 900px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 40px; }
+    .sec-head, .grid-2, .kit, .screen .body { grid-template-columns: 1fr; gap: 24px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 36px 1fr; } .step > div:last-child { grid-column: 2; }
+    .nav { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="meta" href="index.html">All directions</a><span class="meta">Direction 01 of 05</span></div></div>
+
+<div class="hero"><div class="wrap">
+  <span class="meta">Design system and UI kit</span>
+  <h1>Evidence File</h1>
+  <p>Knowledge Warranty as a dossier. What was said is set like testimony, when it was said is set like a reference number, and current or replaced is stamped, not coloured in.</p>
+</div></div>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">01</span><h2>Principles</h2></div>
+  <div class="grid-3">
+    <div><span class="meta">Quote first</span><h3>The spoken words are the largest text in an answer.</h3><p>Our own sentence is a caption for the evidence, never the other way round.</p></div>
+    <div><span class="meta">Rules, not boxes</span><h3>Hairlines group, heavy rules open a section.</h3><p>No shadows, no rounded cards. Paper, lines and whitespace.</p></div>
+    <div><span class="meta">Stamps</span><h3>State is stamped in a colour, like a mark on a file.</h3><p>Teal current, amber replaced, red refused. Outlined, never filled.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">02</span><h2>Colour roles</h2><p style="color:var(--ink-soft)">Same palette. Surface white dominates; black is for ink and rules, not bands.</p></div>
+  <div class="roles">
+    <div class="role"><i style="background:#fff"></i><b>surface #ffffff</b><span>The page of the file. Main background of every document area.</span></div>
+    <div class="role"><i style="background:#f5f5f5"></i><b>paper #f5f5f5</b><span>Behind documents only: the desk the file sits on.</span></div>
+    <div class="role"><i style="background:#16181d"></i><b>ink #16181d</b><span>Text, 2 px section rules, primary buttons.</span></div>
+    <div class="role"><i style="background:#e2e3e6"></i><b>line #e2e3e6</b><span>Hairlines between rows.</span></div>
+    <div class="role"><i style="background:#e2352b"></i><b>signal #e2352b</b><span>Active nav underline, "refused" stamp, the one call to action per screen.</span></div>
+    <div class="role"><i style="background:#0f766e"></i><b>valid #0f766e</b><span>Current stamp and the left rule of a current exhibit.</span></div>
+    <div class="role"><i style="background:#b45309"></i><b>history #b45309</b><span>Replaced stamp and the left rule of a history exhibit.</span></div>
+    <div class="role"><i style="background:#000"></i><b>night #000000</b><span>Only the implementation note and the video title card.</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">03</span><h2>Type</h2><p style="color:var(--ink-soft)">Source Serif 4 for anything read or said. IBM Plex Sans for interface. IBM Plex Mono for times, IDs, scores.</p></div>
+  <div style="border-top:var(--rule-strong)">
+    <div class="type-row"><span class="meta">Display, serif 64/700</span><span style="font:700 64px/1 var(--serif);letter-spacing:-.02em">Decision register</span></div>
+    <div class="type-row"><span class="meta">Question, serif 30/600</span><span style="font:600 30px/1.25 var(--serif)">On which day do TransRail production deployments go out?</span></div>
+    <div class="type-row"><span class="meta">Quote, serif 21/400</span><span style="font:400 21px/1.5 var(--serif)">"Alors on change. À partir de maintenant, les mises en production passent le mardi matin."</span></div>
+    <div class="type-row"><span class="meta">UI, sans 15/400</span><span>Written by qwen3.5 on this machine, every sentence checked against its source.</span></div>
+    <div class="type-row"><span class="meta">Reference, mono 13</span><span style="font:400 13px var(--mono)">POINT DÉPLOIEMENT TRANSRAIL · 8 JUL 2026 · 00:22 / 01:00</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">04</span><h2>Tokens</h2></div>
+  <table class="tokens">
+    <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>radius</td><td>0</td><td>Everything. Square corners are the style.</td></tr>
+      <tr><td>rule</td><td>1px line</td><td>Rows, table cells, dividers</td></tr>
+      <tr><td>rule-strong</td><td>2px ink</td><td>Top of a section, a card, an answer</td></tr>
+      <tr><td>shadow</td><td>none</td><td>Removed everywhere</td></tr>
+      <tr><td>space</td><td>4, 8, 12, 16, 24, 32, 48, 64</td><td>Section padding 56; column gap 48</td></tr>
+      <tr><td>measure</td><td>68ch</td><td>Max line length for quotes and transcripts</td></tr>
+      <tr><td>grid</td><td>12 columns, 1320 max, 48 gutter</td><td>Answer 8 columns, side panel 4</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head" style="margin-bottom:32px"><div><span class="meta">05</span><h2>Components</h2></div><div></div></div>
+  <div class="kit">
+    <div style="grid-column:1/-1"><span class="meta">Navigation</span>
+      <div class="nav"><span class="brand">Knowledge Warranty <em>KW</em></span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right"><span>Thomas Girard</span><button class="btn signal">Import a meeting</button></span></div>
+    </div>
+    <div><span class="meta">Buttons</span><div class="stage" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center"><button class="btn">Ask</button><button class="btn secondary">Open the recording</button><button class="btn signal">Import a meeting</button><button class="btn ghost">How this answer was built</button></div></div>
+    <div><span class="meta">Stamps</span><div class="stage" style="display:flex;gap:12px;flex-wrap:wrap"><span class="stamp current">Current, 8 Jul 2026</span><span class="stamp replaced">Replaced, 2 Jun 2026</span><span class="stamp refused">Refused</span><span class="stamp current">Passed</span><span class="stamp na">Not applicable</span></div></div>
+    <div style="grid-column:1/-1"><span class="meta">Ask bar</span><div class="ask"><input placeholder="Ask about a mission, a decision, an incident..." value="Who is the CTO of TransRail?"><button>ASK</button></div></div>
+    <div><span class="meta">Exhibit, current</span><div class="stage"><div class="exhibit">
+      <div class="label"><span class="stamp current">Current</span><span class="meta">Exhibit 1</span></div>
+      <p class="claim">TransRail production deployments go out on Tuesday morning.</p>
+      <blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote>
+      <div class="ref"><span>Point déploiement TransRail · 8 Jul 2026</span><a class="play" href="#">▶ Play from 00:22</a><span class="bar"><i style="left:37%"></i></span><span>of 01:00</span></div>
+    </div></div></div>
+    <div><span class="meta">Exhibit, replaced</span><div class="stage"><div class="exhibit old">
+      <div class="label"><span class="stamp replaced">Replaced</span><span class="meta">Exhibit 2</span></div>
+      <blockquote>"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote>
+      <div class="ref"><span>Cost review · 2 Jun 2026</span><a class="play" href="#">▶ Play from 00:55</a><span>of 01:06</span></div>
+    </div></div></div>
+    <div><span class="meta">Trace step</span><div class="stage" style="padding-top:8px;padding-bottom:8px">
+      <div class="step"><span class="n">3</span><div><h4>Evidence gate</h4><span class="stamp current">Passed</span></div><div><p>Best sentence 0.840 against a minimum of 0.78.</p><table><tr><th>Check</th><th>Value</th><th>Result</th></tr><tr><td>Best sentence</td><td>0.840</td><td class="ok">passed</td></tr><tr><td>Unknown words</td><td>none</td><td class="ok">passed</td></tr></table></div></div>
+      <div class="step" style="border-bottom:0"><span class="n">6</span><div><h4>Verification</h4><span class="stamp na">Not applicable</span></div><div><p class="na">Not applicable: quote mode, every sentence is a verbatim quote.</p></div></div>
+    </div></div>
+    <div><span class="meta">Stats and import progress</span><div class="stage">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px"><div class="stat"><span class="meta">Meetings you were in</span><b>4</b></div><div class="stat"><span class="meta">Decisions in force</span><b>5</b></div><div class="stat"><span class="meta">Replaced</span><b>2</b></div></div>
+      <div style="margin-top:32px"><span class="meta">team-sync.m4a</span><div class="pipeline" style="margin-top:10px"><span>Waiting</span><span>Transcribing</span><span class="todo">Indexing</span><span class="todo">In the archive</span></div></div>
+    </div></div>
+    <div style="grid-column:1/-1"><span class="meta">Not found</span><div class="stage"><div class="notfound"><span class="stamp refused">Refused by the evidence gate</span><h4>Not found in the recordings you can access.</h4><p>No recording mentions a CTO. Nothing was guessed.</p></div></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head" style="margin-bottom:32px"><div><span class="meta">06</span><h2>Screen: the answer</h2></div><div></div></div>
+  <div class="screen">
+    <div class="nav"><span class="brand">Knowledge Warranty <em>KW</em></span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right"><span>Thomas Girard</span><button class="btn signal">Import a meeting</button></span></div>
+    <div class="body">
+      <div>
+        <span class="meta">Question · asked in English</span>
+        <p class="q">On which day do TransRail production deployments go out?</p>
+        <div class="answer">
+          <p class="head">Found in 2 meetings. The decision changed on 8 July 2026.</p>
+          <div class="exhibit">
+            <div class="label"><span class="stamp current">Current</span><span class="meta">Exhibit 1 · in French</span></div>
+            <p class="claim">TransRail production deployments go out on Tuesday morning.</p>
+            <blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote>
+            <div class="ref"><span>Point déploiement TransRail · 8 Jul 2026</span><a class="play" href="#">▶ Play from 00:22</a><span class="bar"><i style="left:37%"></i></span><span>of 01:00</span></div>
+          </div>
+          <div class="exhibit old">
+            <div class="label"><span class="stamp replaced">Replaced</span><span class="meta">Exhibit 2</span></div>
+            <blockquote>"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote>
+            <div class="ref"><span>Cost review · 2 Jun 2026</span><a class="play" href="#">▶ Play from 00:55</a><span>of 01:06</span></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h5 class="meta">How this answer was built</h5>
+        <div style="border-top:var(--rule-strong)">
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">1</span><div><h4>Access filter</h4><p>22 of 104 passages removed before search.</p></div></div>
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">2</span><div><h4>Hybrid search</h4><p style="font:13px var(--mono)">Cost review · BM25 13.93 · 0.840</p></div></div>
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">3</span><div><h4>Evidence gate <span class="stamp current">Passed</span></h4><p>0.840 against 0.78.</p></div></div>
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">4</span><div><h4>Freshness</h4><p>Thursday (2 Jun) replaced by Tuesday (8 Jul).</p></div></div>
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">5</span><div><h4>Answer</h4><p>qwen3.5, local, from 3 passages.</p></div></div>
+          <div class="step" style="grid-template-columns:32px 1fr"><span class="n" style="font-size:20px">6</span><div><h4>Verification</h4><p>1 of 1 sentence kept, match 0.85.</p></div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div></section>
+
+<section class="impl"><div class="wrap sec-head">
+  <div><span class="meta">07</span><h2>Implementation note</h2></div>
+  <ul>
+    <li>Fonts: replace Montserrat with <code>IBM Plex Sans</code> and <code>IBM Plex Mono</code>; keep <code>Source Serif 4</code>, now used for headings too.</li>
+    <li>Tokens: add <code>--rule-strong</code>; set every <code>rounded-*</code> to 0 and delete every <code>shadow-*</code>.</li>
+    <li>Delete the black hero band on inner pages; headings sit on white with a 2 px rule under them. Keep black only for the login screen.</li>
+    <li>New component: <code>Stamp</code> (outlined label). It replaces the pill badges.</li>
+    <li>Trace moves to a right column on screens wider than 1200 px, open by default.</li>
+    <li>Estimated effort: one day for tokens and fonts, one day for the answer, trace and Quality report.</li>
+  </ul>
+</div></section>
+</body>
+</html>

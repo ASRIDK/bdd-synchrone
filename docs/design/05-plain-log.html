@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plain Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+    --mono: "IBM Plex Mono", ui-monospace, monospace; --serif: "Source Serif 4", Georgia, serif;
+    --b: 1.5px solid var(--night);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface); color: var(--ink); font: 14px/1.6 var(--mono); }
+  a { color: inherit; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .dim { color: var(--ink-faint); }
+  .box { border: var(--b); }
+  .box-h { display: flex; justify-content: space-between; border-bottom: var(--b); padding: 6px 12px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: .06em; }
+  .box-b { padding: 16px; }
+  .top { border-bottom: var(--b); }
+  .top .wrap { display: flex; justify-content: space-between; height: 40px; align-items: center; font-size: 13px; }
+  .hero { padding: 56px 0 40px; border-bottom: var(--b); }
+  .hero h1 { font: 700 72px/1 var(--mono); letter-spacing: -.04em; margin: 8px 0 0; }
+  .hero h1 span { color: var(--signal); }
+  .hero p { font-size: 16px; color: var(--ink-soft); max-width: 720px; margin: 18px 0 0; }
+  section { padding: 40px 0; border-bottom: var(--b); }
+  h2 { font: 700 13px var(--mono); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 16px; }
+  h2::before { content: "## "; color: var(--signal); }
+  .cols { display: grid; gap: 0; }
+  .cols.c3 { grid-template-columns: repeat(3, 1fr); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .cols.c3 > .box + .box, .cols.c2 > .box + .box { border-left: 0; }
+  .box-b h3 { font: 600 16px var(--mono); margin: 0 0 6px; }
+  .box-b p { margin: 0; color: var(--ink-soft); }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; padding: 7px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; border-bottom: var(--b); background: var(--paper); }
+  tr:last-child td { border-bottom: 0; }
+  .sw { width: 28px; height: 20px; border: 1px solid var(--night); display: inline-block; vertical-align: middle; }
+
+  .nav { display: flex; border: var(--b); align-items: stretch; height: 44px; }
+  .nav > * { display: flex; align-items: center; padding: 0 16px; border-right: var(--b); text-decoration: none; }
+  .nav .brand { font-weight: 700; }
+  .nav .brand b { color: var(--signal); margin-right: 8px; }
+  .nav a.on { background: var(--night); color: #fff; }
+  .nav .sp { flex: 1; border-right: var(--b); }
+  .nav .last { border-right: 0; }
+  .btn { font: 600 13px var(--mono); padding: 9px 14px; border: var(--b); background: var(--night); color: #fff; cursor: pointer; border-radius: 0; text-transform: uppercase; letter-spacing: .04em; }
+  .btn.alt { background: var(--surface); color: var(--ink); }
+  .btn.red { background: var(--signal); border-color: var(--signal); }
+  .btn.link { border-color: transparent; background: transparent; color: var(--ink); text-decoration: underline; text-transform: none; letter-spacing: 0; }
+  .btn:hover { box-shadow: 3px 3px 0 var(--night); transform: translate(-1px, -1px); }
+  .ask { display: flex; border: var(--b); }
+  .ask span { padding: 12px 0 12px 14px; color: var(--signal); font-weight: 600; }
+  .ask input { flex: 1; border: 0; padding: 12px; font: 16px var(--mono); outline: none; }
+  .ask .btn { border-width: 0 0 0 1.5px; }
+  .tag { font-weight: 600; font-size: 12px; }
+  .tag.cur { color: var(--valid); } .tag.old { color: var(--history); } .tag.stop { color: var(--signal); } .tag.na { color: var(--ink-faint); }
+  .tag::before { content: "["; } .tag::after { content: "]"; }
+  .entry { display: grid; grid-template-columns: 110px 1fr; border-top: 1px solid var(--line); }
+  .entry:first-child { border-top: 0; }
+  .entry > div:first-child { padding: 14px 12px; border-right: 1px solid var(--line); }
+  .entry > div:last-child { padding: 14px 16px; }
+  .entry .claim { font-weight: 600; margin: 0 0 8px; }
+  .entry blockquote { margin: 0; font: 400 20px/1.5 var(--serif); }
+  .entry.old blockquote { font-size: 17px; color: var(--ink-soft); }
+  .entry .src { margin-top: 10px; font-size: 12px; color: var(--ink-soft); }
+  .entry .src a { font-weight: 600; color: var(--ink); }
+  .tc { font-weight: 600; }
+  .log div { display: grid; grid-template-columns: 30px 150px 110px 1fr; gap: 10px; padding: 6px 12px; border-bottom: 1px solid var(--line); }
+  .log div:last-child { border-bottom: 0; }
+  .log .na { color: var(--ink-faint); font-style: italic; }
+  .kv { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .kv > div { padding: 12px 14px; border-right: var(--b); }
+  .kv > div:last-child { border-right: 0; }
+  .kv b { display: block; font: 700 36px/1.1 var(--mono); letter-spacing: -.04em; margin-top: 4px; }
+  .bar { font-weight: 600; letter-spacing: 1px; }
+  .screen { border: var(--b); }
+  .screen-grid { display: grid; grid-template-columns: 1fr 440px; }
+  .screen-grid > div + div { border-left: var(--b); }
+  .prompt { padding: 18px 20px; border-bottom: var(--b); font: 600 20px var(--mono); }
+  .prompt span { color: var(--signal); }
+  .impl { background: var(--night); color: #fff; border-bottom: 0; }
+  .impl h2 { color: #fff; }
+  .impl li { color: rgba(255,255,255,.8); margin-bottom: 6px; }
+  .impl code { color: #fff; font-weight: 600; }
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 44px; }
+    .cols.c3, .cols.c2, .screen-grid { grid-template-columns: 1fr; }
+    .cols.c3 > .box + .box, .cols.c2 > .box + .box { border-left: var(--b); border-top: 0; }
+    .screen-grid > div + div { border-left: 0; border-top: var(--b); }
+    .nav { overflow-x: auto; }
+    .log div { grid-template-columns: 26px 1fr; } .log div > :nth-child(n+3) { grid-column: 2; }
+    .kv { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="index.html">&lt; all directions</a><span>direction 05/05</span></div></div>
+
+<div class="hero"><div class="wrap">
+  <span class="dim">// design system and ui kit</span>
+  <h1>plain_log<span>_</span></h1>
+  <p>The answer is an audit record. One monospace face, 1.5 px black borders, square corners, tables before cards. Nothing is decorative; everything can be copied into a ticket.</p>
+</div></div>
+
+<section><div class="wrap">
+  <h2>principles</h2>
+  <div class="cols c3">
+    <div class="box"><div class="box-h"><span>01</span><span class="dim">auditable</span></div><div class="box-b"><h3>Everything is a record.</h3><p>Every answer, step and import is a row with an id, a time and a status.</p></div></div>
+    <div class="box"><div class="box-h"><span>02</span><span class="dim">borders</span></div><div class="box-b"><h3>Structure is drawn, not implied.</h3><p>Black borders around every region. No shadows, no radius, no fills except state.</p></div></div>
+    <div class="box"><div class="box-h"><span>03</span><span class="dim">brackets</span></div><div class="box-b"><h3>State reads as text.</h3><p><span class="tag cur">current</span> <span class="tag old">replaced</span> <span class="tag stop">refused</span>. Colour confirms, the word decides.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap cols c2">
+  <div class="box"><div class="box-h"><span>colour roles</span><span class="dim">same palette</span></div>
+    <table><tr><th></th><th>token</th><th>use</th></tr>
+      <tr><td><span class="sw" style="background:#fff"></span></td><td>surface #ffffff</td><td>Page and every box.</td></tr>
+      <tr><td><span class="sw" style="background:#000"></span></td><td>night #000000</td><td>Borders, active nav, primary button.</td></tr>
+      <tr><td><span class="sw" style="background:#f5f5f5"></span></td><td>paper #f5f5f5</td><td>Table header rows.</td></tr>
+      <tr><td><span class="sw" style="background:#e2352b"></span></td><td>signal #e2352b</td><td>Prompt caret, [refused], import.</td></tr>
+      <tr><td><span class="sw" style="background:#0f766e"></span></td><td>valid #0f766e</td><td>[current], [passed], [kept].</td></tr>
+      <tr><td><span class="sw" style="background:#b45309"></span></td><td>history #b45309</td><td>[replaced].</td></tr>
+    </table></div>
+  <div class="box"><div class="box-h"><span>type and tokens</span><span class="dim">plex mono + serif quotes</span></div>
+    <table>
+      <tr><td class="dim">display 72/700</td><td style="font:700 44px/1 var(--mono);letter-spacing:-.04em">44/50</td></tr>
+      <tr><td class="dim">body 14/400</td><td>gate 0.840 &gt;= 0.78 passed</td></tr>
+      <tr><td class="dim">quote serif 20</td><td style="font:20px/1.5 var(--serif)">"Les mises en production passent le mardi matin."</td></tr>
+      <tr><td class="dim">border</td><td>1.5px night outside, 1px line inside</td></tr>
+      <tr><td class="dim">radius / shadow</td><td>0 / none (hover: 3px offset, buttons only)</td></tr>
+      <tr><td class="dim">space</td><td>4, 6, 8, 12, 16, 24, 40</td></tr>
+    </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>components</h2>
+  <div class="nav"><span class="brand"><b>&gt;</b>knowledge_warranty</span><a>dashboard</a><a class="on">assistant</a><a>library</a><a>decisions</a><a>quality</a><span class="sp"></span><span>thomas.girard</span><span class="last"><button class="btn red">+ import</button></span></div>
+  <div class="cols c2" style="margin-top:16px">
+    <div class="box"><div class="box-h"><span>buttons</span></div><div class="box-b" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn">ask</button><button class="btn red">+ import a meeting</button><button class="btn alt">open recording</button><button class="btn link">how this answer was built</button></div></div>
+    <div class="box"><div class="box-h"><span>status tags</span></div><div class="box-b" style="display:flex;gap:16px;flex-wrap:wrap"><span class="tag cur">current</span><span class="tag old">replaced</span><span class="tag stop">refused</span><span class="tag cur">passed</span><span class="tag">done</span><span class="tag na">n/a</span></div></div>
+  </div>
+  <div class="ask" style="margin-top:16px"><span>$</span><input value="Who is the CTO of TransRail?"><button class="btn">ask</button></div>
+  <div class="cols c2" style="margin-top:16px">
+    <div class="box"><div class="box-h"><span>evidence</span><span class="dim">2 entries</span></div>
+      <div class="entry"><div><span class="tag cur">current</span><br><span class="tc">00:22</span><span class="dim">/01:00</span></div><div><p class="claim">TransRail production deployments go out on Tuesday morning.</p><blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote><div class="src">transrail-04 · point déploiement · 2026-07-08 · fr · <a href="#">play 00:22</a></div></div></div>
+      <div class="entry old"><div><span class="tag old">replaced</span><br><span class="tc">00:55</span><span class="dim">/01:06</span></div><div><blockquote>"Production Deployments go out on Thursday morning, after the weekly change board."</blockquote><div class="src">transrail-03 · cost review · 2026-06-02 · <a href="#">play 00:55</a></div></div></div>
+    </div>
+    <div class="box"><div class="box-h"><span>trace</span><span class="tag cur">gate passed</span></div>
+      <div class="log">
+        <div><span class="dim">01</span><span>access_filter</span><span class="tag">done</span><span>22/104 passages removed</span></div>
+        <div><span class="dim">03</span><span>evidence_gate</span><span class="tag cur">passed</span><span>0.840 &gt;= 0.78</span></div>
+        <div><span class="dim">06</span><span>verification</span><span class="tag na">n/a</span><span class="na">quote mode, every sentence verbatim</span></div>
+      </div>
+      <div class="kv" style="border-top:var(--b)"><div><span class="dim">meetings</span><b>4</b></div><div><span class="dim">recorded</span><b>4m</b></div><div><span class="dim">in force</span><b>5</b></div><div><span class="dim">replaced</span><b>2</b></div></div>
+    </div>
+  </div>
+  <div class="box" style="margin-top:16px"><div class="box-h"><span>import · voice-memo.m4a · 17 s</span><span class="tag stop">transcribing</span></div><div class="box-b"><span class="bar">[<span style="color:var(--valid)">##########</span><span style="color:var(--signal)">#####</span><span class="dim">...............</span>]</span> waiting ok · transcribing · indexing · in the archive</div></div>
+  <div class="box" style="margin-top:16px"><div class="box-b"><span class="tag stop">refused</span> <b>not found in the recordings you can access.</b> <span class="dim">no recording mentions "cto". nothing was guessed.</span></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>screen: the answer</h2>
+  <div class="screen">
+    <div class="nav" style="border:0;border-bottom:var(--b)"><span class="brand"><b>&gt;</b>knowledge_warranty</span><a>dashboard</a><a class="on">assistant</a><a>library</a><a>decisions</a><a>quality</a><span class="sp"></span><span class="last">thomas.girard</span></div>
+    <div class="screen-grid">
+      <div>
+        <div class="prompt"><span>$</span> On which day do TransRail production deployments go out?</div>
+        <div style="padding:10px 16px;border-bottom:1px solid var(--line)" class="dim">found in 2 meetings · decision changed 2026-07-08 · qwen3.5 local · 9.8 s</div>
+        <div class="entry"><div><span class="tag cur">current</span><br><span class="tc">00:22</span><span class="dim">/01:00</span></div><div><p class="claim">TransRail production deployments go out on Tuesday morning.</p><blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote><div class="src">point déploiement transrail · 2026-07-08 · fr · <a href="#">play 00:22</a></div></div></div>
+        <div class="entry old"><div><span class="tag old">replaced</span><br><span class="tc">00:55</span><span class="dim">/01:06</span></div><div><blockquote>"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote><div class="src">cost review · 2026-06-02 · <a href="#">play 00:55</a></div></div></div>
+      </div>
+      <div>
+        <div class="box-h" style="border-top:0"><span>how this answer was built</span><span class="dim">6/6</span></div>
+        <div class="log">
+          <div style="grid-template-columns:26px 1fr"><span class="dim">01</span><span>access_filter <span class="dim">22/104 out</span></span></div>
+          <div style="grid-template-columns:26px 1fr"><span class="dim">02</span><span>hybrid_search <span class="dim">cost review 13.93 / 0.840</span></span></div>
+          <div style="grid-template-columns:26px 1fr"><span class="dim">03</span><span>evidence_gate <span class="tag cur">passed</span> <span class="dim">0.840 &gt;= 0.78</span></span></div>
+          <div style="grid-template-columns:26px 1fr"><span class="dim">04</span><span>freshness <span class="dim">thu 06-02 -&gt; tue 07-08</span></span></div>
+          <div style="grid-template-columns:26px 1fr"><span class="dim">05</span><span>answer <span class="dim">qwen3.5, 3 passages</span></span></div>
+          <div style="grid-template-columns:26px 1fr"><span class="dim">06</span><span>verification <span class="tag cur">kept</span> <span class="dim">1/1, 0.85</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="impl"><div class="wrap">
+  <h2>implementation note</h2>
+  <ul>
+    <li>Font: <code>IBM Plex Mono</code> replaces Montserrat for all interface text; <code>Source Serif 4</code> stays for quotes.</li>
+    <li>Tokens: one <code>--b</code> border token; radius 0; all shadows removed.</li>
+    <li>Labels become lowercase ids in the nav (assistant, library); page titles stay in plain English.</li>
+    <li>New component: <code>Tag</code> (bracketed status). Tables replace the dashboard cards.</li>
+    <li>Estimated effort: one day. Needs a readability check with a non engineer before the final.</li>
+  </ul>
+</div></section>
+</body>
+</html>

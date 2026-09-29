@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Tape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+    --sans: "DM Sans", system-ui, sans-serif; --mono: "DM Mono", ui-monospace, monospace; --serif: "Source Serif 4", Georgia, serif;
+    --r-sm: 8px; --r-md: 14px; --r-lg: 20px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.55 var(--sans); }
+  a { color: inherit; }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+  .meta { font: 500 12px var(--mono); color: var(--ink-faint); letter-spacing: .02em; }
+  .top .wrap { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+  .hero { padding: 40px 0 56px; }
+  .hero-card { background: var(--night); color: #fff; border-radius: var(--r-lg); padding: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+  .hero h1 { font: 700 64px/1 var(--sans); letter-spacing: -.03em; margin: 12px 0 0; }
+  .hero p { color: rgba(255,255,255,.72); font-size: 18px; margin: 16px 0 0; max-width: 520px; }
+  section { padding: 40px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+  h2 { font: 700 26px var(--sans); letter-spacing: -.02em; margin: 0; }
+  .card { background: var(--surface); border-radius: var(--r-md); padding: 24px; }
+  .cols { display: grid; gap: 16px; }
+  .cols.c3 { grid-template-columns: repeat(3, 1fr); }
+  .cols.c2 { grid-template-columns: 1fr 1fr; }
+  .card h3 { font: 600 18px var(--sans); margin: 10px 0 6px; letter-spacing: -.01em; }
+  .card p { margin: 0; color: var(--ink-soft); }
+  .wave { display: flex; align-items: center; gap: 2px; height: 56px; }
+  .wave i { flex: 1; border-radius: 2px; background: #c9cbd0; }
+  .wave i.played { background: var(--ink); }
+  .wave i.head { background: var(--signal); }
+  .wave.small { height: 28px; }
+  .hero .wave i { background: rgba(255,255,255,.25); } .hero .wave i.played { background: #fff; }
+  .swatch { display: flex; gap: 14px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+  .swatch:first-child { border-top: 0; }
+  .swatch i { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(0,0,0,.06); flex: none; }
+  .swatch b { font: 500 13px var(--mono); display: block; }
+  .swatch span { color: var(--ink-soft); font-size: 14px; }
+  .type-row { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 14px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .type-row:first-child { border-top: 0; }
+  table.t { width: 100%; border-collapse: collapse; }
+  table.t td, table.t th { text-align: left; padding: 10px 0; border-top: 1px solid var(--line); }
+  table.t th { font: 500 12px var(--mono); color: var(--ink-faint); border-top: 0; }
+  table.t td:first-child { font: 500 13px var(--mono); width: 160px; }
+
+  .nav { display: flex; align-items: center; gap: 6px; background: var(--surface); border-radius: var(--r-md); padding: 8px 8px 8px 18px; }
+  .nav .brand { font: 700 16px var(--sans); letter-spacing: -.02em; display: flex; align-items: center; gap: 10px; margin-right: 18px; }
+  .reel { width: 22px; height: 22px; border-radius: 50%; border: 5px solid var(--ink); position: relative; }
+  .reel::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--signal); }
+  .nav a { text-decoration: none; padding: 8px 14px; border-radius: 999px; color: var(--ink-soft); font-size: 14px; }
+  .nav a.on { background: var(--ink); color: #fff; }
+  .nav .right { margin-left: auto; display: flex; gap: 10px; align-items: center; font-size: 14px; }
+  .btn { font: 600 14px var(--sans); padding: 11px 18px; border-radius: 999px; border: 0; background: var(--ink); color: #fff; cursor: pointer; }
+  .btn.red { background: var(--signal); }
+  .btn.soft { background: var(--paper); color: var(--ink); }
+  .btn.ghost { background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; font: 500 13px var(--mono); padding: 6px 12px 6px 6px; border-radius: 999px; background: var(--paper); color: var(--ink); text-decoration: none; }
+  .chip .pl { width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
+  .chip.cur .pl { background: var(--valid); } .chip.old .pl { background: var(--history); }
+  .pill { display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--sans); padding: 4px 10px; border-radius: 999px; }
+  .pill.cur { background: var(--valid-bg); color: var(--valid); } .pill.old { background: var(--history-bg); color: var(--history); }
+  .pill.stop { background: #fdeceb; color: var(--signal); } .pill.na { background: var(--paper); color: var(--ink-faint); }
+  .ask { display: flex; align-items: center; gap: 10px; background: var(--surface); border-radius: 999px; padding: 8px 8px 8px 22px; box-shadow: 0 0 0 1px var(--line); }
+  .ask input { flex: 1; border: 0; outline: none; font: 17px var(--sans); background: transparent; }
+  .mic { width: 40px; height: 40px; border-radius: 50%; background: var(--paper); display: inline-flex; align-items: center; justify-content: center; }
+  .clip { border-radius: var(--r-md); background: var(--surface); padding: 20px; }
+  .clip + .clip { margin-top: 12px; }
+  .clip .h { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .clip .claim { font: 600 16px var(--sans); margin: 14px 0 6px; }
+  .clip blockquote { font: 400 20px/1.5 var(--serif); margin: 0; }
+  .clip.old blockquote { color: var(--ink-soft); font-size: 17px; }
+  .clip .foot { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-top: 14px; }
+  .stp { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
+  .stp:first-child { border-top: 0; }
+  .stp .n { width: 28px; height: 28px; border-radius: 50%; background: var(--paper); font: 500 12px var(--mono); display: inline-flex; align-items: center; justify-content: center; }
+  .stp h4 { margin: 3px 0 2px; font: 600 15px var(--sans); }
+  .stp p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  .stp p.na { color: var(--ink-faint); font-style: italic; }
+  .stat b { display: block; font: 700 40px/1 var(--sans); letter-spacing: -.03em; margin-top: 8px; }
+  .progress { display: flex; align-items: center; gap: 8px; }
+  .progress span { font: 500 12px var(--mono); padding: 6px 12px; border-radius: 999px; background: var(--paper); color: var(--ink-faint); }
+  .progress span.done { background: var(--ink); color: #fff; }
+  .progress span.now { background: var(--signal); color: #fff; }
+  .progress em { flex: 1; height: 2px; background: var(--line); }
+  .progress em.done { background: var(--ink); }
+  .screen { background: #eaebed; border-radius: var(--r-lg); padding: 16px; }
+  .screen-grid { display: grid; grid-template-columns: 1fr 380px; gap: 16px; margin-top: 16px; }
+  .bubble { background: var(--ink); color: #fff; border-radius: 18px 18px 4px 18px; padding: 12px 18px; font-size: 16px; margin-left: auto; width: fit-content; max-width: 80%; }
+  .impl .card { background: var(--night); color: #fff; }
+  .impl li { color: rgba(255,255,255,.8); margin-bottom: 8px; }
+  .impl code { font: 13px var(--mono); background: rgba(255,255,255,.1); padding: 1px 6px; border-radius: 6px; color: #fff; }
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 16px; }
+    .hero-card, .cols.c3, .cols.c2, .screen-grid { grid-template-columns: 1fr; }
+    .hero-card { padding: 28px; } .hero h1 { font-size: 42px; }
+    .nav { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="meta" href="index.html">All directions</a><span class="meta">Direction 04 of 05</span></div></div>
+
+<div class="hero"><div class="wrap"><div class="hero-card">
+  <div><span class="meta" style="color:var(--signal)">Design system and UI kit</span><h1>Studio Tape</h1><p>Every meeting is a track. Every answer points to a place on that track. The red is the playhead: where you are listening now.</p></div>
+  <div><div class="wave" data-n="90" data-head="38"></div><div class="meta" style="margin-top:10px;color:rgba(255,255,255,.6)">POINT DÉPLOIEMENT TRANSRAIL · 00:22 / 01:00</div></div>
+</div></div></div>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="meta">01</span><h2>Principles</h2></div>
+  <div class="cols c3">
+    <div class="card"><div class="wave small" data-n="40" data-head="14"></div><h3>Show the recording, not a link to it.</h3><p>A waveform with the cited moment marked, right inside the answer.</p></div>
+    <div class="card"><span class="chip cur"><span class="pl">▶</span>00:22</span><h3>Timecodes are buttons.</h3><p>Every time shown can be pressed and plays from that second.</p></div>
+    <div class="card"><span class="pill cur">Current</span> <span class="pill old">Replaced</span><h3>Soft shapes, firm meaning.</h3><p>Rounded surfaces, but teal and amber never move from current and replaced.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap cols c2">
+  <div class="card"><div class="sec-head"><span class="meta">02</span><h2>Colour roles</h2></div>
+    <div class="swatch"><i style="background:#f5f5f5"></i><div><b>paper #f5f5f5</b><span>The studio floor. Page background.</span></div></div>
+    <div class="swatch"><i style="background:#fff"></i><div><b>surface #ffffff</b><span>Clips, cards, the ask bar.</span></div></div>
+    <div class="swatch"><i style="background:#16181d"></i><div><b>ink #16181d</b><span>Played part of a waveform, active nav, buttons.</span></div></div>
+    <div class="swatch"><i style="background:#e2352b"></i><div><b>signal #e2352b</b><span>Playhead, recording in progress, import button.</span></div></div>
+    <div class="swatch"><i style="background:#0f766e"></i><div><b>valid #0f766e</b><span>Current clip chip and pill (on valid-bg).</span></div></div>
+    <div class="swatch"><i style="background:#b45309"></i><div><b>history #b45309</b><span>Replaced clip chip and pill (on history-bg).</span></div></div>
+    <div class="swatch"><i style="background:#000"></i><div><b>night #000000</b><span>Hero cards and the player bar.</span></div></div>
+  </div>
+  <div class="card"><div class="sec-head"><span class="meta">03</span><h2>Type</h2></div>
+    <div class="type-row"><span class="meta">Display 64/700</span><span style="font:700 64px/1 var(--sans);letter-spacing:-.03em">Tracks</span></div>
+    <div class="type-row"><span class="meta">Heading 26/700</span><span style="font:700 26px var(--sans);letter-spacing:-.02em">Meetings you were in</span></div>
+    <div class="type-row"><span class="meta">Quote serif 20</span><span style="font:20px/1.5 var(--serif)">"Les mises en production passent le mardi matin."</span></div>
+    <div class="type-row"><span class="meta">Body DM Sans 15</span><span>Every sentence checked against its source.</span></div>
+    <div class="type-row"><span class="meta">Timecode DM Mono</span><span style="font:500 15px var(--mono)">00:22 / 01:00</span></div>
+    <div style="margin-top:24px"><div class="sec-head"><span class="meta">04</span><h2>Tokens</h2></div>
+      <table class="t"><tr><td>radius</td><td>8 controls, 14 cards, 20 screens, 999 chips</td></tr><tr><td>shadow</td><td>none; 1 px line ring on inputs only</td></tr><tr><td>space</td><td>4, 8, 12, 16, 20, 24, 40</td></tr><tr><td>waveform</td><td>2 px bars, 2 px gap, 64 peaks per clip</td></tr></table>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="meta">05</span><h2>Components</h2></div>
+  <div class="nav"><span class="brand"><span class="reel"></span>Knowledge Warranty</span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right">Thomas Girard <button class="btn red">● Import a meeting</button></span></div>
+  <div class="cols c2" style="margin-top:16px">
+    <div class="card"><span class="meta">Buttons</span><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn">Ask</button><button class="btn red">● Import a meeting</button><button class="btn soft">Open the recording</button><button class="btn ghost">How this answer was built</button></div></div>
+    <div class="card"><span class="meta">Chips and pills</span><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><span class="chip cur"><span class="pl">▶</span>00:22</span><span class="chip old"><span class="pl">▶</span>00:55</span><span class="pill cur">Current</span><span class="pill old">Replaced</span><span class="pill stop">Refused</span><span class="pill cur">Passed</span><span class="pill na">Not applicable</span></div></div>
+  </div>
+  <div style="margin-top:16px" class="ask"><input value="Who is the CTO of TransRail?"><span class="mic">🎙</span><button class="btn">Ask</button></div>
+  <div class="cols c2" style="margin-top:16px">
+    <div>
+      <div class="clip"><div class="h"><span class="pill cur">Current decision</span><span class="meta">Point déploiement TransRail · 8 Jul 2026 · FR</span></div>
+        <p class="claim">TransRail production deployments go out on Tuesday morning.</p>
+        <blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote>
+        <div class="foot"><a class="chip cur" href="#"><span class="pl">▶</span>00:22</a><div class="wave small" data-n="60" data-head="22"></div><span class="meta">01:00</span></div></div>
+    </div>
+    <div class="card"><span class="meta">Trace</span>
+      <div class="stp"><span class="n">3</span><div><h4>Evidence gate</h4><p>Best sentence 0.840, minimum 0.78.</p></div><span class="pill cur">Passed</span></div>
+      <div class="stp"><span class="n">6</span><div><h4>Verification</h4><p class="na">Not applicable: quote mode, every sentence is verbatim.</p></div><span class="pill na">N/A</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px"><div class="stat"><span class="meta">Meetings</span><b>4</b></div><div class="stat"><span class="meta">In force</span><b>5</b></div><div class="stat"><span class="meta">Replaced</span><b>2</b></div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><span class="meta">Import · voice-memo.m4a · 17 s</span><div class="progress" style="margin-top:12px"><span class="done">Waiting</span><em class="done"></em><span class="now">● Transcribing</span><em></em><span>Indexing</span><em></em><span>In the archive</span></div></div>
+  <div class="card" style="margin-top:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span class="pill stop">Refused</span><b>Not found in the recordings you can access.</b><span style="color:var(--ink-soft)">No recording mentions a CTO. Nothing was guessed.</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="meta">06</span><h2>Screen: the answer</h2></div>
+  <div class="screen">
+    <div class="nav"><span class="brand"><span class="reel"></span>Knowledge Warranty</span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right">Thomas Girard</span></div>
+    <div class="screen-grid">
+      <div>
+        <p class="bubble">On which day do TransRail production deployments go out?</p>
+        <p style="font:600 17px var(--sans);margin:18px 0 12px">Found in 2 meetings. The decision changed on 8 July 2026.</p>
+        <div class="clip"><div class="h"><span class="pill cur">Current decision</span><span class="meta">Point déploiement TransRail · 8 Jul 2026 · FR</span></div>
+          <p class="claim">TransRail production deployments go out on Tuesday morning.</p>
+          <blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote>
+          <div class="foot"><a class="chip cur" href="#"><span class="pl">▶</span>00:22</a><div class="wave small" data-n="70" data-head="26"></div><span class="meta">01:00</span></div></div>
+        <div class="clip old"><div class="h"><span class="pill old">Replaced, kept as history</span><span class="meta">Cost review · 2 Jun 2026</span></div>
+          <blockquote style="margin-top:12px">"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote>
+          <div class="foot"><a class="chip old" href="#"><span class="pl">▶</span>00:55</a><div class="wave small" data-n="70" data-head="58"></div><span class="meta">01:06</span></div></div>
+      </div>
+      <div class="card"><span class="meta">How this answer was built</span>
+        <div class="stp"><span class="n">1</span><div><h4>Access filter</h4><p>22 of 104 passages removed.</p></div><span class="pill na">Done</span></div>
+        <div class="stp"><span class="n">2</span><div><h4>Hybrid search</h4><p>Cost review · 13.93 · 0.840</p></div><span class="pill na">Done</span></div>
+        <div class="stp"><span class="n">3</span><div><h4>Evidence gate</h4><p>0.840, minimum 0.78.</p></div><span class="pill cur">Passed</span></div>
+        <div class="stp"><span class="n">4</span><div><h4>Freshness</h4><p>Thursday replaced by Tuesday.</p></div><span class="pill na">Done</span></div>
+        <div class="stp"><span class="n">5</span><div><h4>Answer</h4><p>qwen3.5, local, 3 passages.</p></div><span class="pill na">Done</span></div>
+        <div class="stp"><span class="n">6</span><div><h4>Verification</h4><p>1 of 1 kept, 0.85.</p></div><span class="pill cur">Kept</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="impl"><div class="wrap"><div class="card">
+  <div class="sec-head"><span class="meta" style="color:var(--signal)">07</span><h2>Implementation note</h2></div>
+  <ul>
+    <li>Fonts: <code>DM Sans</code> and <code>DM Mono</code> replace Montserrat; <code>Source Serif 4</code> stays for quotes.</li>
+    <li>New data: 64 peak values per recording, computed once in <code>npm run index</code> (one pass over the audio) and stored in the index.</li>
+    <li>New components: <code>Waveform</code> (bars from the peaks, playhead at the cited second), <code>TimecodeChip</code> (plays the audio), <code>Clip</code>.</li>
+    <li>Tokens: radius scale 8, 14, 20, 999; shadows removed except the input ring.</li>
+    <li>Estimated effort: two days plus the peaks step. The only direction that touches the indexer.</li>
+  </ul>
+</div></div></section>
+
+<script>
+  // Deterministic fake peaks, so every page load draws the same waveforms.
+  document.querySelectorAll(".wave").forEach((w, k) => {
+    const n = +w.dataset.n, head = +w.dataset.head;
+    let html = "";
+    for (let i = 0; i < n; i++) {
+      const v = 0.25 + 0.75 * Math.abs(Math.sin(i * 0.9 + k) * Math.cos(i * 0.23 + k * 2));
+      const cls = i === head ? "head" : i < head ? "played" : "";
+      html += `<i class="${cls}" style="height:${Math.round(v * 100)}%"></i>`;
+    }
+    w.innerHTML = html;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+    /* Dark roles, derived from night and ink only */
+    --panel: #0b0c0e; --panel-2: #121418; --edge: #26282d; --text: #f5f5f5; --text-soft: #a3a8b1; --text-faint: #6b7079;
+    --sans: "Space Grotesk", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; --serif: "Source Serif 4", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--night); color: var(--text); font: 15px/1.55 var(--sans); }
+  a { color: inherit; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .meta { font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); }
+  .lamp { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+  .lamp.on { background: var(--signal); box-shadow: 0 0 0 3px rgba(226,53,43,.25); }
+  .lamp.ok { background: var(--valid); box-shadow: 0 0 0 3px rgba(15,118,110,.3); }
+  .lamp.warn { background: var(--history); box-shadow: 0 0 0 3px rgba(180,83,9,.3); }
+  .lamp.off { background: var(--edge); }
+  .top { border-bottom: 1px solid var(--edge); }
+  .top .wrap { display: flex; justify-content: space-between; height: 44px; align-items: center; }
+  .hero { padding: 56px 0 40px; border-bottom: 1px solid var(--edge); }
+  .hero h1 { font: 600 60px/1 var(--sans); letter-spacing: -.03em; margin: 16px 0 0; }
+  .hero p { color: var(--text-soft); font-size: 18px; max-width: 700px; margin: 16px 0 0; }
+  section { padding: 48px 0; border-bottom: 1px solid var(--edge); }
+  .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+  h2 { font: 600 22px var(--sans); margin: 8px 0 0; }
+  .panel { background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; }
+  .panel-h { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--edge); }
+  .panel-b { padding: 16px; }
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .cols-3 h3 { font: 600 17px var(--sans); margin: 6px 0; }
+  .cols-3 p { margin: 0; color: var(--text-soft); }
+  .role { display: grid; grid-template-columns: 44px 170px 1fr; gap: 16px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--edge); }
+  .role:last-child { border-bottom: 0; }
+  .role i { height: 28px; border-radius: 4px; border: 1px solid var(--edge); }
+  .role b { font: 500 12px var(--mono); }
+  .role span { color: var(--text-soft); }
+  .type-row { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 14px; border-bottom: 1px solid var(--edge); align-items: baseline; }
+  .type-row:last-child { border-bottom: 0; }
+  table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.t th, table.t td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--edge); }
+  table.t th { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); }
+  table.t td:first-child { font: 500 12px var(--mono); }
+  .kit { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+  .s12 { grid-column: span 12; } .s6 { grid-column: span 6; } .s4 { grid-column: span 4; } .s8 { grid-column: span 8; }
+
+  .nav { display: flex; align-items: center; gap: 4px; height: 52px; padding: 0 14px; background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; }
+  .nav .brand { font: 700 15px var(--sans); letter-spacing: -.01em; margin-right: 20px; display: flex; align-items: center; }
+  .nav a { text-decoration: none; font-size: 14px; color: var(--text-soft); padding: 7px 12px; border-radius: 4px; }
+  .nav a.on { background: var(--panel-2); color: var(--text); box-shadow: inset 0 -2px 0 var(--signal); }
+  .nav .right { margin-left: auto; display: flex; gap: 12px; align-items: center; font: 500 12px var(--mono); color: var(--text-soft); }
+  .btn { font: 600 13px var(--sans); padding: 9px 16px; border-radius: 4px; border: 1px solid var(--edge); background: var(--panel-2); color: var(--text); cursor: pointer; }
+  .btn.primary { background: var(--signal); border-color: var(--signal); color: #fff; }
+  .btn.light { background: var(--surface); color: var(--ink); border-color: var(--surface); }
+  .btn.ghost { background: transparent; border-color: transparent; color: var(--text-soft); }
+  .ask { display: flex; align-items: center; gap: 10px; background: var(--panel-2); border: 1px solid var(--edge); border-radius: 6px; padding: 6px 6px 6px 14px; }
+  .ask span { font: 500 12px var(--mono); color: var(--signal); }
+  .ask input { flex: 1; background: transparent; border: 0; color: var(--text); font: 16px var(--sans); outline: none; }
+  .tag { display: inline-flex; align-items: center; font: 600 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 3px; border: 1px solid var(--edge); color: var(--text); }
+  .tag.ok { background: var(--valid); border-color: var(--valid); color: #fff; }
+  .tag.warn { background: var(--history); border-color: var(--history); color: #fff; }
+  .tag.stop { background: var(--signal); border-color: var(--signal); color: #fff; }
+  .tag.na { color: var(--text-faint); border-style: dashed; }
+  /* Light evidence card inside the dark UI */
+  .evidence { background: var(--surface); color: var(--ink); border-radius: 6px; padding: 22px; }
+  .ev { display: grid; grid-template-columns: 96px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .ev:first-of-type { border-top: 0; padding-top: 4px; }
+  .tc { font: 600 13px var(--mono); padding: 6px 0; text-align: center; border-radius: 4px; color: #fff; align-self: start; }
+  .tc.ok { background: var(--valid); } .tc.warn { background: var(--history); }
+  .tc small { display: block; font-weight: 400; font-size: 10px; opacity: .85; letter-spacing: .08em; }
+  .ev .claim { font: 600 15px var(--sans); margin: 0 0 6px; }
+  .ev blockquote { margin: 0; font: 400 20px/1.5 var(--serif); }
+  .ev.old blockquote { font-size: 17px; color: var(--ink-soft); }
+  .ev .src { margin-top: 8px; font: 500 12px var(--mono); color: var(--ink-faint); }
+  .ev .src a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); margin-left: 12px; }
+  .log { font: 400 13px/1.8 var(--mono); }
+  .log .row { display: grid; grid-template-columns: 34px 150px 90px 1fr; gap: 12px; padding: 6px 14px; border-bottom: 1px solid var(--edge); }
+  .log .row:last-child { border-bottom: 0; }
+  .log .n { color: var(--text-faint); }
+  .log .v { color: var(--text-soft); }
+  .log .v b { color: var(--text); font-weight: 500; }
+  .kpi { padding: 16px; }
+  .kpi b { display: block; font: 600 44px/1 var(--mono); margin-top: 8px; letter-spacing: -.03em; }
+  .kpi small { color: var(--text-faint); font: 500 12px var(--mono); }
+  .track { display: flex; gap: 6px; }
+  .track span { flex: 1; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; padding: 8px; border-radius: 4px; background: var(--panel-2); color: var(--text-faint); border: 1px solid var(--edge); }
+  .track span.done { color: var(--text); border-color: var(--valid); }
+  .track span.now { color: #fff; background: var(--signal); border-color: var(--signal); }
+  .screen { border: 1px solid var(--edge); border-radius: 8px; padding: 12px; background: #050506; }
+  .screen-grid { display: grid; grid-template-columns: 1fr 420px; gap: 12px; margin-top: 12px; }
+  .q { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; }
+  .q p { font: 600 22px var(--sans); margin: 0; letter-spacing: -.01em; }
+  .impl { background: var(--panel); }
+  .impl li { color: var(--text-soft); margin-bottom: 8px; }
+  .impl code { font: 12px var(--mono); color: var(--text); background: var(--panel-2); padding: 1px 5px; border-radius: 3px; }
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 40px; }
+    .sec-head, .screen-grid, .cols-3 { grid-template-columns: 1fr; }
+    .s6, .s4, .s8 { grid-column: span 12; }
+    .nav { overflow-x: auto; }
+    .log .row { grid-template-columns: 28px 1fr; } .log .row > :nth-child(n+3) { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a class="meta" href="index.html">All directions</a><span class="meta"><span class="lamp on"></span>Direction 02 of 05</span></div></div>
+
+<div class="hero"><div class="wrap">
+  <span class="meta">Design system and UI kit</span>
+  <h1>Control Room</h1>
+  <p>The archive as a live system. The interface is a console: panels, status lamps, timecodes. The evidence itself is the one light surface, so it is always the brightest thing on screen.</p>
+</div></div>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">01</span><h2>Principles</h2></div>
+  <div class="cols-3">
+    <div class="panel panel-b"><span class="meta">Console around evidence</span><h3>Dark chrome, light proof.</h3><p>Navigation, trace and stats are dark. Quotes sit on a white card, so the eye lands there.</p></div>
+    <div class="panel panel-b"><span class="meta">Lamps</span><h3>State is a light, not a word.</h3><p>Red on air or refused, teal current or passed, amber replaced. Every lamp has a label next to it.</p></div>
+    <div class="panel panel-b"><span class="meta">Timecode native</span><h3>Every citation starts with its time.</h3><p>The timecode block leads the row and is the play control.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">02</span><h2>Colour roles</h2><p style="color:var(--text-soft)">Same palette. Dark greys are shades of night and ink, nothing new.</p></div>
+  <div class="panel">
+    <div class="role"><i style="background:#000"></i><b>night #000000</b><span>Page background.</span></div>
+    <div class="role"><i style="background:#0b0c0e"></i><b>panel (night + ink)</b><span>Panels and navigation.</span></div>
+    <div class="role"><i style="background:#26282d"></i><b>edge (ink tint)</b><span>1 px panel borders and row dividers.</span></div>
+    <div class="role"><i style="background:#fff"></i><b>surface #ffffff</b><span>Evidence card only.</span></div>
+    <div class="role"><i style="background:#e2352b"></i><b>signal #e2352b</b><span>On air lamp, active step, refused, primary action.</span></div>
+    <div class="role"><i style="background:#0f766e"></i><b>valid #0f766e</b><span>Filled timecode for current evidence, passed lamps.</span></div>
+    <div class="role"><i style="background:#b45309"></i><b>history #b45309</b><span>Filled timecode for replaced evidence.</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">03</span><h2>Type</h2><p style="color:var(--text-soft)">Space Grotesk for interface, JetBrains Mono for data, Source Serif 4 for quotes only.</p></div>
+  <div class="panel">
+    <div class="type-row"><span class="meta">Display 60/600</span><span style="font:600 60px/1 var(--sans);letter-spacing:-.03em">Live archive</span></div>
+    <div class="type-row"><span class="meta">Question 22/600</span><span style="font:600 22px var(--sans)">On which day do TransRail production deployments go out?</span></div>
+    <div class="type-row"><span class="meta">Data mono 13</span><span style="font:13px var(--mono)">GATE 0.840 ≥ 0.78 · BM25 13.93 · 22/104 OUT</span></div>
+    <div class="type-row"><span class="meta">Quote serif 20</span><span style="font:20px/1.5 var(--serif)">"Les mises en production passent le mardi matin."</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec-head">
+  <div><span class="meta">04</span><h2>Tokens</h2></div>
+  <div class="panel"><table class="t">
+    <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>radius</td><td>4 controls, 6 panels, 8 screens</td><td>Small and consistent, never pills</td></tr>
+      <tr><td>border</td><td>1px edge</td><td>Every panel; no shadows</td></tr>
+      <tr><td>glow</td><td>0 0 0 3px 25% of the lamp colour</td><td>Lamps only</td></tr>
+      <tr><td>space</td><td>4, 6, 8, 12, 16, 24, 40</td><td>Panel gap 12; dense by design</td></tr>
+      <tr><td>grid</td><td>12 columns, 1440 max, 12 gutter</td><td>Answer 8, trace 4</td></tr>
+      <tr><td>contrast</td><td>text #f5f5f5 on #0b0c0e</td><td>18:1; soft text #a3a8b1 is 8:1</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head" style="margin-bottom:24px"><div><span class="meta">05</span><h2>Components</h2></div><div></div></div>
+  <div class="kit">
+    <div class="s12"><span class="meta">Navigation</span>
+      <div class="nav" style="margin-top:8px"><span class="brand"><span class="lamp on"></span>Knowledge Warranty</span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right">qwen3.5 · local <span class="lamp ok"></span>THOMAS GIRARD <button class="btn primary">Import a meeting</button></span></div>
+    </div>
+    <div class="s6 panel"><div class="panel-h"><span class="meta">Buttons</span></div><div class="panel-b" style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary">Import a meeting</button><button class="btn">Open the recording</button><button class="btn light">Ask</button><button class="btn ghost">How this answer was built</button></div></div>
+    <div class="s6 panel"><div class="panel-h"><span class="meta">Tags</span></div><div class="panel-b" style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag ok">Current</span><span class="tag warn">Replaced</span><span class="tag stop">Refused</span><span class="tag ok">Passed</span><span class="tag">Done</span><span class="tag na">Not applicable</span></div></div>
+    <div class="s12"><span class="meta">Ask bar</span><div class="ask" style="margin-top:8px"><span>&gt;</span><input value="Who is the CTO of TransRail?"><button class="btn primary">Ask</button></div></div>
+    <div class="s8"><span class="meta">Evidence card (light)</span><div class="evidence" style="margin-top:8px">
+      <div class="ev"><div class="tc ok">▶ 00:22<small>CURRENT</small></div><div><p class="claim">TransRail production deployments go out on Tuesday morning.</p><blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote><div class="src">POINT DÉPLOIEMENT TRANSRAIL · 8 JUL 2026 · FR</div></div></div>
+      <div class="ev old"><div class="tc warn">▶ 00:55<small>REPLACED</small></div><div><blockquote>"Production Deployments go out on Thursday morning, after the weekly change board."</blockquote><div class="src">COST REVIEW · 2 JUN 2026</div></div></div>
+    </div></div>
+    <div class="s4 panel"><div class="panel-h"><span class="meta">KPIs</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr"><div class="kpi" style="border-right:1px solid var(--edge);border-bottom:1px solid var(--edge)"><small>MEETINGS</small><b>4</b></div><div class="kpi" style="border-bottom:1px solid var(--edge)"><small>RECORDED</small><b>4m</b></div><div class="kpi" style="border-right:1px solid var(--edge)"><small><span class="lamp ok"></span>IN FORCE</small><b>5</b></div><div class="kpi"><small><span class="lamp warn"></span>REPLACED</small><b>2</b></div></div>
+    </div>
+    <div class="s8 panel"><div class="panel-h"><span class="meta">Trace log</span><span class="tag ok">Gate passed</span></div>
+      <div class="log">
+        <div class="row"><span class="n">01</span><span>Access filter</span><span class="tag">Done</span><span class="v"><b>22/104</b> passages removed before search</span></div>
+        <div class="row"><span class="n">03</span><span>Evidence gate</span><span class="tag ok">Passed</span><span class="v">best <b>0.840</b> ≥ 0.78 · unknown words none</span></div>
+        <div class="row"><span class="n">06</span><span>Verification</span><span class="tag na">N/A</span><span class="v">quote mode: every sentence is verbatim</span></div>
+      </div>
+    </div>
+    <div class="s4 panel"><div class="panel-h"><span class="meta">Import</span><span class="meta" style="color:var(--text-soft)">voice-memo.m4a</span></div><div class="panel-b"><div class="track"><span class="done">Wait</span><span class="now">Transcribe</span><span>Index</span><span>Ready</span></div></div></div>
+    <div class="s12 panel"><div class="panel-b" style="display:flex;gap:16px;align-items:center"><span class="tag stop">Refused</span><span style="font:600 17px var(--sans)">Not found in the recordings you can access.</span><span style="color:var(--text-soft)">No recording mentions a CTO. Nothing was guessed.</span></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head" style="margin-bottom:24px"><div><span class="meta">06</span><h2>Screen: the answer</h2></div><div></div></div>
+  <div class="screen">
+    <div class="nav"><span class="brand"><span class="lamp on"></span>Knowledge Warranty</span><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a><span class="right">qwen3.5 · local <span class="lamp ok"></span>THOMAS GIRARD</span></div>
+    <div class="screen-grid">
+      <div>
+        <div class="panel q"><p>On which day do TransRail production deployments go out?</p><span class="meta">EN → FR · 9.8 s</span></div>
+        <div class="evidence" style="margin-top:12px">
+          <p style="margin:0 0 14px;font:500 15px var(--sans);color:var(--ink-soft)">Found in 2 meetings. The decision changed on 8 July 2026.</p>
+          <div class="ev"><div class="tc ok">▶ 00:22<small>CURRENT</small></div><div><p class="claim">TransRail production deployments go out on Tuesday morning.</p><blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote><div class="src">POINT DÉPLOIEMENT TRANSRAIL · 8 JUL 2026 · FR</div></div></div>
+          <div class="ev old"><div class="tc warn">▶ 00:55<small>REPLACED</small></div><div><blockquote>"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote><div class="src">COST REVIEW · 2 JUN 2026</div></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-h"><span class="meta">How this answer was built</span><span class="meta"><span class="lamp ok"></span>6 steps</span></div>
+        <div class="log">
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">01</span><span>Access filter <span class="v">· <b>22/104</b> out</span></span></div>
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">02</span><span>Hybrid search <span class="v">· Cost review <b>13.93</b> / <b>0.840</b></span></span></div>
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">03</span><span>Evidence gate <span class="tag ok" style="margin-left:6px">Passed</span> <span class="v">0.840 ≥ 0.78</span></span></div>
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">04</span><span>Freshness <span class="v">· Thu 2 Jun → Tue 8 Jul</span></span></div>
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">05</span><span>Answer <span class="v">· qwen3.5, 3 passages</span></span></div>
+          <div class="row" style="grid-template-columns:28px 1fr"><span class="n">06</span><span>Verification <span class="v">· 1/1 kept, <b>0.85</b></span></span></div>
+        </div>
+        <div class="panel-b" style="border-top:1px solid var(--edge)"><span class="meta">Model</span><div style="margin-top:6px;font:500 13px var(--mono)"><span class="lamp ok"></span>qwen3.5 on this machine</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="impl"><div class="wrap sec-head">
+  <div><span class="meta">07</span><h2>Implementation note</h2></div>
+  <ul>
+    <li>Fonts: <code>Space Grotesk</code> and <code>JetBrains Mono</code> replace Montserrat; <code>Source Serif 4</code> stays for quotes.</li>
+    <li>Tokens: add <code>--panel</code>, <code>--edge</code>, <code>--text*</code> as dark roles; <code>html</code> background becomes night.</li>
+    <li>Every page needs a contrast pass; tables and the Quality report move to dark panels, the evidence card stays white.</li>
+    <li>New components: <code>Lamp</code>, <code>Timecode</code> (the play control), <code>LogRow</code>.</li>
+    <li>Video: record with the screen brightness at maximum; test the teal on black lamps on the compressed upload.</li>
+    <li>Estimated effort: two to three days, mostly the contrast pass.</li>
+  </ul>
+</div></section>
+</body>
+</html>

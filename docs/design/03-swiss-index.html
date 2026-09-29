@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swiss Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f5f5; --surface: #ffffff; --night: #000000; --ink: #16181d; --ink-soft: #4b5059;
+    --ink-faint: #80858f; --line: #e2e3e6; --signal: #e2352b; --valid: #0f766e; --valid-bg: #e6f4f2;
+    --history: #b45309; --history-bg: #fdf3e7; --focus: #2b59c3;
+    --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --serif: "Source Serif 4", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface); color: var(--ink); font: 16px/1.5 var(--sans); font-feature-settings: "tnum" 1, "ss01" 1; }
+  a { color: inherit; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
+  .g { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; }
+  .c2 { grid-column: span 2; } .c3 { grid-column: span 3; } .c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c9 { grid-column: span 9; } .c10 { grid-column: span 10; } .c12 { grid-column: span 12; }
+  .sq { display: inline-block; width: 10px; height: 10px; background: var(--signal); margin-right: 10px; }
+  .sq.v { background: var(--valid); } .sq.h { background: var(--history); } .sq.o { background: transparent; border: 1.5px solid var(--ink-faint); }
+  .label { font: 500 13px var(--sans); color: var(--ink-faint); }
+  .top { border-bottom: 1px solid var(--ink); }
+  .top .wrap { display: flex; justify-content: space-between; height: 44px; align-items: center; font-size: 13px; }
+  .hero { padding: 80px 0 56px; border-bottom: 1px solid var(--ink); }
+  .hero h1 { font: 800 120px/.9 var(--sans); letter-spacing: -.05em; margin: 0; }
+  .hero p { font: 400 22px/1.4 var(--sans); color: var(--ink-soft); margin: 28px 0 0; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--ink); }
+  h2 { font: 700 15px var(--sans); margin: 0; }
+  h2 .n { color: var(--ink-faint); margin-right: 16px; }
+  .principle h3 { font: 600 26px/1.15 var(--sans); letter-spacing: -.02em; margin: 0 0 10px; }
+  .principle p { color: var(--ink-soft); margin: 0; }
+  .row { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; padding: 14px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .row:first-child { border-top: 1px solid var(--ink); }
+  .sw { height: 56px; }
+  .num { font: 700 96px/.9 var(--sans); letter-spacing: -.05em; }
+  .num small { color: var(--ink-faint); font-weight: 500; }
+
+  .nav { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: center; height: 64px; border-bottom: 1px solid var(--ink); background: var(--surface); }
+  .nav .brand { grid-column: span 3; font: 700 17px var(--sans); letter-spacing: -.02em; display: flex; align-items: center; }
+  .nav .links { grid-column: span 6; display: flex; gap: 28px; }
+  .nav .links a { text-decoration: none; font-size: 15px; color: var(--ink-soft); }
+  .nav .links a.on { color: var(--ink); font-weight: 600; }
+  .nav .links a.on::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--signal); margin-right: 8px; vertical-align: 1px; }
+  .nav .right { grid-column: span 3; display: flex; justify-content: flex-end; gap: 20px; align-items: center; font-size: 15px; }
+  .btn { font: 600 15px var(--sans); padding: 12px 20px; border: 0; background: var(--ink); color: #fff; cursor: pointer; border-radius: 0; }
+  .btn.red { background: var(--signal); }
+  .btn.line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .btn.text { background: transparent; color: var(--ink); padding-left: 0; padding-right: 0; }
+  .btn.text::after { content: " →"; }
+  .ask { display: flex; border-bottom: 3px solid var(--ink); align-items: center; }
+  .ask input { flex: 1; border: 0; font: 500 32px var(--sans); letter-spacing: -.02em; padding: 14px 0; outline: none; background: transparent; }
+  .status { font: 600 13px var(--sans); display: inline-flex; align-items: center; }
+  .status .sq { width: 8px; height: 8px; margin-right: 7px; }
+  .ev { padding: 24px 0; border-top: 1px solid var(--line); }
+  .ev .claim { font: 600 22px/1.25 var(--sans); letter-spacing: -.01em; margin: 10px 0 12px; }
+  .ev blockquote { margin: 0; font: 400 22px/1.5 var(--serif); max-width: 62ch; }
+  .ev.old blockquote { color: var(--ink-soft); font-size: 18px; }
+  .ev .src { display: flex; gap: 24px; margin-top: 14px; font-size: 14px; color: var(--ink-soft); align-items: center; }
+  .ev .play { font-weight: 600; color: var(--ink); text-decoration: none; }
+  .tl { position: relative; width: 160px; height: 1px; background: var(--ink-faint); }
+  .tl i { position: absolute; top: -5px; width: 10px; height: 10px; background: var(--signal); }
+  .steps { counter-reset: s; }
+  .st { display: grid; grid-template-columns: 64px 1fr 120px; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .st .n { font: 700 32px/1 var(--sans); letter-spacing: -.03em; }
+  .st h4 { margin: 0; font: 600 16px var(--sans); }
+  .st p { margin: 4px 0 0; color: var(--ink-soft); font-size: 15px; }
+  .st p.na { color: var(--ink-faint); font-style: italic; }
+  .imp { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .imp span { border-top: 4px solid var(--ink); padding-top: 8px; font: 600 14px var(--sans); }
+  .imp span.todo { border-top-color: var(--line); color: var(--ink-faint); font-weight: 500; }
+  .impl { background: var(--night); color: #fff; border-bottom: 0; }
+  .impl .label { color: var(--signal); }
+  .impl li { color: rgba(255,255,255,.8); margin-bottom: 8px; }
+  .impl code { font: 500 14px var(--sans); color: #fff; border-bottom: 1px solid var(--signal); }
+  .screen { border: 1px solid var(--ink); }
+  .screen .inner { padding: 48px 48px 56px; }
+  @media (max-width: 1000px) {
+    .wrap { padding: 0 16px; }
+    .hero h1 { font-size: 64px; }
+    .g > *, .row > * { grid-column: span 12 !important; }
+    .nav { display: flex; overflow-x: auto; gap: 16px; }
+    .screen .inner { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><a href="index.html">All directions</a><span><span class="sq"></span>Direction 03 of 05</span></div></div>
+
+<div class="hero"><div class="wrap g">
+  <div class="c2 label">Design system<br>and UI kit</div>
+  <div class="c10"><h1>Swiss<br>Index</h1><p>One typeface, one grid, one accent. Content is ordered by position and size, never by boxes. Numbers are large because numbers are the argument.</p></div>
+</div></div>
+
+<section><div class="wrap g">
+  <div class="c2"><h2><span class="n">01</span>Principles</h2></div>
+  <div class="c10 g" style="column-gap:24px">
+    <div class="c4 principle"><h3>The grid does the grouping.</h3><p>Twelve columns, flush left. Alignment replaces cards, borders and shadows.</p></div>
+    <div class="c4 principle"><h3>Size is hierarchy.</h3><p>Big numbers for measures, a large ask field, small grey labels. No weight is used for decoration.</p></div>
+    <div class="c4 principle"><h3>Red is a point, not a surface.</h3><p>A 10 px square marks the active item. Teal and amber squares mark current and replaced.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap g">
+  <div class="c2"><h2><span class="n">02</span>Colour</h2><p class="label" style="margin-top:8px">Same palette. White page; black only for rules and text.</p></div>
+  <div class="c10">
+    <div class="row"><div class="c2 sw" style="background:#fff;box-shadow:inset 0 0 0 1px var(--line)"></div><div class="c3"><b>surface</b> #ffffff</div><div class="c7 label">The page. Almost everything.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#16181d"></div><div class="c3"><b>ink</b> #16181d</div><div class="c7 label">Text, 1 px section rules, primary button.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#e2e3e6"></div><div class="c3"><b>line</b> #e2e3e6</div><div class="c7 label">Rules between rows inside a section.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#e2352b"></div><div class="c3"><b>signal</b> #e2352b</div><div class="c7 label">Active marker, refused, one red button per screen.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#0f766e"></div><div class="c3"><b>valid</b> #0f766e</div><div class="c7 label">Current and passed squares.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#b45309"></div><div class="c3"><b>history</b> #b45309</div><div class="c7 label">Replaced squares.</div></div>
+    <div class="row"><div class="c2 sw" style="background:#f5f5f5"></div><div class="c3"><b>paper</b> #f5f5f5</div><div class="c7 label">Table header rows only.</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap g">
+  <div class="c2"><h2><span class="n">03</span>Type</h2><p class="label" style="margin-top:8px">Inter Tight for everything. Source Serif 4 only inside quotation marks.</p></div>
+  <div class="c10">
+    <div class="row"><div class="c2 label">Display 120/800</div><div class="c10" style="font:800 120px/.9 var(--sans);letter-spacing:-.05em">44/50</div></div>
+    <div class="row"><div class="c2 label">Ask 32/500</div><div class="c10" style="font:500 32px var(--sans);letter-spacing:-.02em">On which day do deployments go out?</div></div>
+    <div class="row"><div class="c2 label">Claim 22/600</div><div class="c10" style="font:600 22px var(--sans)">TransRail production deployments go out on Tuesday morning.</div></div>
+    <div class="row"><div class="c2 label">Quote 22 serif</div><div class="c10" style="font:22px/1.5 var(--serif)">"Les mises en production passent le mardi matin, et plus le jeudi."</div></div>
+    <div class="row"><div class="c2 label">Body 16/400</div><div class="c10">Written by qwen3.5 on this machine. Every sentence checked against its source.</div></div>
+    <div class="row"><div class="c2 label">Label 13/500</div><div class="c10 label">Point déploiement TransRail, 8 July 2026, 00:22 of 01:00</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap g">
+  <div class="c2"><h2><span class="n">04</span>Tokens</h2></div>
+  <div class="c10">
+    <div class="row"><div class="c3"><b>grid</b></div><div class="c9">12 columns, 1440 max, 24 gutter, 48 margin</div></div>
+    <div class="row"><div class="c3"><b>radius</b></div><div class="c9">0</div></div>
+    <div class="row"><div class="c3"><b>shadow</b></div><div class="c9">none</div></div>
+    <div class="row"><div class="c3"><b>rule</b></div><div class="c9">1 px ink between sections, 1 px line between rows, 3 px ink under the ask field</div></div>
+    <div class="row"><div class="c3"><b>space</b></div><div class="c9">8, 16, 24, 32, 48, 64, 80 (multiples of 8 only)</div></div>
+    <div class="row"><div class="c3"><b>marker</b></div><div class="c9">10 px square; 8 px inside labels</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="g" style="margin-bottom:32px"><div class="c2"><h2><span class="n">05</span>Components</h2></div></div>
+  <div class="label" style="margin-bottom:8px">Navigation</div>
+  <div class="nav"><span class="brand"><span class="sq"></span>Knowledge Warranty</span><span class="links"><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a></span><span class="right">Thomas Girard <button class="btn red">Import</button></span></div>
+
+  <div class="g" style="margin-top:48px;row-gap:48px">
+    <div class="c6"><div class="label" style="margin-bottom:12px">Buttons</div><div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center"><button class="btn">Ask</button><button class="btn red">Import a meeting</button><button class="btn line">Open the recording</button><button class="btn text">How this answer was built</button></div></div>
+    <div class="c6"><div class="label" style="margin-bottom:12px">Status</div><div style="display:flex;gap:24px;flex-wrap:wrap"><span class="status"><span class="sq v"></span>Current</span><span class="status"><span class="sq h"></span>Replaced</span><span class="status"><span class="sq"></span>Refused</span><span class="status"><span class="sq v"></span>Passed</span><span class="status" style="color:var(--ink-faint)"><span class="sq o"></span>Not applicable</span></div></div>
+    <div class="c12"><div class="label">Ask field</div><div class="ask"><input value="Who is the CTO of TransRail?"><button class="btn">Ask</button></div></div>
+    <div class="c3"><div class="label">Meetings you were in</div><div class="num">4</div></div>
+    <div class="c3"><div class="label">Recorded</div><div class="num">4<small>min</small></div></div>
+    <div class="c3"><div class="label"><span class="sq v" style="width:8px;height:8px"></span>Decisions in force</div><div class="num">5</div></div>
+    <div class="c3"><div class="label"><span class="sq h" style="width:8px;height:8px"></span>Replaced</div><div class="num">2</div></div>
+    <div class="c6"><div class="label" style="margin-bottom:6px">Trace steps</div><div class="steps">
+      <div class="st"><span class="n">3</span><div><h4>Evidence gate</h4><p>Best sentence 0.840, minimum 0.78.</p></div><span class="status"><span class="sq v"></span>Passed</span></div>
+      <div class="st"><span class="n">6</span><div><h4>Verification</h4><p class="na">Not applicable: quote mode, every sentence is verbatim.</p></div><span class="status" style="color:var(--ink-faint)"><span class="sq o"></span>N/A</span></div>
+    </div></div>
+    <div class="c6"><div class="label" style="margin-bottom:12px">Import progress, voice-memo.m4a</div><div class="imp"><span>Waiting</span><span>Transcribing</span><span class="todo">Indexing</span><span class="todo">In the archive</span></div>
+      <div class="label" style="margin:40px 0 8px">Not found</div><p style="font:600 22px var(--sans);margin:0"><span class="sq"></span>Not found in the recordings you can access.</p><p style="color:var(--ink-soft);margin:6px 0 0 20px">No recording mentions a CTO. Nothing was guessed.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="g" style="margin-bottom:32px"><div class="c2"><h2><span class="n">06</span>Screen</h2></div></div>
+  <div class="screen">
+    <div class="nav" style="padding:0 48px"><span class="brand"><span class="sq"></span>Knowledge Warranty</span><span class="links"><a>Dashboard</a><a class="on">Assistant</a><a>Library</a><a>Decisions</a><a>Quality report</a></span><span class="right">Thomas Girard <button class="btn red">Import</button></span></div>
+    <div class="inner g">
+      <div class="c8">
+        <div class="label">Question, in English</div>
+        <p style="font:600 40px/1.1 var(--sans);letter-spacing:-.03em;margin:8px 0 32px">On which day do TransRail production deployments go out?</p>
+        <p class="label" style="font-size:15px;color:var(--ink-soft)">Found in 2 meetings. The decision changed on 8 July 2026.</p>
+        <div class="ev"><span class="status"><span class="sq v"></span>Current, in French</span><p class="claim">TransRail production deployments go out on Tuesday morning.</p><blockquote>"Alors on change. À partir de maintenant, les mises en production passent le mardi matin, et plus le jeudi."</blockquote><div class="src"><span>Point déploiement TransRail, 8 July 2026</span><a class="play" href="#">▶ 00:22</a><span class="tl"><i style="left:37%"></i></span><span>01:00</span></div></div>
+        <div class="ev old"><span class="status"><span class="sq h"></span>Replaced</span><blockquote style="margin-top:10px">"Last point, Deployments, Production Deployments go out on Thursday morning, after the weekly change board."</blockquote><div class="src"><span>Cost review, 2 June 2026</span><a class="play" href="#">▶ 00:55</a><span>01:06</span></div></div>
+      </div>
+      <div class="c4">
+        <div class="label" style="margin-bottom:6px">How this answer was built</div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">1</span><div><h4>Access filter</h4><p>22 of 104 passages removed.</p></div></div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">2</span><div><h4>Hybrid search</h4><p>Cost review, BM25 13.93, meaning 0.840.</p></div></div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">3</span><div><h4><span class="sq v" style="width:8px;height:8px"></span>Evidence gate</h4><p>0.840, minimum 0.78.</p></div></div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">4</span><div><h4>Freshness</h4><p>Thursday replaced by Tuesday.</p></div></div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">5</span><div><h4>Answer</h4><p>qwen3.5, local, 3 passages.</p></div></div>
+        <div class="st" style="grid-template-columns:40px 1fr"><span class="n" style="font-size:22px">6</span><div><h4>Verification</h4><p>1 of 1 kept, 0.85.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="impl"><div class="wrap g">
+  <div class="c2"><h2 style="color:#fff"><span class="n" style="color:var(--signal)">07</span>Implementation</h2></div>
+  <ul class="c10" style="margin:0">
+    <li>Font: <code>Inter Tight</code> replaces Montserrat; <code>Source Serif 4</code> only inside quotes.</li>
+    <li>Tokens: radius 0, shadows removed, <code>tnum</code> on by default for all numbers.</li>
+    <li>Layout: one <code>Grid</code> wrapper with 12 columns; pages set spans instead of max widths.</li>
+    <li>Delete the black hero bands and the white floating nav; the nav becomes a full width row with a 1 px rule.</li>
+    <li>New component: <code>Marker</code> (the square). It replaces every badge.</li>
+    <li>Estimated effort: one and a half days. Lowest risk on video.</li>
+  </ul>
+</div></section>
+</body>
+</html>
