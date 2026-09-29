@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Source_Serif_4 } from "next/font/google";
 import { SiteNav } from "@/components/SiteNav";
-import { isEnabled } from "@/lib/flags";
 import { sessionUser } from "@/lib/session";
 import "./globals.css";
 
@@ -15,12 +14,11 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const user = await sessionUser();
-  const beta = ["experts", "review", "digest"].filter(isEnabled);
 
   return (
     <html lang="en" className={`${ui.variable} ${spoken.variable} antialiased`}>
       <body className="min-h-screen bg-paper">
-        {user && <SiteNav name={user.name} email={user.email} beta={beta} />}
+        {user && <SiteNav name={user.name} email={user.email} />}
         <main>{children}</main>
       </body>
     </html>

@@ -9,17 +9,7 @@ const MAIN = [
   { href: "/assistant", label: "Assistant" },
   { href: "/library", label: "Library" },
   { href: "/decisions", label: "Decisions" },
-];
-const BETA: Record<string, { href: string; label: string }> = {
-  experts: { href: "/experts", label: "Who knows what" },
-  review: { href: "/review", label: "Transcript review" },
-  digest: { href: "/digest", label: "Decision digest" },
-};
-const MORE = [
   { href: "/evaluation", label: "Quality report" },
-  { href: "/value", label: "Value and cost" },
-  { href: "/add-ons", label: "Add-ons" },
-  { href: "/settings", label: "Settings" },
 ];
 
 export function Logo({ light = false }: { light?: boolean }) {
@@ -35,7 +25,7 @@ export function Logo({ light = false }: { light?: boolean }) {
   );
 }
 
-export function SiteNav({ name, email, beta }: { name: string; email: string; beta: string[] }) {
+export function SiteNav({ name, email }: { name: string; email: string }) {
   const pathname = usePathname();
   const active = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   const initials = name
@@ -44,7 +34,6 @@ export function SiteNav({ name, email, beta }: { name: string; email: string; be
     .join("")
     .slice(0, 2)
     .toUpperCase();
-  const more = [...beta.map((b) => BETA[b]), ...MORE];
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-4">
@@ -63,16 +52,6 @@ export function SiteNav({ name, email, beta }: { name: string; email: string; be
               {l.label}
             </Link>
           ))}
-          <details className="group relative">
-            <summary className="cursor-pointer list-none rounded-xl px-3 py-2 text-[15px] text-ink-soft hover:text-ink">More</summary>
-            <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-surface p-2 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
-              {more.map((l) => (
-                <Link key={l.href} href={l.href} className="block rounded-xl px-3 py-2 text-[15px] text-ink-soft hover:bg-paper hover:text-ink">
-                  {l.label}
-                </Link>
-              ))}
-            </div>
-          </details>
         </nav>
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
           <details className="relative">
@@ -84,7 +63,7 @@ export function SiteNav({ name, email, beta }: { name: string; email: string; be
               <p className="px-2 text-[14px] font-medium">{name}</p>
               <p className="px-2 text-[13px] text-ink-faint">{email}</p>
               <div className="mt-2 border-t border-line pt-2 lg:hidden">
-                {[...MAIN, { href: "/import", label: "Import a meeting" }, ...more].map((l) => (
+                {[...MAIN, { href: "/import", label: "Import a meeting" }].map((l) => (
                   <Link key={l.href} href={l.href} className="block rounded-xl px-2 py-1.5 text-[15px] text-ink-soft hover:bg-paper">
                     {l.label}
                   </Link>
