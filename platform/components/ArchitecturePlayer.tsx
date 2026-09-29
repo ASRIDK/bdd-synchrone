@@ -168,12 +168,15 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
   const all = steps(facts);
   const [at, setAt] = useState(0);
   const [playing, setPlaying] = useState(false);
+  // True once autoplay has shown the last step: the diagram then stays still.
+  const [ended, setEnded] = useState(false);
   const [tick, setTick] = useState(0);
   const step = all[at];
 
   const count = all.length;
   const go = (i: number) => {
     setAt(((i % count) + count) % count);
+    setEnded(false);
     setTick((t) => t + 1);
   };
 
@@ -182,6 +185,7 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
     const t = setTimeout(() => {
       if (at === count - 1) {
         setPlaying(false);
+        setEnded(true);
       } else {
         setAt(at + 1);
         setTick((n) => n + 1);
@@ -196,15 +200,21 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
       const move = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
       if (move) {
         setAt((((at + move) % count) + count) % count);
+        setEnded(false);
         setTick((n) => n + 1);
       } else if (e.key === " ") {
         e.preventDefault();
+        if (!playing && at === count - 1) {
+          setAt(0);
+          setTick((n) => n + 1);
+        }
+        setEnded(false);
         setPlaying((p) => !p);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [at, count]);
+  }, [at, count, playing]);
 
   const lit = new Set(step.nodes);
   const flowing = new Set(step.edges);
@@ -230,6 +240,7 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
 
           {EDGES.map((e) => {
             const on = flowing.has(e.id);
+            const moving = on && !ended;
             return (
               <g key={e.id}>
                 <path
@@ -237,11 +248,11 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
                   fill="none"
                   stroke={on ? "#e2352b" : e.id === "ask" ? "transparent" : "#4b5059"}
                   strokeWidth={on ? 4 : 2.5}
-                  strokeDasharray={e.dashed || on ? "10 8" : undefined}
+                  strokeDasharray={e.dashed || moving ? "10 8" : undefined}
                   markerEnd={e.id === "ask" && !on ? undefined : `url(#${on ? "arrow-on" : "arrow"})`}
-                  className={on ? "kw-flow" : undefined}
+                  className={moving ? "kw-flow" : undefined}
                 />
-                {on && (
+                {moving && (
                   <circle key={`${e.id}-${tick}`} r="9" fill="#e2352b">
                     <animateMotion dur="0.8s" repeatCount="indefinite" path={e.d} />
                   </circle>
@@ -300,13 +311,14 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
           type="button"
           onClick={() => {
             if (!playing && at === all.length - 1) go(0);
+            setEnded(false);
             setPlaying((p) => !p);
           }}
           className="inline-flex items-center gap-2 rounded-full bg-signal px-5 py-2.5 text-[14px] font-semibold text-white"
           aria-label={playing ? "Pause" : "Play"}
         >
           <span aria-hidden="true">{playing ? "❚❚" : "▶"}</span>
-          {playing ? "Pause" : at === 0 ? "Play the walkthrough" : "Play"}
+          {playing ? "Pause" : ended ? "Play again" : at === 0 ? "Play the walkthrough" : "Play"}
         </button>
         <button type="button" onClick={() => go(at - 1)} className="rounded-full bg-paper px-4 py-2.5 text-[14px] font-semibold" aria-label="Previous step">
           ←
