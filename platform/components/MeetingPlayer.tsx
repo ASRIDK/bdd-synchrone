@@ -26,8 +26,11 @@ export function MeetingPlayer({
   useEffect(() => {
     if (startAt === null || !audio.current) return;
     const el = audio.current;
+    // The "Play from" link is a click, so the browser lets the audio start on its own. If it
+    // blocks autoplay anyway, the player stays paused at the cited second.
     const seek = () => {
       el.currentTime = startAt;
+      el.play().catch(() => {});
     };
     if (el.readyState >= 1) seek();
     else el.addEventListener("loadedmetadata", seek, { once: true });
@@ -51,7 +54,7 @@ export function MeetingPlayer({
           onTimeUpdate={(e) => setNow(e.currentTarget.currentTime)}
           className="w-full"
         />
-        {cited && <p className="mt-2 text-sm text-ink-soft">Opened at the cited moment, {formatTime(cited.start)}. The cited sentence is highlighted.</p>}
+        {cited && <p className="mt-2 text-sm text-ink-soft">Playing from the cited moment, {formatTime(cited.start)}. The cited sentence is highlighted.</p>}
       </div>
 
       <ol className="mt-2 space-y-0.5">

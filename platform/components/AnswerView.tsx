@@ -41,6 +41,8 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
           <ul className="mt-5 space-y-5">
             {answer.statements.map((s, i) => {
               const c = s.citations[0];
+              // Quote mode, and decisions added from the register, show the exact words spoken.
+              const verbatim = answer.mode === "quote" || c.quote === s.text;
               const tone = s.role === "current" ? "current" : s.role === "history" ? "history" : "neutral";
               return (
                 <li
@@ -54,10 +56,8 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
                       {ROLE_LABEL[s.role]}
                     </p>
                   )}
-                  <p className={answer.mode === "quote" ? "spoken" : "text-[15px]"}>
-                    {answer.mode === "quote" ? `“${s.text}”` : s.text}
-                  </p>
-                  {answer.mode === "llm" && c.quote && c.quote !== s.text && (
+                  <p className={verbatim ? "spoken" : "text-[15px]"}>{verbatim ? `“${s.text}”` : s.text}</p>
+                  {!verbatim && c.quote && (
                     <p className="spoken mt-1.5 text-[15px] text-ink-soft">
                       <span className="font-sans text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Said in the meeting </span>
                       &ldquo;{c.quote}&rdquo;
