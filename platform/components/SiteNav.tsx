@@ -10,6 +10,7 @@ const MAIN = [
   { href: "/library", label: "Library" },
   { href: "/decisions", label: "Decisions" },
   { href: "/evaluation", label: "Quality report" },
+  { href: "/how-it-works", label: "How it works" },
 ];
 
 export function Logo({ light = false }: { light?: boolean }) {

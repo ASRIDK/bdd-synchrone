@@ -100,6 +100,27 @@ body {
   animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
+/* Architecture walkthrough: the active arrow flows, the active step fills like a tape. */
+@keyframes kw-dash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+.kw-flow {
+  animation: kw-dash 0.8s linear infinite;
+}
+@keyframes kw-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.kw-fill {
+  animation: kw-fill linear forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

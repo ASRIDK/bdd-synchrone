@@ -10,6 +10,7 @@ export function Page({
   overlap,
   children,
   width = "max-w-[1440px]",
+  compact = false,
 }: {
   title: string;
   accent?: string;
@@ -18,14 +19,15 @@ export function Page({
   overlap?: ReactNode;
   children: ReactNode;
   width?: string;
+  compact?: boolean;
 }) {
   return (
     <>
       <section className="pt-24 sm:pt-28">
         <div className={`mx-auto ${width} px-5 sm:px-8 lg:px-12`}>
-          <div className="flex flex-col gap-8 rounded-hero bg-night px-6 pb-12 pt-10 text-white sm:px-10 sm:pt-12 lg:flex-row lg:items-end lg:justify-between lg:px-12">
+          <div className={`flex flex-col gap-8 rounded-hero bg-night px-6 text-white sm:px-10 lg:flex-row lg:items-end lg:justify-between lg:px-12 ${compact ? "py-6 sm:py-7" : "pb-12 pt-10 sm:pt-12"}`}>
             <div className="max-w-4xl">
-              <h1 className="display text-[2.5rem] sm:text-[3.6rem]">
+              <h1 className={`display ${compact ? "text-[2rem] sm:text-[2.6rem]" : "text-[2.5rem] sm:text-[3.6rem]"}`}>
                 {title}
                 {accent && (
                   <>
@@ -34,7 +36,7 @@ export function Page({
                   </>
                 )}
               </h1>
-              {intro && <div className="mt-4 max-w-3xl text-[16px] text-white/75">{intro}</div>}
+              {intro && <div className={`max-w-3xl text-white/75 ${compact ? "mt-2 text-[15px]" : "mt-4 text-[16px]"}`}>{intro}</div>}
             </div>
             {aside && <div className="shrink-0">{aside}</div>}
           </div>
@@ -45,7 +47,7 @@ export function Page({
           {overlap}
         </div>
       )}
-      <div className={`mx-auto ${width} px-5 pb-24 pt-12 sm:px-8 lg:px-12`}>{children}</div>
+      <div className={`mx-auto ${width} px-5 pb-24 sm:px-8 lg:px-12 ${compact ? "pt-5" : "pt-12"}`}>{children}</div>
     </>
   );
 }
