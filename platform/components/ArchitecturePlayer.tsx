@@ -162,7 +162,7 @@ const TONE: Record<Tone, { stroke: string; fill: string }> = {
   red: { stroke: "#e2352b", fill: "#3a1614" },
 };
 
-const STEP_MS = 5000;
+const STEP_MS = 3500;
 
 export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
   const all = steps(facts);
@@ -243,7 +243,7 @@ export function ArchitecturePlayer({ facts }: { facts: ArchitectureFacts }) {
                 />
                 {on && (
                   <circle key={`${e.id}-${tick}`} r="9" fill="#e2352b">
-                    <animateMotion dur="1.6s" repeatCount="indefinite" path={e.d} />
+                    <animateMotion dur="1.1s" repeatCount="indefinite" path={e.d} />
                   </circle>
                 )}
                 {e.label && (

@@ -107,7 +107,7 @@ body {
   }
 }
 .kw-flow {
-  animation: kw-dash 0.8s linear infinite;
+  animation: kw-dash 0.55s linear infinite;
 }
 @keyframes kw-fill {
   from {
