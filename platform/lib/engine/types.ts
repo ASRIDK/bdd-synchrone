@@ -159,6 +159,19 @@ export type AnswerStatus = "answered" | "not_found";
 
 export type TraceStep = { step: string; detail: string; data?: unknown };
 
+// The six steps every answer goes through, in a fixed order, shown in "How this answer was
+// built". A step that did not run says so ("not_applicable") with the reason; nothing is shown
+// as passed unless it ran.
+export type PipelineStatus = "done" | "passed" | "refused" | "not_applicable";
+export type PipelineStep = {
+  n: number;
+  name: string;
+  status: PipelineStatus;
+  summary: string;
+  columns?: string[];
+  rows?: string[][];
+};
+
 export type Answer = {
   question: string;
   user: string;
@@ -172,6 +185,7 @@ export type Answer = {
   };
   hits: Hit[];
   trace: TraceStep[];
+  pipeline: PipelineStep[];
   latencyMs: number;
   usage?: { provider: string; model: string; inputTokens: number; outputTokens: number; costUsd: number };
 };

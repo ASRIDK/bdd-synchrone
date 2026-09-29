@@ -1,8 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import type { Answer, Statement } from "@/lib/engine/types";
+import type { Answer, PipelineStatus, Statement } from "@/lib/engine/types";
 import { MeetingTimeline } from "./MeetingTimeline";
+
+const STATUS_LABEL: Record<PipelineStatus, string> = {
+  done: "Done",
+  passed: "Passed",
+  refused: "Refused",
+  not_applicable: "Not applicable",
+};
+const STATUS_STYLE: Record<PipelineStatus, string> = {
+  done: "bg-paper text-ink",
+  passed: "bg-valid-bg text-valid",
+  refused: "bg-history-bg text-history",
+  not_applicable: "bg-paper text-ink-faint",
+};
 
 const ROLE_LABEL: Record<Statement["role"], string | null> = {
   current: "Current decision",
@@ -44,6 +57,12 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
                   <p className={answer.mode === "quote" ? "spoken" : "text-[15px]"}>
                     {answer.mode === "quote" ? `“${s.text}”` : s.text}
                   </p>
+                  {answer.mode === "llm" && c.quote && c.quote !== s.text && (
+                    <p className="spoken mt-1.5 text-[15px] text-ink-soft">
+                      <span className="font-sans text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Said in the meeting </span>
+                      &ldquo;{c.quote}&rdquo;
+                    </p>
+                  )}
                   <p className="mt-2 text-sm text-ink-soft">
                     {c.title}, {new Date(c.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                   </p>
@@ -68,33 +87,44 @@ export function AnswerView({ answer, durations }: { answer: Answer; durations: R
       </div>
 
       {showTrace && (
-        <ol className="mt-4 space-y-3 rounded-xl border border-line bg-surface p-5 text-sm">
-          {answer.trace.map((t, i) => (
-            <li key={i} className="grid grid-cols-[8.5rem_1fr] gap-3">
-              <span className="font-medium text-ink">{i + 1}. {t.step}</span>
-              <div className="text-ink-soft">
-                <p>{t.detail}</p>
-                {t.step === "Retrieve" && Array.isArray(t.data) && (
-                  <table className="mt-2 w-full text-left text-[13px]">
-                    <thead className="text-ink-faint">
-                      <tr>
-                        <th className="py-1 pr-2 font-normal">Meeting</th>
-                        <th className="py-1 pr-2 font-normal">Keyword rank</th>
-                        <th className="py-1 pr-2 font-normal">Meaning rank</th>
-                        <th className="py-1 font-normal">Best sentence</th>
-                      </tr>
-                    </thead>
-                    <tbody className="tabular">
-                      {(t.data as Array<{ meeting: string; keywordRank: number | null; semanticRank: number; bestSentenceAt: string; bestSentenceScore: number }>).slice(0, 5).map((r, j) => (
-                        <tr key={j} className="border-t border-line">
-                          <td className="py-1 pr-2">{r.meeting}</td>
-                          <td className="py-1 pr-2">{r.keywordRank ?? "no match"}</td>
-                          <td className="py-1 pr-2">{r.semanticRank}</td>
-                          <td className="py-1">{r.bestSentenceAt} ({r.bestSentenceScore})</td>
+        <ol aria-label="How this answer was built" className="mt-4 space-y-4 rounded-xl border border-line bg-surface p-5 text-[14px] sm:p-6">
+          {(answer.pipeline ?? []).map((p) => (
+            <li key={p.n} className={`grid gap-2 sm:grid-cols-[11rem_1fr] sm:gap-4 ${p.n > 1 ? "border-t border-line pt-4" : ""}`}>
+              <div>
+                <p className="font-bold text-ink">
+                  {p.n}. {p.name}
+                </p>
+                <span className={`mt-1 inline-block rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${STATUS_STYLE[p.status]}`}>
+                  {STATUS_LABEL[p.status]}
+                </span>
+              </div>
+              <div className="min-w-0 text-ink-soft">
+                <p className={p.status === "not_applicable" ? "italic text-ink-faint" : ""}>{p.summary}</p>
+                {p.columns && p.rows && p.rows.length > 0 && (
+                  <div className="mt-2 overflow-x-auto">
+                    <table className="w-full text-left text-[13px]">
+                      <thead className="text-ink-faint">
+                        <tr>
+                          {p.columns.map((c) => (
+                            <th key={c} className="py-1 pr-3 font-medium">
+                              {c}
+                            </th>
+                          ))}
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody className="tabular">
+                        {p.rows.map((r, j) => (
+                          <tr key={j} className="border-t border-line align-top">
+                            {r.map((cell, k) => (
+                              <td key={k} className={`py-1.5 pr-3 ${cell.startsWith("dropped") || cell === "failed" ? "text-signal font-semibold" : cell === "kept" || cell === "passed" ? "text-valid" : "text-ink"}`}>
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 )}
               </div>
             </li>

@@ -11,14 +11,14 @@
 //                by it; unsupported sentences are dropped; nothing left -> "not found"
 import fs from "node:fs";
 import path from "node:path";
-import { allowedMissions, getIndex, getUser, type LoadedIndex } from "./data";
+import { allowedMissions, getCatalog, getIndex, getUser, type LoadedIndex } from "./data";
 import { cosine, embedPassages, embedQuery } from "./embed";
 import { modelName, resolveProvider, writeAnswer } from "./llm";
 import { paths } from "./paths";
-import { search } from "./retrieve";
+import { GATE, search, type Gate } from "./retrieve";
 import { readSettings } from "./settings";
 import { excerpt, formatTime, tokenize, topicTokens } from "./text";
-import type { Answer, Citation, Decision, Hit, Segment, Statement, TraceStep } from "./types";
+import type { Answer, Citation, Decision, Hit, PipelineStep, Segment, Statement, TraceStep } from "./types";
 
 const MAX_EVIDENCE_SEGMENTS = 3;
 const EVIDENCE_MARGIN = 0.045;
@@ -140,10 +140,57 @@ export async function answerQuestion(
     data: { bestSentenceScore: Number(gate.bestSegmentSimilarity.toFixed(3)), topicTerms: gate.topicTerms, unknownTerms: gate.unknownTerms },
   });
 
+  // ---- Pipeline steps 1 to 3, from the data computed above -------------------------------
+  const missionNames = new Map(getCatalog().missions.map((m) => [m.id, m.name]));
+  const removedMissions = getCatalog().missions.length - missions.length;
+  const removedPassages = idx.chunks.length - allowedChunks;
+  const pipeline: PipelineStep[] = [
+    {
+      n: 1,
+      name: "Access filter",
+      status: "done",
+      summary: user
+        ? `${missions.length} mission${missions.length > 1 ? "s" : ""} kept for ${user.name}. ${removedMissions} other mission${removedMissions === 1 ? "" : "s"} removed: ${removedPassages} of ${idx.chunks.length} passages excluded before the search.`
+        : `Unknown user: every passage excluded (${idx.chunks.length}).`,
+      columns: ["Missions searched"],
+      rows: missions.map((m) => [missionNames.get(m) ?? m]),
+    },
+    {
+      n: 2,
+      name: "Hybrid search",
+      status: "done",
+      summary: `Keyword (BM25) and meaning (embeddings) search over the ${allowedChunks} passages left. Top ${Math.min(5, hits.length)} shown.`,
+      columns: ["Meeting", "Best sentence at", "BM25 score", "Embedding score"],
+      rows: hits.slice(0, 5).map((h) => [
+        h.recording.title,
+        formatTime(h.anchor.start),
+        h.bm25 > 0 ? h.bm25.toFixed(2) : "no keyword match",
+        h.anchor.score.toFixed(3),
+      ]),
+    },
+    {
+      n: 3,
+      name: "Evidence gate",
+      status: gate.pass ? "passed" : "refused",
+      summary: `Best sentence scores ${gate.bestSegmentSimilarity.toFixed(3)} against a minimum of ${GATE.minSegmentSimilarity} (a strong match is ${GATE.strongSegmentSimilarity} or more). ${gate.pass ? "Passed." : `Refused: ${gate.reason}`}`,
+      columns: ["Check", "This question", "Rule", "Result"],
+      rows: gateRows(gate),
+    },
+  ];
+  const notApplicable = (n: number, name: string, reason: string): PipelineStep => ({
+    n,
+    name,
+    status: "not_applicable",
+    summary: `Not applicable: ${reason}`,
+  });
+
   const base = { question, user: login, hits, trace };
   if (!gate.pass) {
+    const reason = "the evidence gate refused the question, so no answer was written.";
+    pipeline.push(notApplicable(4, "Freshness", reason), notApplicable(5, "Answer", reason), notApplicable(6, "Verification", reason));
     const answer: Answer = {
       ...base,
+      pipeline,
       status: "not_found",
       mode: "quote",
       headline: "Not found in the recordings you can access.",
@@ -204,6 +251,26 @@ export async function answerQuestion(
       : "No replaced decision in the evidence.",
     data: { current: currentList.map((d) => `${d.date}: ${d.text}`), history: historyList.map((d) => `${d.date}: ${d.text}`) },
   });
+  const fmtDate = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  const byDecisionId = new Map(idx.decisions.map((d) => [d.id, d]));
+  pipeline.push({
+    n: 4,
+    name: "Freshness",
+    status: "done",
+    summary: historyList.length
+      ? `${historyList.length} decision${historyList.length > 1 ? "s" : ""} in the evidence ${historyList.length > 1 ? "were" : "was"} replaced by a later meeting. The latest is shown as current, the old one as history.`
+      : "No later decision changed this evidence.",
+    ...(historyList.length
+      ? {
+          columns: ["Replaced (history)", "By (current)"],
+          rows: historyList.map((old) => {
+            const latestDecision = latestOf(idx, old);
+            const byWhom = byDecisionId.get(old.supersededBy ?? "") ?? latestDecision;
+            return [`${excerpt(old.text, 12)} (${fmtDate(old.date)})`, `${excerpt(byWhom.text, 12)} (${fmtDate(byWhom.date)})`];
+          }),
+        }
+      : {}),
+  });
 
   const settings = readSettings();
   const provider = mode === "quote" ? "none" : await resolveProvider(settings);
@@ -214,6 +281,8 @@ export async function answerQuestion(
   let statements: Statement[] = [];
   let usage: Answer["usage"];
   let usedMode: Answer["mode"] = "quote";
+  let checks: VerificationCheck[] = [];
+  let modelFailure: string | null = null;
 
   if (provider !== "none") {
     // The sources are ready before the model writes: send them first, so the user reads the
@@ -226,6 +295,7 @@ export async function answerQuestion(
     try {
       const result = await composeWithModel(idx, question, evidenceHits, currentList, historyList, settings, provider, trace);
       statements = result.statements;
+      checks = result.checks;
       // The replaced decisions stay visible as history, quoted from the register, whatever the
       // model chose to write (the brief: keep the old decision as history).
       if (statements.length > 0) {
@@ -239,7 +309,8 @@ export async function answerQuestion(
       usage = result.usage;
       usedMode = "llm";
     } catch (err) {
-      trace.push({ step: "Model", detail: `The language model failed (${(err as Error).message}). Falling back to quote mode.` });
+      modelFailure = (err as Error).message;
+      trace.push({ step: "Model", detail: `The language model failed (${modelFailure}). Falling back to quote mode.` });
     }
   }
 
@@ -253,6 +324,46 @@ export async function answerQuestion(
   }
 
   const status = statements.length > 0 ? "answered" : "not_found";
+
+  // ---- Pipeline steps 5 and 6 --------------------------------------------------------------
+  if (usedMode === "llm") {
+    const model = (usage?.model ?? modelName(settings, provider)).replace(/:latest$/, "");
+    pipeline.push({
+      n: 5,
+      name: "Answer",
+      status: "done",
+      summary: `Written by ${model}${provider === "ollama" ? " (local model, on this machine)" : ""} from ${evidenceHits.length} evidence passage${evidenceHits.length > 1 ? "s" : ""}. ${checks.length} sentence${checks.length === 1 ? "" : "s"} written.`,
+    });
+    const keptCount = checks.filter((c) => c.kept).length;
+    pipeline.push({
+      n: 6,
+      name: "Verification",
+      status: checks.length === 0 ? "not_applicable" : "done",
+      summary:
+        checks.length === 0
+          ? "Not applicable: the model wrote no sentence, so the answer is \"not found\"."
+          : `${keptCount} of ${checks.length} sentence${checks.length > 1 ? "s" : ""} kept: each must cite evidence it was given and match it (score of at least ${SUPPORT_MIN_COSINE}, or ${Math.round(SUPPORT_MIN_OVERLAP * 100)}% shared topic words).${statements.some((s) => s.role === "history") ? " Replaced decisions are added from the decision register, verbatim." : ""}`,
+      ...(checks.length
+        ? {
+            columns: ["Sentence written", "Matched source", "Match", "Result"],
+            rows: checks.map((c) => [c.text, c.source, c.score, c.kept ? "kept" : `dropped: ${c.reason}`]),
+          }
+        : {}),
+    });
+  } else {
+    pipeline.push({
+      n: 5,
+      name: "Answer",
+      status: "done",
+      summary: modelFailure
+        ? `Quote mode: the language model failed (${modelFailure}), so the answer is made of verbatim sentences.`
+        : provider === "none" && mode !== "quote"
+          ? "Quote mode: no language model is running, so the answer is made of verbatim sentences from the recordings."
+          : "Quote mode: the answer is made of verbatim sentences from the recordings.",
+    });
+    pipeline.push(notApplicable(6, "Verification", "quote mode. Every sentence shown is a verbatim quote of its source, so there is nothing to check."));
+  }
+
   const meetings = new Set(statements.flatMap((s) => s.citations.map((c) => c.recordingId)));
   const latest = currentList.find((d) => d.supersedes.length > 0);
   const headline =
@@ -264,6 +375,7 @@ export async function answerQuestion(
 
   const answer: Answer = {
     ...base,
+    pipeline,
     status,
     mode: usedMode,
     headline,
@@ -310,7 +422,7 @@ async function composeWithModel(
   settings: ReturnType<typeof readSettings>,
   provider: string,
   trace: TraceStep[],
-): Promise<{ statements: Statement[]; usage: Answer["usage"] }> {
+): Promise<{ statements: Statement[]; usage: Answer["usage"]; checks: VerificationCheck[] }> {
   // Evidence blocks: the retrieved passages plus the passages holding current decisions.
   const blocks = new Map<string, { label: string; chunkPos: number }>();
   const labelFor = (chunkPos: number) => {
@@ -348,7 +460,7 @@ async function composeWithModel(
   // questions it wrote no statement at all. An answer exists only if a statement survives the
   // verification below.
   if (result.answer.statements.length === 0) {
-    return { statements: [], usage: { provider: result.provider, model: result.model, inputTokens: result.inputTokens, outputTokens: result.outputTokens, costUsd: result.costUsd } };
+    return { statements: [], checks: [], usage: { provider: result.provider, model: result.model, inputTokens: result.inputTokens, outputTokens: result.outputTokens, costUsd: result.costUsd } };
   }
   if (result.answer.status === "not_found") {
     trace.push({ step: "Model", detail: "The model flagged the question as not answered but still wrote statements; they are kept only if verification confirms them." });
@@ -358,21 +470,25 @@ async function composeWithModel(
   const byId = new Map(evidence.map((e) => [e.id, e]));
   const kept: Statement[] = [];
   const dropped: string[] = [];
+  const checks: VerificationCheck[] = [];
   const vectors = await embedPassages(result.answer.statements.map((s) => s.text));
   result.answer.statements.forEach((s, i) => {
     const cited = s.evidence.map((id) => byId.get(id)).filter((e): e is NonNullable<typeof e> => Boolean(e));
     if (cited.length === 0) {
       dropped.push(`"${s.text}" (no valid source)`);
+      checks.push({ text: s.text, source: "none given", score: "-", kept: false, reason: "cites no evidence it was given" });
       return;
     }
     const citations: Citation[] = [];
     let supported = false;
+    let bestMatch = { sim: -1, overlap: 0 };
     const stmtTopic = new Set(topicTokens(s.text, idx.canon));
     for (const e of cited) {
       const chunk = idx.chunks[e.chunkPos];
       const chunkTokens = new Set(tokenize(chunk.text, idx.canon));
       const overlap = stmtTopic.size ? [...stmtTopic].filter((t) => chunkTokens.has(t)).length / stmtTopic.size : 0;
       const sim = cosine(vectors[i], idx.chunkVectors[e.chunkPos]);
+      if (sim > bestMatch.sim) bestMatch = { sim, overlap };
       if (sim >= SUPPORT_MIN_COSINE || overlap >= SUPPORT_MIN_OVERLAP) supported = true;
       let bestSeg = segmentById(idx, chunk.segmentIds[0]);
       let bestSim = -1;
@@ -386,10 +502,15 @@ async function composeWithModel(
       }
       citations.push(citationFor(idx, bestSeg));
     }
+    const first = citations[0];
+    const source = first ? `${first.title}, at ${formatTime(first.start)}` : "none";
+    const score = `${bestMatch.sim.toFixed(2)} meaning, ${Math.round(bestMatch.overlap * 100)}% words`;
     if (!supported) {
       dropped.push(`"${s.text}" (not supported by its source)`);
+      checks.push({ text: s.text, source, score, kept: false, reason: "not supported by its source" });
       return;
     }
+    checks.push({ text: s.text, source, score, kept: true, reason: "" });
     const role = cited.some((e) => e.label === "HISTORY") && !cited.some((e) => e.label === "CURRENT") ? "history" : cited.some((e) => e.label === "CURRENT") ? "current" : "evidence";
     kept.push({ text: s.text, role, citations });
   });
@@ -399,6 +520,36 @@ async function composeWithModel(
   });
   return {
     statements: kept,
+    checks,
     usage: { provider: result.provider, model: result.model, inputTokens: result.inputTokens, outputTokens: result.outputTokens, costUsd: result.costUsd },
   };
+}
+
+type VerificationCheck = { text: string; source: string; score: string; kept: boolean; reason: string };
+
+// The gate checks as a table, with the same order and rules as decideGate in retrieve.ts, so
+// the failing check is visible. A check that decideGate never reached says "not checked".
+function gateRows(gate: Gate): string[][] {
+  const best = gate.bestSegmentSimilarity;
+  const scoreOk = best >= GATE.minSegmentSimilarity;
+  const strong = best >= GATE.strongSegmentSimilarity;
+  const unknownFails = gate.unknownShare >= GATE.maxUnknownTopicShare && gate.unknownTerms.length > 0;
+  const coverageFails = gate.coverage < GATE.minCoverage;
+  const later = (fails: boolean, earlierFailed: boolean) =>
+    !scoreOk || earlierFailed ? "not checked" : strong ? "skipped: strong match" : fails ? "failed" : "passed";
+  return [
+    ["Best sentence score", best.toFixed(3), `at least ${GATE.minSegmentSimilarity}`, scoreOk ? "passed" : "failed"],
+    [
+      "Topic words never mentioned",
+      gate.unknownTerms.length ? gate.unknownTerms.join(", ") : "none",
+      `refuse if ${Math.round(GATE.maxUnknownTopicShare * 100)}% or more, unless strong match (${GATE.strongSegmentSimilarity})`,
+      later(unknownFails, false),
+    ],
+    [
+      "Topic words found in top passages",
+      `${Math.round(gate.coverage * 100)}%`,
+      `at least ${Math.round(GATE.minCoverage * 100)}%, unless strong match`,
+      later(coverageFails, !strong && unknownFails),
+    ],
+  ];
 }
